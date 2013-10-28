@@ -1,8 +1,11 @@
 package net.minecraft.src;
 
+import net.minecraft.client.model.PositionTextureVertex;
+import net.minecraft.client.model.TexturedQuad;
+
 public class MMM_ModelPlate extends MMM_ModelBoxBase {
 
-	// ŒİŠ·—pƒpƒ‰ƒ[ƒ^[
+	// ï¿½İŠï¿½ï¿½pï¿½pï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½^ï¿½[
 	@Deprecated
 	public static final int planeXY		= 0;
 	@Deprecated
@@ -17,9 +20,9 @@ public class MMM_ModelPlate extends MMM_ModelBoxBase {
 	public static final int planeXZInv	= 6;
 
 	/*
-	 * ‚±‚¿‚ç‚ğg—p‚µ‚Ä‰º‚³‚¢B
-	 * ƒ{ƒbƒNƒX‚ğì‚Á‚½‚Æ“¯‚¶ƒ}ƒbƒsƒ“ƒO‚É‚È‚é‚æ‚¤‚É’²®‚µ‚Ä‚Ü‚·B
-	 * ƒ}ƒbƒsƒ“ƒO“I‚É¶‰E‚Ì–Ê‚Í©—Í‚ÅˆÚ“®‚µ‚È‚¯‚ê‚Î”½“]‚³‚ê‚Ü‚¹‚ñA‘OŒã‚ª‹t‚É‚È‚è‚Ü‚·B
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½gï¿½pï¿½ï¿½ï¿½Ä‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
+	 * ï¿½{ï¿½bï¿½Nï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ“ï¿½ï¿½ï¿½ï¿½}ï¿½bï¿½sï¿½ï¿½ï¿½Oï¿½É‚È‚ï¿½æ‚¤ï¿½É’ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚Ü‚ï¿½ï¿½B
+	 * ï¿½}ï¿½bï¿½sï¿½ï¿½ï¿½Oï¿½Iï¿½Éï¿½ï¿½Eï¿½Ì–Ê‚Íï¿½ï¿½Í‚ÅˆÚ“ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½ï¿½Î”ï¿½ï¿½]ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½Aï¿½Oï¿½ã‚ªï¿½tï¿½É‚È‚ï¿½Ü‚ï¿½ï¿½B
 	 */
 	public static final int planeXYFront	= 0x10;
 	public static final int planeXYBack		= 0x14;
@@ -51,7 +54,7 @@ public class MMM_ModelPlate extends MMM_ModelBoxBase {
 		boolean lotherplane = (pPlane & 0x04) > 0;
 		int lPlane = pPlane & 0x03;
 		
-		// i1 ‚Í•½–Ê‚Ì¶¬ˆÊ’u
+		// i1 ï¿½Í•ï¿½ï¿½Ê‚Ìï¿½ï¿½ï¿½ï¿½Ê’u
 		switch (lPlane) {
 		case planeXY:
 			// xy
@@ -117,7 +120,7 @@ public class MMM_ModelPlate extends MMM_ModelBoxBase {
 		}
 		
 		quadList = new TexturedQuad[1];
-		// –Ê‚Ì–@–Ê‚ğ”½“]‚·‚é
+		// ï¿½Ê‚Ì–@ï¿½Ê‚ğ”½“]ï¿½ï¿½ï¿½ï¿½
 		if (modelrenderer.mirror) {
 			if (lPlane == 0) {
 				// xy
@@ -204,7 +207,7 @@ public class MMM_ModelPlate extends MMM_ModelBoxBase {
 			}
 		} else {
 			if (lotherplane) {
-				// ‹tü‚è
+				// ï¿½tï¿½ï¿½ï¿½
 				quadList[0] = new TexturedQuad(
 						new PositionTextureVertex[] {
 								vertexPositions[0],

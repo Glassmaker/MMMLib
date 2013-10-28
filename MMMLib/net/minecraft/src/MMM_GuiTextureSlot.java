@@ -4,6 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiSlot;
+import net.minecraft.client.renderer.OpenGlHelper;
+import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
+
 import org.lwjgl.opengl.GL11;
 
 public class MMM_GuiTextureSlot extends GuiSlot {
@@ -25,12 +34,13 @@ public class MMM_GuiTextureSlot extends GuiSlot {
 	};
 	protected boolean isContract;
 	protected static MMM_TextureBox blankBox;
+	protected static Minecraft mc = Minecraft.getMinecraft();
 
 
 	public MMM_GuiTextureSlot(MMM_GuiTextureSelect pOwner) {
-		super(pOwner.mc, pOwner.width, pOwner.height, 16, pOwner.height - 64, 36);
+		super(mc, pOwner.width, pOwner.height, 16, pOwner.height - 64, 36);
 		owner = pOwner;
-		entity = new MMM_EntitySelect(owner.mc.theWorld);
+		entity = new MMM_EntitySelect(mc.theWorld);
 		color = owner.target.getColor();
 		selectColor = -1;
 		blankBox = new MMM_TextureBox();
@@ -135,14 +145,14 @@ public class MMM_GuiTextureSlot extends GuiSlot {
 		}
 		MMM_TextureManager.instance.checkTextureBoxServer(lbox);
 		GL11.glDisable(GL11.GL_BLEND);
-		owner.fontRenderer.drawStringWithShadow(lbox.textureName, var2 + 16, var3 + 25, -1);
+		mc.fontRenderer.drawStringWithShadow(lbox.textureName, var2 + 16, var3 + 25, -1);
 		GL11.glTranslatef(var2 + 8F, var3 + 25F, 50F);
 		GL11.glScalef(12F, -12F, 12F);
 		entity.renderYawOffset = 30F;
 		entity.rotationYawHead = 15F;
 		OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, 240.0F, 240.0F);
 		if (mode) {
-			// ÉAÅ[É}Å[
+			// ÔøΩAÔøΩ[ÔøΩ}ÔøΩ[
 			ResourceLocation ltxname[];
 			GL11.glTranslatef(1F, 0, 0);
 			Map<Integer, ResourceLocation> lmap = lbox.armors.get("default");
@@ -171,7 +181,7 @@ public class MMM_GuiTextureSlot extends GuiSlot {
 				}
 			}
 		} else {
-			// ÉeÉNÉXÉ`ÉÉï\é¶
+			// ÔøΩeÔøΩNÔøΩXÔøΩ`ÔøΩÔøΩÔøΩ\ÔøΩÔøΩ
 			for (int li = 0; li < 16; li++) {
 				GL11.glTranslatef(1F, 0, 0);
 				if (lbox.hasColor(li, isContract)) {

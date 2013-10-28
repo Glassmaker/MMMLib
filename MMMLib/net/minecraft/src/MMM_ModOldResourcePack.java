@@ -7,11 +7,17 @@ import java.util.Set;
 
 import javax.imageio.ImageIO;
 
+import net.minecraft.client.resources.DefaultResourcePack;
+import net.minecraft.client.resources.ResourcePack;
+import net.minecraft.client.resources.data.MetadataSection;
+import net.minecraft.client.resources.data.MetadataSerializer;
+import net.minecraft.util.ResourceLocation;
+
 import com.google.gson.JsonObject;
 
 /**
- * ŒÃ‚¢ƒŠƒ\[ƒX‚ğ“Ç‚İ‚±‚Ü‚¹‚é‚½‚ß‚ÌƒpƒbƒP[ƒWw’è
- * ƒR[ƒh‚ÍModloader‚ÌŠÛƒpƒNƒŠ
+ * ï¿½Ã‚ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½ï¿½Ç‚İ‚ï¿½ï¿½Ü‚ï¿½ï¿½é‚½ï¿½ß‚Ìƒpï¿½bï¿½Pï¿½[ï¿½Wï¿½wï¿½ï¿½
+ * ï¿½Rï¿½[ï¿½hï¿½ï¿½Modloaderï¿½ÌŠÛƒpï¿½Nï¿½ï¿½
  */
 public class MMM_ModOldResourcePack implements ResourcePack {
 
@@ -21,33 +27,33 @@ public class MMM_ModOldResourcePack implements ResourcePack {
 		this.modClass = modClass;
 	}
 
-	public InputStream func_110590_a(ResourceLocation var1) throws IOException {
-		return this.modClass.getResourceAsStream("" + var1.func_110623_a());
+	public InputStream getInputStream(ResourceLocation var1) throws IOException {
+		return this.modClass.getResourceAsStream("" + var1.getResourcePath());
 	}
 
 	@Override
-	public boolean func_110589_b(ResourceLocation var1) {
+	public boolean resourceExists(ResourceLocation var1) {
 		try {
-			return this.func_110590_a(var1) != null;
+			return this.getInputStream(var1) != null;
 		} catch (IOException var3) {
 			return false;
 		}
 	}
 
-	public Set func_110587_b() {
-		return DefaultResourcePack.field_110608_a;
+	public Set getResourceDomains() {
+		return DefaultResourcePack.defaultResourceDomains;
 	}
 
-	public MetadataSection func_135058_a(MetadataSerializer var1, String var2) throws IOException {
-		return var1.func_110503_a(var2, new JsonObject());
+	public MetadataSection getPackMetadata(MetadataSerializer var1, String var2) throws IOException {
+		return var1.parseMetadataSection(var2, new JsonObject());
 	}
 
-	public BufferedImage func_110586_a() throws IOException {
+	public BufferedImage getPackImage() throws IOException {
 		return ImageIO.read(DefaultResourcePack.class.getResourceAsStream(
-				"/" + (new ResourceLocation("pack.png")).func_110623_a()));
+				"/" + (new ResourceLocation("pack.png")).getResourcePath()));
 	}
 
-	public String func_130077_b() {
+	public String getPackName() {
 		return this.modClass.getSimpleName();
 	}
 

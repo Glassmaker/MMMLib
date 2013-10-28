@@ -2,6 +2,10 @@ package net.minecraft.src;
 
 import java.util.Map;
 
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.World;
+
 public class MMM_EntitySelect extends EntityLiving implements MMM_IModelCaps, MMM_ITextureEntity {
 
 //	public int color;
@@ -28,11 +32,11 @@ public class MMM_EntitySelect extends EntityLiving implements MMM_IModelCaps, MM
 
 	@Override
 	protected void entityInit() {
-		// Select—p‚¾‚©‚çA‚±‚ê•Ê‚É‚¢‚ç‚ñ‚¯‚Ç‚ÈB
+		// Selectï¿½pï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½Ê‚É‚ï¿½ï¿½ï¿½ñ‚¯‚Ç‚ÈB
 		super.entityInit();
 		// color
 		dataWatcher.addObject(19, Integer.valueOf(0));
-		// 20:‘I‘ğƒeƒNƒXƒ`ƒƒƒCƒ“ƒfƒbƒNƒX
+		// 20:ï¿½Iï¿½ï¿½ï¿½eï¿½Nï¿½Xï¿½`ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½fï¿½bï¿½Nï¿½X
 		dataWatcher.addObject(20, Integer.valueOf(0));
 	}
 
@@ -76,7 +80,7 @@ public class MMM_EntitySelect extends EntityLiving implements MMM_IModelCaps, MM
 		dataWatcher.updateObject(20, (Integer.valueOf(pIndex[0]) & 0xffff) | ((Integer.valueOf(pIndex[1]) & 0xffff) << 16));
 //		textureBox[0] = MMM_TextureManager.instance.getTextureBoxServer(textureIndex[0]);
 //		textureBox[1] = MMM_TextureManager.instance.getTextureBoxServer(textureIndex[1]);
-		// ƒTƒCƒY‚Ì•ÏX
+		// ï¿½Tï¿½Cï¿½Yï¿½Ì•ÏX
 //		setSize(textureBox[0].getWidth(entityCaps), textureBox[0].getHeight(entityCaps));
 	}
 
@@ -87,15 +91,15 @@ public class MMM_EntitySelect extends EntityLiving implements MMM_IModelCaps, MM
 //		textureBox[0] = pTextureBox[0];
 //		textureBox[1] = pTextureBox[1];
 //		setTextureNames();
-//		// g’·•ÏX—p
+//		// ï¿½gï¿½ï¿½ï¿½ÏXï¿½p
 //		setSize(textureBox[0].getWidth(null), textureBox[0].getHeight(null));
 //		setPosition(posX, posY, posZ);
-		// ƒ‚ƒfƒ‹‚Ì‰Šú‰»
+		// ï¿½ï¿½ï¿½fï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½
 //		((MMM_TextureBox)textureBox[0]).models[0].setCapsValue(MMM_IModelCaps.caps_changeModel, this);
 	}
 
 	/**
-	 * ƒeƒNƒXƒ`ƒƒ‚Ìƒtƒ@ƒCƒ‹–¼‚ğŠl“¾
+	 * ï¿½eï¿½Nï¿½Xï¿½`ï¿½ï¿½ï¿½Ìƒtï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½lï¿½ï¿½
 	 */
 	protected void setTextureNames() {
 		textureData.setTextureNames();
@@ -234,7 +238,7 @@ public class MMM_EntitySelect extends EntityLiving implements MMM_IModelCaps, MM
 
 	@Override
 	public int getBrightnessForRender(float par1) {
-		// ˆê’è‚Ì–¾‚é‚³‚ğ•Ô‚·
+		// ï¿½ï¿½ï¿½Ì–ï¿½ï¿½é‚³ï¿½ï¿½Ô‚ï¿½
 		return 0x00f000f0;
 	}
 

@@ -1,5 +1,12 @@
 package net.minecraft.src;
 
+import net.minecraft.client.renderer.RenderHelper;
+import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.entity.Entity;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.ResourceLocation;
+
 import org.lwjgl.opengl.EXTRescaleNormal;
 import org.lwjgl.opengl.GL11;
 
@@ -63,8 +70,8 @@ public class MMM_RenderDummy extends Render {
 	}
 
 	@Override
-	protected ResourceLocation func_110775_a(Entity var1) {
-		// TODO ‚±‚ê‘åä•v‚È‚Ì‚©‚µ‚çH
+	protected ResourceLocation getEntityTexture(Entity var1) {
+		// TODO ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½vï¿½È‚Ì‚ï¿½ï¿½ï¿½ï¿½ï¿½H
 		return null;
 	}
 

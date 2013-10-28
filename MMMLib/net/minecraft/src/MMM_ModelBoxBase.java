@@ -1,5 +1,9 @@
 package net.minecraft.src;
 
+import net.minecraft.client.model.PositionTextureVertex;
+import net.minecraft.client.model.TexturedQuad;
+import net.minecraft.client.renderer.Tessellator;
+
 public abstract class MMM_ModelBoxBase {
 
 	protected PositionTextureVertex[] vertexPositions;
@@ -14,7 +18,7 @@ public abstract class MMM_ModelBoxBase {
 
 
 	/**
-	 * ‚±‚¿‚ç‚ğ•K‚¸À‘•‚·‚é‚±‚ÆB
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Kï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½é‚±ï¿½ÆB
 	 * @param pMRenderer
 	 * @param pArg
 	 */

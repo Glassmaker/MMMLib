@@ -1,49 +1,52 @@
 package net.minecraft.src;
 
+import net.minecraft.entity.Entity;
+import net.minecraft.util.ResourceLocation;
+
 public abstract class MMM_ModelStabilizerBase extends MMM_ModelBase {
 
 	public MMM_ModelStabilizerBase() {
 	}
 
 	/**
-	 * g—p‚³‚ê‚éƒeƒNƒXƒ`ƒƒ‚ğ•Ô‚·B
+	 * ï¿½gï¿½pï¿½ï¿½ï¿½ï¿½ï¿½eï¿½Nï¿½Xï¿½`ï¿½ï¿½ï¿½ï¿½Ô‚ï¿½ï¿½B
 	 */
 	public ResourceLocation getTexture() {
 		return null;
 	}
 
 	/**
-	 * ‚»‚Ìƒn[ƒhƒ|ƒCƒ“ƒg‚É‘•”õ‰Â”\‚©‚Ç‚¤‚©‚ğ•Ô‚·B
-	 * pName:ƒn[ƒhƒ|ƒCƒ“ƒg‚Ì¯•Ê–¼ÌB
+	 * ï¿½ï¿½ï¿½Ìƒnï¿½[ï¿½hï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½É‘ï¿½ï¿½ï¿½ï¿½Â”\ï¿½ï¿½ï¿½Ç‚ï¿½ï¿½ï¿½ï¿½ï¿½Ô‚ï¿½ï¿½B
+	 * pName:ï¿½nï¿½[ï¿½hï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½Ìï¿½ï¿½Ê–ï¿½ï¿½ÌB
 	 */
 	public boolean checkEquipment(String pName) {
 		return true;
 	}
 
 	/**
-	 * ƒp[ƒc‚Ì–¼ÌB
+	 * ï¿½pï¿½[ï¿½cï¿½Ì–ï¿½ï¿½ÌB
 	 */
 	public abstract String getName();
 
 	/**
-	 * “¯‚¶ƒn[ƒhƒ|ƒCƒ“ƒg‚É‘•”õ‚Å‚«‚é‚©‚Ç‚¤‚©B
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½nï¿½[ï¿½hï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½É‘ï¿½ï¿½ï¿½ï¿½Å‚ï¿½ï¿½é‚©ï¿½Ç‚ï¿½ï¿½ï¿½ï¿½B
 	 */
 	public int getExclusive() {
 		return 0;
 	}
 
 	/**
-	 * ƒƒCƒh‚³‚ñ‚ÌƒeƒNƒXƒ`ƒƒ‚ğ‚»‚Ì‚Ü‚Üg‚í‚¸‚ÉAˆá‚¤ƒeƒNƒXƒ`ƒƒ‚ğg‚¤‚©H
+	 * ï¿½ï¿½ï¿½Cï¿½hï¿½ï¿½ï¿½ï¿½Ìƒeï¿½Nï¿½Xï¿½`ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚Ü‚Ügï¿½í‚¸ï¿½ÉAï¿½á‚¤ï¿½eï¿½Nï¿½Xï¿½`ï¿½ï¿½ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½H
 	 */
 	public boolean isLoadAnotherTexture() {
 		return false;
 	}
 
 	/**
-	 * ‰Šú‰»‚ÉÀs‚³‚ê‚é
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Éï¿½ï¿½sï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	public void init(MMM_EquippedStabilizer pequipped) {
-		// •Ï”‚È‚Ç‚ğ’è‹`‚·‚é
+		// ï¿½Ïï¿½ï¿½È‚Ç‚ï¿½ï¿½`ï¿½ï¿½ï¿½ï¿½
 	}
 /*	
 	@Deprecated
@@ -53,7 +56,7 @@ public abstract class MMM_ModelStabilizerBase extends MMM_ModelBase {
 	}
 
 	/**
-	 * ƒŒƒ“ƒ_ƒŠƒ“ƒO‚ÍŠî–{‚±‚¿‚ç‚ğŒÄ‚Ô‚±‚Æ
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½Oï¿½ÍŠï¿½{ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚Ô‚ï¿½ï¿½ï¿½
 	 */
 	public void render(MMM_ModelMultiBase pModel, Entity par1Entity, float par2, float par3, float par4, float par5, float par6, float par7) {
 //		render(par1Entity, par2, par3, par4, par5, par6, par7);

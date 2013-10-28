@@ -1,5 +1,8 @@
 package net.minecraft.src;
 
+import net.minecraft.entity.Entity;
+import net.minecraft.util.ResourceLocation;
+
 import org.lwjgl.opengl.GL11;
 
 public class MMM_ModelStabilizer_WitchHat extends MMM_ModelStabilizerBase {
@@ -12,7 +15,7 @@ public class MMM_ModelStabilizer_WitchHat extends MMM_ModelStabilizerBase {
 
 
 	public MMM_ModelStabilizer_WitchHat() {
-		// ‚Ü‚¶‚å‚±‚Ú‚¤
+		// ï¿½Ü‚ï¿½ï¿½å‚±ï¿½Ú‚ï¿½
 		textureWidth = 64;
 		textureHeight = 32;
 		

@@ -1,5 +1,12 @@
 package net.minecraft.src;
 
+import net.minecraft.client.renderer.entity.RenderLiving;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
+
 import org.lwjgl.opengl.GL11;
 
 public class MMM_RenderModelMulti extends RenderLiving {
@@ -23,7 +30,7 @@ public class MMM_RenderModelMulti extends RenderLiving {
 	}
 
 	protected int showArmorParts(EntityLivingBase par1EntityLiving, int par2, float par3) {
-		// ƒA[ƒ}[‚Ì•\¦İ’è
+		// ï¿½Aï¿½[ï¿½}ï¿½[ï¿½Ì•\ï¿½ï¿½ï¿½İ’ï¿½
 		modelFATT.renderParts = par2;
 		modelFATT.renderCount = 0;
 		ItemStack is = par1EntityLiving.getCurrentItemOrArmor(par2 + 1);
@@ -92,7 +99,7 @@ public class MMM_RenderModelMulti extends RenderLiving {
 	public void renderModelMulti(EntityLiving par1EntityLiving, double par2,
 			double par4, double par6, float par8, float par9, MMM_IModelCaps pEntityCaps) {
 		setModelValues(par1EntityLiving, par2, par4, par6, par8, par9, pEntityCaps);
-		// TODO:1.6.2-MCP805 ‚È‚º‚©•Ï‚È‚Æ‚±‚É”ò‚ñ‚Åƒ‹[ƒv‚·‚é
+		// TODO:1.6.2-MCP805 ï¿½È‚ï¿½ï¿½ï¿½ï¿½Ï‚È‚Æ‚ï¿½ï¿½É”ï¿½ï¿½Åƒï¿½ï¿½[ï¿½vï¿½ï¿½ï¿½ï¿½
 //		super.func_130000_a(par1EntityLiving, par2, par4, par6, par8, par9);
 		super.doRenderLiving(par1EntityLiving, par2, par4, par6, par8, par9);
 	}
@@ -107,8 +114,8 @@ public class MMM_RenderModelMulti extends RenderLiving {
 	@Override
 	protected void func_110827_b(EntityLiving par1EntityLiving, double par2,
 			double par4, double par6, float par8, float par9) {
-		// “ê‚ÌˆÊ’u‚ÌƒIƒtƒZƒbƒg
-		// TODOFMCP-804‘Îô
+		// ï¿½ï¿½ÌˆÊ’uï¿½ÌƒIï¿½tï¿½Zï¿½bï¿½g
+		// TODOï¿½FMCP-804ï¿½Îï¿½
 		float lf = 0F;
 		if (modelMain.model != null && fcaps != null) {
 			lf = modelMain.model.getLeashOffset(fcaps);
@@ -124,13 +131,13 @@ public class MMM_RenderModelMulti extends RenderLiving {
 		} else {
 			modelMain.setArmorRendering(false);
 		}
-		// ƒAƒCƒeƒ€‚ÌƒŒƒ“ƒ_ƒŠƒ“ƒOˆÊ’u‚ğŠl“¾‚·‚é‚½‚ßrender‚ğŒÄ‚Ô•K—v‚ª‚ ‚é
+		// ï¿½Aï¿½Cï¿½eï¿½ï¿½ï¿½Ìƒï¿½ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½Oï¿½Ê’uï¿½ï¿½ï¿½lï¿½ï¿½ï¿½ï¿½ï¿½é‚½ï¿½ï¿½renderï¿½ï¿½ï¿½Ä‚Ô•Kï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		mainModel.render(par1EntityLiving, par2, par3, par4, par5, par6, par7);
 	}
 
 	@Override
 	protected void renderEquippedItems(EntityLivingBase par1EntityLiving, float par2) {
-		// ƒn[ƒhƒ|ƒCƒ“ƒg‚Ì•`‰æ
+		// ï¿½nï¿½[ï¿½hï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½Ì•`ï¿½ï¿½
 		modelMain.renderItems(par1EntityLiving, this);
 		renderArrowsStuckInEntity(par1EntityLiving, par2);
 	}
@@ -141,8 +148,8 @@ public class MMM_RenderModelMulti extends RenderLiving {
 	}
 
 	@Override
-	protected ResourceLocation func_110775_a(Entity var1) {
-		// ƒeƒNƒXƒ`ƒƒƒŠƒ\[ƒX‚ğ•Ô‚·‚Æ‚±‚ë‚¾‚¯‚ê‚ÇAŠî–{“I‚Ég—p‚µ‚È‚¢B
+	protected ResourceLocation getEntityTexture(Entity var1) {
+		// ï¿½eï¿½Nï¿½Xï¿½`ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½ï¿½Ô‚ï¿½ï¿½Æ‚ï¿½ï¿½ë‚¾ï¿½ï¿½ï¿½ï¿½ÇAï¿½ï¿½{ï¿½Iï¿½Égï¿½pï¿½ï¿½ï¿½È‚ï¿½ï¿½B
 		return null;
 	}
 

@@ -1,5 +1,7 @@
 package net.minecraft.src;
 
+import net.minecraft.client.gui.GuiButton;
+
 
 public class MMM_GuiToggleButton extends GuiButton {
 

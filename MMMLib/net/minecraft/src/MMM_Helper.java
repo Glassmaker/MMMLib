@@ -13,6 +13,33 @@ import java.util.Map.Entry;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityList;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.inventory.Container;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemPotion;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.FurnaceRecipes;
+import net.minecraft.inventory.Slot;
+import net.minecraft.pathfinding.PathNavigate;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.EnumMovingObjectType;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.MovingObjectPosition;
+import net.minecraft.util.Vec3;
+import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.SpawnListEntry;
+
 public class MMM_Helper {
 
 	public static final boolean isClient;
@@ -57,21 +84,21 @@ public class MMM_Helper {
 	}
 
 	/**
-	 * Œ»İ‚ÌÀsŠÂ‹«‚ªƒ[ƒJƒ‹‚©‚Ç‚¤‚©‚ğ”»’è‚·‚éB
+	 * Å’Â»ï¿½Ãâ€šÃŒÅ½Ã€ï¿½sÅ Ã‚â€¹Â«â€šÂªÆ’ï¿½ï¿½[Æ’JÆ’â€¹â€šÂ©â€šÃ‡â€šÂ¤â€šÂ©â€šÃ°â€Â»â€™Ã¨â€šÂ·â€šÃ©ï¿½B
 	 */
 	public static boolean isLocalPlay() {
 		return isClient && mc.isIntegratedServerRunning();
 	}
 
 	/**
-	 * ƒ}ƒ‹ƒ`‘Î‰—pB
-	 * ItemStack‚Éî•ñXV‚ğs‚¤‚ÆAƒT[ƒo[‘¤‚Æ‚Ì·ˆÙ‚©‚çSlot‚ÌƒAƒbƒvƒf[ƒg‚ªs‚í‚ê‚éB
-	 * ‚»‚ÌÛAUsingItem‚ÌXVˆ—‚ªs‚í‚ê‚È‚¢‚½‚ßˆá‚¤ƒAƒCƒeƒ€‚É‘Ö‚¦‚ç‚ê‚½‚Æ”»’è‚³‚ê‚éB
-	 * ‚±‚±‚Å‚Í”äŠr—p‚Ég‚í‚ê‚éƒXƒ^ƒbƒNƒŠƒXƒg‚ğ‹­§“I‚É‘Š·‚¦‚é–‚É‚æ‚è‘Î‰‚µ‚½B
+	 * Æ’}Æ’â€¹Æ’`â€˜Ãâ€°Å¾â€”pï¿½B
+	 * ItemStackâ€šÃ‰ï¿½Ã®â€¢Ã±ï¿½Xï¿½Vâ€šÃ°ï¿½sâ€šÂ¤â€šÃ†ï¿½AÆ’Tï¿½[Æ’oï¿½[â€˜Â¤â€šÃ†â€šÃŒï¿½Â·Ë†Ã™â€šÂ©â€šÃ§Slotâ€šÃŒÆ’AÆ’bÆ’vÆ’fï¿½[Æ’gâ€šÂªï¿½sâ€šÃ­â€šÃªâ€šÃ©ï¿½B
+	 * â€šÂ»â€šÃŒï¿½Ã›ï¿½AUsingItemâ€šÃŒï¿½Xï¿½Vï¿½Ë†â€”ï¿½â€šÂªï¿½sâ€šÃ­â€šÃªâ€šÃˆâ€šÂ¢â€šÂ½â€šÃŸË†Ã¡â€šÂ¤Æ’AÆ’CÆ’eÆ’â‚¬â€šÃ‰Å½ï¿½â€˜Ã–â€šÂ¦â€šÃ§â€šÃªâ€šÂ½â€šÃ†â€Â»â€™Ã¨â€šÂ³â€šÃªâ€šÃ©ï¿½B
+	 * â€šÂ±â€šÂ±â€šÃ…â€šÃâ€Ã¤Å râ€”pâ€šÃ‰Å½gâ€šÃ­â€šÃªâ€šÃ©Æ’XÆ’^Æ’bÆ’NÆ’Å Æ’XÆ’gâ€šÃ°â€¹Â­ï¿½Â§â€œIâ€šÃ‰ï¿½â€˜Å Â·â€šÂ¦â€šÃ©Å½â€“â€šÃ‰â€šÃ¦â€šÃ¨â€˜Ãâ€°Å¾â€šÂµâ€šÂ½ï¿½B
 	 */
 	public static void updateCheckinghSlot(Entity pEntity, ItemStack pItemstack) {
 		if (pEntity instanceof EntityPlayerMP) {
-			// ƒT[ƒo[‘¤‚Å‚Ì‚İˆ—
+			// Æ’Tï¿½[Æ’oï¿½[â€˜Â¤â€šÃ…â€šÃŒâ€šÃï¿½Ë†â€”ï¿½
 			EntityPlayerMP lep = (EntityPlayerMP)pEntity;
 			Container lctr = lep.openContainer;
 			for (int li = 0; li < lctr.inventorySlots.size(); li++) {
@@ -85,7 +112,7 @@ public class MMM_Helper {
 	}
 	
 	/**
-	 * Forge—pƒNƒ‰ƒXŠl“¾B
+	 * Forgeâ€”pÆ’NÆ’â€°Æ’XÅ lâ€œÂ¾ï¿½B
 	 */
 	public static Class getForgeClass(BaseMod pMod, String pName) {
 		if (isForge) {
@@ -95,7 +122,7 @@ public class MMM_Helper {
 	}
 
 	/**
-	 * –¼‘O‚©‚çƒNƒ‰ƒX‚ğŠl“¾‚·‚é
+	 * â€“Â¼â€˜Oâ€šÂ©â€šÃ§Æ’NÆ’â€°Æ’Xâ€šÃ°Å lâ€œÂ¾â€šÂ·â€šÃ©
 	 */
 	public static Class getNameOfClass(String pName) {
 		if (fpackage != null) {
@@ -112,7 +139,7 @@ public class MMM_Helper {
 	}
 
 	/**
-	 * ‘—M—pƒf[ƒ^‚ÌƒZƒbƒg
+	 * â€˜â€”ï¿½Mâ€”pÆ’fï¿½[Æ’^â€šÃŒÆ’ZÆ’bÆ’g
 	 */
 	public static void setValue(byte[] pData, int pIndex, int pVal, int pSize) {
 		for (int li = 0; li < pSize; li++) {
@@ -164,9 +191,9 @@ public class MMM_Helper {
 		}
 	}
 
-	// ó‹µ”»’f—vŠÖ”ŒQ
+	// ï¿½Ã³â€¹Âµâ€Â»â€™fâ€”vÅ Ã–ï¿½â€Å’Q
 	protected static boolean canBlockBeSeen(Entity pEntity, int x, int y, int z, boolean toTop, boolean do1, boolean do2) {
-		// ƒuƒƒbƒN‚Ì‰Â‹”»’è
+		// Æ’uÆ’ï¿½Æ’bÆ’Nâ€šÃŒâ€°Ã‚Å½â€¹â€Â»â€™Ã¨
 		Vec3 vec3d = Vec3.createVectorHelper(pEntity.posX, pEntity.posY + pEntity.getEyeHeight(), pEntity.posZ);
 		Vec3 vec3d1 = Vec3.createVectorHelper((double)x + 0.5D, (double)y + (toTop ? 0.9D : 0.5D), (double)z + 0.5D);
 		
@@ -185,10 +212,10 @@ public class MMM_Helper {
 	}
 
 	public static boolean setPathToTile(EntityLiving pEntity, TileEntity pTarget, boolean flag) {
-		// Tile‚Ü‚Å‚ÌƒpƒX‚ğì‚é
+		// Tileâ€šÃœâ€šÃ…â€šÃŒÆ’pÆ’Xâ€šÃ°ï¿½Ã¬â€šÃ©
 		PathNavigate lpn = pEntity.getNavigator();
 		float lspeed = 1.0F;
-		// Œü‚«‚É‡‚í‚¹‚Ä‹——£‚ğ’²®
+		// Å’Ã¼â€šÂ«â€šÃ‰ï¿½â€¡â€šÃ­â€šÂ¹â€šÃ„â€¹â€”â€”Â£â€šÃ°â€™Â²ï¿½Â®
 		int i = (pTarget.yCoord == MathHelper.floor_double(pEntity.posY) && flag) ? 2 : 1;
 		switch (pEntity.worldObj.getBlockMetadata(pTarget.xCoord, pTarget.yCoord, pTarget.zCoord)) {
 		case 3:
@@ -205,19 +232,19 @@ public class MMM_Helper {
 	}
 
 	/**
-	 * ModloaderŠÂ‹«‰º‚Å‹ó‚¢‚Ä‚¢‚éEntityID‚ğ•Ô‚·B
-	 * —LŒø‚È’l‚ğŠl“¾‚Å‚«‚È‚¯‚ê‚Î-1‚ğ•Ô‚·B
+	 * ModloaderÅ Ã‚â€¹Â«â€°Âºâ€šÃ…â€¹Ã³â€šÂ¢â€šÃ„â€šÂ¢â€šÃ©EntityIDâ€šÃ°â€¢Ã”â€šÂ·ï¿½B
+	 * â€”LÅ’Ã¸â€šÃˆâ€™lâ€šÃ°Å lâ€œÂ¾â€šÃ…â€šÂ«â€šÃˆâ€šÂ¯â€šÃªâ€šÃ-1â€šÃ°â€¢Ã”â€šÂ·ï¿½B
 	 */
 	private static int getNextEntityID(boolean isLiving) {
 		if (isLiving) {
-			// ¶•¨—p
+			// ï¿½Â¶â€¢Â¨â€”p
 			for (int li = 1; li < 256; li++) {
 				if (EntityList.getClassFromID(li) == null) {
 					return li;
 				}
 			}
 		} else {
-			// •¨—p
+			// â€¢Â¨â€”p
 			for (int li = mod_MMM_MMMLib.cfg_startVehicleEntityID; li < mod_MMM_MMMLib.cfg_startVehicleEntityID + 2048; li++) {
 				if (EntityList.getClassFromID(li) == null) {
 					return li;
@@ -228,12 +255,12 @@ public class MMM_Helper {
 	}
 
 	/**
-	 * Entity‚ğ“o˜^‚·‚éB
-	 * RMLAForge—¼‘Î‰B
+	 * Entityâ€šÃ°â€œoËœ^â€šÂ·â€šÃ©ï¿½B
+	 * RMLï¿½AForgeâ€”Â¼â€˜Ãâ€°Å¾ï¿½B
 	 * @param entityclass
 	 * @param entityName
 	 * @param defaultId
-	 * 0 : ƒI[ƒgƒAƒTƒCƒ“
+	 * 0 : Æ’Iï¿½[Æ’gÆ’AÆ’TÆ’CÆ’â€œ
 	 * @param mod
 	 * @param uniqueModeName
 	 * @param trackingRange
@@ -249,7 +276,7 @@ public class MMM_Helper {
 		if (isForge) {
 			try {
 				Method lmethod;
-				// EntityID‚ÌŠl“¾
+				// EntityIDâ€šÃŒÅ lâ€œÂ¾
 				lmethod = entityRegistry.getMethod("findGlobalUniqueEntityId");
 				defaultId = (Integer)lmethod.invoke(null);
 				
@@ -262,7 +289,7 @@ public class MMM_Helper {
 							Class.class, String.class, int.class, int.class, int.class);
 					lmethod.invoke(null, entityclass, entityName, defaultId, pEggColor1, pEggColor2);
 				}
-				// EntityList‚Ö‚Ì“o˜^‚Í“K“–‚È”š‚Å‚æ‚¢B
+				// EntityListâ€šÃ–â€šÃŒâ€œoËœ^â€šÃâ€œKâ€œâ€“â€šÃˆï¿½â€Å½Å¡â€šÃ…â€šÃ¦â€šÂ¢ï¿½B
 				registerModEntity.invoke(
 						null, entityclass, entityName, lid,
 						mod, trackingRange, updateFrequency, sendVelocityUpdate);
@@ -270,7 +297,7 @@ public class MMM_Helper {
 				e.printStackTrace();
 			}
 		} else {
-			// EntityList‚Ö‚Ì“o˜^‚Í
+			// EntityListâ€šÃ–â€šÃŒâ€œoËœ^â€šÃ
 			if (defaultId == 0) {
 				defaultId = getNextEntityID(entityclass.isAssignableFrom(EntityLivingBase.class));
 			}
@@ -300,22 +327,22 @@ public class MMM_Helper {
 	}
 
 	/**
-	 * Entity‚ğ•Ô‚·B
+	 * Entityâ€šÃ°â€¢Ã”â€šÂ·ï¿½B
 	 */
 	public static Entity getEntity(byte[] pData, int pIndex, World pWorld) {
 		return pWorld.getEntityByID(MMM_Helper.getInt(pData, pIndex));
 	}
 
 	/**
-	 * •Ï”uavatarv‚©‚ç’l‚ğæ‚èo‚µ–ß‚è’l‚Æ‚µ‚Ä•Ô‚·B
-	 * avatar‚ª‘¶İ‚µ‚È‚¢ê‡‚ÍŒ³‚Ì’l‚ğ•Ô‚·B
-	 * avatar‚ÍEntityLivingŒİŠ·B
+	 * â€¢Ãï¿½â€ï¿½uavatarï¿½vâ€šÂ©â€šÃ§â€™lâ€šÃ°Å½Ã¦â€šÃ¨ï¿½oâ€šÂµâ€“ÃŸâ€šÃ¨â€™lâ€šÃ†â€šÂµâ€šÃ„â€¢Ã”â€šÂ·ï¿½B
+	 * avatarâ€šÂªâ€˜Â¶ï¿½Ãâ€šÂµâ€šÃˆâ€šÂ¢ï¿½Ãªï¿½â€¡â€šÃÅ’Â³â€šÃŒâ€™lâ€šÃ°â€¢Ã”â€šÂ·ï¿½B
+	 * avatarâ€šÃEntityLivingÅ’ÃÅ Â·ï¿½B
 	 */
 	public static Entity getAvatarEntity(Entity pEntity){
-		// littleMaid—pƒR[ƒh‚±‚±‚©‚ç
+		// littleMaidâ€”pÆ’Rï¿½[Æ’hâ€šÂ±â€šÂ±â€šÂ©â€šÃ§
 		if (pEntity == null) return null;
 		try {
-			// Ëè‚Ìî•ñ‚ğEntityLittleMaidAvatar‚©‚çEntityLittleMaid‚Ö’u‚«Š·‚¦‚é
+			// Å½Ã‹Å½Ã¨â€šÃŒï¿½Ã®â€¢Ã±â€šÃ°EntityLittleMaidAvatarâ€šÂ©â€šÃ§EntityLittleMaidâ€šÃ–â€™uâ€šÂ«Å Â·â€šÂ¦â€šÃ©
 			Field field = pEntity.getClass().getField("avatar");
 			pEntity = (EntityLivingBase)field.get(pEntity);
 		} catch (NoSuchFieldException e) {
@@ -324,17 +351,17 @@ public class MMM_Helper {
 		} catch (Error e) {
 			e.printStackTrace();
 		}
-		// ‚±‚±‚Ü‚Å
+		// â€šÂ±â€šÂ±â€šÃœâ€šÃ…
 		return pEntity;
 	}
 
 	/**
-	 * •Ï”umaidAvatarv‚©‚ç’l‚ğæ‚èo‚µ–ß‚è’l‚Æ‚µ‚Ä•Ô‚·B
-	 * maidAvatar‚ª‘¶İ‚µ‚È‚¢ê‡‚ÍŒ³‚Ì’l‚ğ•Ô‚·B
-	 * maidAvatar‚ÍEntityPlayerŒİŠ·B
+	 * â€¢Ãï¿½â€ï¿½umaidAvatarï¿½vâ€šÂ©â€šÃ§â€™lâ€šÃ°Å½Ã¦â€šÃ¨ï¿½oâ€šÂµâ€“ÃŸâ€šÃ¨â€™lâ€šÃ†â€šÂµâ€šÃ„â€¢Ã”â€šÂ·ï¿½B
+	 * maidAvatarâ€šÂªâ€˜Â¶ï¿½Ãâ€šÂµâ€šÃˆâ€šÂ¢ï¿½Ãªï¿½â€¡â€šÃÅ’Â³â€šÃŒâ€™lâ€šÃ°â€¢Ã”â€šÂ·ï¿½B
+	 * maidAvatarâ€šÃEntityPlayerÅ’ÃÅ Â·ï¿½B
 	 */
 	public static Entity getAvatarPlayer(Entity entity) {
-		// ƒƒCƒh‚³‚ñƒ`ƒFƒbƒN
+		// Æ’ï¿½Æ’CÆ’hâ€šÂ³â€šÃ±Æ’`Æ’FÆ’bÆ’N
 		try {
 			Field field = entity.getClass().getField("maidAvatar");
 			entity = (Entity)field.get(entity);
@@ -347,7 +374,7 @@ public class MMM_Helper {
 	}
 
 	/**
-	 * ƒvƒŒ[ƒ„‚ÌƒCƒ“ƒxƒ“ƒgƒŠ‚©‚çƒAƒCƒeƒ€‚ğŒ¸‚ç‚·
+	 * Æ’vÆ’Å’ï¿½[Æ’â€â€šÃŒÆ’CÆ’â€œÆ’xÆ’â€œÆ’gÆ’Å â€šÂ©â€šÃ§Æ’AÆ’CÆ’eÆ’â‚¬â€šÃ°Å’Â¸â€šÃ§â€šÂ·
 	 */
 	protected static ItemStack decPlayerInventory(EntityPlayer par1EntityPlayer, int par2Index, int par3DecCount) {
 		if (par1EntityPlayer == null) {
@@ -363,7 +390,7 @@ public class MMM_Helper {
 		}
 		
 		if (!par1EntityPlayer.capabilities.isCreativeMode) {
-			// ƒNƒŠƒGƒCƒeƒBƒu‚¾‚ÆŒ¸‚ç‚È‚¢
+			// Æ’NÆ’Å Æ’GÆ’CÆ’eÆ’BÆ’uâ€šÂ¾â€šÃ†Å’Â¸â€šÃ§â€šÃˆâ€šÂ¢
 			itemstack1.stackSize -= par3DecCount;
 		}
 		
@@ -401,22 +428,22 @@ public class MMM_Helper {
 	}
 
 	/**
-	 * w’è‚³‚ê‚½ƒŠƒrƒWƒ‡ƒ“‚æ‚è‚àŒÃ‚¯‚ê‚Î—áŠO‚ğ“Š‚°‚ÄƒXƒgƒbƒv
+	 * Å½wâ€™Ã¨â€šÂ³â€šÃªâ€šÂ½Æ’Å Æ’rÆ’WÆ’â€¡Æ’â€œâ€šÃ¦â€šÃ¨â€šÃ Å’Ãƒâ€šÂ¯â€šÃªâ€šÃâ€”Ã¡Å Oâ€šÃ°â€œÅ â€šÂ°â€šÃ„Æ’XÆ’gÆ’bÆ’v
 	 */
 	public static void checkRevision(String pRev) {
 		if (convRevision() < convRevision(pRev)) {
-			// “K‡ƒo[ƒWƒ‡ƒ“‚Å‚Í‚È‚¢‚Ì‚ÅƒXƒgƒbƒv
+			// â€œKï¿½â€¡Æ’oï¿½[Æ’WÆ’â€¡Æ’â€œâ€šÃ…â€šÃâ€šÃˆâ€šÂ¢â€šÃŒâ€šÃ…Æ’XÆ’gÆ’bÆ’v
 			ModLoader.getLogger().warning("you must check MMMLib revision.");
 			throw new RuntimeException("The revision of MMMLib is old.");
 		}
 	}
 
 	/**
-	 * EntityList‚É“o˜^‚³‚ê‚Ä‚¢‚¢‚éEntity‚ğ’u‚«Š·‚¦‚éB
+	 * EntityListâ€šÃ‰â€œoËœ^â€šÂ³â€šÃªâ€šÃ„â€šÂ¢â€šÂ¢â€šÃ©Entityâ€šÃ°â€™uâ€šÂ«Å Â·â€šÂ¦â€šÃ©ï¿½B
 	 */
 	public static void replaceEntityList(Class pSrcClass, Class pDestClass) {
-		// EntityList“o˜^î•ñ‚ğ’u‚«Š·‚¦
-		// ŒÃ‚¢Entity‚Å‚àƒXƒ|[ƒ“‚Å‚«‚é‚æ‚¤‚Éˆê•”‚Ì•¨‚Í“ñd“o˜^
+		// EntityListâ€œoËœ^ï¿½Ã®â€¢Ã±â€šÃ°â€™uâ€šÂ«Å Â·â€šÂ¦
+		// Å’Ãƒâ€šÂ¢Entityâ€šÃ…â€šÃ Æ’XÆ’|ï¿½[Æ’â€œâ€šÃ…â€šÂ«â€šÃ©â€šÃ¦â€šÂ¤â€šÃ‰Ë†Ãªâ€¢â€â€šÃŒâ€¢Â¨â€šÃâ€œÃ±ï¿½dâ€œoËœ^
 		try {
 			// stringToClassMapping
 			Map lmap;
@@ -469,37 +496,38 @@ public class MMM_Helper {
 	}
 
 	/**
-	 * ƒoƒCƒI[ƒ€‚Ìİ’èEntity‚ğ’u‚«Š·‚¦‚ç‚ê‚½Entity‚Ö’u‚«Š·‚¦‚éB
-	 * Šî–{“I‚ÉMMMLibˆÈŠO‚©‚ç‚ÍŒÄ‚Î‚ê‚È‚¢B
+	 * Æ’oÆ’CÆ’Iï¿½[Æ’â‚¬â€šÃŒï¿½Ãâ€™Ã¨Entityâ€šÃ°â€™uâ€šÂ«Å Â·â€šÂ¦â€šÃ§â€šÃªâ€šÂ½Entityâ€šÃ–â€™uâ€šÂ«Å Â·â€šÂ¦â€šÃ©ï¿½B
+	 * Å Ã®â€“{â€œIâ€šÃ‰MMMLibË†ÃˆÅ Oâ€šÂ©â€šÃ§â€šÃÅ’Ã„â€šÃâ€šÃªâ€šÃˆâ€šÂ¢ï¿½B
 	 */
 	protected static void replaceBaiomeSpawn() {
-		// ƒoƒCƒI[ƒ€‚Ì”­¶ˆ—‚ğ‚Ì‚Á‚Æ‚é
+		// Æ’oÆ’CÆ’Iï¿½[Æ’â‚¬â€šÃŒâ€Â­ï¿½Â¶ï¿½Ë†â€”ï¿½â€šÃ°â€šÃŒâ€šÃâ€šÃ†â€šÃ©
+		// TODO: fix the commented
 		if (replaceEntitys.isEmpty()) return;
 		for (int i = 0; i < BiomeGenBase.biomeList.length; i++) {
 			if (BiomeGenBase.biomeList[i] == null) continue;
 			List<SpawnListEntry> mobs;
 			Debug("ReplaceBaiomeSpawn:%s", BiomeGenBase.biomeList[i].biomeName);
-			Debug("[Creature]");
+			/*Debug("[Creature]");
 			replaceCreatureList(BiomeGenBase.biomeList[i].spawnableCreatureList);
 			Debug("[WaterCreature]");
 			replaceCreatureList(BiomeGenBase.biomeList[i].spawnableWaterCreatureList);
 			Debug("[CaveCreature]");
 			replaceCreatureList(BiomeGenBase.biomeList[i].spawnableCaveCreatureList);
 			Debug("[Monster]");
-			replaceCreatureList(BiomeGenBase.biomeList[i].spawnableMonsterList);
+			replaceCreatureList(BiomeGenBase.biomeList[i].spawnableMonsterList);*/
 		}
 	}
 
 	/**
-	 * ‹ü‚Ìæ‚É‚¢‚éÅ‰‚ÌEntity‚ğ•Ô‚·
+	 * Å½â€¹ï¿½Ã¼â€šÃŒï¿½Ã¦â€šÃ‰â€šÂ¢â€šÃ©ï¿½Ã…ï¿½â€°â€šÃŒEntityâ€šÃ°â€¢Ã”â€šÂ·
 	 * @param pEntity
-	 * ‹“_
+	 * Å½â€¹â€œ_
 	 * @param pRange
-	 * ‹ü‚Ì—LŒø‹——£
+	 * Å½â€¹ï¿½Ã¼â€šÃŒâ€”LÅ’Ã¸â€¹â€”â€”Â£
 	 * @param pDelta
-	 * •â³
+	 * Å½Å¾ï¿½ï¿½â€¢Ã¢ï¿½Â³
 	 * @param pExpand
-	 * ŒŸ’m—Ìˆæ‚ÌŠg‘å”ÍˆÍ
+	 * Å’Å¸â€™mâ€”ÃŒË†Ã¦â€šÃŒÅ gâ€˜Ã¥â€ÃË†Ã
 	 * @return
 	 */
 	public static Entity getRayTraceEntity(EntityLivingBase pEntity, double pRange, float pDelta, float pExpand) {
@@ -539,10 +567,10 @@ public class MMM_Helper {
 	}
 
 
-	// Forge‘Îô
+	// Forgeâ€˜Ãï¿½Ã´
 
 	/**
-	 * Forge‘Îô—p‚Ìƒƒ\ƒbƒh
+	 * Forgeâ€˜Ãï¿½Ã´â€”pâ€šÃŒÆ’ï¿½Æ’\Æ’bÆ’h
 	 */
 	public static ItemStack getSmeltingResult(ItemStack pItemstack) {
 		if (methGetSmeltingResultForge != null) {
@@ -555,13 +583,13 @@ public class MMM_Helper {
 	}
 
 	/**
-	 * ƒAƒCƒeƒ€‚É’Ç‰ÁŒø‰Ê‚ªİ‚é‚©‚ğ”»’è‚·‚éB
-	 * Forge‘ÎôB
+	 * Æ’AÆ’CÆ’eÆ’â‚¬â€šÃ‰â€™Ã‡â€°ÃÅ’Ã¸â€°ÃŠâ€šÂªï¿½Ãâ€šÃ©â€šÂ©â€šÃ°â€Â»â€™Ã¨â€šÂ·â€šÃ©ï¿½B
+	 * Forgeâ€˜Ãï¿½Ã´ï¿½B
 	 * @param pItemStack
 	 * @return
 	 */
 	public static boolean hasEffect(ItemStack pItemStack) {
-		// ƒ}ƒWClientSIDE‚Æ‚©«‚ß‚Ä‚Ù‚µ‚¢B
+		// Æ’}Æ’WClientSIDEâ€šÃ†â€šÂ©Å½Â«â€šÃŸâ€šÃ„â€šÃ™â€šÂµâ€šÂ¢ï¿½B
 		if (pItemStack != null) {
 			Item litem = pItemStack.getItem();
 			if (litem instanceof ItemPotion) {
@@ -573,8 +601,8 @@ public class MMM_Helper {
 	}
 
 	/**
-	 * Block‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğ’u‚«Š·‚¦‚éB
-	 * static final‚Ì•Ï”‚É‘Î‚µ‚Äs‚¤‚Ì‚ÅForge‚Å‚Í–³ŒøB
+	 * Blockâ€šÃŒÆ’CÆ’â€œÆ’XÆ’^Æ’â€œÆ’Xâ€šÃ°â€™uâ€šÂ«Å Â·â€šÂ¦â€šÃ©ï¿½B
+	 * static finalâ€šÃŒâ€¢Ãï¿½â€â€šÃ‰â€˜Ãâ€šÂµâ€šÃ„ï¿½sâ€šÂ¤â€šÃŒâ€šÃ…Forgeâ€šÃ…â€šÃâ€“Â³Å’Ã¸ï¿½B
 	 * @param pOriginal
 	 * @param pReplace
 	 * @return
@@ -584,11 +612,11 @@ public class MMM_Helper {
 			return false;
 		}
 		try {
-			// Block‚Ìstatic final•ª‚Ì’uŠ·‚¦
+			// Blockâ€šÃŒstatic finalâ€¢Âªâ€šÃŒâ€™uÅ Â·â€šÂ¦
 			Field[] lfield = Block.class.getDeclaredFields();
 			for (int li = 0; li < lfield.length; li++) {
 				if (!Modifier.isStatic(lfield[li].getModifiers())) {
-					// staticˆÈŠO‚Í‘ÎÛŠO
+					// staticË†ÃˆÅ Oâ€šÃâ€˜Ãï¿½Ã›Å O
 					continue;
 				}
 				
@@ -605,8 +633,8 @@ public class MMM_Helper {
 	}
 
 	/**
-	 * 16i”‚Ì•¶š—ñ‚ğInt‚Ö•ÏŠ·‚·‚éB
-	 * 0xffffffff‘ÎôB
+	 * 16ï¿½iï¿½â€â€šÃŒâ€¢Â¶Å½Å¡â€”Ã±â€šÃ°Intâ€šÃ–â€¢ÃÅ Â·â€šÂ·â€šÃ©ï¿½B
+	 * 0xffffffffâ€˜Ãï¿½Ã´ï¿½B
 	 * @param pValue
 	 * @return
 	 */
@@ -619,13 +647,13 @@ public class MMM_Helper {
 	}
 
 	/**
-	 *  ƒAƒCƒeƒ€‚Éİ’è‚³‚ê‚½UŒ‚—Í‚ğŒ©‚é
+	 *  Æ’AÆ’CÆ’eÆ’â‚¬â€šÃ‰ï¿½Ãâ€™Ã¨â€šÂ³â€šÃªâ€šÂ½ï¿½UÅ’â€šâ€”Ãâ€šÃ°Å’Â©â€šÃ©
 	 * @param pItemStack
 	 * @return
 	 */
 	public static double getAttackVSEntity(ItemStack pItemStack) {
-		AttributeModifier lam = (AttributeModifier)pItemStack.func_111283_C().get(SharedMonsterAttributes.field_111264_e.func_111108_a());
-		return lam == null ? 0 : lam.func_111164_d();
+		AttributeModifier lam = (AttributeModifier)pItemStack.getAttributeModifiers().get(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName());
+		return lam == null ? 0 : lam.getAmount(); 
 	}
 
 }

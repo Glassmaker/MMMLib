@@ -1,5 +1,13 @@
 package net.minecraft.src;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiSlot;
+import net.minecraft.client.renderer.OpenGlHelper;
+import net.minecraft.client.renderer.RenderHelper;
+import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.entity.EntityLivingBase;
+
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
@@ -48,24 +56,25 @@ public class MMM_GuiSlotMobSelect extends GuiSlot {
 
 	@Override
 	protected void drawSlot(int var1, int var2, int var3, int var4, Tessellator var5) {
-		// Šî–{ƒXƒƒbƒg‚Ì•`‰æA×‚©‚¢Š‚ÍƒI[ƒi[‘¤‚Å
-		// Entity‚ÌŠm•Û
+		// ï¿½ï¿½{ï¿½Xï¿½ï¿½ï¿½bï¿½gï¿½Ì•`ï¿½ï¿½Aï¿½×‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÍƒIï¿½[ï¿½iï¿½[ï¿½ï¿½ï¿½ï¿½
+		// Entityï¿½ÌŠmï¿½ï¿½
 		String s = ownerGui.entityMap.keySet().toArray()[var1].toString();
 		boolean lf = ownerGui.exclusionList.contains(s);
 		EntityLivingBase entityliving = lf ? null : (EntityLivingBase) ownerGui.entityMap.get(s);
 		
-		// “Æ©•`‰æ
+		// ï¿½Æï¿½ï¿½`ï¿½ï¿½
 		ownerGui.drawSlot(var1, var2, var3, var4, var5, s, entityliving);
 		
-		// œŠO”»’è
+		// ï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½
 		if (lf) {
-			ownerGui.drawString(ownerGui.fontRenderer, "NoImage",
-					var2 + 15, var3 + 12, 0xffffff);
+			//TODO: Fix for forge
+			/*ownerGui.drawString(ownerGui.fontRenderer, "NoImage",
+					var2 + 15, var3 + 12, 0xffffff);*/
 			return;
 		}
 		entityliving.setWorld(mc.theWorld);
 		
-		// ‰¾—…‚Ì•\¦
+		// ï¿½ï¿½ï¿½ï¿½ï¿½Ì•\ï¿½ï¿½
 //		GL11.glEnable(32826 /* GL_RESCALE_NORMAL_EXT */);
 		GL11.glEnable(GL11.GL_COLOR_MATERIAL);
 		GL11.glPushMatrix();
@@ -96,7 +105,7 @@ public class MMM_GuiSlotMobSelect extends GuiSlot {
 		} catch (Exception e) {
 			ownerGui.exclusionList.add(s);
 		}
-		// ‰e‚¾‚©ƒoƒCƒI[ƒ€‚¾‚©‚Ìˆ—?
+		// ï¿½eï¿½ï¿½ï¿½ï¿½ï¿½oï¿½Cï¿½Iï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½?
 		GL11.glPopMatrix();
 		RenderHelper.disableStandardItemLighting();
 		GL11.glDisable(GL12.GL_RESCALE_NORMAL);

@@ -3,6 +3,13 @@ package net.minecraft.src;
 import java.util.HashMap;
 import java.util.Map;
 
+import net.minecraft.entity.EntityList;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.MathHelper;
+
 public class MMM_EntityCaps implements MMM_IModelCaps {
 
 	protected EntityLivingBase owner;
@@ -78,9 +85,9 @@ public class MMM_EntityCaps implements MMM_IModelCaps {
 		case caps_Entity:
 			return owner;
 		case caps_health:
-			return (int)owner.func_110143_aJ();
+			return (int)owner.getHealth();
 		case caps_healthFloat:
-			return owner.func_110143_aJ();
+			return owner.getHealth();
 		case caps_ticksExisted:
 			return owner.ticksExisted;
 		case caps_heldItems:
@@ -137,9 +144,10 @@ public class MMM_EntityCaps implements MMM_IModelCaps {
 		case caps_isDead:
 			return owner.isDead;
 		case caps_isJumping:
-			return owner.isJumping;
-		case caps_isInWeb:
-			return owner.isInWeb;
+			return owner.isAirBorne;
+		//TODO: to be fixed for forge
+		//case caps_isInWeb:
+		//	return owner.isInWeb;
 		case caps_isSwingInProgress:
 			return owner.isSwingInProgress;
 		case caps_isSneak:
@@ -199,15 +207,16 @@ public class MMM_EntityCaps implements MMM_IModelCaps {
 				}
 			}
 		case caps_isLeeding:
-			return (owner instanceof EntityLiving) && ((EntityLiving)owner).func_110167_bD();
+			return (owner instanceof EntityLiving) && ((EntityLiving)owner).getLeashed();
 		case caps_getRidingName:
 			return owner.ridingEntity == null ? "" : EntityList.getEntityString(owner.ridingEntity);
 		
 		// World
-		case caps_WorldTotalTime:
+		//TODO: to be fixed for forge
+		/*case caps_WorldTotalTime:
 			return owner.worldObj.worldInfo.getWorldTotalTime();
 		case caps_WorldTime:
-			return owner.worldObj.worldInfo.getWorldTime();
+			return owner.worldObj.worldInfo.getWorldTime();*/
 		case caps_MoonPhase:
 			return owner.worldObj.getMoonPhase();
 		case caps_TextureEntity:
@@ -221,7 +230,7 @@ public class MMM_EntityCaps implements MMM_IModelCaps {
 	public boolean setCapsValue(int pIndex, Object... pArg) {
 		switch (pIndex) {
 		case caps_health:
-			owner.setEntityHealth((Integer)pArg[0]);
+			owner.setHealth((Integer)pArg[0]);
 			return true;
 		case caps_ticksExisted:
 			owner.ticksExisted = (Integer)pArg[0];

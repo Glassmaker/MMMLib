@@ -1,10 +1,17 @@
 package net.minecraft.src;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.ItemRenderer;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
+
 import org.lwjgl.opengl.GL11;
 
 public class MMM_ItemRenderer extends ItemRenderer {
 
-	// ƒvƒ‰ƒCƒx[ƒg•Ï”‚ğg‚¦‚é‚æ‚¤‚É
+	// ï¿½vï¿½ï¿½ï¿½Cï¿½xï¿½[ï¿½gï¿½Ïï¿½ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½æ‚¤ï¿½ï¿½
 	public Minecraft mc;
 	public ItemStack itemToRender;
 	public float equippedProgress;
@@ -17,7 +24,7 @@ public class MMM_ItemRenderer extends ItemRenderer {
 		
 		mc = minecraft;
 		try {
-			// ‚«‚ç‚ß‚«ƒeƒNƒXƒ`ƒƒ‚ÌŠm•Û
+			// ï¿½ï¿½ï¿½ï¿½ß‚ï¿½ï¿½eï¿½Nï¿½Xï¿½`ï¿½ï¿½ï¿½ÌŠmï¿½ï¿½
 			texGlint = (ResourceLocation)ModLoader.getPrivateValue(ItemRenderer.class, null, 0);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -44,7 +51,7 @@ public class MMM_ItemRenderer extends ItemRenderer {
 	public void renderItem(EntityLivingBase entityliving, ItemStack itemstack, int i) {
 		Item litem = itemstack.getItem();
 		if (MMM_ItemRenderManager.isEXRender(litem)) {
-			// “ÁêƒŒƒ“ƒ_ƒ‰
+			// ï¿½ï¿½ï¿½êƒŒï¿½ï¿½ï¿½_ï¿½ï¿½
 			MMM_ItemRenderManager lii = MMM_ItemRenderManager.getEXRender(litem);
 			MMM_Client.setTexture(lii.getRenderTexture(itemstack));
 			GL11.glPushMatrix();
@@ -105,7 +112,7 @@ public class MMM_ItemRenderer extends ItemRenderer {
 		prevEquippedProgress = 0.0F;
 		
 		try {
-			// ƒ[ƒJƒ‹•Ï”‚ğŠm•Û
+			// ï¿½ï¿½ï¿½[ï¿½Jï¿½ï¿½ï¿½Ïï¿½ï¿½ï¿½ï¿½mï¿½ï¿½
 			itemToRender = (ItemStack)ModLoader.getPrivateValue(ItemRenderer.class, this, 4);
 			equippedProgress = (Float)ModLoader.getPrivateValue(ItemRenderer.class, this, 5);
 			prevEquippedProgress = (Float)ModLoader.getPrivateValue(ItemRenderer.class, this, 6);

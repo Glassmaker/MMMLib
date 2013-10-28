@@ -1,17 +1,38 @@
 package net.minecraft.src;
 
-import static net.minecraft.src.MMM_IModelCaps.*;
+import static net.minecraft.src.MMM_IModelCaps.caps_Actions;
+import static net.minecraft.src.MMM_IModelCaps.caps_Entity;
+import static net.minecraft.src.MMM_IModelCaps.caps_HeadMount;
+import static net.minecraft.src.MMM_IModelCaps.caps_Items;
+
 import java.lang.reflect.Constructor;
 import java.nio.FloatBuffer;
 import java.util.ArrayList;
 import java.util.List;
+
+import net.minecraft.block.Block;
+import net.minecraft.client.model.TextureOffset;
+import net.minecraft.client.renderer.GLAllocation;
+import net.minecraft.client.renderer.RenderBlocks;
+import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.client.renderer.texture.TextureMap;
+import net.minecraft.client.renderer.tileentity.TileEntitySkullRenderer;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.item.EnumAction;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemBow;
+import net.minecraft.item.ItemSkull;
+import net.minecraft.item.ItemStack;
 
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.GL11;
 
 public class MMM_ModelRenderer {
 
-	// ModelRendererŒİŠ·•Ï”ŒQ
+	// ModelRendererï¿½İŠï¿½ï¿½Ïï¿½ï¿½Q
 	public float textureWidth;
 	public float textureHeight;
 	private int textureOffsetX;
@@ -28,8 +49,8 @@ public class MMM_ModelRenderer {
 	public boolean showModel;
 	public boolean isHidden;
 	/**
-	 * ƒp[ƒc‚ÌeqŠÖŒW‚É¶‰E‚³‚ê‚¸‚É•`‰æ‚·‚é‚©‚ğŒˆ‚ß‚éB
-	 * ƒA[ƒ}[‚Ì•\¦‚È‚Ç‚Ég‚¤B
+	 * ï¿½pï¿½[ï¿½cï¿½Ìeï¿½qï¿½ÖŒWï¿½Éï¿½ï¿½Eï¿½ï¿½ï¿½ê‚¸ï¿½É•`ï¿½æ‚·ï¿½é‚©ï¿½ï¿½ï¿½ï¿½ï¿½ß‚ï¿½B
+	 * ï¿½Aï¿½[ï¿½}ï¿½[ï¿½Ì•\ï¿½ï¿½ï¿½È‚Ç‚Égï¿½ï¿½ï¿½B
 	 */
 	public boolean isRendering;
 	public List<MMM_ModelBoxBase> cubeList;
@@ -50,7 +71,7 @@ public class MMM_ModelRenderer {
 //	public static final float degFactor = 0.01745329251994329576923690768489F;
 	public static final float degFactor = (float)Math.PI / 180F;
 	
-	// SmartMoving‚É‡‚í‚¹‚é‚½‚ß‚É–¼Ì‚Ì•ÏX‚ª‚ ‚é‚©‚à‚µ‚ê‚Ü‚¹‚ñB
+	// SmartMovingï¿½Éï¿½ï¿½í‚¹ï¿½é‚½ï¿½ß‚É–ï¿½ï¿½Ì‚Ì•ÏXï¿½ï¿½ï¿½ï¿½ï¿½é‚©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½B
 	public int rotatePriority;
 	public static final int RotXYZ = 0;
 	public static final int RotXZY = 1;
@@ -123,7 +144,7 @@ public class MMM_ModelRenderer {
 		this.scaleZ = pScaleZ;
 	}
 
-	// ModelRendererŒİŠ·ŠÖ”ŒQ
+	// ModelRendererï¿½İŠï¿½ï¿½Öï¿½ï¿½Q
 
 	public void addChild(MMM_ModelRenderer pModelRenderer) {
 		if (childModels == null) {
@@ -164,7 +185,7 @@ public class MMM_ModelRenderer {
 		return this;
 	}
 
-	// TODO:ƒAƒbƒvƒf[ƒg‚Í‚±‚±‚ğƒ`ƒFƒbƒN‚·‚é‚±‚Æ
+	// TODO:ï¿½Aï¿½bï¿½vï¿½fï¿½[ï¿½gï¿½ï¿½ï¿½Í‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½Nï¿½ï¿½ï¿½é‚±ï¿½ï¿½
 	public void render(float par1, boolean pIsRender) {
 		if (isHidden) return;
 		if (!showModel) return;
@@ -248,10 +269,10 @@ public class MMM_ModelRenderer {
 	}
 
 
-	// “Æ©’Ç‰Á•ª
+	// ï¿½Æï¿½ï¿½Ç‰ï¿½ï¿½ï¿½
 
 	/**
-	 * ModelBoxŒp³‚Ì“Æ©ƒIƒuƒWƒFƒNƒg’Ç‰Á—p
+	 * ModelBoxï¿½pï¿½ï¿½ï¿½Ì“Æï¿½ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½Ç‰ï¿½ï¿½p
 	 */
 	public MMM_ModelRenderer addCubeList(MMM_ModelBoxBase pModelBoxBase) {
 		cubeList.add(pModelBoxBase);
@@ -293,8 +314,8 @@ public class MMM_ModelRenderer {
 	}
 
 	/**
-	 * ©•ª‚ÅƒeƒNƒXƒ`ƒƒ‚ÌÀ•W‚ğw’è‚·‚é‚Ég‚¢‚Ü‚·B
-	 * ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ö‚»‚Ì‚Ü‚Ü’l‚ğ“n‚µ‚Ü‚·B
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Åƒeï¿½Nï¿½Xï¿½`ï¿½ï¿½ï¿½Ìï¿½ï¿½Wï¿½ï¿½ï¿½wï¿½è‚·ï¿½éï¿½Égï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
+	 * ï¿½Rï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½Nï¿½^ï¿½Ö‚ï¿½ï¿½Ì‚Ü‚Ü’lï¿½ï¿½nï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
 	 */
 	public MMM_ModelRenderer addPartsTexture(Class pModelBoxBase, String pName, Object ... pArg) {
 		pName = (new StringBuilder()).append(boxName).append(".").append(pName).toString();
@@ -303,8 +324,8 @@ public class MMM_ModelRenderer {
 	}
 
 	/**
-	 * ©•ª‚ÅƒeƒNƒXƒ`ƒƒ‚ÌÀ•W‚ğw’è‚·‚é‚Ég‚¢‚Ü‚·B
-	 * ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ö‚»‚Ì‚Ü‚Ü’l‚ğ“n‚µ‚Ü‚·B
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Åƒeï¿½Nï¿½Xï¿½`ï¿½ï¿½ï¿½Ìï¿½ï¿½Wï¿½ï¿½ï¿½wï¿½è‚·ï¿½éï¿½Égï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
+	 * ï¿½Rï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½Nï¿½^ï¿½Ö‚ï¿½ï¿½Ì‚Ü‚Ü’lï¿½ï¿½nï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
 	 */
 	public MMM_ModelRenderer addPartsTexture(Class pModelBoxBase, Object ... pArg) {
 		addCubeList(getModelBoxBase(pModelBoxBase, pArg));
@@ -331,7 +352,7 @@ public class MMM_ModelRenderer {
 	}
 
 	/**
-	 * •`‰æ—p‚Ìƒ{ƒbƒNƒXAq‹Ÿ‚ğƒNƒŠƒA‚·‚é
+	 * ï¿½`ï¿½ï¿½pï¿½Ìƒ{ï¿½bï¿½Nï¿½Xï¿½Aï¿½qï¿½ï¿½ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½
 	 */
 	public void clearCubeList() {
 		cubeList.clear();
@@ -341,7 +362,7 @@ public class MMM_ModelRenderer {
 		}
 	}
 
-	// TODO:‚±‚Ì‚ ‚½‚è‚Í—vC³
+	// TODO:ï¿½ï¿½ï¿½Ì‚ï¿½ï¿½ï¿½ï¿½ï¿½Í—vï¿½Cï¿½ï¿½
 	public boolean renderItems(MMM_ModelMultiBase pModelMulti, MMM_IModelCaps pEntityCaps, boolean pRealBlock, int pIndex) {
 		ItemStack[] litemstacks = (ItemStack[])MMM_ModelCapsHelper.getCapsValue(pEntityCaps, caps_Items);
 		if (litemstacks == null) return false;
@@ -368,10 +389,10 @@ public class MMM_ModelRenderer {
 	protected void renderItems(EntityLivingBase pEntityLiving, Render pRender, boolean pRealBlock, EnumAction pAction) {
 		if (itemstack == null) return;
 		
-		// ƒAƒCƒeƒ€‚ÌƒŒƒ“ƒ_ƒŠƒ“ƒO
+		// ï¿½Aï¿½Cï¿½eï¿½ï¿½ï¿½Ìƒï¿½ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½O
 		GL11.glPushMatrix();
 		
-		// ƒAƒCƒeƒ€‚Ìí—Ş‚É‚æ‚é•\¦ˆÊ’u‚Ì•â³
+		// ï¿½Aï¿½Cï¿½eï¿½ï¿½ï¿½Ìï¿½Ş‚É‚ï¿½ï¿½\ï¿½ï¿½ï¿½Ê’uï¿½Ì•â³
 		if (adjust) {
 			// GL11.glTranslatef(-0.0625F, 0.4375F, 0.0625F);
 			
@@ -440,7 +461,7 @@ public class MMM_ModelRenderer {
 			TileEntitySkullRenderer.skullRenderer.func_82393_a(-0.5F, -0.25F, -0.5F, 1, 180.0F,
 					itemstack.getItemDamage(), lsowner);
 		} else if (pRealBlock && itemstack.getItem() instanceof ItemBlock) {
-			MMM_Client.setTexture(TextureMap.field_110575_b);
+			MMM_Client.setTexture(TextureMap.locationBlocksTexture);
 //			pRender.loadTexture("/terrain.png");
 			GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 
@@ -451,12 +472,18 @@ public class MMM_ModelRenderer {
 
 			
 			GL11.glEnable(GL11.GL_CULL_FACE);
-			pRender.renderBlocks.renderBlockAsItem(
+			/*pRender.renderBlocks.renderBlockAsItem(
+					Block.blocksList[itemstack.itemID],
+					itemstack.getItemDamage(), 1.0F);*/
+			
+			RenderBlocks renderBlocks = new RenderBlocks();
+			renderBlocks.renderBlockAsItem(
 					Block.blocksList[itemstack.itemID],
 					itemstack.getItemDamage(), 1.0F);
+			
 			GL11.glDisable(GL11.GL_CULL_FACE);
 		} else {
-			// ƒAƒCƒeƒ€‚ÉF•t‚¯
+			// ï¿½Aï¿½Cï¿½eï¿½ï¿½ï¿½ÉFï¿½tï¿½ï¿½
 //			pRender.loadTexture("/gui/items.png");
 			for (int j = 0; j <= (itemstack.getItem()
 					.requiresMultipleRenderPasses() ? 1 : 0); j++) {
@@ -465,7 +492,8 @@ public class MMM_ModelRenderer {
 				float f17 = (float) (k >> 8 & 0xff) / 255F;
 				float f19 = (float) (k & 0xff) / 255F;
 				GL11.glColor4f(f15, f17, f19, 1.0F);
-				pRender.renderManager.itemRenderer.renderItem(pEntityLiving, itemstack, j);
+				//pRender.renderManager.itemRenderer.renderItem(pEntityLiving, itemstack, j);
+				RenderManager.instance.itemRenderer.renderItem(pEntityLiving, itemstack, j);
 			}
 		}
 		
@@ -473,19 +501,19 @@ public class MMM_ModelRenderer {
 	}
 
 	/**
-	 *  ‰ñ“]•ÏŠ·‚ğs‚¤‡˜‚ğw’èB
+	 *  ï¿½ï¿½]ï¿½ÏŠï¿½ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½wï¿½ï¿½B
 	 * @param pValue
-	 * Rot???‚ğw’è‚·‚é
+	 * Rot???ï¿½ï¿½ï¿½wï¿½è‚·ï¿½ï¿½
 	 */
 	public void setRotatePriority(int pValue) {
 		rotatePriority = pValue;
 	}
 
 	/**
-	 * “à•”Às—pAÀ•W•ÏŠ·•”
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½sï¿½pï¿½Aï¿½ï¿½ï¿½Wï¿½ÏŠï¿½ï¿½ï¿½
 	 */
 	protected void setRotation() {
-		// •ÏŠ·‡ˆÊ‚Ìİ’è
+		// ï¿½ÏŠï¿½ï¿½ï¿½ï¿½Ê‚Ìİ’ï¿½
 		switch (rotatePriority) {
 		case RotXYZ:
 			if (rotateAngleZ != 0.0F) {
@@ -557,10 +585,10 @@ public class MMM_ModelRenderer {
 	}
 
 	/**
-	 * “à•”Às—pAƒŒƒ“ƒ_ƒŠƒ“ƒO•”•ªB
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½sï¿½pï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½B
 	 */
 	protected void renderObject(float par1, boolean pRendering) {
-		// ƒŒƒ“ƒ_ƒŠƒ“ƒOA‚ ‚Æq‹Ÿ‚à
+		// ï¿½ï¿½ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½Oï¿½Aï¿½ï¿½ï¿½Æqï¿½ï¿½ï¿½ï¿½
 		GL11.glGetFloat(GL11.GL_MODELVIEW_MATRIX, matrix);
 		if (pRendering && isRendering) {
 			GL11.glPushMatrix();
@@ -577,7 +605,7 @@ public class MMM_ModelRenderer {
 	}
 
 	/**
-	 * ƒp[ƒc•`‰æ“_‚Ìƒ}ƒgƒŠƒNƒX‚ğİ’è‚·‚éB ‚±‚êˆÈ‘O‚Éİ’è‚³‚ê‚½ƒ}ƒgƒŠƒNƒX‚Í”jŠü‚³‚ê‚éB
+	 * ï¿½pï¿½[ï¿½cï¿½`ï¿½æï¿½_ï¿½Ìƒ}ï¿½gï¿½ï¿½ï¿½Nï¿½Xï¿½ï¿½İ’è‚·ï¿½ï¿½B ï¿½ï¿½ï¿½ï¿½È‘Oï¿½Éİ’è‚³ï¿½ê‚½ï¿½}ï¿½gï¿½ï¿½ï¿½Nï¿½Xï¿½Í”jï¿½ï¿½ï¿½ï¿½B
 	 */
 	public MMM_ModelRenderer loadMatrix() {
 		GL11.glLoadMatrix(matrix);
@@ -588,7 +616,7 @@ public class MMM_ModelRenderer {
 	}
 
 
-	// ƒQƒbƒ^[AƒZƒbƒ^[
+	// ï¿½Qï¿½bï¿½^ï¿½[ï¿½Aï¿½Zï¿½bï¿½^ï¿½[
 
 	public boolean getMirror() {
 		return mirror;
@@ -608,7 +636,7 @@ public class MMM_ModelRenderer {
 	}
 
 
-	// Deg•t‚«‚ÍŠp“xw’è‚ª“x”–@
+	// Degï¿½tï¿½ï¿½ï¿½ÍŠpï¿½xï¿½wï¿½è‚ªï¿½xï¿½ï¿½ï¿½@
 
 	public float getRotateAngleX() {
 		return rotateAngleX;

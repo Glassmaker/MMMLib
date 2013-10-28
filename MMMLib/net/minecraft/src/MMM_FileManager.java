@@ -12,11 +12,12 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.jar.JarFile;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.server.MinecraftServer;
 
 /**
- * modsƒfƒBƒŒƒNƒgƒŠ‚ÌŠl“¾‚Æminecraft–{‘Ì‚Ìjar‚ğŠl“¾‚µA
- * ‚»‚±‚ÉŠÜ‚Ü‚ê‚éw’è‚³‚ê‚½•¶š—ñ‚ğŠÜ‚Şzip‚ª‚ ‚é‚©‚Ç‚¤‚©‚ğ”»’è‚·‚éB
+ * modsï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½ÌŠlï¿½ï¿½ï¿½ï¿½minecraftï¿½{ï¿½Ì‚ï¿½jarï¿½ï¿½ï¿½lï¿½ï¿½ï¿½ï¿½ï¿½A
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ÉŠÜ‚Ü‚ï¿½ï¿½wï¿½è‚³ï¿½ê‚½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½zipï¿½ï¿½ï¿½ï¿½ï¿½é‚©ï¿½Ç‚ï¿½ï¿½ï¿½ï¿½ğ”»’è‚·ï¿½ï¿½B
  *
  */
 public class MMM_FileManager {
@@ -30,15 +31,15 @@ public class MMM_FileManager {
 
 	
 	public static void init() {
-		// ‰Šú‰»
+		// ï¿½ï¿½ï¿½ï¿½
 		if (MMM_Helper.isClient) {
 			minecraftDir = MMM_Helper.mc.mcDataDir;
 		} else {
 			minecraftDir = MinecraftServer.getServer().getFile("");
 		}
 		
-		// mincraft.jar‚ğæ“¾
-		// ŠJ”­’†—p‚ÌJar“à‚ÉŠÜ‚Ü‚ê‚Ä‚¢‚é‚±‚Æ‚Ì‘Îô
+		// mincraft.jarï¿½ï¿½ï¿½æ“¾
+		// ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½pï¿½ï¿½Jarï¿½ï¿½ï¿½ÉŠÜ‚Ü‚ï¿½Ä‚ï¿½ï¿½é‚±ï¿½Æ‚Ì‘Îï¿½
 		try {
 			ProtectionDomain ls1 = BaseMod.class.getProtectionDomain();
 			CodeSource ls2 = ls1.getCodeSource();
@@ -95,19 +96,19 @@ public class MMM_FileManager {
 			}
 			mod_MMM_MMMLib.Debug("getAssets-Directory:%s", assetsDir.getAbsolutePath());
 		} else {
-			// ƒT[ƒo[‘¤‚Å‚Íg‚í‚ê‚È‚¢‚Í‚¸B
+			// ï¿½Tï¿½[ï¿½oï¿½[ï¿½ï¿½ï¿½Å‚Ígï¿½ï¿½ï¿½È‚ï¿½ï¿½Í‚ï¿½ï¿½B
 		}
 		
 	}
 
 	/**
-	 * MODƒfƒBƒŒƒNƒgƒŠ‚ÉŠÜ‚Ü‚ê‚é‘ÎÛƒtƒ@ƒCƒ‹‚ÌƒIƒuƒWƒFƒNƒg‚ğæ“¾B
-	 * @param pname ŒŸõƒŠƒXƒg–¼ÌAgetFileList()‚Åg‚¤B
-	 * @param pprefix ‚±‚Ì•¶š—ñ‚ÌŠÜ‚Ü‚ê‚éƒtƒ@ƒCƒ‹‚ğ—ñ‹“‚·‚éB
-	 * @return —ñ‹“‚³‚ê‚½ƒtƒ@ƒCƒ‹‚ÌƒŠƒXƒgB
+	 * MODï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½ÉŠÜ‚Ü‚ï¿½ï¿½ÎÛƒtï¿½@ï¿½Cï¿½ï¿½ï¿½ÌƒIï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ï¿½ï¿½æ“¾ï¿½B
+	 * @param pname ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½ÌAgetFileList()ï¿½Ågï¿½ï¿½ï¿½B
+	 * @param pprefix ï¿½ï¿½ï¿½Ì•ï¿½ï¿½ï¿½ï¿½ï¿½ÌŠÜ‚Ü‚ï¿½ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ñ‹“‚ï¿½ï¿½ï¿½B
+	 * @return ï¿½ñ‹“‚ï¿½ï¿½ê‚½ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½Ìƒï¿½ï¿½Xï¿½gï¿½B
 	 */
 	public static List<File> getModFile(String pname, String pprefix) {
-		// ŒŸõÏ‚İ‚©‚Ç‚¤‚©‚Ì”»’è
+		// ï¿½ï¿½ï¿½ï¿½ï¿½Ï‚İ‚ï¿½ï¿½Ç‚ï¿½ï¿½ï¿½ï¿½Ì”ï¿½ï¿½ï¿½
 		List<File> llist;
 		if (fileList.containsKey(pname)) {
 			llist = fileList.get(pname);
@@ -117,7 +118,7 @@ public class MMM_FileManager {
 		}
 		
 		mod_MMM_MMMLib.Debug("getModFile:[%s]:%s", pname, modDir.getAbsolutePath());
-		// ƒtƒ@ƒCƒ‹EƒfƒBƒŒƒNƒgƒŠ‚ğŒŸõ
+		// ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½Eï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		try {
 			if (modDir.isDirectory()) {
 				mod_MMM_MMMLib.Debug("getModFile-get:%d.", modDir.list().length);
@@ -134,7 +135,7 @@ public class MMM_FileManager {
 				}
 				mod_MMM_MMMLib.Debug("getModFile-files:%d", llist.size());
 			} else {
-				// ‚Ü‚¸‚ ‚è‚¦‚È‚¢
+				// ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½è‚¦ï¿½È‚ï¿½
 				mod_MMM_MMMLib.Debug("getModFile-fail.");
 			}
 			return llist;
@@ -146,9 +147,9 @@ public class MMM_FileManager {
 	}
 
 	/**
-	 * ŒŸõÏ‚İ‚ÌƒŠƒXƒg‚ÉŠÜ‚Ü‚ê‚é—ñ‹“ƒtƒ@ƒCƒ‹‚ğ•Ô‚·B
-	 * @param pname ŒŸõƒŠƒXƒg–¼B
-	 * @return —ñ‹“‚³‚ê‚½ƒtƒ@ƒCƒ‹‚ÌƒŠƒXƒgB
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Ï‚İ‚Ìƒï¿½ï¿½Xï¿½gï¿½ÉŠÜ‚Ü‚ï¿½ï¿½ñ‹“ƒtï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½Ô‚ï¿½ï¿½B
+	 * @param pname ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½B
+	 * @return ï¿½ñ‹“‚ï¿½ï¿½ê‚½ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½Ìƒï¿½ï¿½Xï¿½gï¿½B
 	 */
 	public static List<File> getFileList(String pname) {
 		return fileList.get(pname);

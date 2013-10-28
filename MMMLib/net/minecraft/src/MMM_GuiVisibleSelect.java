@@ -1,5 +1,12 @@
 package net.minecraft.src;
 
+import net.minecraft.client.gui.GuiButton;
+import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.renderer.OpenGlHelper;
+import net.minecraft.client.renderer.RenderHelper;
+import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.entity.Entity;
+
 import org.lwjgl.opengl.EXTRescaleNormal;
 import org.lwjgl.opengl.GL11;
 
@@ -45,7 +52,7 @@ public class MMM_GuiVisibleSelect extends GuiScreen {
 	}
 
 	/**
-	 * “Æ©ƒ{ƒ^ƒ“‚ğ’Ç‰Á‚·‚éB
+	 * ï¿½Æï¿½ï¿½{ï¿½^ï¿½ï¿½ï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½B
 	 */
 	public void initAddetionalButton() {
 		buttonList.add(new MMM_GuiToggleButton(100, width - 80 * (1 + 34 / 12), (34 % 12) * 20, 80, 20, "Back"));

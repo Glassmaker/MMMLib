@@ -6,6 +6,20 @@ import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Random;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.multiplayer.NetClientHandler;
+import net.minecraft.client.renderer.OpenGlHelper;
+import net.minecraft.client.renderer.RenderHelper;
+import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.projectile.EntityArrow;
+import net.minecraft.network.packet.Packet250CustomPayload;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.World;
+
 import org.lwjgl.opengl.GL11;
 
 public class MMM_Client {
@@ -13,11 +27,11 @@ public class MMM_Client {
 	public static MMM_ItemRenderer itemRenderer;
 
 	/**
-	 * ‰Šú‰»ÀsƒR[ƒh
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½sï¿½Rï¿½[ï¿½h
 	 */
 	public static void init() {
 		try {
-			// TODO: ƒo[ƒWƒ‡ƒ“ƒAƒbƒv‚É‚ÍŠm”F‚·‚é‚±‚Æ
+			// TODO: ï¿½oï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½bï¿½vï¿½ï¿½ï¿½É‚ÍŠmï¿½Fï¿½ï¿½ï¿½é‚±ï¿½ï¿½
 			List lresourcePacks = (List)ModLoader.getPrivateValue(Minecraft.class, Minecraft.getMinecraft(), 63);
 			lresourcePacks.add(new MMM_ModOldResourcePack(mod_MMM_MMMLib.class));
 		} catch (Exception e) {
@@ -37,11 +51,11 @@ public class MMM_Client {
 			mod_MMM_MMMLib.Debug("replace RenderManager.itemRenderer.");
 			RenderManager.instance.itemRenderer = itemRenderer;
 		}
-		// GUI‚Ì•\¦‚ğ•Ï‚¦‚é‚É‚ÍíŠÄ‹‚ª•K—vH
+		// GUIï¿½Ì•\ï¿½ï¿½ï¿½ï¿½Ï‚ï¿½ï¿½ï¿½É‚Ííï¿½Äï¿½ï¿½ï¿½ï¿½Kï¿½vï¿½H
 	}
 
 	public static void clientCustomPayload(NetClientHandler var1, Packet250CustomPayload var2) {
-		// ƒNƒ‰ƒCƒAƒ“ƒg‘¤‚Ì“ÁêƒpƒPƒbƒgóM“®ì
+		// ï¿½Nï¿½ï¿½ï¿½Cï¿½Aï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Ì“ï¿½ï¿½ï¿½pï¿½Pï¿½bï¿½gï¿½ï¿½Mï¿½ï¿½ï¿½ï¿½
 		byte lmode = var2.data[0];
 		int leid = 0;
 		Entity lentity = null;
@@ -54,11 +68,11 @@ public class MMM_Client {
 		
 		switch (lmode) {
 		case MMM_Statics.Client_SetTextureIndex:
-			// –â‚¢‡‚í‚¹‚½ƒeƒNƒXƒ`ƒƒƒpƒbƒN‚ÌŠÇ—”Ô†‚ğó‚¯æ‚é
+			// ï¿½â‚¢ï¿½ï¿½ï¿½í‚¹ï¿½ï¿½ï¿½eï¿½Nï¿½Xï¿½`ï¿½ï¿½ï¿½pï¿½bï¿½Nï¿½ÌŠÇ—ï¿½ï¿½Ôï¿½ï¿½ï¿½ï¿½ó‚¯ï¿½ï¿½
 			MMM_TextureManager.instance.reciveFormServerSetTexturePackIndex(var2.data);
 			break;
 		case MMM_Statics.Client_SetTexturePackName:
-			// ŠÇ—”Ô†‚É“o˜^‚³‚ê‚Ä‚¢‚éƒeƒNƒXƒ`ƒƒƒpƒbƒN‚Ìî•ñ‚ğó‚¯æ‚é
+			// ï¿½Ç—ï¿½ï¿½Ôï¿½ï¿½É“oï¿½^ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½eï¿½Nï¿½Xï¿½`ï¿½ï¿½ï¿½pï¿½bï¿½Nï¿½Ìï¿½ï¿½ï¿½ï¿½ó‚¯ï¿½ï¿½
 			MMM_TextureManager.instance.reciveFromServerSetTexturePackName(var2.data);
 			break;
 		}
@@ -90,7 +104,7 @@ public class MMM_Client {
 	}
 
 	/**
-	 * Duo‚ğg‚¤‚Í•K‚¸Render‘¤‚Ì‚±‚ÌŠÖ”‚ğ’u‚«Š·‚¦‚é‚±‚ÆB
+	 * Duoï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Í•Kï¿½ï¿½Renderï¿½ï¿½ï¿½Ì‚ï¿½ï¿½ÌŠÖï¿½ï¿½ï¿½uï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½é‚±ï¿½ÆB
 	 * @param par1EntityLiving
 	 * @param par2
 	 */
@@ -129,7 +143,9 @@ public class MMM_Client {
 				double var18 = 0.0D;
 				double var20 = 0.0D;
 				float var22 = 0.0F;
-				pRender.renderManager.renderEntityWithPosYaw(larrow, var16, var18, var20, var22, par2);
+				//TODO to be fixed for forge
+				//pRender.renderManager.renderEntityWithPosYaw(larrow, var16, var18, var20, var22, par2);
+				pRender.doRender(larrow, var16, var18, var20, var22, par2);
 				GL11.glPopMatrix();
 			}
 			
@@ -155,11 +171,13 @@ public class MMM_Client {
 
 	public static void setTexture(ResourceLocation pRLocation) {
 		if (pRLocation != null) {
-			MMM_Helper.mc.func_110434_K().func_110577_a(pRLocation);
+			MMM_Helper.mc.getTextureManager().bindTexture(pRLocation);
 		}
 	}
 
 	public static String getVersionString() {
-		return Minecraft.func_110431_a(Minecraft.getMinecraft());
+		//TODO: to be fixed for Forge
+		//return Minecraft.getLaunchedVersion(Minecraft.getMinecraft());
+		return "1.6.4";
 	}
 }

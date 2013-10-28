@@ -1,42 +1,48 @@
 package net.minecraft.src;
 
 import java.util.Map;
-import java.util.Random;
+
+import net.minecraft.client.model.TextureOffset;
+import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RendererLivingEntity;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
 /**
- * ƒA[ƒ}[‚Ì“ñd•`‰æ—pƒNƒ‰ƒXB
- * •K‚¸Inner‘¤‚É‚Íƒ‚ƒfƒ‹‚ğİ’è‚·‚é‚±‚ÆB
- * ’Êí‚ÌRenderer‚Å•`‰æ‚·‚é‚½‚ß‚ÌƒNƒ‰ƒX‚È‚Ì‚ÅARender‚ğ‚¿‚á‚ñ‚Æ‹Lq‚·‚é‚È‚ç‚¢‚ç‚È‚¢ƒNƒ‰ƒX‚Å‚·B
+ * ï¿½Aï¿½[ï¿½}ï¿½[ï¿½Ì“ï¿½dï¿½`ï¿½ï¿½pï¿½Nï¿½ï¿½ï¿½Xï¿½B
+ * ï¿½Kï¿½ï¿½Innerï¿½ï¿½ï¿½É‚Íƒï¿½ï¿½fï¿½ï¿½ï¿½ï¿½İ’è‚·ï¿½é‚±ï¿½ÆB
+ * ï¿½Êï¿½ï¿½Rendererï¿½Å•`ï¿½æ‚·ï¿½é‚½ï¿½ß‚ÌƒNï¿½ï¿½ï¿½Xï¿½È‚Ì‚ÅARenderï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ‹Lï¿½qï¿½ï¿½ï¿½ï¿½È‚ç‚¢ï¿½ï¿½È‚ï¿½ï¿½Nï¿½ï¿½ï¿½Xï¿½Å‚ï¿½ï¿½B
  */
 public class MMM_ModelBaseDuo extends MMM_ModelBaseNihil implements MMM_IModelBaseMMM {
 
 	public MMM_ModelMultiBase modelOuter;
 	public MMM_ModelMultiBase modelInner;
 	/**
-	 * •”ˆÊ–ˆ‚ÌƒA[ƒ}[ƒeƒNƒXƒ`ƒƒ‚Ìw’èB
-	 * ŠO‘¤B
+	 * ï¿½ï¿½ï¿½Ê–ï¿½ï¿½ÌƒAï¿½[ï¿½}ï¿½[ï¿½eï¿½Nï¿½Xï¿½`ï¿½ï¿½ï¿½Ìwï¿½ï¿½B
+	 * ï¿½Oï¿½ï¿½ï¿½B
 	 */
 	public ResourceLocation[] textureOuter;
 	/**
-	 * •”ˆÊ–ˆ‚ÌƒA[ƒ}[ƒeƒNƒXƒ`ƒƒ‚Ìw’èB
-	 * “à‘¤B
+	 * ï¿½ï¿½ï¿½Ê–ï¿½ï¿½ÌƒAï¿½[ï¿½}ï¿½[ï¿½eï¿½Nï¿½Xï¿½`ï¿½ï¿½ï¿½Ìwï¿½ï¿½B
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½B
 	 */
 	public ResourceLocation[] textureInner;
 	/**
-	 * •”ˆÊ–ˆ‚ÌƒA[ƒ}[ƒeƒNƒXƒ`ƒƒ‚Ìw’èB
-	 * ŠO‘¤E”­ŒõB
+	 * ï¿½ï¿½ï¿½Ê–ï¿½ï¿½ÌƒAï¿½[ï¿½}ï¿½[ï¿½eï¿½Nï¿½Xï¿½`ï¿½ï¿½ï¿½Ìwï¿½ï¿½B
+	 * ï¿½Oï¿½ï¿½ï¿½Eï¿½ï¿½ï¿½ï¿½ï¿½B
 	 */
 	public ResourceLocation[] textureOuterLight;
 	/**
-	 * •”ˆÊ–ˆ‚ÌƒA[ƒ}[ƒeƒNƒXƒ`ƒƒ‚Ìw’èB
-	 * “à‘¤E”­ŒõB
+	 * ï¿½ï¿½ï¿½Ê–ï¿½ï¿½ÌƒAï¿½[ï¿½}ï¿½[ï¿½eï¿½Nï¿½Xï¿½`ï¿½ï¿½ï¿½Ìwï¿½ï¿½B
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Eï¿½ï¿½ï¿½ï¿½ï¿½B
 	 */
 	public ResourceLocation[] textureInnerLight;
 	/**
-	 * •`‰æ‚³‚ê‚éƒA[ƒ}[‚Ì•”ˆÊB
-	 * shouldRenderPass‚Æ‚©‚Åw’è‚·‚éB
+	 * ï¿½`ï¿½æ‚³ï¿½ï¿½ï¿½Aï¿½[ï¿½}ï¿½[ï¿½Ì•ï¿½ï¿½ÊB
+	 * shouldRenderPassï¿½Æ‚ï¿½ï¿½Åwï¿½è‚·ï¿½ï¿½B
 	 */
 	public int renderParts;
 
@@ -64,16 +70,16 @@ public class MMM_ModelBaseDuo extends MMM_ModelBaseNihil implements MMM_IModelBa
 		if (modelInner != null) {
 			if (textureInner != null && lri) {
 				if (textureInner[renderParts] != null) {
-					// ’Êíƒp[ƒc
+					// ï¿½Êï¿½pï¿½[ï¿½c
 					MMM_Client.setTexture(textureInner[renderParts]);
 					modelInner.render(entityCaps, par2, par3, par4, par5, par6, par7, isRendering);
 				}
 			} else {
-				// ‚Ù‚ÚƒGƒ“ƒ`ƒƒƒ“ƒgƒGƒtƒFƒNƒg—p
+				// ï¿½Ù‚ÚƒGï¿½ï¿½ï¿½`ï¿½ï¿½ï¿½ï¿½ï¿½gï¿½Gï¿½tï¿½Fï¿½Nï¿½gï¿½p
 				modelInner.render(entityCaps, par2, par3, par4, par5, par6, par7, isRendering);
 			}
 			if (textureInnerLight != null && renderCount == 0) {
-				// ”­ŒõƒeƒNƒXƒ`ƒƒ•\¦ˆ—
+				// ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½Nï¿½Xï¿½`ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				if (textureInnerLight[renderParts] != null) {
 					MMM_Client.setTexture(textureInnerLight[renderParts]);
 					GL11.glEnable(GL11.GL_BLEND);
@@ -85,7 +91,7 @@ public class MMM_ModelBaseDuo extends MMM_ModelBaseNihil implements MMM_IModelBa
 					if (textureLightColor == null) {
 						GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 					} else {
-						//”­ŒõF‚ğ’²®
+						//ï¿½ï¿½ï¿½ï¿½ï¿½Fï¿½ğ’²ï¿½
 						GL11.glColor4f(
 								textureLightColor[0],
 								textureLightColor[1],
@@ -102,17 +108,17 @@ public class MMM_ModelBaseDuo extends MMM_ModelBaseNihil implements MMM_IModelBa
 		}
 		if (modelOuter != null) {
 			if (textureOuter != null && lri) {
-				// ’Êíƒp[ƒc
+				// ï¿½Êï¿½pï¿½[ï¿½c
 				if (textureOuter[renderParts] != null) {
 					MMM_Client.setTexture(textureOuter[renderParts]);
 					modelOuter.render(entityCaps, par2, par3, par4, par5, par6, par7, isRendering);
 				}
 			} else {
-				// ‚Ù‚ÚƒGƒ“ƒ`ƒƒƒ“ƒgƒGƒtƒFƒNƒg—p
+				// ï¿½Ù‚ÚƒGï¿½ï¿½ï¿½`ï¿½ï¿½ï¿½ï¿½ï¿½gï¿½Gï¿½tï¿½Fï¿½Nï¿½gï¿½p
 				modelOuter.render(entityCaps, par2, par3, par4, par5, par6, par7, isRendering);
 			}
 			if (textureOuterLight != null && renderCount == 0) {
-				// ”­ŒõƒeƒNƒXƒ`ƒƒ•\¦ˆ—
+				// ï¿½ï¿½ï¿½ï¿½ï¿½eï¿½Nï¿½Xï¿½`ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				if (textureOuterLight[renderParts] != null) {
 					MMM_Client.setTexture(textureOuterLight[renderParts]);
 					float var4 = 1.0F;
@@ -125,7 +131,7 @@ public class MMM_ModelBaseDuo extends MMM_ModelBaseNihil implements MMM_IModelBa
 					if (textureLightColor == null) {
 						GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 					} else {
-						//”­ŒõF‚ğ’²®
+						//ï¿½ï¿½ï¿½ï¿½ï¿½Fï¿½ğ’²ï¿½
 						GL11.glColor4f(
 								textureLightColor[0],
 								textureLightColor[1],
@@ -161,7 +167,7 @@ public class MMM_ModelBaseDuo extends MMM_ModelBaseNihil implements MMM_IModelBa
 	}
 
 
-	// IModelMMM’Ç‰Á•ª
+	// IModelMMMï¿½Ç‰ï¿½ï¿½ï¿½
 
 	@Override
 	public void renderItems(EntityLivingBase pEntity, Render pRender) {
@@ -181,8 +187,8 @@ public class MMM_ModelBaseDuo extends MMM_ModelBaseNihil implements MMM_IModelBa
 	}
 
 	/**
-	 * Renderer•Ó‚Å‚±‚Ì•Ï”‚ğİ’è‚·‚éB
-	 * İ’è’l‚ÍMMM_IModelCaps‚ğŒp³‚µ‚½Entitiy‚Æ‚©‚ğ‘z’èB
+	 * Rendererï¿½Ó‚Å‚ï¿½ï¿½Ì•Ïï¿½ï¿½ï¿½İ’è‚·ï¿½ï¿½B
+	 * ï¿½İ’ï¿½lï¿½ï¿½MMM_IModelCapsï¿½ï¿½ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Entitiyï¿½Æ‚ï¿½ï¿½ï¿½zï¿½ï¿½B
 	 */
 	@Override
 	public void setEntityCaps(MMM_IModelCaps pEntityCaps) {
@@ -208,7 +214,7 @@ public class MMM_ModelBaseDuo extends MMM_ModelBaseNihil implements MMM_IModelBa
 	}
 
 
-	// IModelCaps’Ç‰Á•ª
+	// IModelCapsï¿½Ç‰ï¿½ï¿½ï¿½
 
 	@Override
 	public Map<String, Integer> getModelCaps() {

@@ -1,11 +1,11 @@
 package net.minecraft.src;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.Random;
 
-import org.lwjgl.opengl.EXTRescaleNormal;
-import org.lwjgl.opengl.GL11;
+import net.minecraft.client.renderer.entity.RenderItem;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.item.Item;
 
 public class MMM_RenderItem extends RenderItem {
 

@@ -7,6 +7,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
 
 import org.lwjgl.opengl.EXTRescaleNormal;
@@ -68,7 +76,7 @@ public class MMM_ItemRenderManager {
 	}
 
 	public static boolean setEXRender(Item pItem, MMM_IItemRenderManager pEXRender) {
-		// ƒAƒCƒeƒ€‚Ì“Áê•`‰æ‹@”\‚ğ‹­§“I‚É’Ç‰Á‚·‚é
+		// ï¿½Aï¿½Cï¿½eï¿½ï¿½ï¿½Ì“ï¿½ï¿½ï¿½`ï¿½ï¿½@ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½É’Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½
 		if (pItem == null || pEXRender == null) return false;
 		
 		checkList.add(pItem);
@@ -120,7 +128,7 @@ public class MMM_ItemRenderManager {
 
 	public void renderItemLocal(EntityLivingBase entityliving, ItemStack itemstack, int i) {
 		Item litem = itemstack.getItem();
-		// “ÁêƒŒƒ“ƒ_ƒ‰
+		// ï¿½ï¿½ï¿½êƒŒï¿½ï¿½ï¿½_ï¿½ï¿½
 		MMM_Client.setTexture(getRenderTexture(itemstack));
 		GL11.glPushMatrix();
 		boolean lflag = renderItem(entityliving, itemstack, i);
@@ -202,9 +210,9 @@ public class MMM_ItemRenderManager {
 		MMM_ItemRenderManager lirm = MMM_ItemRenderManager.getEXRender(lis.getItem());
 		if (!lirm.isRenderItemWorld(lis)) return false;
 		
-		// ƒeƒNƒXƒ`ƒƒ
+		// ï¿½eï¿½Nï¿½Xï¿½`ï¿½ï¿½
 		MMM_Client.setTexture(lirm.getRenderTexture(lis));
-		// •`‰æ
+		// ï¿½`ï¿½ï¿½
 		random.setSeed(187L);
 		GL11.glPushMatrix();
 		float f2 = MathHelper.sin(((float)entityitem.age + f1) / 10F + entityitem.hoverStart) * 0.1F + 0.1F;

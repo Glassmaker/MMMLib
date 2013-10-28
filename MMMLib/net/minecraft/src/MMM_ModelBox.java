@@ -1,5 +1,8 @@
 package net.minecraft.src;
 
+import net.minecraft.client.model.PositionTextureVertex;
+import net.minecraft.client.model.TexturedQuad;
+
 public class MMM_ModelBox extends MMM_ModelBoxBase {
 
 	/**

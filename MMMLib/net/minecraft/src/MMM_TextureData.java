@@ -1,9 +1,22 @@
 package net.minecraft.src;
 
+import java.util.Random;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.entity.DataWatcher;
+import net.minecraft.entity.EntityAgeable;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagInt;
+import net.minecraft.nbt.NBTTagList;
+import net.minecraft.util.ResourceLocation;
+
 
 
 /**
- * ƒeƒNƒXƒ`ƒƒŠÇ——p‚Ì•Ï”ŒQ‚ğ‚Ü‚Æ‚ß‚½‚à‚ÌB
+ * ï¿½eï¿½Nï¿½Xï¿½`ï¿½ï¿½ï¿½Ç—ï¿½ï¿½pï¿½Ì•Ïï¿½ï¿½Qï¿½ï¿½ï¿½Ü‚Æ‚ß‚ï¿½ï¿½ï¿½ï¿½ÌB
  */
 public class MMM_TextureData  {
 //public class MMM_TextureData implements MMM_ITextureEntity {
@@ -11,16 +24,17 @@ public class MMM_TextureData  {
 	public EntityLivingBase owner;
 	public MMM_IModelCaps entityCaps;
 	
+	protected Random rand = new Random();
 	/**
-	 * g—p‚³‚ê‚éƒeƒNƒXƒ`ƒƒƒŠƒ\[ƒX‚ÌƒRƒ“ƒeƒi
+	 * ï¿½gï¿½pï¿½ï¿½ï¿½ï¿½ï¿½eï¿½Nï¿½Xï¿½`ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½ÌƒRï¿½ï¿½ï¿½eï¿½i
 	 */
 	public ResourceLocation textures[][];
 	/**
-	 * ‘I‘ğF
+	 * ï¿½Iï¿½ï¿½F
 	 */
 	public int color;
 	/**
-	 * Œ_–ñƒeƒNƒXƒ`ƒƒ‚ğ‘I‘ğ‚·‚é‚©‚Ç‚¤‚©
+	 * ï¿½_ï¿½ï¿½eï¿½Nï¿½Xï¿½`ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½é‚©ï¿½Ç‚ï¿½ï¿½ï¿½
 	 */
 	public boolean contract;
 	
@@ -29,8 +43,8 @@ public class MMM_TextureData  {
 	public MMM_ModelMultiBase textureModel[];
 	
 	/**
-	 * •\¦§Œä‚Ég‚¤ƒtƒ‰ƒOŒQ<br>
-	 * intŒ^32bit‚Å•Û‘¶B
+	 * ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Égï¿½ï¿½ï¿½tï¿½ï¿½ï¿½Oï¿½Q<br>
+	 * intï¿½^32bitï¿½Å•Û‘ï¿½ï¿½B
 	 */
 	public int selectValue;
 
@@ -45,23 +59,23 @@ public class MMM_TextureData  {
 		entityCaps = pCaps;
 		textures = new ResourceLocation[][] {
 				/**
-				 * Šî–{A”­Œõ
+				 * ï¿½ï¿½{ï¿½Aï¿½ï¿½ï¿½ï¿½
 				 */
 				{ null, null },
 				/**
-				 * ƒA[ƒ}[“àF“ªA“·A˜A‘«
+				 * ï¿½Aï¿½[ï¿½}ï¿½[ï¿½ï¿½ï¿½Fï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½Aï¿½ï¿½
 				 */
 				{ null, null, null, null },
 				/**
-				 * ƒA[ƒ}[ŠOF“ªA“·A˜A‘«
+				 * ï¿½Aï¿½[ï¿½}ï¿½[ï¿½Oï¿½Fï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½Aï¿½ï¿½
 				 */
 				{ null, null, null, null },
 				/**
-				 * ƒA[ƒ}[“à”­ŒõF“ªA“·A˜A‘«
+				 * ï¿½Aï¿½[ï¿½}ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Fï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½Aï¿½ï¿½
 				 */
 				{ null, null, null, null },
 				/**
-				 * ƒA[ƒ}[ŠO”­ŒõF“ªA“·A˜A‘«
+				 * ï¿½Aï¿½[ï¿½}ï¿½[ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½Fï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½Aï¿½ï¿½
 				 */
 				{ null, null, null, null }
 		};
@@ -74,7 +88,7 @@ public class MMM_TextureData  {
 	}
 
 	/**
-	 * ƒeƒNƒXƒ`ƒƒƒŠƒ\[ƒX‚ğŒ»İ’l‚É‡‚í‚¹‚Äİ’è‚·‚éB
+	 * ï¿½eï¿½Nï¿½Xï¿½`ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½İ’lï¿½Éï¿½ï¿½í‚¹ï¿½Äİ’è‚·ï¿½ï¿½B
 	 */
 	public boolean setTextureNames() {
 		textureModel[0] = null;
@@ -89,7 +103,7 @@ public class MMM_TextureData  {
 	}
 
 	/**
-	 * ƒeƒNƒXƒ`ƒƒƒŠƒ\[ƒX‚ğŒ»İ’l‚É‡‚í‚¹‚Äİ’è‚·‚éB
+	 * ï¿½eï¿½Nï¿½Xï¿½`ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½İ’lï¿½Éï¿½ï¿½í‚¹ï¿½Äİ’è‚·ï¿½ï¿½B
 	 */
 	protected boolean setTextureNamesClient() {
 		// Client
@@ -169,7 +183,7 @@ public class MMM_TextureData  {
 			int lc = getColor() + (isContract() ? 0 : MMM_TextureManager.tx_wild);
 			textureBox[0] = MMM_TextureManager.instance.getNextPackege((MMM_TextureBox)textureBox[0], lc);
 			if (textureBox[0] == null) {
-				// w’èF‚ª–³‚¢ê‡‚Í•W€ƒ‚ƒfƒ‹‚É
+				// ï¿½wï¿½ï¿½Fï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‡ï¿½Í•Wï¿½ï¿½ï¿½ï¿½ï¿½fï¿½ï¿½ï¿½ï¿½
 				textureBox[0] = textureBox[1] = MMM_TextureManager.instance.getDefaultTexture((MMM_ITextureEntity)owner);
 				setColor(12);
 			} else {
@@ -199,21 +213,22 @@ public class MMM_TextureData  {
 	}
 
 	/**
-	 * –ˆˆ—
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	public void onUpdate() {
-		// ƒ‚ƒfƒ‹ƒTƒCƒY‚ÌƒŠƒAƒ‹ƒ^ƒCƒ€•ÏX—L‚èH
+		// ï¿½ï¿½ï¿½fï¿½ï¿½ï¿½Tï¿½Cï¿½Yï¿½Ìƒï¿½ï¿½Aï¿½ï¿½ï¿½^ï¿½Cï¿½ï¿½ï¿½ÏXï¿½Lï¿½ï¿½H
 		if (textureBox[0].isUpdateSize) {
 			setSize();
 		}
 	}
 
 	protected void setSize() {
-		// ƒTƒCƒY‚Ì•ÏX
-		owner.setSize(textureBox[0].getWidth(entityCaps), textureBox[0].getHeight(entityCaps));
+		// ï¿½Tï¿½Cï¿½Yï¿½Ì•ÏX
+		//TODO: fix for forge
+		//owner.setSize(textureBox[0].getWidth(entityCaps), textureBox[0].getHeight(entityCaps));
 		if (owner instanceof EntityAgeable) {
-			// EntityAgeable‚Í‚±‚ê‚ğ‚µ‚È‚¢‚Æ‘å‚«‚³•ÏX‚µ‚È‚¢‚æ‚¤‚É‚È‚Á‚Ä‚éA‚­‚»‚¤B
-			((EntityAgeable)owner).func_98054_a(owner.isChild());
+			// EntityAgeableï¿½Í‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½Æ‘å‚«ï¿½ï¿½ï¿½ÏXï¿½ï¿½ï¿½È‚ï¿½ï¿½æ‚¤ï¿½É‚È‚ï¿½ï¿½Ä‚ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
+			((EntityAgeable)owner).setScaleForAge(owner.isChild());
 		}
 	}
 
@@ -292,14 +307,14 @@ public class MMM_TextureData  {
 
 
 	/**
-	 * –ì¶‚ÌF‚ğƒ‰ƒ“ƒ_ƒ€‚ÅŠl“¾‚·‚éB
+	 * ï¿½ì¶ï¿½ÌFï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ÅŠlï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
 	 */
 	public int getWildColor() {
-		return textureBox[0].getRandomWildColor(owner.rand);
+		return textureBox[0].getRandomWildColor(rand);
 	}
 
 	/**
-	 * ƒeƒNƒXƒ`ƒƒ–¼Ì‚©‚çƒ‰ƒ“ƒ_ƒ€‚Åİ’è‚·‚éB
+	 * ï¿½eï¿½Nï¿½Xï¿½`ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚ï¿½ï¿½çƒ‰ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½Åİ’è‚·ï¿½ï¿½B
 	 * @param pName
 	 */
 	public void setTextureInitServer(String pName) {
@@ -307,7 +322,7 @@ public class MMM_TextureData  {
 		textureIndex[0] = textureIndex[1] =
 				MMM_TextureManager.instance.getIndexTextureBoxServer((MMM_ITextureEntity)owner, pName);
 		textureBox[0] = textureBox[1] = MMM_TextureManager.instance.getTextureBoxServer(textureIndex[0]);
-		color = textureBox[0].getRandomWildColor(owner.rand);
+		color = textureBox[0].getRandomWildColor(rand);
 	}
 	public void setTextureInitClient() {
 		MMM_TextureBox lbox = MMM_TextureManager.instance.getDefaultTexture(owner.getClass());
@@ -315,7 +330,7 @@ public class MMM_TextureData  {
 			textureBox[li] = lbox;
 			textureIndex[li] = MMM_TextureManager.instance.getIndexTextureBoxServerIndex(lbox);
 		}
-		color = textureBox[0].getRandomWildColor(owner.rand);
+		color = textureBox[0].getRandomWildColor(rand);
 	}
 
 	public String getTextureName(int pIndex) {
@@ -345,8 +360,8 @@ public class MMM_TextureData  {
 	}
 
 	/**
-	 * •Û—Lƒpƒ‰ƒ[ƒ^[‚Ì•Û‘¶B<br>
-	 * ƒT[ƒo[—pB
+	 * ï¿½Û—Lï¿½pï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½^ï¿½[ï¿½Ì•Û‘ï¿½ï¿½B<br>
+	 * ï¿½Tï¿½[ï¿½oï¿½[ï¿½pï¿½B
 	 * @param par1nbtTagCompound
 	 */
 	public void writeToNBT(NBTTagCompound par1nbtTagCompound) {
@@ -364,8 +379,8 @@ public class MMM_TextureData  {
 	}
 
 	/**
-	 * •Û—Lƒpƒ‰ƒ[ƒ^[‚Ì“ÇoB<br>
-	 * ƒT[ƒo[—pB
+	 * ï¿½Û—Lï¿½pï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½^ï¿½[ï¿½Ì“Çoï¿½B<br>
+	 * ï¿½Tï¿½[ï¿½oï¿½[ï¿½pï¿½B
 	 * @param par1nbtTagCompound
 	 */
 	public void readToNBT(NBTTagCompound par1nbtTagCompound) {
@@ -384,7 +399,7 @@ public class MMM_TextureData  {
 				}
 				setTexturePackIndex(color, textureIndex);
 			} else {
-				// ƒ[ƒJƒ‹‚Éİ‚éƒfƒtƒHƒ‹ƒg‚ÌƒeƒNƒXƒ`ƒƒ‚ğİ’è
+				// ï¿½ï¿½ï¿½[ï¿½Jï¿½ï¿½ï¿½Éİ‚ï¿½fï¿½tï¿½Hï¿½ï¿½ï¿½gï¿½Ìƒeï¿½Nï¿½Xï¿½`ï¿½ï¿½ï¿½ï¿½İ’ï¿½
 				int li = MMM_TextureManager.instance.getIndexTextureBoxServerIndex(lbox);
 				setTexturePackIndex(color, new int[] {li, li});
 			}
@@ -413,22 +428,22 @@ public class MMM_TextureData  {
 		return lf;
 	}
 
-	// ƒpƒbƒP[ƒW‰»—p
+	// ï¿½pï¿½bï¿½Pï¿½[ï¿½Wï¿½ï¿½ï¿½p
 	/**
-	 * ŠÄ‹—p‚ÌdataWatcher‚ğİ’è‚·‚éB
+	 * ï¿½Äï¿½ï¿½pï¿½ï¿½dataWatcherï¿½ï¿½İ’è‚·ï¿½ï¿½B
 	 * @param pDataWatcher
 	 */
 	public void entityInit(DataWatcher pDataWatcher) {
 		// Color
 		pDataWatcher.addObject(data_Color, Byte.valueOf((byte)0));
-		// ‘I‘ğƒeƒNƒXƒ`ƒƒƒCƒ“ƒfƒbƒNƒX
+		// ï¿½Iï¿½ï¿½ï¿½eï¿½Nï¿½Xï¿½`ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½fï¿½bï¿½Nï¿½X
 		pDataWatcher.addObject(data_Texture, Integer.valueOf(0));
-		// ƒ‚ƒfƒ‹ƒp[ƒc‚Ì•\¦ƒtƒ‰ƒO
+		// ï¿½ï¿½ï¿½fï¿½ï¿½ï¿½pï¿½[ï¿½cï¿½Ì•\ï¿½ï¿½ï¿½tï¿½ï¿½ï¿½O
 		pDataWatcher.addObject(data_Value, Integer.valueOf(0));
 	}
 
 	public void onUpdateTex() {
-		// TODO:onUpdate‚Æ“‡‚·‚é‚±‚Æ
+		// TODO:onUpdateï¿½Æ“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½é‚±ï¿½ï¿½
 		if (owner.worldObj.isRemote) {
 			// Client
 			
@@ -440,11 +455,11 @@ public class MMM_TextureData  {
 	}
 
 	protected void setWatchedColor(int pColor) {
-		owner.dataWatcher.updateObject(data_Color, (byte)pColor);
+		owner.getDataWatcher().updateObject(data_Color, (byte)pColor);
 	}
 
 	protected int getWatchedColor() {
-		return owner.dataWatcher.getWatchableObjectByte(data_Color);
+		return owner.getDataWatcher().getWatchableObjectByte(data_Color);
 	}
 	
 }

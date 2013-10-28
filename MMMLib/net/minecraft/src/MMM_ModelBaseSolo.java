@@ -2,6 +2,13 @@ package net.minecraft.src;
 
 import java.util.Map;
 
+import net.minecraft.client.model.TextureOffset;
+import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RendererLivingEntity;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.util.ResourceLocation;
+
 import org.lwjgl.opengl.GL11;
 
 public class MMM_ModelBaseSolo extends MMM_ModelBaseNihil implements MMM_IModelBaseMMM {
@@ -38,17 +45,17 @@ public class MMM_ModelBaseSolo extends MMM_ModelBaseNihil implements MMM_IModelB
 			}
 		}
 		if (textures.length > 2 && textures[2] != null) {
-			// Actors—p
+			// Actorsï¿½p
 			model.setRotationAngles(par2, par3, par4, par5, par6, par7, entityCaps);
 			// Face
-			// TODO:ƒeƒNƒXƒ`ƒƒ‚Ìƒ[ƒh‚Í‚È‚ñ‚©l‚¦‚éB
+			// TODO:ï¿½eï¿½Nï¿½Xï¿½`ï¿½ï¿½ï¿½Ìƒï¿½ï¿½[ï¿½hï¿½Í‚È‚ñ‚©lï¿½ï¿½ï¿½ï¿½B
 			MMM_Client.setTexture(textures[2]);
 			model.setCapsValue(caps_renderFace, entityCaps, par2, par3, par4, par5, par6, par7, isRendering);
 			// Body
 			MMM_Client.setTexture(textures[0]);
 			model.setCapsValue(caps_renderBody, entityCaps, par2, par3, par4, par5, par6, par7, isRendering);
 		} else {
-			// ’Êí
+			// ï¿½Êï¿½
 			if (textures.length > 0 && textures[0] != null) {
 				MMM_Client.setTexture(textures[0]);
 			}
@@ -56,7 +63,7 @@ public class MMM_ModelBaseSolo extends MMM_ModelBaseNihil implements MMM_IModelB
 		}
 		isAlphablend = false;
 		if (textures.length > 1 && textures[1] != null && renderCount == 0) {
-			// ”­Œõƒp[ƒc
+			// ï¿½ï¿½ï¿½ï¿½ï¿½pï¿½[ï¿½c
 			MMM_Client.setTexture(textures[1]);
 			float var4 = 1.0F;
 			GL11.glEnable(GL11.GL_BLEND);
@@ -93,7 +100,7 @@ public class MMM_ModelBaseSolo extends MMM_ModelBaseNihil implements MMM_IModelB
 	}
 
 
-	// IModelMMM’Ç‰Á•ª
+	// IModelMMMï¿½Ç‰ï¿½ï¿½ï¿½
 
 	@Override
 	public void renderItems(EntityLivingBase pEntity, Render pRender) {
@@ -110,8 +117,8 @@ public class MMM_ModelBaseSolo extends MMM_ModelBaseNihil implements MMM_IModelB
 	}
 
 	/**
-	 * Renderer•Ó‚Å‚±‚Ì•Ï”‚ğİ’è‚·‚éB
-	 * İ’è’l‚ÍMMM_IModelCaps‚ğŒp³‚µ‚½Entitiy‚Æ‚©‚ğ‘z’èB
+	 * Rendererï¿½Ó‚Å‚ï¿½ï¿½Ì•Ïï¿½ï¿½ï¿½İ’è‚·ï¿½ï¿½B
+	 * ï¿½İ’ï¿½lï¿½ï¿½MMM_IModelCapsï¿½ï¿½ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Entitiyï¿½Æ‚ï¿½ï¿½ï¿½zï¿½ï¿½B
 	 */
 	@Override
 	public void setEntityCaps(MMM_IModelCaps pEntityCaps) {
@@ -134,7 +141,7 @@ public class MMM_ModelBaseSolo extends MMM_ModelBaseNihil implements MMM_IModelB
 	}
 
 
-	// IModelCaps’Ç‰Á•ª
+	// IModelCapsï¿½Ç‰ï¿½ï¿½ï¿½
 
 	@Override
 	public Map<String, Integer> getModelCaps() {
