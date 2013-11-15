@@ -16,8 +16,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.server.MinecraftServer;
 
 /**
- * mods�f�B���N�g���̊l����minecraft�{�̂�jar���l�����A
- * �����Ɋ܂܂��w�肳�ꂽ��������܂�zip�����邩�ǂ����𔻒肷��B
+ * mods・ｽf・ｽB・ｽ・ｽ・ｽN・ｽg・ｽ・ｽ・ｽﾌ獲・ｽ・ｽ・ｽ・ｽminecraft・ｽ{・ｽﾌゑｿｽjar・ｽ・ｽ・ｽl・ｽ・ｽ・ｽ・ｽ・ｽA
+ * ・ｽ・ｽ・ｽ・ｽ・ｽﾉ含まゑｿｽ・ｽw・ｽ閧ｳ・ｽ黷ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽﾜゑｿｽzip・ｽ・ｽ・ｽ・ｽ・ｽ驍ｩ・ｽﾇゑｿｽ・ｽ・ｽ・ｽｻ定す・ｽ・ｽB
  *
  */
 public class MMM_FileManager {
@@ -31,15 +31,15 @@ public class MMM_FileManager {
 
 	
 	public static void init() {
-		// ����
+		// ・ｽ・ｽ・ｽ・ｽ
 		if (MMM_Helper.isClient) {
 			minecraftDir = MMM_Helper.mc.mcDataDir;
 		} else {
 			minecraftDir = MinecraftServer.getServer().getFile("");
 		}
 		
-		// mincraft.jar���擾
-		// �J�����p��Jar���Ɋ܂܂�Ă��邱�Ƃ̑΍�
+		// mincraft.jar・ｽ・ｽ・ｽ謫ｾ
+		// ・ｽJ・ｽ・ｽ・ｽ・ｽ・ｽp・ｽ・ｽJar・ｽ・ｽ・ｽﾉ含まゑｿｽﾄゑｿｽ・ｽ驍ｱ・ｽﾆの対搾ｿｽ
 		try {
 			ProtectionDomain ls1 = BaseMod.class.getProtectionDomain();
 			CodeSource ls2 = ls1.getCodeSource();
@@ -96,19 +96,19 @@ public class MMM_FileManager {
 			}
 			mod_MMM_MMMLib.Debug("getAssets-Directory:%s", assetsDir.getAbsolutePath());
 		} else {
-			// �T�[�o�[���ł͎g���Ȃ��͂��B
+			// ・ｽT・ｽ[・ｽo・ｽ[・ｽ・ｽ・ｽﾅは使・ｽ・ｽ・ｽﾈゑｿｽ・ｽﾍゑｿｽ・ｽB
 		}
 		
 	}
 
 	/**
-	 * MOD�f�B���N�g���Ɋ܂܂��Ώۃt�@�C���̃I�u�W�F�N�g���擾�B
-	 * @param pname �������X�g���́AgetFileList()�Ŏg���B
-	 * @param pprefix ���̕�����̊܂܂��t�@�C����񋓂���B
-	 * @return �񋓂��ꂽ�t�@�C���̃��X�g�B
+	 * MOD・ｽf・ｽB・ｽ・ｽ・ｽN・ｽg・ｽ・ｽ・ｽﾉ含まゑｿｽ・ｽﾎ象フ・ｽ@・ｽC・ｽ・ｽ・ｽﾌオ・ｽu・ｽW・ｽF・ｽN・ｽg・ｽ・ｽ・ｽ謫ｾ・ｽB
+	 * @param pname ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽX・ｽg・ｽ・ｽ・ｽﾌ、getFileList()・ｽﾅ使・ｽ・ｽ・ｽB
+	 * @param pprefix ・ｽ・ｽ・ｽﾌ包ｿｽ・ｽ・ｽ・ｽ・ｽﾌ含まゑｿｽ・ｽt・ｽ@・ｽC・ｽ・ｽ・ｽ・ｽ唐・ｽ・ｽ・ｽB
+	 * @return ・ｽ唐・ｽ・ｽ黷ｽ・ｽt・ｽ@・ｽC・ｽ・ｽ・ｽﾌ・ｿｽ・ｽX・ｽg・ｽB
 	 */
 	public static List<File> getModFile(String pname, String pprefix) {
-		// �����ς݂��ǂ����̔���
+		// ・ｽ・ｽ・ｽ・ｽ・ｽﾏみゑｿｽ・ｽﾇゑｿｽ・ｽ・ｽ・ｽﾌ費ｿｽ・ｽ・ｽ
 		List<File> llist;
 		if (fileList.containsKey(pname)) {
 			llist = fileList.get(pname);
@@ -118,7 +118,7 @@ public class MMM_FileManager {
 		}
 		
 		mod_MMM_MMMLib.Debug("getModFile:[%s]:%s", pname, modDir.getAbsolutePath());
-		// �t�@�C���E�f�B���N�g��������
+		// ・ｽt・ｽ@・ｽC・ｽ・ｽ・ｽE・ｽf・ｽB・ｽ・ｽ・ｽN・ｽg・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ
 		try {
 			if (modDir.isDirectory()) {
 				mod_MMM_MMMLib.Debug("getModFile-get:%d.", modDir.list().length);
@@ -135,7 +135,7 @@ public class MMM_FileManager {
 				}
 				mod_MMM_MMMLib.Debug("getModFile-files:%d", llist.size());
 			} else {
-				// �܂����肦�Ȃ�
+				// ・ｽﾜゑｿｽ・ｽ・ｽ・ｽ閧ｦ・ｽﾈゑｿｽ
 				mod_MMM_MMMLib.Debug("getModFile-fail.");
 			}
 			return llist;
@@ -147,9 +147,9 @@ public class MMM_FileManager {
 	}
 
 	/**
-	 * �����ς݂̃��X�g�Ɋ܂܂��񋓃t�@�C����Ԃ��B
-	 * @param pname �������X�g���B
-	 * @return �񋓂��ꂽ�t�@�C���̃��X�g�B
+	 * ・ｽ・ｽ・ｽ・ｽ・ｽﾏみの・ｿｽ・ｽX・ｽg・ｽﾉ含まゑｿｽ・ｽ塔t・ｽ@・ｽC・ｽ・ｽ・ｽ・ｽﾔゑｿｽ・ｽB
+	 * @param pname ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽX・ｽg・ｽ・ｽ・ｽB
+	 * @return ・ｽ唐・ｽ・ｽ黷ｽ・ｽt・ｽ@・ｽC・ｽ・ｽ・ｽﾌ・ｿｽ・ｽX・ｽg・ｽB
 	 */
 	public static List<File> getFileList(String pname) {
 		return fileList.get(pname);

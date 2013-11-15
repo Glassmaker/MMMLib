@@ -5,8 +5,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 
 /**
- * �A�C�e���p�̓��ꃌ���_�[�Ɍp��������C���^�[�t�F�[�X�B
- * ����A�p�������Ă��Ȃ��Ă����\�b�h��Item�ɋL�q����Ă���Γ��삷��B
+ * ・ｽA・ｽC・ｽe・ｽ・ｽ・ｽp・ｽﾌ難ｿｽ・ｽ黹鯉ｿｽ・ｽ・ｽ_・ｽ[・ｽﾉ継・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽC・ｽ・ｽ・ｽ^・ｽ[・ｽt・ｽF・ｽ[・ｽX・ｽB
+ * ・ｽ・ｽ・ｽ・ｽA・ｽp・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽﾄゑｿｽ・ｽﾈゑｿｽ・ｽﾄゑｿｽ・ｽ・ｽ・ｽ\・ｽb・ｽh・ｽ・ｽItem・ｽﾉ記・ｽq・ｽ・ｽ・ｽ・ｽﾄゑｿｽ・ｽ・ｽﾎ難ｿｽ・ｽ・ｷ・ｽ・ｽB
  */
 public interface MMM_IItemRenderManager {
 
@@ -16,7 +16,7 @@ public interface MMM_IItemRenderManager {
 
 
 	/**
-	 * �A�C�e���̕`��̂݁A�ʒu�␳�͂��Ȃ��B
+	 * ・ｽA・ｽC・ｽe・ｽ・ｽ・ｽﾌ描・ｽ・ｽﾌみ、・ｽﾊ置・ｽ竦ｳ・ｽﾍゑｿｽ・ｽﾈゑｿｽ・ｽB
 	 * @param pEntity
 	 * @param pItemStack
 	 * @param pIndex

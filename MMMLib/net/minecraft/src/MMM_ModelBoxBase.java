@@ -18,7 +18,7 @@ public abstract class MMM_ModelBoxBase {
 
 
 	/**
-	 * �������K���������邱�ƁB
+	 * ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽK・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ驍ｱ・ｽﾆ。
 	 * @param pMRenderer
 	 * @param pArg
 	 */

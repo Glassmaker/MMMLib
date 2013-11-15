@@ -45,17 +45,17 @@ public class MMM_ModelBaseSolo extends MMM_ModelBaseNihil implements MMM_IModelB
 			}
 		}
 		if (textures.length > 2 && textures[2] != null) {
-			// Actors�p
+			// Actors・ｽp
 			model.setRotationAngles(par2, par3, par4, par5, par6, par7, entityCaps);
 			// Face
-			// TODO:�e�N�X�`���̃��[�h�͂Ȃ񂩍l����B
+			// TODO:・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽﾌ・ｿｽ・ｽ[・ｽh・ｽﾍなんか考・ｽ・ｽ・ｽ・ｽB
 			MMM_Client.setTexture(textures[2]);
 			model.setCapsValue(caps_renderFace, entityCaps, par2, par3, par4, par5, par6, par7, isRendering);
 			// Body
 			MMM_Client.setTexture(textures[0]);
 			model.setCapsValue(caps_renderBody, entityCaps, par2, par3, par4, par5, par6, par7, isRendering);
 		} else {
-			// �ʏ�
+			// ・ｽﾊ擾ｿｽ
 			if (textures.length > 0 && textures[0] != null) {
 				MMM_Client.setTexture(textures[0]);
 			}
@@ -63,7 +63,7 @@ public class MMM_ModelBaseSolo extends MMM_ModelBaseNihil implements MMM_IModelB
 		}
 		isAlphablend = false;
 		if (textures.length > 1 && textures[1] != null && renderCount == 0) {
-			// �����p�[�c
+			// ・ｽ・ｽ・ｽ・ｽ・ｽp・ｽ[・ｽc
 			MMM_Client.setTexture(textures[1]);
 			float var4 = 1.0F;
 			GL11.glEnable(GL11.GL_BLEND);
@@ -100,7 +100,7 @@ public class MMM_ModelBaseSolo extends MMM_ModelBaseNihil implements MMM_IModelB
 	}
 
 
-	// IModelMMM�ǉ���
+	// IModelMMM・ｽﾇ会ｿｽ・ｽ・ｽ
 
 	@Override
 	public void renderItems(EntityLivingBase pEntity, Render pRender) {
@@ -117,8 +117,8 @@ public class MMM_ModelBaseSolo extends MMM_ModelBaseNihil implements MMM_IModelB
 	}
 
 	/**
-	 * Renderer�ӂł��̕ϐ���ݒ肷��B
-	 * �ݒ�l��MMM_IModelCaps���p������Entitiy�Ƃ���z��B
+	 * Renderer・ｽﾓでゑｿｽ・ｽﾌ変撰ｿｽ・ｽ・ｽﾝ定す・ｽ・ｽB
+	 * ・ｽﾝ抵ｿｽl・ｽ・ｽMMM_IModelCaps・ｽ・ｽ・ｽp・ｽ・ｽ・ｽ・ｽ・ｽ・ｽEntitiy・ｽﾆゑｿｽ・ｽ・ｽz・ｽ・ｽB
 	 */
 	@Override
 	public void setEntityCaps(MMM_IModelCaps pEntityCaps) {
@@ -141,7 +141,7 @@ public class MMM_ModelBaseSolo extends MMM_ModelBaseNihil implements MMM_IModelB
 	}
 
 
-	// IModelCaps�ǉ���
+	// IModelCaps・ｽﾇ会ｿｽ・ｽ・ｽ
 
 	@Override
 	public Map<String, Integer> getModelCaps() {

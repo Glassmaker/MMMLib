@@ -16,7 +16,7 @@ import net.minecraft.util.ResourceLocation;
 
 
 /**
- * �e�N�X�`���Ǘ��p�̕ϐ��Q���܂Ƃ߂����́B
+ * ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽﾇ暦ｿｽ・ｽp・ｽﾌ変撰ｿｽ・ｽQ・ｽ・ｽ・ｽﾜとめゑｿｽ・ｽ・ｽ・ｽﾌ。
  */
 public class MMM_TextureData  {
 //public class MMM_TextureData implements MMM_ITextureEntity {
@@ -26,15 +26,15 @@ public class MMM_TextureData  {
 	
 	protected Random rand = new Random();
 	/**
-	 * �g�p�����e�N�X�`�����\�[�X�̃R���e�i
+	 * ・ｽg・ｽp・ｽ・ｽ・ｽ・ｽ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽ・ｽ・ｽ\・ｽ[・ｽX・ｽﾌコ・ｽ・ｽ・ｽe・ｽi
 	 */
 	public ResourceLocation textures[][];
 	/**
-	 * �I��F
+	 * ・ｽI・ｽ・ｽF
 	 */
 	public int color;
 	/**
-	 * �_��e�N�X�`����I�����邩�ǂ���
+	 * ・ｽ_・ｽ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽ・ｽI・ｽ・ｽ・ｽ・ｽ・ｽ驍ｩ・ｽﾇゑｿｽ・ｽ・ｽ
 	 */
 	public boolean contract;
 	
@@ -43,8 +43,8 @@ public class MMM_TextureData  {
 	public MMM_ModelMultiBase textureModel[];
 	
 	/**
-	 * �\������Ɏg���t���O�Q<br>
-	 * int�^32bit�ŕۑ��B
+	 * ・ｽ\・ｽ・ｽ・ｽ・ｽ・ｽ・ｽﾉ使・ｽ・ｽ・ｽt・ｽ・ｽ・ｽO・ｽQ<br>
+	 * int・ｽ^32bit・ｽﾅ保托ｿｽ・ｽB
 	 */
 	public int selectValue;
 
@@ -59,23 +59,23 @@ public class MMM_TextureData  {
 		entityCaps = pCaps;
 		textures = new ResourceLocation[][] {
 				/**
-				 * ��{�A����
+				 * ・ｽ・ｽ{・ｽA・ｽ・ｽ・ｽ・ｽ
 				 */
 				{ null, null },
 				/**
-				 * �A�[�}�[���F���A���A���A��
+				 * ・ｽA・ｽ[・ｽ}・ｽ[・ｽ・ｽ・ｽF・ｽ・ｽ・ｽA・ｽ・ｽ・ｽA・ｽ・ｽ・ｽA・ｽ・ｽ
 				 */
 				{ null, null, null, null },
 				/**
-				 * �A�[�}�[�O�F���A���A���A��
+				 * ・ｽA・ｽ[・ｽ}・ｽ[・ｽO・ｽF・ｽ・ｽ・ｽA・ｽ・ｽ・ｽA・ｽ・ｽ・ｽA・ｽ・ｽ
 				 */
 				{ null, null, null, null },
 				/**
-				 * �A�[�}�[�������F���A���A���A��
+				 * ・ｽA・ｽ[・ｽ}・ｽ[・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽF・ｽ・ｽ・ｽA・ｽ・ｽ・ｽA・ｽ・ｽ・ｽA・ｽ・ｽ
 				 */
 				{ null, null, null, null },
 				/**
-				 * �A�[�}�[�O�����F���A���A���A��
+				 * ・ｽA・ｽ[・ｽ}・ｽ[・ｽO・ｽ・ｽ・ｽ・ｽ・ｽF・ｽ・ｽ・ｽA・ｽ・ｽ・ｽA・ｽ・ｽ・ｽA・ｽ・ｽ
 				 */
 				{ null, null, null, null }
 		};
@@ -88,7 +88,7 @@ public class MMM_TextureData  {
 	}
 
 	/**
-	 * �e�N�X�`�����\�[�X�����ݒl�ɍ��킹�Đݒ肷��B
+	 * ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽ・ｽ・ｽ\・ｽ[・ｽX・ｽ・ｽ・ｽ・ｽ・ｽﾝ値・ｽﾉ搾ｿｽ・ｽ墲ｹ・ｽﾄ設定す・ｽ・ｽB
 	 */
 	public boolean setTextureNames() {
 		textureModel[0] = null;
@@ -103,7 +103,7 @@ public class MMM_TextureData  {
 	}
 
 	/**
-	 * �e�N�X�`�����\�[�X�����ݒl�ɍ��킹�Đݒ肷��B
+	 * ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽ・ｽ・ｽ\・ｽ[・ｽX・ｽ・ｽ・ｽ・ｽ・ｽﾝ値・ｽﾉ搾ｿｽ・ｽ墲ｹ・ｽﾄ設定す・ｽ・ｽB
 	 */
 	protected boolean setTextureNamesClient() {
 		// Client
@@ -183,7 +183,7 @@ public class MMM_TextureData  {
 			int lc = getColor() + (isContract() ? 0 : MMM_TextureManager.tx_wild);
 			textureBox[0] = MMM_TextureManager.instance.getNextPackege((MMM_TextureBox)textureBox[0], lc);
 			if (textureBox[0] == null) {
-				// �w��F�������ꍇ�͕W�����f����
+				// ・ｽw・ｽ・ｽF・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ鼾・ｿｽﾍ標・ｽ・ｽ・ｽ・ｽ・ｽf・ｽ・ｽ・ｽ・ｽ
 				textureBox[0] = textureBox[1] = MMM_TextureManager.instance.getDefaultTexture((MMM_ITextureEntity)owner);
 				setColor(12);
 			} else {
@@ -213,21 +213,21 @@ public class MMM_TextureData  {
 	}
 
 	/**
-	 * ��������
+	 * ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ
 	 */
 	public void onUpdate() {
-		// ���f���T�C�Y�̃��A���^�C���ύX�L��H
+		// ・ｽ・ｽ・ｽf・ｽ・ｽ・ｽT・ｽC・ｽY・ｽﾌ・ｿｽ・ｽA・ｽ・ｽ・ｽ^・ｽC・ｽ・ｽ・ｽﾏ更・ｽL・ｽ・ｽH
 		if (textureBox[0].isUpdateSize) {
 			setSize();
 		}
 	}
 
 	protected void setSize() {
-		// �T�C�Y�̕ύX
+		// ・ｽT・ｽC・ｽY・ｽﾌ変更
 		//TODO: fix for forge
 		//owner.setSize(textureBox[0].getWidth(entityCaps), textureBox[0].getHeight(entityCaps));
 		if (owner instanceof EntityAgeable) {
-			// EntityAgeable�͂�������Ȃ��Ƒ傫���ύX���Ȃ��悤�ɂȂ��Ă�A�������B
+			// EntityAgeable・ｽﾍゑｿｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽﾈゑｿｽ・ｽﾆ大き・ｽ・ｽ・ｽﾏ更・ｽ・ｽ・ｽﾈゑｿｽ・ｽ謔､・ｽﾉなゑｿｽ・ｽﾄゑｿｽA・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽB
 			((EntityAgeable)owner).setScaleForAge(owner.isChild());
 		}
 	}
@@ -307,14 +307,14 @@ public class MMM_TextureData  {
 
 
 	/**
-	 * �쐶�̐F�������_���Ŋl������B
+	 * ・ｽ・ｶ・ｽﾌ色・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ_・ｽ・ｽ・ｽﾅ獲・ｽ・ｽ・ｽ・ｽ・ｽ・ｽB
 	 */
 	public int getWildColor() {
 		return textureBox[0].getRandomWildColor(rand);
 	}
 
 	/**
-	 * �e�N�X�`�����̂��烉���_���Őݒ肷��B
+	 * ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽ・ｽ・ｽﾌゑｿｽ・ｽ辜会ｿｽ・ｽ・ｽ_・ｽ・ｽ・ｽﾅ設定す・ｽ・ｽB
 	 * @param pName
 	 */
 	public void setTextureInitServer(String pName) {
@@ -360,8 +360,8 @@ public class MMM_TextureData  {
 	}
 
 	/**
-	 * �ۗL�p�����[�^�[�̕ۑ��B<br>
-	 * �T�[�o�[�p�B
+	 * ・ｽﾛ有・ｽp・ｽ・ｽ・ｽ・ｽ・ｽ[・ｽ^・ｽ[・ｽﾌ保托ｿｽ・ｽB<br>
+	 * ・ｽT・ｽ[・ｽo・ｽ[・ｽp・ｽB
 	 * @param par1nbtTagCompound
 	 */
 	public void writeToNBT(NBTTagCompound par1nbtTagCompound) {
@@ -379,8 +379,8 @@ public class MMM_TextureData  {
 	}
 
 	/**
-	 * �ۗL�p�����[�^�[�̓Ǐo�B<br>
-	 * �T�[�o�[�p�B
+	 * ・ｽﾛ有・ｽp・ｽ・ｽ・ｽ・ｽ・ｽ[・ｽ^・ｽ[・ｽﾌ読出・ｽB<br>
+	 * ・ｽT・ｽ[・ｽo・ｽ[・ｽp・ｽB
 	 * @param par1nbtTagCompound
 	 */
 	public void readToNBT(NBTTagCompound par1nbtTagCompound) {
@@ -399,7 +399,7 @@ public class MMM_TextureData  {
 				}
 				setTexturePackIndex(color, textureIndex);
 			} else {
-				// ���[�J���ɍ݂�f�t�H���g�̃e�N�X�`����ݒ�
+				// ・ｽ・ｽ・ｽ[・ｽJ・ｽ・ｽ・ｽﾉ在ゑｿｽf・ｽt・ｽH・ｽ・ｽ・ｽg・ｽﾌテ・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽ・ｽﾝ抵ｿｽ
 				int li = MMM_TextureManager.instance.getIndexTextureBoxServerIndex(lbox);
 				setTexturePackIndex(color, new int[] {li, li});
 			}
@@ -428,22 +428,22 @@ public class MMM_TextureData  {
 		return lf;
 	}
 
-	// �p�b�P�[�W���p
+	// ・ｽp・ｽb・ｽP・ｽ[・ｽW・ｽ・ｽ・ｽp
 	/**
-	 * �Ď��p��dataWatcher��ݒ肷��B
+	 * ・ｽﾄ趣ｿｽ・ｽp・ｽ・ｽdataWatcher・ｽ・ｽﾝ定す・ｽ・ｽB
 	 * @param pDataWatcher
 	 */
 	public void entityInit(DataWatcher pDataWatcher) {
 		// Color
 		pDataWatcher.addObject(data_Color, Byte.valueOf((byte)0));
-		// �I���e�N�X�`���C���f�b�N�X
+		// ・ｽI・ｽ・ｽ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽC・ｽ・ｽ・ｽf・ｽb・ｽN・ｽX
 		pDataWatcher.addObject(data_Texture, Integer.valueOf(0));
-		// ���f���p�[�c�̕\���t���O
+		// ・ｽ・ｽ・ｽf・ｽ・ｽ・ｽp・ｽ[・ｽc・ｽﾌ表・ｽ・ｽ・ｽt・ｽ・ｽ・ｽO
 		pDataWatcher.addObject(data_Value, Integer.valueOf(0));
 	}
 
 	public void onUpdateTex() {
-		// TODO:onUpdate�Ɠ������邱��
+		// TODO:onUpdate・ｽﾆ難ｿｽ・ｽ・ｽ・ｽ・ｽ・ｽ驍ｱ・ｽ・ｽ
 		if (owner.worldObj.isRemote) {
 			// Client
 			

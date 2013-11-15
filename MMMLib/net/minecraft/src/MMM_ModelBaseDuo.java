@@ -12,37 +12,37 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 /**
- * �A�[�}�[�̓�d�`��p�N���X�B
- * �K��Inner���ɂ̓��f����ݒ肷�邱�ƁB
- * �ʏ��Renderer�ŕ`�悷�邽�߂̃N���X�Ȃ̂ŁARender�������ƋL�q����Ȃ炢��Ȃ��N���X�ł��B
+ * ・ｽA・ｽ[・ｽ}・ｽ[・ｽﾌ難ｿｽd・ｽ`・ｽ・ｽp・ｽN・ｽ・ｽ・ｽX・ｽB
+ * ・ｽK・ｽ・ｽInner・ｽ・ｽ・ｽﾉは・ｿｽ・ｽf・ｽ・ｽ・ｽ・ｽﾝ定す・ｽ驍ｱ・ｽﾆ。
+ * ・ｽﾊ擾ｿｽ・ｽRenderer・ｽﾅ描・ｽ謔ｷ・ｽ驍ｽ・ｽﾟのク・ｽ・ｽ・ｽX・ｽﾈので、Render・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽﾆ記・ｽq・ｽ・ｽ・ｽ・ｽﾈらい・ｽ・ｽﾈゑｿｽ・ｽN・ｽ・ｽ・ｽX・ｽﾅゑｿｽ・ｽB
  */
 public class MMM_ModelBaseDuo extends MMM_ModelBaseNihil implements MMM_IModelBaseMMM {
 
 	public MMM_ModelMultiBase modelOuter;
 	public MMM_ModelMultiBase modelInner;
 	/**
-	 * ���ʖ��̃A�[�}�[�e�N�X�`���̎w��B
-	 * �O���B
+	 * ・ｽ・ｽ・ｽﾊ厄ｿｽ・ｽﾌア・ｽ[・ｽ}・ｽ[・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽﾌ指・ｽ・ｽB
+	 * ・ｽO・ｽ・ｽ・ｽB
 	 */
 	public ResourceLocation[] textureOuter;
 	/**
-	 * ���ʖ��̃A�[�}�[�e�N�X�`���̎w��B
-	 * �����B
+	 * ・ｽ・ｽ・ｽﾊ厄ｿｽ・ｽﾌア・ｽ[・ｽ}・ｽ[・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽﾌ指・ｽ・ｽB
+	 * ・ｽ・ｽ・ｽ・ｽ・ｽB
 	 */
 	public ResourceLocation[] textureInner;
 	/**
-	 * ���ʖ��̃A�[�}�[�e�N�X�`���̎w��B
-	 * �O���E�����B
+	 * ・ｽ・ｽ・ｽﾊ厄ｿｽ・ｽﾌア・ｽ[・ｽ}・ｽ[・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽﾌ指・ｽ・ｽB
+	 * ・ｽO・ｽ・ｽ・ｽE・ｽ・ｽ・ｽ・ｽ・ｽB
 	 */
 	public ResourceLocation[] textureOuterLight;
 	/**
-	 * ���ʖ��̃A�[�}�[�e�N�X�`���̎w��B
-	 * �����E�����B
+	 * ・ｽ・ｽ・ｽﾊ厄ｿｽ・ｽﾌア・ｽ[・ｽ}・ｽ[・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽﾌ指・ｽ・ｽB
+	 * ・ｽ・ｽ・ｽ・ｽ・ｽE・ｽ・ｽ・ｽ・ｽ・ｽB
 	 */
 	public ResourceLocation[] textureInnerLight;
 	/**
-	 * �`�悳���A�[�}�[�̕��ʁB
-	 * shouldRenderPass�Ƃ��Ŏw�肷��B
+	 * ・ｽ`・ｽ謔ｳ・ｽ・ｽ・ｽA・ｽ[・ｽ}・ｽ[・ｽﾌ包ｿｽ・ｽﾊ。
+	 * shouldRenderPass・ｽﾆゑｿｽ・ｽﾅ指・ｽ閧ｷ・ｽ・ｽB
 	 */
 	public int renderParts;
 
@@ -70,16 +70,16 @@ public class MMM_ModelBaseDuo extends MMM_ModelBaseNihil implements MMM_IModelBa
 		if (modelInner != null) {
 			if (textureInner != null && lri) {
 				if (textureInner[renderParts] != null) {
-					// �ʏ�p�[�c
+					// ・ｽﾊ擾ｿｽp・ｽ[・ｽc
 					MMM_Client.setTexture(textureInner[renderParts]);
 					modelInner.render(entityCaps, par2, par3, par4, par5, par6, par7, isRendering);
 				}
 			} else {
-				// �قڃG���`�����g�G�t�F�N�g�p
+				// ・ｽﾙぼエ・ｽ・ｽ・ｽ`・ｽ・ｽ・ｽ・ｽ・ｽg・ｽG・ｽt・ｽF・ｽN・ｽg・ｽp
 				modelInner.render(entityCaps, par2, par3, par4, par5, par6, par7, isRendering);
 			}
 			if (textureInnerLight != null && renderCount == 0) {
-				// �����e�N�X�`���\������
+				// ・ｽ・ｽ・ｽ・ｽ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽ\・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ
 				if (textureInnerLight[renderParts] != null) {
 					MMM_Client.setTexture(textureInnerLight[renderParts]);
 					GL11.glEnable(GL11.GL_BLEND);
@@ -91,7 +91,7 @@ public class MMM_ModelBaseDuo extends MMM_ModelBaseNihil implements MMM_IModelBa
 					if (textureLightColor == null) {
 						GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 					} else {
-						//�����F�𒲐�
+						//・ｽ・ｽ・ｽ・ｽ・ｽF・ｽｲ撰ｿｽ
 						GL11.glColor4f(
 								textureLightColor[0],
 								textureLightColor[1],
@@ -108,17 +108,17 @@ public class MMM_ModelBaseDuo extends MMM_ModelBaseNihil implements MMM_IModelBa
 		}
 		if (modelOuter != null) {
 			if (textureOuter != null && lri) {
-				// �ʏ�p�[�c
+				// ・ｽﾊ擾ｿｽp・ｽ[・ｽc
 				if (textureOuter[renderParts] != null) {
 					MMM_Client.setTexture(textureOuter[renderParts]);
 					modelOuter.render(entityCaps, par2, par3, par4, par5, par6, par7, isRendering);
 				}
 			} else {
-				// �قڃG���`�����g�G�t�F�N�g�p
+				// ・ｽﾙぼエ・ｽ・ｽ・ｽ`・ｽ・ｽ・ｽ・ｽ・ｽg・ｽG・ｽt・ｽF・ｽN・ｽg・ｽp
 				modelOuter.render(entityCaps, par2, par3, par4, par5, par6, par7, isRendering);
 			}
 			if (textureOuterLight != null && renderCount == 0) {
-				// �����e�N�X�`���\������
+				// ・ｽ・ｽ・ｽ・ｽ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽ\・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ
 				if (textureOuterLight[renderParts] != null) {
 					MMM_Client.setTexture(textureOuterLight[renderParts]);
 					float var4 = 1.0F;
@@ -131,7 +131,7 @@ public class MMM_ModelBaseDuo extends MMM_ModelBaseNihil implements MMM_IModelBa
 					if (textureLightColor == null) {
 						GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 					} else {
-						//�����F�𒲐�
+						//・ｽ・ｽ・ｽ・ｽ・ｽF・ｽｲ撰ｿｽ
 						GL11.glColor4f(
 								textureLightColor[0],
 								textureLightColor[1],
@@ -167,7 +167,7 @@ public class MMM_ModelBaseDuo extends MMM_ModelBaseNihil implements MMM_IModelBa
 	}
 
 
-	// IModelMMM�ǉ���
+	// IModelMMM・ｽﾇ会ｿｽ・ｽ・ｽ
 
 	@Override
 	public void renderItems(EntityLivingBase pEntity, Render pRender) {
@@ -187,8 +187,8 @@ public class MMM_ModelBaseDuo extends MMM_ModelBaseNihil implements MMM_IModelBa
 	}
 
 	/**
-	 * Renderer�ӂł��̕ϐ���ݒ肷��B
-	 * �ݒ�l��MMM_IModelCaps���p������Entitiy�Ƃ���z��B
+	 * Renderer・ｽﾓでゑｿｽ・ｽﾌ変撰ｿｽ・ｽ・ｽﾝ定す・ｽ・ｽB
+	 * ・ｽﾝ抵ｿｽl・ｽ・ｽMMM_IModelCaps・ｽ・ｽ・ｽp・ｽ・ｽ・ｽ・ｽ・ｽ・ｽEntitiy・ｽﾆゑｿｽ・ｽ・ｽz・ｽ・ｽB
 	 */
 	@Override
 	public void setEntityCaps(MMM_IModelCaps pEntityCaps) {
@@ -214,7 +214,7 @@ public class MMM_ModelBaseDuo extends MMM_ModelBaseNihil implements MMM_IModelBa
 	}
 
 
-	// IModelCaps�ǉ���
+	// IModelCaps・ｽﾇ会ｿｽ・ｽ・ｽ
 
 	@Override
 	public Map<String, Integer> getModelCaps() {

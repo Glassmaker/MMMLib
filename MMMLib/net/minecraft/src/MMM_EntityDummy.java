@@ -8,7 +8,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
 /**
- * �}�[�J�[��\�����܂��B
+ * ・ｽ}・ｽ[・ｽJ・ｽ[・ｽ・ｽ\・ｽ・ｽ・ｽ・ｽ・ｽﾜゑｿｽ・ｽB
  */
 public class MMM_EntityDummy extends Entity {
 	
@@ -17,7 +17,7 @@ public class MMM_EntityDummy extends Entity {
 	private int entityColor;
 	public Entity entityOwner;
 	/**
-	 * �L���
+	 * ・ｽL・ｽ・ｽ・ｽ
 	 */
 	public static boolean isEnable = false;
 	
@@ -74,7 +74,7 @@ public class MMM_EntityDummy extends Entity {
 	}
 
 	/**
-	 * �w�肳�ꂽ�I�[�i�[�ɑΉ�����}�[�J�[���폜���܂��B
+	 * ・ｽw・ｽ閧ｳ・ｽ黷ｽ・ｽI・ｽ[・ｽi・ｽ[・ｽﾉ対会ｿｽ・ｽ・ｽ・ｽ・ｽ}・ｽ[・ｽJ・ｽ[・ｽ・ｽ・ｽ尞懶ｿｽ・ｽ・ｽﾜゑｿｽ・ｽB
 	 */
 	public static void clearDummyEntity(Entity entity) {
 		if (!isEnable) return;
@@ -89,13 +89,13 @@ public class MMM_EntityDummy extends Entity {
 	}
 
 	/**
-	 * �}�[�J�[��\������
+	 * ・ｽ}・ｽ[・ｽJ・ｽ[・ｽ・ｽ\・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ
 	 */
 	public static void setDummyEntity(Entity owner, int color, double posx, double posy, double posz) {
 		if (!isEnable) return;
 		if (!MMM_Helper.isClient) return;
 		
-		// �T�[�o�[���ł����Ă΂�Ȃ����ۂ�
+		// ・ｽT・ｽ[・ｽo・ｽ[・ｽ・ｽ・ｽﾅゑｿｽ・ｽ・ｽ・ｽﾄばゑｿｽﾈゑｿｽ・ｽ・ｽ・ｽﾛゑｿｽ
 		if (owner.worldObj.isRemote) {
 			mod_MMM_MMMLib.Debug("L");
 		}

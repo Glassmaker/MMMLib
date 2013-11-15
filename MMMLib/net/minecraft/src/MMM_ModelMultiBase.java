@@ -10,9 +10,9 @@ import java.util.Map.Entry;
 import org.lwjgl.opengl.GL11;
 
 /**
- * ƒ}ƒ‹ƒ`ƒ‚ƒfƒ‹—p‚ÌŠî–{ƒNƒ‰ƒXA‚±‚ê‚ğŒp³‚µ‚Ä‚¢‚ê‚Îƒ}ƒ‹ƒ`ƒ‚ƒfƒ‹‚Æ‚µ‚Äg—p‚Å‚«‚éB
- * MincraftƒlƒCƒeƒBƒu‚ÈƒNƒ‰ƒX‚âŒp³ŠÖ”‚È‚Ç‚ğ”rœ‚µ‚ÄA“ï“Ç‰»‘Îô‚ğs‚¤B
- * Œp³ƒNƒ‰ƒX‚Å‚Í‚È‚­‚È‚Á‚½‚½‚ßA’¼Ú“I‚ÈŒİŠ·«‚Í‚È‚¢B
+ * ãƒãƒ«ãƒãƒ¢ãƒ‡ãƒ«ç”¨ã®åŸºæœ¬ã‚¯ãƒ©ã‚¹ã€ã“ã‚Œã‚’ç¶™æ‰¿ã—ã¦ã„ã‚Œã°ãƒãƒ«ãƒãƒ¢ãƒ‡ãƒ«ã¨ã—ã¦ä½¿ç”¨ã§ãã‚‹ã€‚
+ * Mincraftãƒã‚¤ãƒ†ã‚£ãƒ–ãªã‚¯ãƒ©ã‚¹ã‚„ç¶™æ‰¿é–¢æ•°ãªã©ã‚’æ’é™¤ã—ã¦ã€é›£èª­åŒ–å¯¾ç­–ã‚’è¡Œã†ã€‚
+ * ç¶™æ‰¿ã‚¯ãƒ©ã‚¹ã§ã¯ãªããªã£ãŸãŸã‚ã€ç›´æ¥çš„ãªäº’æ›æ€§ã¯ãªã„ã€‚
  */
 public abstract class MMM_ModelMultiBase extends MMM_ModelBase implements MMM_IModelCaps {
 
@@ -29,10 +29,10 @@ public abstract class MMM_ModelMultiBase extends MMM_ModelBase implements MMM_IM
 	
 	public float entityIdFactor;
 	public int entityTicksExisted;
-	// •Ï”‚Å‚ ‚éˆÓ–¡‚È‚¢H
+	// å¤‰æ•°ã§ã‚ã‚‹æ„å‘³ãªã„ï¼Ÿ
 	public float scaleFactor = 0.9375F;
 	/**
-	 * ƒ‚ƒfƒ‹‚ª‚Á‚Ä‚¢‚é‹@”\ŒQ
+	 * ãƒ¢ãƒ‡ãƒ«ãŒæŒã£ã¦ã„ã‚‹æ©Ÿèƒ½ç¾¤
 	 */
 	private final Map<String, Integer> fcapsmap = new HashMap<String, Integer>() {{
 		put("onGround",			caps_onGround);
@@ -65,7 +65,7 @@ public abstract class MMM_ModelMultiBase extends MMM_ModelBase implements MMM_IM
 		textureHeight = pTextureHeight;
 		
 		if (MMM_Helper.isClient) {
-			// ƒn[ƒhƒ|ƒCƒ“ƒg
+			// ãƒãƒ¼ãƒ‰ãƒã‚¤ãƒ³ãƒˆ
 			Arms = new MMM_ModelRenderer[2];
 			HeadMount = new MMM_ModelRenderer(this, "HeadMount");
 			HeadTop = new MMM_ModelRenderer(this, "HeadTop");
@@ -74,22 +74,22 @@ public abstract class MMM_ModelMultiBase extends MMM_ModelBase implements MMM_IM
 		}
 	}
 
-	// “Æ©’è‹`ŠÖ”ŒQ
+	// ç‹¬è‡ªå®šç¾©é–¢æ•°ç¾¤
 
 	/**
-	 * ƒ‚ƒfƒ‹‚Ì‰Šú‰»ƒR[ƒh
+	 * ãƒ¢ãƒ‡ãƒ«ã®åˆæœŸåŒ–ã‚³ãƒ¼ãƒ‰
 	 */
 	public abstract void initModel(float psize, float pyoffset);
 
 	/**
-	 * ƒA[ƒ}[ƒ‚ƒfƒ‹‚ÌƒTƒCƒY‚ğ•Ô‚·B
-	 * ƒTƒCƒY‚Í“à‘¤‚Ì‚à‚Ì‚©‚çB
+	 * ã‚¢ãƒ¼ãƒãƒ¼ãƒ¢ãƒ‡ãƒ«ã®ã‚µã‚¤ã‚ºã‚’è¿”ã™ã€‚
+	 * ã‚µã‚¤ã‚ºã¯å†…å´ã®ã‚‚ã®ã‹ã‚‰ã€‚
 	 */
 	public abstract float[] getArmorModelsSize();
 
 	/**
-	 * ƒ‚ƒfƒ‹w’èŒ‚ÉˆË‚ç‚¸‚Ég—p‚·‚éƒeƒNƒXƒ`ƒƒƒpƒbƒN–¼B
-	 * ˆê‚Â‚ÌƒeƒNƒXƒ`ƒƒ‚É•¡”‚Ìƒ‚ƒfƒ‹‚ğŠ„‚è“–‚Ä‚é‚Ég‚¤B
+	 * ãƒ¢ãƒ‡ãƒ«æŒ‡å®šè©ã«ä¾ã‚‰ãšã«ä½¿ç”¨ã™ã‚‹ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ‘ãƒƒã‚¯åã€‚
+	 * ä¸€ã¤ã®ãƒ†ã‚¯ã‚¹ãƒãƒ£ã«è¤‡æ•°ã®ãƒ¢ãƒ‡ãƒ«ã‚’å‰²ã‚Šå½“ã¦ã‚‹æ™‚ã«ä½¿ã†ã€‚
 	 * @return
 	 */
 	public String getUsingTexture() {
@@ -97,52 +97,52 @@ public abstract class MMM_ModelMultiBase extends MMM_ModelBase implements MMM_IM
 	}
 
 	/**
-	 *  g’·
+	 *  èº«é•·
 	 */
 	@Deprecated
 	public abstract float getHeight();
 	/**
-	 *  g’·
+	 *  èº«é•·
 	 */
 	public float getHeight(MMM_IModelCaps pEntityCaps) {
 		return getHeight();
 	}
 	/**
-	 * ‰¡•
+	 * æ¨ªå¹…
 	 */
 	@Deprecated
 	public abstract float getWidth();
 	/**
-	 * ‰¡•
+	 * æ¨ªå¹…
 	 */
 	public float getWidth(MMM_IModelCaps pEntityCaps) {
 		return getWidth();
 	}
 	/**
-	 * ƒ‚ƒfƒ‹‚ÌYƒIƒtƒZƒbƒg
+	 * ãƒ¢ãƒ‡ãƒ«ã®Yã‚ªãƒ•ã‚»ãƒƒãƒˆ
 	 */
 	@Deprecated
 	public abstract float getyOffset();
 	/**
-	 * ƒ‚ƒfƒ‹‚ÌYƒIƒtƒZƒbƒg
+	 * ãƒ¢ãƒ‡ãƒ«ã®Yã‚ªãƒ•ã‚»ãƒƒãƒˆ
 	 */
 	public float getyOffset(MMM_IModelCaps pEntityCaps) {
 		return getyOffset();
 	}
 	/**
-	 * ã‚Éæ‚¹‚é‚ÌƒIƒtƒZƒbƒg‚
+	 * ä¸Šã«ä¹—ã›ã‚‹æ™‚ã®ã‚ªãƒ•ã‚»ãƒƒãƒˆé«˜
 	 */
 	@Deprecated
 	public abstract float getMountedYOffset();
 	/**
-	 * ã‚Éæ‚¹‚é‚ÌƒIƒtƒZƒbƒg‚
+	 * ä¸Šã«ä¹—ã›ã‚‹æ™‚ã®ã‚ªãƒ•ã‚»ãƒƒãƒˆé«˜
 	 */
 	public float getMountedYOffset(MMM_IModelCaps pEntityCaps) {
 		return getMountedYOffset();
 	}
 
 	/**
-	 * ƒ[ƒv‚Ìæ‚è•t‚¯ˆÊ’u’²®—p
+	 * ãƒ­ãƒ¼ãƒ—ã®å–ã‚Šä»˜ã‘ä½ç½®èª¿æ•´ç”¨
 	 * @return
 	 */
 	public float getLeashOffset(MMM_IModelCaps pEntityCaps) {
@@ -150,51 +150,51 @@ public abstract class MMM_ModelMultiBase extends MMM_ModelBase implements MMM_IM
 	}
 
 	/**
-	 * ƒAƒCƒeƒ€‚ğ‚Á‚Ä‚¢‚é‚Æ‚«‚Éè‚ğ‘O‚Éo‚·‚©‚Ç‚¤‚©B
+	 * ã‚¢ã‚¤ãƒ†ãƒ ã‚’æŒã£ã¦ã„ã‚‹ã¨ãã«æ‰‹ã‚’å‰ã«å‡ºã™ã‹ã©ã†ã‹ã€‚
 	 */
 	@Deprecated
 	public boolean isItemHolder() {
 		return false;
 	}
 	/**
-	 * ƒAƒCƒeƒ€‚ğ‚Á‚Ä‚¢‚é‚Æ‚«‚Éè‚ğ‘O‚Éo‚·‚©‚Ç‚¤‚©B
+	 * ã‚¢ã‚¤ãƒ†ãƒ ã‚’æŒã£ã¦ã„ã‚‹ã¨ãã«æ‰‹ã‚’å‰ã«å‡ºã™ã‹ã©ã†ã‹ã€‚
 	 */
 	public boolean isItemHolder(MMM_IModelCaps pEntityCaps) {
 		return isItemHolder();
 	}
 
 	/**
-	 * •\¦‚·‚×‚«‚·‚×‚Ä‚Ì•”•i
+	 * è¡¨ç¤ºã™ã¹ãã™ã¹ã¦ã®éƒ¨å“
 	 */
 	@Deprecated
 	public void showAllParts() {
 	}
 	/**
-	 * •\¦‚·‚×‚«‚·‚×‚Ä‚Ì•”•i
+	 * è¡¨ç¤ºã™ã¹ãã™ã¹ã¦ã®éƒ¨å“
 	 */
 	public void showAllParts(MMM_IModelCaps pEntityCaps) {
 		showAllParts();
 	}
 
 	/**
-	 * •”ˆÊ‚²‚Æ‚Ì‘•b•\¦B
+	 * éƒ¨ä½ã”ã¨ã®è£…ç”²è¡¨ç¤ºã€‚
 	 * @param parts
-	 * 3:“ª•”B
-	 * 2:“·•”B
-	 * 1:‹r•”
-	 * 0:‘«•”
+	 * 3:é ­éƒ¨ã€‚
+	 * 2:èƒ´éƒ¨ã€‚
+	 * 1:è„šéƒ¨
+	 * 0:è¶³éƒ¨
 	 * @param index
 	 * 0:inner
 	 * 1:outer
 	 * @return
-	 * –ß‚è’l‚ÍŠî–{ -1
+	 * æˆ»ã‚Šå€¤ã¯åŸºæœ¬ -1
 	 */
 	public int showArmorParts(int parts, int index) {
 		return -1;
 	}
 
 	/**
-	 * ƒn[ƒhƒ|ƒCƒ“ƒg‚ÉÚ‘±‚³‚ê‚½ƒAƒCƒeƒ€‚ğ•\¦‚·‚é
+	 * ãƒãƒ¼ãƒ‰ãƒã‚¤ãƒ³ãƒˆã«æ¥ç¶šã•ã‚ŒãŸã‚¢ã‚¤ãƒ†ãƒ ã‚’è¡¨ç¤ºã™ã‚‹
 	 */
 	public abstract void renderItems(MMM_IModelCaps pEntityCaps);
 

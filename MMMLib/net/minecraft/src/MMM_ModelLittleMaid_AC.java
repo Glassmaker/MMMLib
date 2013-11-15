@@ -1,7 +1,7 @@
 package net.minecraft.src;
 
 /**
- * ƒXƒ^ƒrƒ‰ƒCƒU[“‹Ú‹@
+ * ã‚¹ã‚¿ãƒ“ãƒ©ã‚¤ã‚¶ãƒ¼æ­è¼‰æ©Ÿ
  */
 public class MMM_ModelLittleMaid_AC extends MMM_ModelMultiMMMBase {
 
@@ -37,7 +37,7 @@ public class MMM_ModelLittleMaid_AC extends MMM_ModelMultiMMMBase {
 		// TODO Auto-generated method stub
 		/*
 		Arms = new MMM_ModelRenderer[18];
-		// ƒoƒCƒvƒƒ_ƒNƒgƒGƒtƒFƒNƒ^[
+		// ãƒã‚¤ãƒ—ãƒ­ãƒ€ã‚¯ãƒˆã‚¨ãƒ•ã‚§ã‚¯ã‚¿ãƒ¼
 		Arms[2] = new MMM_ModelRenderer(this, 0, 0);
 		Arms[2].setRotationPoint(-3F, 9F, 6F);
 		Arms[2].setRotateAngleDeg(45F, 0F, 0F);
@@ -45,7 +45,7 @@ public class MMM_ModelLittleMaid_AC extends MMM_ModelMultiMMMBase {
 		Arms[3].setRotationPoint(3F, 9F, 6F);
 		Arms[3].setRotateAngleDeg(45F, 0F, 0F);
 		Arms[3].isInvertX = true;
-		// ƒe[ƒ‹ƒ\[ƒh
+		// ãƒ†ãƒ¼ãƒ«ã‚½ãƒ¼ãƒ‰
 		Arms[4] = new MMM_ModelRenderer(this, 0, 0);
 		Arms[4].setRotationPoint(-2F, 0F, 0F);
 		Arms[4].setRotateAngleDeg(180F, 0F, 0F);

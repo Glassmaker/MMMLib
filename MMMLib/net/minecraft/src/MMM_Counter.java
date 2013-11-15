@@ -3,7 +3,7 @@ package net.minecraft.src;
 import javax.print.attribute.standard.PDLOverrideSupported;
 
 /**
- * ƒJƒEƒ“ƒ^—pB
+ * ã‚«ã‚¦ãƒ³ã‚¿ç”¨ã€‚
  */
 public class MMM_Counter {
 

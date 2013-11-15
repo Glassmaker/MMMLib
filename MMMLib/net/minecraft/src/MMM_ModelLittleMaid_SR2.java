@@ -3,7 +3,7 @@ package net.minecraft.src;
 import org.lwjgl.opengl.GL11;
 
 /**
- * u‚«•t‚«Šî–{Œ`
+ * çž¬ãä»˜ãåŸºæœ¬å½¢
  */
 public class MMM_ModelLittleMaid_SR2 extends MMM_ModelLittleMaidBase {
 
@@ -26,7 +26,7 @@ public class MMM_ModelLittleMaid_SR2 extends MMM_ModelLittleMaidBase {
 	public void initModel(float psize, float pyoffset) {
 		super.initModel(psize, pyoffset);
 		
-		// ’Ç‰Áƒp[ƒc
+		// è¿½åŠ ãƒ‘ãƒ¼ãƒ„
 		eyeR = new MMM_ModelRenderer(this, 32, 19);
 		eyeR.addPlate(-4.0F, -5.0F, -4.001F, 4, 4, 0, psize);
 		eyeR.setRotationPoint(0.0F, 0.0F, 0.0F);
@@ -42,7 +42,7 @@ public class MMM_ModelLittleMaid_SR2 extends MMM_ModelLittleMaidBase {
 		super.setLivingAnimations(pEntityCaps, par2, par3, pRenderPartialTicks);
 		
 		float f3 = (float)entityTicksExisted + pRenderPartialTicks + entityIdFactor;
-		// –Úƒpƒ`
+		// ç›®ãƒ‘ãƒ
 		if( 0 > mh_sin(f3 * 0.05F) + mh_sin(f3 * 0.13F) + mh_sin(f3 * 0.7F) + 2.55F) { 
 			eyeR.setVisible(true);
 			eyeL.setVisible(true);

@@ -1,8 +1,8 @@
 package net.minecraft.src;
 
 /**
- * SmartMoving‘Î‰—pƒ‚ƒfƒ‹ƒx[ƒX—\’èB
- * –¢À‘•‚É‚Â‚«g—p•s‰ÂB
+ * SmartMovingå¯¾å¿œç”¨ãƒ¢ãƒ‡ãƒ«ãƒ™ãƒ¼ã‚¹äºˆå®šã€‚
+ * æœªå®Ÿè£…ã«ã¤ãä½¿ç”¨ä¸å¯ã€‚
  */
 public abstract class MMM_ModelSmartMovingBase extends MMM_ModelMultiBase {
 

@@ -3,7 +3,7 @@ package net.minecraft.src;
 public class MMM_Statics {
 
 	/**
-	 * ƒT[ƒo[‚ÖƒeƒNƒXƒ`ƒƒƒCƒ“ƒfƒbƒNƒX‚ğ‘—M‚·‚éB
+	 * ã‚µãƒ¼ãƒãƒ¼ã¸ãƒ†ã‚¯ã‚¹ãƒãƒ£ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’é€ä¿¡ã™ã‚‹ã€‚
 	 * [0]		: 0x80;
 	 * [1..4]	: EntityID;
 	 * [5]		: Color(byte);
@@ -14,7 +14,7 @@ public class MMM_Statics {
 	 */
 	public static final byte Server_SetTexturePackIndex = (byte)0x80;
 	/**
-	 * ƒT[ƒo[‚ÖƒeƒNƒXƒ`ƒƒƒCƒ“ƒfƒbƒNƒX‚ğ–â‚¢‡‚í‚¹‚éB
+	 * ã‚µãƒ¼ãƒãƒ¼ã¸ãƒ†ã‚¯ã‚¹ãƒãƒ£ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’å•ã„åˆã‚ã›ã‚‹ã€‚
 	 * [0]		: 0x01;
 	 * [1]		: BufIndex;
 	 * [2..3]	: contColorBits
@@ -27,7 +27,7 @@ public class MMM_Statics {
 	 */
 	public static final byte Server_GetTextureIndex = (byte)0x01;
 	/**
-	 * ƒT[ƒo[‚ÖƒeƒNƒXƒ`ƒƒƒCƒ“ƒfƒbƒNƒX‚ğ–â‚¢‡‚í‚¹‚éB
+	 * ã‚µãƒ¼ãƒãƒ¼ã¸ãƒ†ã‚¯ã‚¹ãƒãƒ£ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’å•ã„åˆã‚ã›ã‚‹ã€‚
 	 * [0]		: 0x01;
 	 * [1]		: BufIndex;
 	 * [2..3]	: TexturePackIndex;
@@ -35,13 +35,13 @@ public class MMM_Statics {
 	public static final byte Client_SetTextureIndex = (byte)0x01;
 
 	/**
-	 * ƒT[ƒo[‚ÖƒeƒNƒXƒ`ƒƒƒpƒbƒN‚Ìî•ñ‚ğ–â‚¢‡‚í‚¹‚éB
+	 * ã‚µãƒ¼ãƒãƒ¼ã¸ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ‘ãƒƒã‚¯ã®æƒ…å ±ã‚’å•ã„åˆã‚ã›ã‚‹ã€‚
 	 * [0]		: 0x02;
 	 * [1..2]	: TexturePackIndex;
 	 */
 	public static final byte Server_GetTexturePackName = (byte)0x02;
 	/**
-	 * ƒNƒ‰ƒCƒAƒ“ƒg‚ÖƒeƒNƒXƒ`ƒƒƒpƒbƒN‚Ìî•ñ‚ğİ’è‚·‚éB
+	 * ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆã¸ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ‘ãƒƒã‚¯ã®æƒ…å ±ã‚’è¨­å®šã™ã‚‹ã€‚
 	 * [0]		: 0x02;
 	 * [1..2]	: TexturePackIndex;
 	 * [3..4]	: contColorBits

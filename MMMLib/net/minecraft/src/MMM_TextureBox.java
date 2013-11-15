@@ -1,4 +1,4 @@
-package net.minecraft.src;
+﻿package net.minecraft.src;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,23 +11,23 @@ import net.minecraft.util.ResourceLocation;
 public class MMM_TextureBox extends MMM_TextureBoxBase {
 
 	/**
-	 * �e�N�X�`���p�b�N�̖��́A���f���w�莌�̑O�܂ł̕�����B
+	 * ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽN・ｽﾌ厄ｿｽ・ｽﾌ、・ｽ・ｽ・ｽf・ｽ・ｽ・ｽw・ｽ闔鯉ｿｽﾌ前・ｽﾜでの包ｿｽ・ｽ・ｽ・ｽ・ｽB
 	 */
 	public String packegeName;
 	/**
-	 * �e�N�X�`���t�@�C���̃t�@�C�������X�g�B
+	 * ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽt・ｽ@・ｽC・ｽ・ｽ・ｽﾌフ・ｽ@・ｽC・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽX・ｽg・ｽB
 	 */
 	public Map<Integer, ResourceLocation> textures;
 	/**
-	 * �A�[�}�[�t�@�C���̃t�@�C�������X�g�B
+	 * ・ｽA・ｽ[・ｽ}・ｽ[・ｽt・ｽ@・ｽC・ｽ・ｽ・ｽﾌフ・ｽ@・ｽC・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽX・ｽg・ｽB
 	 */
 	public Map<String, Map<Integer, ResourceLocation>> armors;
 	/**
-	 * ���f���w�莌
+	 * ・ｽ・ｽ・ｽf・ｽ・ｽ・ｽw・ｽ闔・
 	 */
 	public String modelName;
 	/**
-	 * �}���`���f���N���X
+	 * ・ｽ}・ｽ・ｽ・ｽ`・ｽ・ｽ・ｽf・ｽ・ｽ・ｽN・ｽ・ｽ・ｽX
 	 */
 	public MMM_ModelMultiBase[] models;
 	/**
@@ -35,7 +35,7 @@ public class MMM_TextureBox extends MMM_TextureBoxBase {
 	 */
 	public String[] textureDir;
 	/**
-	 * �e�N�X�`���̊i�[����Ă���p�b�N�̖��O�i���f���Ɋ֌W�Ȃ��j
+	 * ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽﾌ格・ｽ[・ｽ・ｽ・ｽ・ｽﾄゑｿｽ・ｽ・ｽp・ｽb・ｽN・ｽﾌ厄ｿｽ・ｽO・ｽi・ｽ・ｽ・ｽf・ｽ・ｽ・ｽﾉ関係・ｽﾈゑｿｽ・ｽj
 	 */
 	public String fileName;
 
@@ -72,8 +72,8 @@ public class MMM_TextureBox extends MMM_TextureBoxBase {
 	}
 
 	/**
-	 * �e�N�X�`���̃t���p�X��Ԃ��B
-	 * �o�^�C���f�b�N�X�������ꍇ��NULL��Ԃ��B
+	 * ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽﾌフ・ｽ・ｽ・ｽp・ｽX・ｽ・ｽﾔゑｿｽ・ｽB
+	 * ・ｽo・ｽ^・ｽC・ｽ・ｽ・ｽf・ｽb・ｽN・ｽX・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ鼾・ｿｽ・ｽNULL・ｽ・ｽﾔゑｿｽ・ｽB
 	 */
 	public ResourceLocation getTextureName(int pIndex) {
 		if (textures.containsKey(pIndex)) {
@@ -87,8 +87,8 @@ public class MMM_TextureBox extends MMM_TextureBoxBase {
 	}
 
 	public ResourceLocation getArmorTextureName(int pIndex, ItemStack itemstack) {
-		// index��0x40,0x50�ԑ�
-		// light���ǉ�
+		// index・ｽ・ｽ0x40,0x50・ｽﾔ托ｿｽ
+		// light・ｽ・ｽ・ｽﾇ会ｿｽ
 		if (armors.isEmpty() || itemstack == null) return null;
 		if (!(itemstack.getItem() instanceof ItemArmor)) return null;
 		
@@ -99,7 +99,7 @@ public class MMM_TextureBox extends MMM_TextureBoxBase {
 		return getArmorTextureName(pIndex, MMM_TextureManager.armorFilenamePrefix[((ItemArmor)itemstack.getItem()).renderIndex], l);
 	}
 	public ResourceLocation getArmorTextureName(int pIndex, String pArmorPrefix, int pDamage) {
-		// index��0x40,0x50�ԑ�
+		// index・ｽ・ｽ0x40,0x50・ｽﾔ托ｿｽ
 		if (armors.isEmpty() || pArmorPrefix == null) return null;
 		
 		Map<Integer, ResourceLocation> m = armors.get(pArmorPrefix);
@@ -120,7 +120,7 @@ public class MMM_TextureBox extends MMM_TextureBoxBase {
 	}
 
 	/**
-	 * �_��F�̗L�����r�b�g�z��ɂ��ĕԂ�
+	 * ・ｽ_・ｽ・ｽF・ｽﾌ有・ｽ・ｽ・ｽ・ｽ・ｽr・ｽb・ｽg・ｽz・ｽ・ｽﾉゑｿｽ・ｽﾄ返ゑｿｽ
 	 */
 	@Override
 	public int getContractColorBits() {
@@ -136,7 +136,7 @@ public class MMM_TextureBox extends MMM_TextureBoxBase {
 		return contractColor;
 	}
 	/**
-	 * �쐶�F�̗L�����r�b�g�z��ɂ��ĕԂ�
+	 * ・ｽ・ｶ・ｽF・ｽﾌ有・ｽ・ｽ・ｽ・ｽ・ｽr・ｽb・ｽg・ｽz・ｽ・ｽﾉゑｿｽ・ｽﾄ返ゑｿｽ
 	 */
 	@Override
 	public int getWildColorBits() {

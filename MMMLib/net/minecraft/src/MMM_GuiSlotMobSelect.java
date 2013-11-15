@@ -56,16 +56,16 @@ public class MMM_GuiSlotMobSelect extends GuiSlot {
 
 	@Override
 	protected void drawSlot(int var1, int var2, int var3, int var4, Tessellator var5) {
-		// ��{�X���b�g�̕`��A�ׂ������̓I�[�i�[����
-		// Entity�̊m��
+		// ・ｽ・ｽ{・ｽX・ｽ・ｽ・ｽb・ｽg・ｽﾌ描・ｽ・ｽA・ｽﾗゑｿｽ・ｽ・ｽ・ｽ・ｽ・ｽﾍオ・ｽ[・ｽi・ｽ[・ｽ・ｽ・ｽ・ｽ
+		// Entity・ｽﾌ確・ｽ・ｽ
 		String s = ownerGui.entityMap.keySet().toArray()[var1].toString();
 		boolean lf = ownerGui.exclusionList.contains(s);
 		EntityLivingBase entityliving = lf ? null : (EntityLivingBase) ownerGui.entityMap.get(s);
 		
-		// �Ǝ��`��
+		// ・ｽﾆ趣ｿｽ・ｽ`・ｽ・ｽ
 		ownerGui.drawSlot(var1, var2, var3, var4, var5, s, entityliving);
 		
-		// ���O����
+		// ・ｽ・ｽ・ｽO・ｽ・ｽ・ｽ・ｽ
 		if (lf) {
 			//TODO: Fix for forge
 			/*ownerGui.drawString(ownerGui.fontRenderer, "NoImage",
@@ -74,7 +74,7 @@ public class MMM_GuiSlotMobSelect extends GuiSlot {
 		}
 		entityliving.setWorld(mc.theWorld);
 		
-		// �����̕\��
+		// ・ｽ・ｽ・ｽ・ｽ・ｽﾌ表・ｽ・ｽ
 //		GL11.glEnable(32826 /* GL_RESCALE_NORMAL_EXT */);
 		GL11.glEnable(GL11.GL_COLOR_MATERIAL);
 		GL11.glPushMatrix();
@@ -105,7 +105,7 @@ public class MMM_GuiSlotMobSelect extends GuiSlot {
 		} catch (Exception e) {
 			ownerGui.exclusionList.add(s);
 		}
-		// �e�����o�C�I�[�������̏���?
+		// ・ｽe・ｽ・ｽ・ｽ・ｽ・ｽo・ｽC・ｽI・ｽ[・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽﾌ擾ｿｽ・ｽ・ｽ?
 		GL11.glPopMatrix();
 		RenderHelper.disableStandardItemLighting();
 		GL11.glDisable(GL12.GL_RESCALE_NORMAL);

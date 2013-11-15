@@ -118,7 +118,7 @@ public class MMM_ModelMulti_Steve extends MMM_ModelMultiBase {
 
 	public void setDefaultPause(float par1, float par2, float pTicksExisted,
 			float pHeadYaw, float pHeadPitch, float par6, MMM_IModelCaps pEntityCaps) {
-		// ‰Šúp¨
+		// åˆæœŸå§¿å‹¢
 		bipedBody.setRotationPoint(0.0F, 0.0F, 0.0F).setRotateAngle(0.0F, 0.0F, 0.0F);
 		bipedHead.setRotationPoint(0.0F, 0.0F, 0.0F).setRotateAngleDeg(pHeadPitch, pHeadYaw, 0.0F);
 		bipedRightArm.setRotationPoint(-5.0F, 2.0F, 0.0F).setRotateAngle(0.0F, 0.0F, 0.0F);
@@ -135,7 +135,7 @@ public class MMM_ModelMulti_Steve extends MMM_ModelMultiBase {
 			float pHeadYaw, float pHeadPitch, float par6, MMM_IModelCaps pEntityCaps) {
 		setDefaultPause(par1, par2, pTicksExisted, pHeadYaw, pHeadPitch, par6, pEntityCaps);
 		
-		// ˜r‚Ó‚èA‘Úã‚°
+		// è…•ãµã‚Šã€è…¿ä¸Šã’
 		float lf1 = mh_cos(par1 * 0.6662F);
 		float lf2 = mh_cos(par1 * 0.6662F + PI);
 		this.bipedRightArm.rotateAngleX = lf2 * 2.0F * par2 * 0.5F;
@@ -164,7 +164,7 @@ public class MMM_ModelMulti_Steve extends MMM_ModelMultiBase {
 		
 		float lf;
 		if ((onGrounds[0] > -9990F || onGrounds[1] > -9990F) && !aimedBow) {
-			// ˜rU‚è
+			// è…•æŒ¯ã‚Š
 			lf = (float)Math.PI * 2.0F;
 			lf1 = mh_sin(mh_sqrt_float(onGrounds[0]) * lf);
 			lf2 = mh_sin(mh_sqrt_float(onGrounds[1]) * lf);
@@ -201,7 +201,7 @@ public class MMM_ModelMulti_Steve extends MMM_ModelMultiBase {
 		}
 		
 		if (isSneak) {
-			// ‚µ‚á‚ª‚İ
+			// ã—ã‚ƒãŒã¿
 			bipedBody.rotationPointY = 2.0F;
 			bipedTorso.rotateAngleX += 0.5F;
 			bipedHead.rotationPointY += 1.0F;
@@ -212,7 +212,7 @@ public class MMM_ModelMulti_Steve extends MMM_ModelMultiBase {
 			bipedLeftLeg.rotateAngleX -= 0.5F;
 			bipedRightLeg.setRotationPoint(-1.9F, 9.8F, -0.8F);
 			bipedLeftLeg.setRotationPoint(1.9F, 9.8F, -0.8F);
-			// ‚‚³’²®
+			// é«˜ã•èª¿æ•´
 			bipedTorso.rotationPointY += 1.2F;
 		}
 		
@@ -236,7 +236,7 @@ public class MMM_ModelMulti_Steve extends MMM_ModelMultiBase {
 			}
 		}
 		
-		// ˜r‚Ì—h‚ç‚¬
+		// è…•ã®æºã‚‰ã
 		lf = mh_cos(pTicksExisted * 0.09F) * 0.05F + 0.05F;
 		this.bipedRightArm.rotateAngleZ += lf;
 		this.bipedLeftArm.rotateAngleZ -= lf;
@@ -248,7 +248,7 @@ public class MMM_ModelMulti_Steve extends MMM_ModelMultiBase {
 
 	@Override
 	public void renderItems(MMM_IModelCaps pEntityCaps) {
-		// è‚¿‚Ì•\¦
+		// æ‰‹æŒã¡ã®è¡¨ç¤º
 		GL11.glPushMatrix();
 		
 		// R
@@ -259,7 +259,7 @@ public class MMM_ModelMulti_Steve extends MMM_ModelMultiBase {
 		Arms[1].loadMatrix();
 //		GL11.glTranslatef(0F, 0.05F, -0.05F);
 		Arms[1].renderItems(this, pEntityCaps, false, 1);
-		// “ª•”‘•ü•i
+		// é ­éƒ¨è£…é£¾å“
 		boolean lplanter = MMM_ModelCapsHelper.getCapsValueBoolean(pEntityCaps, caps_isPlanter);
 		if (MMM_ModelCapsHelper.getCapsValueBoolean(pEntityCaps, caps_isCamouflage) || lplanter) {
 			if (lplanter) {
@@ -273,7 +273,7 @@ public class MMM_ModelMulti_Steve extends MMM_ModelMultiBase {
 
 	@Override
 	public void renderFirstPersonHand(MMM_IModelCaps pEntityCaps) {
-		// ‚¨èè‚Ì•`‰æ
+		// ãŠæ‰‹æ‰‹ã®æç”»
 		float var2 = 1.0F;
 		GL11.glColor3f(var2, var2, var2);
 		onGrounds[0] = onGrounds[1] = 0.0F;

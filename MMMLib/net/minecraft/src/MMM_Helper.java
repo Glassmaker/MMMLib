@@ -84,21 +84,21 @@ public class MMM_Helper {
 	}
 
 	/**
-	 * Œ»�Ý‚ÌŽÀ�sŠÂ‹«‚ªƒ��[ƒJƒ‹‚©‚Ç‚¤‚©‚ð”»’è‚·‚é�B
+	 * ﾅ陳ｻ・ｽﾃ昶堙固ｽﾃ・ｽsﾅﾃやｹﾂｫ窶堋ｪﾆ抵ｿｽ・ｽ[ﾆ谷ﾆ停ｹ窶堋ｩ窶堙・堋､窶堋ｩ窶堙ｰ窶敖ｻ窶凖ｨ窶堋ｷ窶堙ｩ・ｽB
 	 */
 	public static boolean isLocalPlay() {
 		return isClient && mc.isIntegratedServerRunning();
 	}
 
 	/**
-	 * ƒ}ƒ‹ƒ`‘Î‰ž—p�B
-	 * ItemStack‚É�î•ñ�X�V‚ð�s‚¤‚Æ�AƒT�[ƒo�[‘¤‚Æ‚Ì�·ˆÙ‚©‚çSlot‚ÌƒAƒbƒvƒf�[ƒg‚ª�s‚í‚ê‚é�B
-	 * ‚»‚Ì�Û�AUsingItem‚Ì�X�V�ˆ—�‚ª�s‚í‚ê‚È‚¢‚½‚ßˆá‚¤ƒAƒCƒeƒ€‚ÉŽ�‘Ö‚¦‚ç‚ê‚½‚Æ”»’è‚³‚ê‚é�B
-	 * ‚±‚±‚Å‚Í”äŠr—p‚ÉŽg‚í‚ê‚éƒXƒ^ƒbƒNƒŠƒXƒg‚ð‹­�§“I‚É�‘Š·‚¦‚éŽ–‚É‚æ‚è‘Î‰ž‚µ‚½�B
+	 * ﾆ筑ﾆ停ｹﾆ蛋窶佚寂ｰﾅｾ窶廃・ｽB
+	 * ItemStack窶堙会ｿｽﾃｮ窶｢ﾃｱ・ｽX・ｽV窶堙ｰ・ｽs窶堋､窶堙・ｿｽAﾆ探・ｽ[ﾆ弛・ｽ[窶伉､窶堙・堙鯉ｿｽﾂｷﾋ・吮堋ｩ窶堙ｧSlot窶堙姑但ﾆ鍛ﾆ致ﾆ断・ｽ[ﾆ暖窶堋ｪ・ｽs窶堙ｭ窶堙ｪ窶堙ｩ・ｽB
+	 * 窶堋ｻ窶堙鯉ｿｽﾃ幢ｿｽAUsingItem窶堙鯉ｿｽX・ｽV・ｽﾋ・費ｿｽ窶堋ｪ・ｽs窶堙ｭ窶堙ｪ窶堙遺堋｢窶堋ｽ窶堙淪・｡窶堋､ﾆ但ﾆ辰ﾆ弾ﾆ停ぎ窶堙嫁ｽ・ｽ窶佚問堋ｦ窶堙ｧ窶堙ｪ窶堋ｽ窶堙・敖ｻ窶凖ｨ窶堋ｳ窶堙ｪ窶堙ｩ・ｽB
+	 * 窶堋ｱ窶堋ｱ窶堙・堙坂敕､ﾅr窶廃窶堙嫁ｽg窶堙ｭ窶堙ｪ窶堙ｩﾆ湛ﾆ耽ﾆ鍛ﾆ誰ﾆ椎ﾆ湛ﾆ暖窶堙ｰ窶ｹﾂｭ・ｽﾂｧ窶廬窶堙会ｿｽ窶佛ﾂｷ窶堋ｦ窶堙ｩﾅｽ窶凪堙俄堙ｦ窶堙ｨ窶佚寂ｰﾅｾ窶堋ｵ窶堋ｽ・ｽB
 	 */
 	public static void updateCheckinghSlot(Entity pEntity, ItemStack pItemstack) {
 		if (pEntity instanceof EntityPlayerMP) {
-			// ƒT�[ƒo�[‘¤‚Å‚Ì‚Ý�ˆ—�
+			// ﾆ探・ｽ[ﾆ弛・ｽ[窶伉､窶堙・堙娯堙晢ｿｽﾋ・費ｿｽ
 			EntityPlayerMP lep = (EntityPlayerMP)pEntity;
 			Container lctr = lep.openContainer;
 			for (int li = 0; li < lctr.inventorySlots.size(); li++) {
@@ -112,7 +112,7 @@ public class MMM_Helper {
 	}
 	
 	/**
-	 * Forge—pƒNƒ‰ƒXŠl“¾�B
+	 * Forge窶廃ﾆ誰ﾆ停ｰﾆ湛ﾅl窶慊ｾ・ｽB
 	 */
 	public static Class getForgeClass(BaseMod pMod, String pName) {
 		if (isForge) {
@@ -122,7 +122,7 @@ public class MMM_Helper {
 	}
 
 	/**
-	 * –¼‘O‚©‚çƒNƒ‰ƒX‚ðŠl“¾‚·‚é
+	 * 窶督ｼ窶楼窶堋ｩ窶堙ｧﾆ誰ﾆ停ｰﾆ湛窶堙ｰﾅl窶慊ｾ窶堋ｷ窶堙ｩ
 	 */
 	public static Class getNameOfClass(String pName) {
 		if (fpackage != null) {
@@ -139,7 +139,7 @@ public class MMM_Helper {
 	}
 
 	/**
-	 * ‘—�M—pƒf�[ƒ^‚ÌƒZƒbƒg
+	 * 窶倪費ｿｽM窶廃ﾆ断・ｽ[ﾆ耽窶堙姑短ﾆ鍛ﾆ暖
 	 */
 	public static void setValue(byte[] pData, int pIndex, int pVal, int pSize) {
 		for (int li = 0; li < pSize; li++) {
@@ -191,9 +191,9 @@ public class MMM_Helper {
 		}
 	}
 
-	// �ó‹µ”»’f—vŠÖ�”ŒQ
+	// ・ｽﾃｳ窶ｹﾂｵ窶敖ｻ窶冉窶牌ﾅﾃ厄ｿｽ窶敘嘆
 	protected static boolean canBlockBeSeen(Entity pEntity, int x, int y, int z, boolean toTop, boolean do1, boolean do2) {
-		// ƒuƒ�ƒbƒN‚Ì‰ÂŽ‹”»’è
+		// ﾆ置ﾆ抵ｿｽﾆ鍛ﾆ誰窶堙娯ｰﾃでｽ窶ｹ窶敖ｻ窶凖ｨ
 		Vec3 vec3d = Vec3.createVectorHelper(pEntity.posX, pEntity.posY + pEntity.getEyeHeight(), pEntity.posZ);
 		Vec3 vec3d1 = Vec3.createVectorHelper((double)x + 0.5D, (double)y + (toTop ? 0.9D : 0.5D), (double)z + 0.5D);
 		
@@ -212,10 +212,10 @@ public class MMM_Helper {
 	}
 
 	public static boolean setPathToTile(EntityLiving pEntity, TileEntity pTarget, boolean flag) {
-		// Tile‚Ü‚Å‚ÌƒpƒX‚ð�ì‚é
+		// Tile窶堙懌堙・堙姑恥ﾆ湛窶堙ｰ・ｽﾃｬ窶堙ｩ
 		PathNavigate lpn = pEntity.getNavigator();
 		float lspeed = 1.0F;
-		// Œü‚«‚É�‡‚í‚¹‚Ä‹——£‚ð’²�®
+		// ﾅ津ｼ窶堋ｫ窶堙会ｿｽ窶｡窶堙ｭ窶堋ｹ窶堙・ｹ窶披板｣窶堙ｰ窶卍ｲ・ｽﾂｮ
 		int i = (pTarget.yCoord == MathHelper.floor_double(pEntity.posY) && flag) ? 2 : 1;
 		switch (pEntity.worldObj.getBlockMetadata(pTarget.xCoord, pTarget.yCoord, pTarget.zCoord)) {
 		case 3:
@@ -232,19 +232,19 @@ public class MMM_Helper {
 	}
 
 	/**
-	 * ModloaderŠÂ‹«‰º‚Å‹ó‚¢‚Ä‚¢‚éEntityID‚ð•Ô‚·�B
-	 * —LŒø‚È’l‚ðŠl“¾‚Å‚«‚È‚¯‚ê‚Î-1‚ð•Ô‚·�B
+	 * Modloaderﾅﾃやｹﾂｫ窶ｰﾂｺ窶堙・ｹﾃｳ窶堋｢窶堙・堋｢窶堙ｩEntityID窶堙ｰ窶｢ﾃ披堋ｷ・ｽB
+	 * 窶猫ﾅ津ｸ窶堙遺冤窶堙ｰﾅl窶慊ｾ窶堙・堋ｫ窶堙遺堋ｯ窶堙ｪ窶堙・1窶堙ｰ窶｢ﾃ披堋ｷ・ｽB
 	 */
 	private static int getNextEntityID(boolean isLiving) {
 		if (isLiving) {
-			// �¶•¨—p
+			// ・ｽﾂｶ窶｢ﾂｨ窶廃
 			for (int li = 1; li < 256; li++) {
 				if (EntityList.getClassFromID(li) == null) {
 					return li;
 				}
 			}
 		} else {
-			// •¨—p
+			// 窶｢ﾂｨ窶廃
 			for (int li = mod_MMM_MMMLib.cfg_startVehicleEntityID; li < mod_MMM_MMMLib.cfg_startVehicleEntityID + 2048; li++) {
 				if (EntityList.getClassFromID(li) == null) {
 					return li;
@@ -255,12 +255,12 @@ public class MMM_Helper {
 	}
 
 	/**
-	 * Entity‚ð“o˜^‚·‚é�B
-	 * RML�AForge—¼‘Î‰ž�B
+	 * Entity窶堙ｰ窶徙ﾋ弯窶堋ｷ窶堙ｩ・ｽB
+	 * RML・ｽAForge窶板ｼ窶佚寂ｰﾅｾ・ｽB
 	 * @param entityclass
 	 * @param entityName
 	 * @param defaultId
-	 * 0 : ƒI�[ƒgƒAƒTƒCƒ“
+	 * 0 : ﾆ棚・ｽ[ﾆ暖ﾆ但ﾆ探ﾆ辰ﾆ停・
 	 * @param mod
 	 * @param uniqueModeName
 	 * @param trackingRange
@@ -276,7 +276,7 @@ public class MMM_Helper {
 		if (isForge) {
 			try {
 				Method lmethod;
-				// EntityID‚ÌŠl“¾
+				// EntityID窶堙固l窶慊ｾ
 				lmethod = entityRegistry.getMethod("findGlobalUniqueEntityId");
 				defaultId = (Integer)lmethod.invoke(null);
 				
@@ -289,7 +289,7 @@ public class MMM_Helper {
 							Class.class, String.class, int.class, int.class, int.class);
 					lmethod.invoke(null, entityclass, entityName, defaultId, pEggColor1, pEggColor2);
 				}
-				// EntityList‚Ö‚Ì“o˜^‚Í“K“–‚È�”Žš‚Å‚æ‚¢�B
+				// EntityList窶堙問堙娯徙ﾋ弯窶堙坂廳窶懌凪堙茨ｿｽ窶敘ｽﾅ｡窶堙・堙ｦ窶堋｢・ｽB
 				registerModEntity.invoke(
 						null, entityclass, entityName, lid,
 						mod, trackingRange, updateFrequency, sendVelocityUpdate);
@@ -297,7 +297,7 @@ public class MMM_Helper {
 				e.printStackTrace();
 			}
 		} else {
-			// EntityList‚Ö‚Ì“o˜^‚Í
+			// EntityList窶堙問堙娯徙ﾋ弯窶堙・
 			if (defaultId == 0) {
 				defaultId = getNextEntityID(entityclass.isAssignableFrom(EntityLivingBase.class));
 			}
@@ -327,22 +327,22 @@ public class MMM_Helper {
 	}
 
 	/**
-	 * Entity‚ð•Ô‚·�B
+	 * Entity窶堙ｰ窶｢ﾃ披堋ｷ・ｽB
 	 */
 	public static Entity getEntity(byte[] pData, int pIndex, World pWorld) {
 		return pWorld.getEntityByID(MMM_Helper.getInt(pData, pIndex));
 	}
 
 	/**
-	 * •Ï�”�uavatar�v‚©‚ç’l‚ðŽæ‚è�o‚µ–ß‚è’l‚Æ‚µ‚Ä•Ô‚·�B
-	 * avatar‚ª‘¶�Ý‚µ‚È‚¢�ê�‡‚ÍŒ³‚Ì’l‚ð•Ô‚·�B
-	 * avatar‚ÍEntityLivingŒÝŠ·�B
+	 * 窶｢ﾃ擾ｿｽ窶晢ｿｽuavatar・ｽv窶堋ｩ窶堙ｧ窶冤窶堙ｰﾅｽﾃｦ窶堙ｨ・ｽo窶堋ｵ窶禿溪堙ｨ窶冤窶堙・堋ｵ窶堙・｢ﾃ披堋ｷ・ｽB
+	 * avatar窶堋ｪ窶伉ｶ・ｽﾃ昶堋ｵ窶堙遺堋｢・ｽﾃｪ・ｽ窶｡窶堙最陳ｳ窶堙娯冤窶堙ｰ窶｢ﾃ披堋ｷ・ｽB
+	 * avatar窶堙孔ntityLivingﾅ津敘ﾂｷ・ｽB
 	 */
 	public static Entity getAvatarEntity(Entity pEntity){
-		// littleMaid—pƒR�[ƒh‚±‚±‚©‚ç
+		// littleMaid窶廃ﾆ坦・ｽ[ﾆ檀窶堋ｱ窶堋ｱ窶堋ｩ窶堙ｧ
 		if (pEntity == null) return null;
 		try {
-			// ŽËŽè‚Ì�î•ñ‚ðEntityLittleMaidAvatar‚©‚çEntityLittleMaid‚Ö’u‚«Š·‚¦‚é
+			// ﾅｽﾃ暁ｽﾃｨ窶堙鯉ｿｽﾃｮ窶｢ﾃｱ窶堙ｰEntityLittleMaidAvatar窶堋ｩ窶堙ｧEntityLittleMaid窶堙問冰窶堋ｫﾅﾂｷ窶堋ｦ窶堙ｩ
 			Field field = pEntity.getClass().getField("avatar");
 			pEntity = (EntityLivingBase)field.get(pEntity);
 		} catch (NoSuchFieldException e) {
@@ -351,17 +351,17 @@ public class MMM_Helper {
 		} catch (Error e) {
 			e.printStackTrace();
 		}
-		// ‚±‚±‚Ü‚Å
+		// 窶堋ｱ窶堋ｱ窶堙懌堙・
 		return pEntity;
 	}
 
 	/**
-	 * •Ï�”�umaidAvatar�v‚©‚ç’l‚ðŽæ‚è�o‚µ–ß‚è’l‚Æ‚µ‚Ä•Ô‚·�B
-	 * maidAvatar‚ª‘¶�Ý‚µ‚È‚¢�ê�‡‚ÍŒ³‚Ì’l‚ð•Ô‚·�B
-	 * maidAvatar‚ÍEntityPlayerŒÝŠ·�B
+	 * 窶｢ﾃ擾ｿｽ窶晢ｿｽumaidAvatar・ｽv窶堋ｩ窶堙ｧ窶冤窶堙ｰﾅｽﾃｦ窶堙ｨ・ｽo窶堋ｵ窶禿溪堙ｨ窶冤窶堙・堋ｵ窶堙・｢ﾃ披堋ｷ・ｽB
+	 * maidAvatar窶堋ｪ窶伉ｶ・ｽﾃ昶堋ｵ窶堙遺堋｢・ｽﾃｪ・ｽ窶｡窶堙最陳ｳ窶堙娯冤窶堙ｰ窶｢ﾃ披堋ｷ・ｽB
+	 * maidAvatar窶堙孔ntityPlayerﾅ津敘ﾂｷ・ｽB
 	 */
 	public static Entity getAvatarPlayer(Entity entity) {
-		// ƒ�ƒCƒh‚³‚ñƒ`ƒFƒbƒN
+		// ﾆ抵ｿｽﾆ辰ﾆ檀窶堋ｳ窶堙ｱﾆ蛋ﾆ巽ﾆ鍛ﾆ誰
 		try {
 			Field field = entity.getClass().getField("maidAvatar");
 			entity = (Entity)field.get(entity);
@@ -374,7 +374,7 @@ public class MMM_Helper {
 	}
 
 	/**
-	 * ƒvƒŒ�[ƒ„‚ÌƒCƒ“ƒxƒ“ƒgƒŠ‚©‚çƒAƒCƒeƒ€‚ðŒ¸‚ç‚·
+	 * ﾆ致ﾆ椎抵ｿｽ[ﾆ停樞堙姑辰ﾆ停愴遅ﾆ停愴暖ﾆ椎窶堋ｩ窶堙ｧﾆ但ﾆ辰ﾆ弾ﾆ停ぎ窶堙ｰﾅ陳ｸ窶堙ｧ窶堋ｷ
 	 */
 	protected static ItemStack decPlayerInventory(EntityPlayer par1EntityPlayer, int par2Index, int par3DecCount) {
 		if (par1EntityPlayer == null) {
@@ -390,7 +390,7 @@ public class MMM_Helper {
 		}
 		
 		if (!par1EntityPlayer.capabilities.isCreativeMode) {
-			// ƒNƒŠƒGƒCƒeƒBƒu‚¾‚ÆŒ¸‚ç‚È‚¢
+			// ﾆ誰ﾆ椎ﾆ竪ﾆ辰ﾆ弾ﾆ達ﾆ置窶堋ｾ窶堙・陳ｸ窶堙ｧ窶堙遺堋｢
 			itemstack1.stackSize -= par3DecCount;
 		}
 		
@@ -428,22 +428,22 @@ public class MMM_Helper {
 	}
 
 	/**
-	 * Žw’è‚³‚ê‚½ƒŠƒrƒWƒ‡ƒ“‚æ‚è‚àŒÃ‚¯‚ê‚Î—áŠO‚ð“Š‚°‚ÄƒXƒgƒbƒv
+	 * ﾅｽw窶凖ｨ窶堋ｳ窶堙ｪ窶堋ｽﾆ椎ﾆ池ﾆ淡ﾆ停｡ﾆ停懌堙ｦ窶堙ｨ窶堙ﾅ津・堋ｯ窶堙ｪ窶堙寂氾｡ﾅO窶堙ｰ窶愬窶堋ｰ窶堙・湛ﾆ暖ﾆ鍛ﾆ致
 	 */
 	public static void checkRevision(String pRev) {
 		if (convRevision() < convRevision(pRev)) {
-			// “K�‡ƒo�[ƒWƒ‡ƒ“‚Å‚Í‚È‚¢‚Ì‚ÅƒXƒgƒbƒv
+			// 窶廳・ｽ窶｡ﾆ弛・ｽ[ﾆ淡ﾆ停｡ﾆ停懌堙・堙坂堙遺堋｢窶堙娯堙・湛ﾆ暖ﾆ鍛ﾆ致
 			ModLoader.getLogger().warning("you must check MMMLib revision.");
 			throw new RuntimeException("The revision of MMMLib is old.");
 		}
 	}
 
 	/**
-	 * EntityList‚É“o˜^‚³‚ê‚Ä‚¢‚¢‚éEntity‚ð’u‚«Š·‚¦‚é�B
+	 * EntityList窶堙俄徙ﾋ弯窶堋ｳ窶堙ｪ窶堙・堋｢窶堋｢窶堙ｩEntity窶堙ｰ窶冰窶堋ｫﾅﾂｷ窶堋ｦ窶堙ｩ・ｽB
 	 */
 	public static void replaceEntityList(Class pSrcClass, Class pDestClass) {
-		// EntityList“o˜^�î•ñ‚ð’u‚«Š·‚¦
-		// ŒÃ‚¢Entity‚Å‚àƒXƒ|�[ƒ“‚Å‚«‚é‚æ‚¤‚Éˆê•”‚Ì•¨‚Í“ñ�d“o˜^
+		// EntityList窶徙ﾋ弯・ｽﾃｮ窶｢ﾃｱ窶堙ｰ窶冰窶堋ｫﾅﾂｷ窶堋ｦ
+		// ﾅ津・堋｢Entity窶堙・堙ﾆ湛ﾆ竹・ｽ[ﾆ停懌堙・堋ｫ窶堙ｩ窶堙ｦ窶堋､窶堙架・ｪ窶｢窶昶堙娯｢ﾂｨ窶堙坂愿ｱ・ｽd窶徙ﾋ弯
 		try {
 			// stringToClassMapping
 			Map lmap;
@@ -496,11 +496,11 @@ public class MMM_Helper {
 	}
 
 	/**
-	 * ƒoƒCƒI�[ƒ€‚Ì�Ý’èEntity‚ð’u‚«Š·‚¦‚ç‚ê‚½Entity‚Ö’u‚«Š·‚¦‚é�B
-	 * Šî–{“I‚ÉMMMLibˆÈŠO‚©‚ç‚ÍŒÄ‚Î‚ê‚È‚¢�B
+	 * ﾆ弛ﾆ辰ﾆ棚・ｽ[ﾆ停ぎ窶堙鯉ｿｽﾃ昶凖ｨEntity窶堙ｰ窶冰窶堋ｫﾅﾂｷ窶堋ｦ窶堙ｧ窶堙ｪ窶堋ｽEntity窶堙問冰窶堋ｫﾅﾂｷ窶堋ｦ窶堙ｩ・ｽB
+	 * ﾅﾃｮ窶怒窶廬窶堙窺MMLibﾋ・闇O窶堋ｩ窶堙ｧ窶堙最津・堙寂堙ｪ窶堙遺堋｢・ｽB
 	 */
 	protected static void replaceBaiomeSpawn() {
-		// ƒoƒCƒI�[ƒ€‚Ì”­�¶�ˆ—�‚ð‚Ì‚Á‚Æ‚é
+		// ﾆ弛ﾆ辰ﾆ棚・ｽ[ﾆ停ぎ窶堙娯敖ｭ・ｽﾂｶ・ｽﾋ・費ｿｽ窶堙ｰ窶堙娯堙≫堙・堙ｩ
 		// TODO: fix the commented
 		if (replaceEntitys.isEmpty()) return;
 		for (int i = 0; i < BiomeGenBase.biomeList.length; i++) {
@@ -519,15 +519,15 @@ public class MMM_Helper {
 	}
 
 	/**
-	 * Ž‹�ü‚Ì�æ‚É‚¢‚é�Å�‰‚ÌEntity‚ð•Ô‚·
+	 * ﾅｽ窶ｹ・ｽﾃｼ窶堙鯉ｿｽﾃｦ窶堙俄堋｢窶堙ｩ・ｽﾃ・ｿｽ窶ｰ窶堙窪ntity窶堙ｰ窶｢ﾃ披堋ｷ
 	 * @param pEntity
-	 * Ž‹“_
+	 * ﾅｽ窶ｹ窶彑
 	 * @param pRange
-	 * Ž‹�ü‚Ì—LŒø‹——£
+	 * ﾅｽ窶ｹ・ｽﾃｼ窶堙娯猫ﾅ津ｸ窶ｹ窶披板｣
 	 * @param pDelta
-	 * Žž��•â�³
+	 * ﾅｽﾅｾ・ｽ・ｽ窶｢ﾃ｢・ｽﾂｳ
 	 * @param pExpand
-	 * ŒŸ’m—Ìˆæ‚ÌŠg‘å”ÍˆÍ
+	 * ﾅ椎ｸ窶冦窶氾戸・ｦ窶堙固g窶佚･窶敕才・・
 	 * @return
 	 */
 	public static Entity getRayTraceEntity(EntityLivingBase pEntity, double pRange, float pDelta, float pExpand) {
@@ -567,10 +567,10 @@ public class MMM_Helper {
 	}
 
 
-	// Forge‘Î�ô
+	// Forge窶佚趣ｿｽﾃｴ
 
 	/**
-	 * Forge‘Î�ô—p‚Ìƒ�ƒ\ƒbƒh
+	 * Forge窶佚趣ｿｽﾃｴ窶廃窶堙姑抵ｿｽﾆ箪ﾆ鍛ﾆ檀
 	 */
 	public static ItemStack getSmeltingResult(ItemStack pItemstack) {
 		if (methGetSmeltingResultForge != null) {
@@ -583,13 +583,13 @@ public class MMM_Helper {
 	}
 
 	/**
-	 * ƒAƒCƒeƒ€‚É’Ç‰ÁŒø‰Ê‚ª�Ý‚é‚©‚ð”»’è‚·‚é�B
-	 * Forge‘Î�ô�B
+	 * ﾆ但ﾆ辰ﾆ弾ﾆ停ぎ窶堙俄凖・ｰﾃ・津ｸ窶ｰﾃ岩堋ｪ・ｽﾃ昶堙ｩ窶堋ｩ窶堙ｰ窶敖ｻ窶凖ｨ窶堋ｷ窶堙ｩ・ｽB
+	 * Forge窶佚趣ｿｽﾃｴ・ｽB
 	 * @param pItemStack
 	 * @return
 	 */
 	public static boolean hasEffect(ItemStack pItemStack) {
-		// ƒ}ƒWClientSIDE‚Æ‚©Ž«‚ß‚Ä‚Ù‚µ‚¢�B
+		// ﾆ筑ﾆ淡ClientSIDE窶堙・堋ｩﾅｽﾂｫ窶堙溪堙・堙吮堋ｵ窶堋｢・ｽB
 		if (pItemStack != null) {
 			Item litem = pItemStack.getItem();
 			if (litem instanceof ItemPotion) {
@@ -601,8 +601,8 @@ public class MMM_Helper {
 	}
 
 	/**
-	 * Block‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ð’u‚«Š·‚¦‚é�B
-	 * static final‚Ì•Ï�”‚É‘Î‚µ‚Ä�s‚¤‚Ì‚ÅForge‚Å‚Í–³Œø�B
+	 * Block窶堙姑辰ﾆ停愴湛ﾆ耽ﾆ停愴湛窶堙ｰ窶冰窶堋ｫﾅﾂｷ窶堋ｦ窶堙ｩ・ｽB
+	 * static final窶堙娯｢ﾃ擾ｿｽ窶昶堙俄佚寂堋ｵ窶堙・ｿｽs窶堋､窶堙娯堙・orge窶堙・堙坂督ｳﾅ津ｸ・ｽB
 	 * @param pOriginal
 	 * @param pReplace
 	 * @return
@@ -612,11 +612,11 @@ public class MMM_Helper {
 			return false;
 		}
 		try {
-			// Block‚Ìstatic final•ª‚Ì’uŠ·‚¦
+			// Block窶堙茎tatic final窶｢ﾂｪ窶堙娯冰ﾅﾂｷ窶堋ｦ
 			Field[] lfield = Block.class.getDeclaredFields();
 			for (int li = 0; li < lfield.length; li++) {
 				if (!Modifier.isStatic(lfield[li].getModifiers())) {
-					// staticˆÈŠO‚Í‘Î�ÛŠO
+					// staticﾋ・闇O窶堙坂佚趣ｿｽﾃ崘O
 					continue;
 				}
 				
@@ -633,8 +633,8 @@ public class MMM_Helper {
 	}
 
 	/**
-	 * 16�i�”‚Ì•¶Žš—ñ‚ðInt‚Ö•ÏŠ·‚·‚é�B
-	 * 0xffffffff‘Î�ô�B
+	 * 16・ｽi・ｽ窶昶堙娯｢ﾂｶﾅｽﾅ｡窶氾ｱ窶堙ｰInt窶堙問｢ﾃ焦ﾂｷ窶堋ｷ窶堙ｩ・ｽB
+	 * 0xffffffff窶佚趣ｿｽﾃｴ・ｽB
 	 * @param pValue
 	 * @return
 	 */
@@ -647,7 +647,7 @@ public class MMM_Helper {
 	}
 
 	/**
-	 *  ƒAƒCƒeƒ€‚É�Ý’è‚³‚ê‚½�UŒ‚—Í‚ðŒ©‚é
+	 *  ﾆ但ﾆ辰ﾆ弾ﾆ停ぎ窶堙会ｿｽﾃ昶凖ｨ窶堋ｳ窶堙ｪ窶堋ｽ・ｽUﾅ停壺氾坂堙ｰﾅ陳ｩ窶堙ｩ
 	 * @param pItemStack
 	 * @return
 	 */

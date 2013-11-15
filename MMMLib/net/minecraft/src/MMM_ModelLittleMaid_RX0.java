@@ -424,21 +424,21 @@ public class MMM_ModelLittleMaid_RX0 extends MMM_ModelLittleMaidBase {
 	@Override
 	public int showArmorParts(int parts, int index) {
 		
-		// ŠZ‚Ì•\¦—p
+		// é§ã®è¡¨ç¤ºç”¨
 		boolean f;
-		// Š•
+		// å…œ
 		f = parts == 3 ? true : false;
 		bipedHead.setVisible(f);
-		// ŠZ
+		// é§
 		f = parts == 2 ? true : false;
 		bipedBody.setVisible(f);
 		bipedWaist.setVisible(f);
 		bipedRightArm.setVisible(f);
 		bipedLeftArm.setVisible(f);
-		// ‹rb
+		// è„šç”²
 		f = parts == 1 ? true : false;
 		Skirt.setVisible(f);
-		// äa“–
+		// è‡‘å½“
 		f = parts == 0 ? true : false;
 		bipedRightLeg.setVisible(f);
 		bipedLeftLeg.setVisible(f);

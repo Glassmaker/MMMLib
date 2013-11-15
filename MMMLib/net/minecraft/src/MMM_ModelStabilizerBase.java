@@ -9,44 +9,44 @@ public abstract class MMM_ModelStabilizerBase extends MMM_ModelBase {
 	}
 
 	/**
-	 * �g�p�����e�N�X�`����Ԃ��B
+	 * ・ｽg・ｽp・ｽ・ｽ・ｽ・ｽ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽ・ｽﾔゑｿｽ・ｽB
 	 */
 	public ResourceLocation getTexture() {
 		return null;
 	}
 
 	/**
-	 * ���̃n�[�h�|�C���g�ɑ����\���ǂ�����Ԃ��B
-	 * pName:�n�[�h�|�C���g�̎��ʖ��́B
+	 * ・ｽ・ｽ・ｽﾌハ・ｽ[・ｽh・ｽ|・ｽC・ｽ・ｽ・ｽg・ｽﾉ托ｿｽ・ｽ・ｽ・ｽﾂ能・ｽ・ｽ・ｽﾇゑｿｽ・ｽ・ｽ・ｽ・ｽﾔゑｿｽ・ｽB
+	 * pName:・ｽn・ｽ[・ｽh・ｽ|・ｽC・ｽ・ｽ・ｽg・ｽﾌ趣ｿｽ・ｽﾊ厄ｿｽ・ｽﾌ。
 	 */
 	public boolean checkEquipment(String pName) {
 		return true;
 	}
 
 	/**
-	 * �p�[�c�̖��́B
+	 * ・ｽp・ｽ[・ｽc・ｽﾌ厄ｿｽ・ｽﾌ。
 	 */
 	public abstract String getName();
 
 	/**
-	 * �����n�[�h�|�C���g�ɑ����ł��邩�ǂ����B
+	 * ・ｽ・ｽ・ｽ・ｽ・ｽn・ｽ[・ｽh・ｽ|・ｽC・ｽ・ｽ・ｽg・ｽﾉ托ｿｽ・ｽ・ｽ・ｽﾅゑｿｽ・ｽ驍ｩ・ｽﾇゑｿｽ・ｽ・ｽ・ｽB
 	 */
 	public int getExclusive() {
 		return 0;
 	}
 
 	/**
-	 * ���C�h����̃e�N�X�`�������̂܂܎g�킸�ɁA�Ⴄ�e�N�X�`�����g�����H
+	 * ・ｽ・ｽ・ｽC・ｽh・ｽ・ｽ・ｽ・ｽﾌテ・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽﾌまま使・ｽ墲ｸ・ｽﾉ、・ｽ痰､・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽ・ｽ・ｽg・ｽ・ｽ・ｽ・ｽ・ｽH
 	 */
 	public boolean isLoadAnotherTexture() {
 		return false;
 	}
 
 	/**
-	 * �����Ɏ��s�����
+	 * ・ｽ・ｽ・ｽ・ｽ・ｽﾉ趣ｿｽ・ｽs・ｽ・ｽ・ｽ・ｽ・ｽ
 	 */
 	public void init(MMM_EquippedStabilizer pequipped) {
-		// �ϐ��Ȃǂ��`����
+		// ・ｽﾏ撰ｿｽ・ｽﾈどゑｿｽ・ｽ`・ｽ・ｽ・ｽ・ｽ
 	}
 /*	
 	@Deprecated
@@ -56,7 +56,7 @@ public abstract class MMM_ModelStabilizerBase extends MMM_ModelBase {
 	}
 
 	/**
-	 * �����_�����O�͊�{��������ĂԂ���
+	 * ・ｽ・ｽ・ｽ・ｽ・ｽ_・ｽ・ｽ・ｽ・ｽ・ｽO・ｽﾍ奇ｿｽ{・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽﾄぶゑｿｽ・ｽ・ｽ
 	 */
 	public void render(MMM_ModelMultiBase pModel, Entity par1Entity, float par2, float par3, float par4, float par5, float par6, float par7) {
 //		render(par1Entity, par2, par3, par4, par5, par6, par7);

@@ -1,87 +1,87 @@
-�}���`���f���Ή��e�N�X�`���ǉ��p�b�N�̎d�l�ɂ���
+マルチモデル対応テクスチャ追加パックの仕様について
 
-�}���`���f���p�Ƀe�N�X�`����ǉ����邽�߂̃p�b�P�[�W���쐬����ꍇ�̎d�l�ł��B
-���g�ō쐬�����e�N�X�`����ǉ�����ꍇ�ɎQ�l�ɂ��Ă��������B
+マルチモデル用にテクスチャを追加するためのパッケージを作成する場合の仕様です。
+自身で作成したテクスチャを追加する場合に参考にしてください。
 
 
 
-�p��
-	�E�e�N�X�`���p�b�N
-		�ꑵ���̃e�N�X�`�����܂ރf�B���N�g���̎��B
-	�E�}���`���f��
-		�W���̌`�ԈȊO�̃��f�����g�p����ׂ̋K�i�B
-	�E�e�N�X�`���p�b�P�[�W
-		�e�N�X�`���p�b�N���܂�zip�t�@�C���̎��B
-		�����̃e�N�X�`���p�b�N�A���f�����܂ގ����o����B
+用語
+	・テクスチャパック
+		一揃いのテクスチャを含むディレクトリの事。
+	・マルチモデル
+		標準の形態以外のモデルを使用する為の規格。
+	・テクスチャパッケージ
+		テクスチャパックを含むzipファイルの事。
+		複数のテクスチャパック、モデルを含む事が出来る。
 		
 
 
 
-�e�N�X�`���̖����K��
-	�e�N�X�`���̃t�@�C�����͈��̋K���Ɋ�Â��Ė�������Ă��܂��B
-	���\��l�Ȃǂ��܂܂��̂Ŏ�������Ă��Ȃ��ꍇ������܂��B
+テクスチャの命名規則
+	テクスチャのファイル名は一定の規則に基づいて命名されています。
+	※予約値なども含まれるので実装されていない場合があります。
 
-	�E�K���P�i���d�l�Ƃ̌݊��̂��߂̂��̂ł��A�g�p�͐�������܂���j
-		mod_littlemaid?.png	�F�F���̃e�N�X�`���A?��0�`F�܂ł�16�i��
-		mod_littlemaidw.png	�F�쐶�̃��C�h����p�e�N�X�`��
-		mod_littlemaid_a0?.png	�F�A�[�}�[�̃e�N�X�`���A
-					�@0�̓T�C�Y+0.1
-					�@1�̓T�C�Y+0.5
+	・規則１（旧仕様との互換のためのものです、使用は推奨されません）
+		mod_littlemaid?.png	：色毎のテクスチャ、?は0～Fまでの16進数
+		mod_littlemaidw.png	：野生のメイドさん用テクスチャ
+		mod_littlemaid_a0?.png	：アーマーのテクスチャ、
+					　0はサイズ+0.1
+					　1はサイズ+0.5
 
-	�E�K���Q
-		*_?.png			�F�F���̃e�N�X�`��?��0�`F�܂ł�16�i��
-		*_10.png		�F�쐶�̃��C�h����p�̃e�N�X�`���i*_3c.png�Ɠ����j
-		*_1?.png		�F�A�[�}�[�̃e�N�X�`���A
-					�@1�̓T�C�Y+0.1�idefault_40.png�Ɠ����j
-					�@2�̓T�C�Y+0.5�idefault_50.png�Ɠ����j
-		*_13.png		�F���̖͂��邳�ɍ��E����Ȃ��������̃e�N�X�`���i�w偂̖ڂȂǂ̂悤�Ȃ��́j�A
-					�@�_�񃁃C�h����p�A_6?.png���Ȃ���ΓK�p����܂��B
-		*_14.png		�F���̖͂��邳�ɍ��E����Ȃ��������̃e�N�X�`���i�w偂̖ڂȂǂ̂悤�Ȃ��́j�A
-					�@�쐶�̃��C�h����p�A_7?.png���Ȃ���ΓK�p����܂��B
-		*_15.png		�F���̖͂��邳�ɍ��E����Ȃ��������̃e�N�X�`���idefault_80.png�Ɠ����j�B
-		*_16.png		�F���̖͂��邳�ɍ��E����Ȃ��������̃e�N�X�`���idefault_90.png�Ɠ����j�B
-		*_20.png		�FGUI�̃e�N�X�`��
-		*_3?.png		�F�쐶�̃J���[���C�h����p�̃e�N�X�`���A?��0�`F�܂ł�16�i��
-		(default|*)_4?.png	�F�_���[�W�h�A�[�}�[1�̃e�N�X�`���A?��0�`9�܂ł�16�i��
-		(default|*)_5?.png	�F�_���[�W�h�A�[�}�[2�̃e�N�X�`���A?��0�`9�܂ł�16�i��
-		*_6?.png		�F�ʂ̎��̖͂��邳�ɍ��E����Ȃ��������̃e�N�X�`���A�_�񃁃C�h����p�B
-					�@?��0�`F�܂ł�16�i���Ŋe�F�ɑΉ��B
-		*_7?.png		�F�ʂ̎��̖͂��邳�ɍ��E����Ȃ��������̃e�N�X�`���A�쐶�̃��C�h����p�B
-					�@?��0�`F�܂ł�16�i���Ŋe�F�ɑΉ��B
-		(default|*)_8?.png	�F�ʂ̎��̖͂��邳�ɍ��E����Ȃ��������̃e�N�X�`���A�_���[�W�h�A�[�}�[1�p�B
-					�@?��0�`9�܂ł�16�i���B
-		(default|*)_9?.png	�F�ʂ̎��̖͂��邳�ɍ��E����Ȃ��������̃e�N�X�`���A�_���[�W�h�A�[�}�[2�p�B
-					�@?��0�`9�܂ł�16�i���B
+	・規則２
+		*_?.png			：色毎のテクスチャ?は0～Fまでの16進数
+		*_10.png		：野生のメイドさん用のテクスチャ（*_3c.pngと同等）
+		*_1?.png		：アーマーのテクスチャ、
+					　1はサイズ+0.1（default_40.pngと同等）
+					　2はサイズ+0.5（default_50.pngと同等）
+		*_13.png		：周囲の明るさに左右されない半透明のテクスチャ（蜘蛛の目などのようなもの）、
+					　契約メイドさん用、_6?.pngがなければ適用されます。
+		*_14.png		：周囲の明るさに左右されない半透明のテクスチャ（蜘蛛の目などのようなもの）、
+					　野生のメイドさん用、_7?.pngがなければ適用されます。
+		*_15.png		：周囲の明るさに左右されない半透明のテクスチャ（default_80.pngと同等）。
+		*_16.png		：周囲の明るさに左右されない半透明のテクスチャ（default_90.pngと同等）。
+		*_20.png		：GUIのテクスチャ
+		*_3?.png		：野生のカラーメイドさん用のテクスチャ、?は0～Fまでの16進数
+		(default|*)_4?.png	：ダメージドアーマー1のテクスチャ、?は0～9までの16進数
+		(default|*)_5?.png	：ダメージドアーマー2のテクスチャ、?は0～9までの16進数
+		*_6?.png		：個別の周囲の明るさに左右されない半透明のテクスチャ、契約メイドさん用。
+					　?は0～Fまでの16進数で各色に対応。
+		*_7?.png		：個別の周囲の明るさに左右されない半透明のテクスチャ、野生のメイドさん用。
+					　?は0～Fまでの16進数で各色に対応。
+		(default|*)_8?.png	：個別の周囲の明るさに左右されない半透明のテクスチャ、ダメージドアーマー1用。
+					　?は0～9までの16進数。
+		(default|*)_9?.png	：個別の周囲の明るさに左右されない半透明のテクスチャ、ダメージドアーマー2用。
+					　?は0～9までの16進数。
 
-		*:�D���Ȗ��́A�A�����{��͎g�p�ł��܂���B
-
-
-	Ex.�}�C���N���t�g����̊Z��+0.5��+1.0
-	���F�A�[�}�[�e�N�X�`����2���Z�b�g�ŗp�ӂ��Ȃ��Ɛ���ɓ��삵�܂���B
-	�@�@�e�N�X�`���p�b�N�ɑ��݂��Ȃ����̓f�t�H���g�̕����g���܂��B
+		*:好きな名称、但し日本語は使用できません。
 
 
-�e�N�X�`���p�b�N�i�f�B���N�g���j�̖����K��
-	�e�N�X�`�����i�[����f�B���N�g���ɂ����̋K��������܂��B
+	Ex.マインクラフトさんの鎧は+0.5と+1.0
+	注：アーマーテクスチャは2枚セットで用意しないと正常に動作しません。
+	　　テクスチャパックに存在しない物はデフォルトの物を使います。
 
-	�E�f�B���N�g�����̂Ƀs���I�h�͎g�p�ł��܂���B
 
-	�E�f�B���N�g�����̂ɓ��{��͎g�p�ł��܂���B
+テクスチャパック（ディレクトリ）の命名規則
+	テクスチャを格納するディレクトリにも一定の規則があります。
 
-	�E�e�N�X�`���p�b�N���̂̍Ō�Ɂu_naz�v���̃��f�����̂�t�����鎖�ɂ��A
-	�@��q����}���`���f���ɑΉ����鎖���o���܂��B
+	・ディレクトリ名称にピリオドは使用できません。
 
-	�E���݂͓���̃f�B���N�g���ȉ��Ƀe�N�X�`���p�b�N���̂�
-	�@�f�B���N�g�����쐬����K�v���L��܂��B
-	�@MMMLib���W���œǂݍ��ޓ���f�B���N�g�����͈̂ȉ��̒ʂ�B
+	・ディレクトリ名称に日本語は使用できません。
+
+	・テクスチャパック名称の最後に「_naz」等のモデル名称を付加する事により、
+	　後述するマルチモデルに対応する事が出来ます。
+
+	・現在は特定のディレクトリ以下にテクスチャパック名称の
+	　ディレクトリを作成する必要が有ります。
+	　MMMLibが標準で読み込む特定ディレクトリ名称は以下の通り。
 
 		/mob/littleMaid/
 		/mob/ModelMulti/
 
-	�@�ȉ��̃f�B���N�g���ł���΁A�K�w�͊֌W�Ȃ��g�p�ł���͂��ł��B
-	�@�i���ۂɃe�X�g���s���Ă���̂�2�K�w�̂݁j
+	　以下のディレクトリであれば、階層は関係なく使用できるはずです。
+	　（実際にテストを行っているのは2階層のみ）
 	
-	�@���ۂ̃f�B���N�g���\���͈ȉ��̂悤�ɂȂ�܂��B
+	　実際のディレクトリ構造は以下のようになります。
 
 		/mob/littleMaid/naz_naz/naz_00.png
 			.
@@ -89,124 +89,124 @@
 		/mob/littleMaid/naz_naz/naz_20.png
 
 
-�}���`���f��
-	�����̃��f���N���X���e�N�X�`���p�b�P�[�W�ɓo�^���鎖�ɂ��A
-	�l�X�ȃ��f���𓯎��Ɏg�p���鎖���o���܂��B
+マルチモデル
+	複数のモデルクラスをテクスチャパッケージに登録する事により、
+	様々なモデルを同時に使用する事が出来ます。
 
-	�E���f���N���X
-		�uModelMultiBase.class�v���p�������N���X��
-		�e�N�X�`���p�b�N���ɔz�u���鎖�œ���ȃ��f���`����g�p�ł��܂��B
+	・モデルクラス
+		「ModelMultiBase.class」を継承したクラスを
+		テクスチャパック内に配置する事で特殊なモデル形状を使用できます。
 
-	�E���f���N���X�̔z�u�ꏊ
-		�e�N�X�`���p�b�P�[�W�̃��[�g�ɔz�u���Ă��������B
+	・モデルクラスの配置場所
+		テクスチャパッケージのルートに配置してください。
 
 			/ModelLittleMaid_naz.class
-			/mob/littleMaid/naz_naz/�`
+			/mob/littleMaid/naz_naz/～
 
-	�E���f���N���X�̖����K��
-		���f���N���X�̐ړ�����Ƃ��āuModelLittleMaid_�v
-		�܂��́A�uModelMulti_�v��t���ĉ������B
-		�A���_�[�o�[�ȍ~�����f�����̂ƂȂ�A�e�N�X�`���p�b�N����
-		��ԍŌ�ɕt�^���鎖�ɂ��e�N�X�`���p�b�N�̃��f���Ƃ���
-		�K�p����܂��B
+	・モデルクラスの命名規則
+		モデルクラスの接頭字句として「ModelLittleMaid_」
+		または、「ModelMulti_」を付けて下さい。
+		アンダーバー以降がモデル名称となり、テクスチャパック名の
+		一番最後に付与する事によりテクスチャパックのモデルとして
+		適用されます。
 
 			ModelLittleMaid_naz.class
 			ModelLittleMaid_chrno.class
 
-			/mob/littleMaid/naz_naz/�`
-			/mob/littleMaid/Cirno_chrno/�`
+			/mob/littleMaid/naz_naz/～
+			/mob/littleMaid/Cirno_chrno/～
 		
-	���F���f���N���X�̖��̂͋������Ȃ��悤�Ƀ��j�[�N�Ȗ�����t���܂��傤�B
-	�@�@���ꖼ�̂̃��f���N���X���������݂����ꍇ�́A
-	�@�@�Ō�ɓǂݍ��܂ꂽ���ɂȂ�͂��ł��B�i���m�F�j
+	注：モデルクラスの名称は競合しないようにユニークな名所を付けましょう。
+	　　同一名称のモデルクラスが複数存在した場合は、
+	　　最後に読み込まれた物になるはずです。（未確認）
 
-	�ڍׂ͕ʂ̃e�L�X�g�ɋL�q���Ă���܂��̂ŎQ�l�ɂ��Ă��������B
+	詳細は別のテキストに記述してありますので参考にしてください。
 
 
 
-�p�b�P�[�W�t�@�C��
-	���̖����K���Ŗ������ꂽ�t�@�C����%appdata%/.mincraft/mods/�ɕ��荞�ނƁA
-	littleMaidMob�͎����I�Ƀt�@�C�����`�F�b�N���܂��B
+パッケージファイル
+	一定の命名規則で命名されたファイルを%appdata%/.mincraft/mods/に放り込むと、
+	littleMaidMobは自動的にファイルをチェックします。
 
-		littleMaidMob-*.zip	�F*�͍D���Ȗ���
-		ModelMulti-*.zip	�F*�͍D���Ȗ���
+		littleMaidMob-*.zip	：*は好きな名称
+		ModelMulti-*.zip	：*は好きな名称
 
 		Ex.littleMaidMob-texture.zip
 	
-	�܂��A�����K���Ɉ�v����Ȃ�Ε����̃e�N�X�`���p�b�N�ɑΉ����܂��B
-	���̃e�N�X�`���p�b�N�ɓ��ꖼ�̂̃f�B���N�g�������݂��Ă���ꍇ�A
-	�Ō�ɓǂݍ��܂ꂽ�e�N�X�`���ŏ㏑������܂��B
+	また、命名規則に一致するならば複数のテクスチャパックに対応します。
+	他のテクスチャパックに同一名称のディレクトリが存在している場合、
+	最後に読み込まれたテクスチャで上書きされます。
 
 
 
-�쐶�̃J���[���C�h
-	�]���A�쐶�̃��C�h�̐F�͒��F(12)�Œ�ł������A�V���Ɋe�F�ւƑΉ�����܂����B
-	�쐶�̃��C�h�͔������Ƀ����_���Ńe�N�X�`���p�b�N��I�����A
-	�o�^����Ă���쐶�F�������_���Őݒ肵�܂��B
-	���̎��쐶�̃��C�h�̃e�N�X�`�����ݒ肳��Ă��Ȃ��ꍇ��default�̃e�N�X�`�����g�p���܂��B
-	�쐶�̃��C�h�̃e�N�X�`���Ƃ��Ĉȉ��̕����g�p���܂��B
+野生のカラーメイド
+	従来、野生のメイドの色は茶色(12)固定でしたが、新たに各色へと対応されました。
+	野生のメイドは発生時にランダムでテクスチャパックを選択し、
+	登録されている野生色をランダムで設定します。
+	この時野生のメイドのテクスチャが設定されていない場合はdefaultのテクスチャを使用します。
+	野生のメイドのテクスチャとして以下の物を使用します。
 
-		*_3?.png	�F*�͍D���Ȗ��́A?��0�`F����16�i���B
+		*_3?.png	：*は好きな名称、?は0～F迄の16進数。
 
-	�]���ݒ肳��Ă����쐶�̃��C�h�e�N�X�`���͓����I��3c�ւƊ���U���Ă��܂��B
+	従来設定されていた野生のメイドテクスチャは内部的に3cへと割り振られています。
 
-		*_10.png	�� *_3c.png
-
-
-�A�[�}�[�e�N�X�`��
-	�A�[�}�[�e�N�X�`���ɂ��Ă̎d�l���ǉ�����A
-	�ϋv�x���A�f�ޖ��̃e�N�X�`���\�����\�ƂȂ��Ă��܂��B
-
-	�E�_���[�W�h�A�[�}�[
-		�_���[�W���̃A�[�}�[�e�N�X�`����p�ӂ��Ă����ƁA����ɉ����������\������܂��B
-		�ݒ�Ԋu�͂P�O�����݂ɂȂ��Ă��܂��B
-
-			*_40.png�A*_50.png	�F�ϋv�x��100%�ȉ��̎��ɕ\��
-			*_41.png�A*_51.png	�F�ϋv�x��90%�ȉ��̎��ɕ\��
-			*_42.png�A*_52.png	�F�ϋv�x��80%�ȉ��̎��ɕ\��
-			*_43.png�A*_53.png	�F�ϋv�x��70%�ȉ��̎��ɕ\��
-			*_44.png�A*_54.png	�F�ϋv�x��60%�ȉ��̎��ɕ\��
-			*_45.png�A*_55.png	�F�ϋv�x��50%�ȉ��̎��ɕ\��
-			*_46.png�A*_56.png	�F�ϋv�x��40%�ȉ��̎��ɕ\��
-			*_47.png�A*_57.png	�F�ϋv�x��30%�ȉ��̎��ɕ\��
-			*_48.png�A*_58.png	�F�ϋv�x��20%�ȉ��̎��ɕ\��
-			*_49.png�A*_59.png	�F�ϋv�x��10%�ȉ��̎��ɕ\��
-
-		�܂��A�ϋv�x�ɉ������e�N�X�`�����p�ӂ���Ă��Ȃ��ꍇ�A
-		���߂̂��ϋv�x�̑傫�Ȏ��̃e�N�X�`����\�����܂��B
-
-		Ex.40,43,47�̃e�N�X�`��������A�[�}�[�̑ϋv�x��40%�̎��A
-		   45��I���������������̂�44��43�ƌ�����43�̃e�N�X�`�����g�p����B
+		*_10.png	→ *_3c.png
 
 
-	�E�A�[�}�[�f��
-		�f�ޖ��̃e�N�X�`����ݒ�ł���悤�ɐ������ׁA�t�@�C�����̂ɂ����񂪔������Ă��܂��B
-		*�̕����̖��̂����̕�����ɂ��鎖���K�v�ł��B
+アーマーテクスチャ
+	アーマーテクスチャについての仕様が追加され、
+	耐久度毎、素材毎のテクスチャ表示が可能となっています。
 
-			*_11.png	�� default_40.png
-			*_12.png	�� default_50.png
+	・ダメージドアーマー
+		ダメージ毎のアーマーテクスチャを用意しておくと、それに応じた物が表示されます。
+		設定間隔は１０％刻みになっています。
 
-			default_??.png	�F�W���A�[�}�[�e�N�X�`���A
-					�@�f�ޖ��̃e�N�X�`�������݂��Ȃ��ꍇ�͂��ꂪ�\�������B
-			cloth_??.png	�F�v�Z�̃A�[�}�[�e�N�X�`��
-			iron_??.png	�F�S�Z�̃A�[�}�[�e�N�X�`��
-			gold_??.png	�F�����Z�̃A�[�}�[�e�N�X�`��
-			diamond_??.png	�F�����ΊZ�̃A�[�}�[�e�N�X�`��
+			*_40.png、*_50.png	：耐久度が100%以下の時に表示
+			*_41.png、*_51.png	：耐久度が90%以下の時に表示
+			*_42.png、*_52.png	：耐久度が80%以下の時に表示
+			*_43.png、*_53.png	：耐久度が70%以下の時に表示
+			*_44.png、*_54.png	：耐久度が60%以下の時に表示
+			*_45.png、*_55.png	：耐久度が50%以下の時に表示
+			*_46.png、*_56.png	：耐久度が40%以下の時に表示
+			*_47.png、*_57.png	：耐久度が30%以下の時に表示
+			*_48.png、*_58.png	：耐久度が20%以下の時に表示
+			*_49.png、*_59.png	：耐久度が10%以下の時に表示
 
-		���F�v���[���[�̃A�[�}�[�e�N�X�`�����̂ɏ����܂��B
+		また、耐久度に応じたテクスチャが用意されていない場合、
+		直近のより耐久度の大きな時のテクスチャを表示します。
+
+		Ex.40,43,47のテクスチャがありアーマーの耐久度が40%の時、
+		   45を選択したいが無いので44→43と検索し43のテクスチャを使用する。
 
 
+	・アーマー素材
+		素材毎のテクスチャを設定できるように成った為、ファイル名称にも制約が発生しています。
+		*の部分の名称を特定の文字列にする事が必要です。
 
-����
-	�E�p�b�P�[�W���̃t�@�C���ɓ��{�ꂪ�܂܂��ꍇ�A�N�����ɃG���[����������悤�ł��B
-	�@�����ModLoader�Ȃ���Java�̕����R�[�h�����ɂ�������̂悤�ł��̂ŁA
-	�@�e��������Ă��������B
-	�E����`�F�b�N��Windows���Minecraft�ōs���Ă��܂��B
-	�@���̊��ł͐���ɓ��삵�Ȃ����ꂪ����܂��B
-	�E����d�l�͕ύX����鋰�ꂪ����܂��B
+			*_11.png	→ default_40.png
+			*_12.png	→ default_50.png
+
+			default_??.png	：標準アーマーテクスチャ、
+					　素材毎のテクスチャが存在しない場合はこれが表示される。
+			cloth_??.png	：革鎧のアーマーテクスチャ
+			iron_??.png	：鉄鎧のアーマーテクスチャ
+			gold_??.png	：黄金鎧のアーマーテクスチャ
+			diamond_??.png	：金剛石鎧のアーマーテクスチャ
+
+		注：プレーヤーのアーマーテクスチャ名称に準じます。
 
 
 
-����
-	20130618.1	littleMaidMob����ڐ݁B
+注意
+	・パッケージ内のファイルに日本語が含まれる場合、起動時にエラーが発生するようです。
+	　これはModLoaderないしJavaの文字コード処理にかかる問題のようですので、
+	　各自回避してください。
+	・動作チェックはWindows上のMinecraftで行っています。
+	　他の環境では正常に動作しない恐れがあります。
+	・今後仕様は変更される恐れがあります。
+
+
+
+履歴
+	20130618.1	littleMaidMobから移設。
 

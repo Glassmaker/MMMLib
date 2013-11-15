@@ -15,7 +15,7 @@ public class MMM_ModelStabilizer_WitchHat extends MMM_ModelStabilizerBase {
 
 
 	public MMM_ModelStabilizer_WitchHat() {
-		// �܂��傱�ڂ�
+		// ・ｽﾜゑｿｽ・ｽ蛯ｱ・ｽﾚゑｿｽ
 		textureWidth = 64;
 		textureHeight = 32;
 		

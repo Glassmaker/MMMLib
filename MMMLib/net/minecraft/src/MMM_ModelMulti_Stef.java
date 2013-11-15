@@ -106,7 +106,7 @@ public class MMM_ModelMulti_Stef extends MMM_ModelMulti_Steve {
 
 	public void setDefaultPause(float par1, float par2, float pTicksExisted,
 			float pHeadYaw, float pHeadPitch, float par6, MMM_IModelCaps pEntityCaps) {
-		// ‰Šúp¨
+		// åˆæœŸå§¿å‹¢
 		bipedBody.setRotationPoint(0.0F, 0.7F, 0.0F).setRotateAngle(0.0F, 0.0F, 0.0F);
 		bipedHead.setRotationPoint(0.0F, 1.35F, 0.0F).setRotateAngleDeg(pHeadPitch, pHeadYaw, 0.0F);
 		bipedRightArm.setRotationPoint(-4.4F, 2.85F, 0.0F).setRotateAngleDeg(0.0F, 0.0F, 10.0F);

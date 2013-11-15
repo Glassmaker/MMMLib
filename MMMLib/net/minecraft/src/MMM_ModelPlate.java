@@ -5,7 +5,7 @@ import net.minecraft.client.model.TexturedQuad;
 
 public class MMM_ModelPlate extends MMM_ModelBoxBase {
 
-	// �݊��p�p�����[�^�[
+	// ・ｽﾝ奇ｿｽ・ｽp・ｽp・ｽ・ｽ・ｽ・ｽ・ｽ[・ｽ^・ｽ[
 	@Deprecated
 	public static final int planeXY		= 0;
 	@Deprecated
@@ -20,9 +20,9 @@ public class MMM_ModelPlate extends MMM_ModelBoxBase {
 	public static final int planeXZInv	= 6;
 
 	/*
-	 * ��������g�p���ĉ������B
-	 * �{�b�N�X����������Ɠ����}�b�s���O�ɂȂ�悤�ɒ������Ă܂��B
-	 * �}�b�s���O�I�ɍ��E�̖ʂ͎��͂ňړ����Ȃ���Δ��]����܂���A�O�オ�t�ɂȂ�܂��B
+	 * ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽg・ｽp・ｽ・ｽ・ｽﾄ会ｿｽ・ｽ・ｽ・ｽ・ｽ・ｽB
+	 * ・ｽ{・ｽb・ｽN・ｽX・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽﾆ難ｿｽ・ｽ・ｽ・ｽ}・ｽb・ｽs・ｽ・ｽ・ｽO・ｽﾉなゑｿｽ謔､・ｽﾉ抵ｿｽ・ｽ・ｽ・ｽ・ｽ・ｽﾄまゑｿｽ・ｽB
+	 * ・ｽ}・ｽb・ｽs・ｽ・ｽ・ｽO・ｽI・ｽﾉ搾ｿｽ・ｽE・ｽﾌ面は趣ｿｽ・ｽﾍで移難ｿｽ・ｽ・ｽ・ｽﾈゑｿｽ・ｽ・ｽﾎ費ｿｽ・ｽ]・ｽ・ｽ・ｽ・ｽﾜゑｿｽ・ｽ・ｽA・ｽO・ｽ繧ｪ・ｽt・ｽﾉなゑｿｽﾜゑｿｽ・ｽB
 	 */
 	public static final int planeXYFront	= 0x10;
 	public static final int planeXYBack		= 0x14;
@@ -54,7 +54,7 @@ public class MMM_ModelPlate extends MMM_ModelBoxBase {
 		boolean lotherplane = (pPlane & 0x04) > 0;
 		int lPlane = pPlane & 0x03;
 		
-		// i1 �͕��ʂ̐����ʒu
+		// i1 ・ｽﾍ包ｿｽ・ｽﾊの撰ｿｽ・ｽ・ｽ・ｽﾊ置
 		switch (lPlane) {
 		case planeXY:
 			// xy
@@ -120,7 +120,7 @@ public class MMM_ModelPlate extends MMM_ModelBoxBase {
 		}
 		
 		quadList = new TexturedQuad[1];
-		// �ʂ̖@�ʂ𔽓]����
+		// ・ｽﾊの法・ｽﾊを反転・ｽ・ｽ・ｽ・ｽ
 		if (modelrenderer.mirror) {
 			if (lPlane == 0) {
 				// xy
@@ -207,7 +207,7 @@ public class MMM_ModelPlate extends MMM_ModelBoxBase {
 			}
 		} else {
 			if (lotherplane) {
-				// �t���
+				// ・ｽt・ｽ・ｽ・ｽ
 				quadList[0] = new TexturedQuad(
 						new PositionTextureVertex[] {
 								vertexPositions[0],

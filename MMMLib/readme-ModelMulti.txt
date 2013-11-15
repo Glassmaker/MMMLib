@@ -1,34 +1,34 @@
-����͏��������̎����ł��B
+これは書きかけの資料です。
 
 
 
 ModelMultiBase
 
-�E�}���`���f���ɂ���
-	MMM_TextureManager�ŊǗ������}���`���f���́A�Œ��MMM_ModelMultiBase���p�����A
-	���̎葱���Ɋ�Â��č쐬����Ă���΁A�Ή�MOD�S�Ăŕ\�����s�����Ƃ��ł���悤�ɂȂ��Ă��܂��B
+・マルチモデルについて
+	MMM_TextureManagerで管理されるマルチモデルは、最低限MMM_ModelMultiBaseを継承し、
+	一定の手続きに基づいて作成されていれば、対応MOD全てで表示を行うことができるようになっています。
 	
-�EMMMLib�̃f�t�H���g�ł̓���
-	�ȉ��̕�������܂ރt�@�C����ǂݍ��݁A���̒��Ɋ܂܂��t�@�C�����������܂��B
-		�EMMMLib
-		�ElittleMaidMob
+・MMMLibのデフォルトでの動作
+	以下の文字列を含むファイルを読み込み、その中に含まれるファイルを検索します。
+		・MMMLib
+		・littleMaidMob
 	
-	�������ꂽ�t�@�C������͂��A�ȉ��̃f�B���N�g�����������e�N�X�`���Ƃ��ĔF�����܂��B
-		�E/mob/ModelMulti/
-		�E/mob/littleMaid/
+	検索されたファイルを解析し、以下のディレクトリを検索しテクスチャとして認識します。
+		・/mob/ModelMulti/
+		・/mob/littleMaid/
 	
-	�������ꂽ�t�@�C���ƃN���C�A���g��Jar�t�@�C�����������A�ȉ��̕�������܂�MMM_ModelMultiBase�p���N���X���}���`���f���Ƃ��ēǂݍ��݂܂��B
-		�EModelMulti_
-		�EModelLittleMaid_
-		��MMM_*�̂悤�ɐ擪��MMM_�Ƃ���K�v�͂���܂���B
+	検索されたファイルとクライアントのJarファイルを検索し、以下の文字列を含むMMM_ModelMultiBase継承クラスをマルチモデルとして読み込みます。
+		・ModelMulti_
+		・ModelLittleMaid_
+		※MMM_*のように先頭にMMM_とつける必要はありません。
 
-	����������́Amod�Ǝ��ɒǉ����邱�Ƃ��ł��܂��B
+	検索文字列は、mod独自に追加することができます。
 
 
 ModelLittleMaidBase
 
-�E�p�[�c�̐e�q�֌W
-	���ꂼ��̃p�[�c�̐e�q�֌W�͈ȉ��̒ʂ�ɂȂ��Ă��܂��B
+・パーツの親子関係
+	それぞれのパーツの親子関係は以下の通りになっています。
 
 	+- mainFrame@
 		|
@@ -61,10 +61,10 @@ ModelLittleMaidBase
 				+- bipedLeftLeg
 
 
-ModelSmartMovingBase(������)
+ModelSmartMovingBase(未実装)
 
-�E�p�[�c�̐e�q�֌W
-	���ꂼ��̃p�[�c�̐e�q�֌W�͈ȉ��̒ʂ�ɂȂ��Ă��܂��B
+・パーツの親子関係
+	それぞれのパーツの親子関係は以下の通りになっています。
 	+- bipedOuter@
 		|
 		+- bipedTorso@
@@ -98,6 +98,5 @@ ModelSmartMovingBase(������)
 				+- bipedRightLeg
 				|
 				+- bipedLeftLeg
-
 
 

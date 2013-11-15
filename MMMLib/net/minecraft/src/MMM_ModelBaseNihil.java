@@ -15,8 +15,8 @@ public class MMM_ModelBaseNihil extends ModelBase {
 	protected MMM_IModelCaps entityCaps;
 	protected boolean isRendering;
 	/**
-	 * �����_�����O�����s���ꂽ�񐔁B
-	 * �_���[�W���Ȃǂ̑΍�B
+	 * ・ｽ・ｽ・ｽ・ｽ・ｽ_・ｽ・ｽ・ｽ・ｽ・ｽO・ｽ・ｽ・ｽ・ｽ・ｽs・ｽ・ｽ・ｽ黷ｽ・ｽ煤B
+	 * ・ｽ_・ｽ・ｽ・ｽ[・ｽW・ｽ・ｽ・ｽﾈどの対搾ｿｽB
 	 */
 	public int renderCount;
 

@@ -32,7 +32,7 @@ import org.lwjgl.opengl.GL11;
 
 public class MMM_ModelRenderer {
 
-	// ModelRenderer�݊��ϐ��Q
+	// ModelRenderer・ｽﾝ奇ｿｽ・ｽﾏ撰ｿｽ・ｽQ
 	public float textureWidth;
 	public float textureHeight;
 	private int textureOffsetX;
@@ -49,8 +49,8 @@ public class MMM_ModelRenderer {
 	public boolean showModel;
 	public boolean isHidden;
 	/**
-	 * �p�[�c�̐e�q�֌W�ɍ��E���ꂸ�ɕ`�悷�邩�����߂�B
-	 * �A�[�}�[�̕\���ȂǂɎg���B
+	 * ・ｽp・ｽ[・ｽc・ｽﾌ親・ｽq・ｽﾖ係・ｽﾉ搾ｿｽ・ｽE・ｽ・ｽ・ｽ黷ｸ・ｽﾉ描・ｽ謔ｷ・ｽ驍ｩ・ｽ・ｽ・ｽ・ｽ・ｽﾟゑｿｽB
+	 * ・ｽA・ｽ[・ｽ}・ｽ[・ｽﾌ表・ｽ・ｽ・ｽﾈどに使・ｽ・ｽ・ｽB
 	 */
 	public boolean isRendering;
 	public List<MMM_ModelBoxBase> cubeList;
@@ -71,7 +71,7 @@ public class MMM_ModelRenderer {
 //	public static final float degFactor = 0.01745329251994329576923690768489F;
 	public static final float degFactor = (float)Math.PI / 180F;
 	
-	// SmartMoving�ɍ��킹�邽�߂ɖ��̂̕ύX�����邩������܂���B
+	// SmartMoving・ｽﾉ搾ｿｽ・ｽ墲ｹ・ｽ驍ｽ・ｽﾟに厄ｿｽ・ｽﾌの変更・ｽ・ｽ・ｽ・ｽ・ｽ驍ｩ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽﾜゑｿｽ・ｽ・ｽB
 	public int rotatePriority;
 	public static final int RotXYZ = 0;
 	public static final int RotXZY = 1;
@@ -144,7 +144,7 @@ public class MMM_ModelRenderer {
 		this.scaleZ = pScaleZ;
 	}
 
-	// ModelRenderer�݊��֐��Q
+	// ModelRenderer・ｽﾝ奇ｿｽ・ｽﾖ撰ｿｽ・ｽQ
 
 	public void addChild(MMM_ModelRenderer pModelRenderer) {
 		if (childModels == null) {
@@ -185,7 +185,7 @@ public class MMM_ModelRenderer {
 		return this;
 	}
 
-	// TODO:�A�b�v�f�[�g���͂������`�F�b�N���邱��
+	// TODO:・ｽA・ｽb・ｽv・ｽf・ｽ[・ｽg・ｽ・ｽ・ｽﾍゑｿｽ・ｽ・ｽ・ｽ・ｽ・ｽ`・ｽF・ｽb・ｽN・ｽ・ｽ・ｽ驍ｱ・ｽ・ｽ
 	public void render(float par1, boolean pIsRender) {
 		if (isHidden) return;
 		if (!showModel) return;
@@ -269,10 +269,10 @@ public class MMM_ModelRenderer {
 	}
 
 
-	// �Ǝ��ǉ���
+	// ・ｽﾆ趣ｿｽ・ｽﾇ会ｿｽ・ｽ・ｽ
 
 	/**
-	 * ModelBox�p���̓Ǝ��I�u�W�F�N�g�ǉ��p
+	 * ModelBox・ｽp・ｽ・ｽ・ｽﾌ独趣ｿｽ・ｽI・ｽu・ｽW・ｽF・ｽN・ｽg・ｽﾇ会ｿｽ・ｽp
 	 */
 	public MMM_ModelRenderer addCubeList(MMM_ModelBoxBase pModelBoxBase) {
 		cubeList.add(pModelBoxBase);
@@ -314,8 +314,8 @@ public class MMM_ModelRenderer {
 	}
 
 	/**
-	 * �����Ńe�N�X�`���̍��W���w�肷�鎞�Ɏg���܂��B
-	 * �R���X�g���N�^�ւ��̂܂ܒl��n���܂��B
+	 * ・ｽ・ｽ・ｽ・ｽ・ｽﾅテ・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽﾌ搾ｿｽ・ｽW・ｽ・ｽ・ｽw・ｽ閧ｷ・ｽ骼橸ｿｽﾉ使・ｽ・ｽ・ｽﾜゑｿｽ・ｽB
+	 * ・ｽR・ｽ・ｽ・ｽX・ｽg・ｽ・ｽ・ｽN・ｽ^・ｽﾖゑｿｽ・ｽﾌまま値・ｽ・ｽn・ｽ・ｽ・ｽﾜゑｿｽ・ｽB
 	 */
 	public MMM_ModelRenderer addPartsTexture(Class pModelBoxBase, String pName, Object ... pArg) {
 		pName = (new StringBuilder()).append(boxName).append(".").append(pName).toString();
@@ -324,8 +324,8 @@ public class MMM_ModelRenderer {
 	}
 
 	/**
-	 * �����Ńe�N�X�`���̍��W���w�肷�鎞�Ɏg���܂��B
-	 * �R���X�g���N�^�ւ��̂܂ܒl��n���܂��B
+	 * ・ｽ・ｽ・ｽ・ｽ・ｽﾅテ・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽﾌ搾ｿｽ・ｽW・ｽ・ｽ・ｽw・ｽ閧ｷ・ｽ骼橸ｿｽﾉ使・ｽ・ｽ・ｽﾜゑｿｽ・ｽB
+	 * ・ｽR・ｽ・ｽ・ｽX・ｽg・ｽ・ｽ・ｽN・ｽ^・ｽﾖゑｿｽ・ｽﾌまま値・ｽ・ｽn・ｽ・ｽ・ｽﾜゑｿｽ・ｽB
 	 */
 	public MMM_ModelRenderer addPartsTexture(Class pModelBoxBase, Object ... pArg) {
 		addCubeList(getModelBoxBase(pModelBoxBase, pArg));
@@ -352,7 +352,7 @@ public class MMM_ModelRenderer {
 	}
 
 	/**
-	 * �`��p�̃{�b�N�X�A�q�����N���A����
+	 * ・ｽ`・ｽ・ｽp・ｽﾌボ・ｽb・ｽN・ｽX・ｽA・ｽq・ｽ・ｽ・ｽ・ｽ・ｽN・ｽ・ｽ・ｽA・ｽ・ｽ・ｽ・ｽ
 	 */
 	public void clearCubeList() {
 		cubeList.clear();
@@ -362,7 +362,7 @@ public class MMM_ModelRenderer {
 		}
 	}
 
-	// TODO:���̂�����͗v�C��
+	// TODO:・ｽ・ｽ・ｽﾌゑｿｽ・ｽ・ｽ・ｽ・ｽﾍ要・ｽC・ｽ・ｽ
 	public boolean renderItems(MMM_ModelMultiBase pModelMulti, MMM_IModelCaps pEntityCaps, boolean pRealBlock, int pIndex) {
 		ItemStack[] litemstacks = (ItemStack[])MMM_ModelCapsHelper.getCapsValue(pEntityCaps, caps_Items);
 		if (litemstacks == null) return false;
@@ -389,10 +389,10 @@ public class MMM_ModelRenderer {
 	protected void renderItems(EntityLivingBase pEntityLiving, Render pRender, boolean pRealBlock, EnumAction pAction) {
 		if (itemstack == null) return;
 		
-		// �A�C�e���̃����_�����O
+		// ・ｽA・ｽC・ｽe・ｽ・ｽ・ｽﾌ・ｿｽ・ｽ・ｽ・ｽ_・ｽ・ｽ・ｽ・ｽ・ｽO
 		GL11.glPushMatrix();
 		
-		// �A�C�e���̎�ނɂ��\���ʒu�̕␳
+		// ・ｽA・ｽC・ｽe・ｽ・ｽ・ｽﾌ趣ｿｽﾞにゑｿｽ・ｽ\・ｽ・ｽ・ｽﾊ置・ｽﾌ補正
 		if (adjust) {
 			// GL11.glTranslatef(-0.0625F, 0.4375F, 0.0625F);
 			
@@ -483,7 +483,7 @@ public class MMM_ModelRenderer {
 			
 			GL11.glDisable(GL11.GL_CULL_FACE);
 		} else {
-			// �A�C�e���ɐF�t��
+			// ・ｽA・ｽC・ｽe・ｽ・ｽ・ｽﾉ色・ｽt・ｽ・ｽ
 //			pRender.loadTexture("/gui/items.png");
 			for (int j = 0; j <= (itemstack.getItem()
 					.requiresMultipleRenderPasses() ? 1 : 0); j++) {
@@ -501,19 +501,19 @@ public class MMM_ModelRenderer {
 	}
 
 	/**
-	 *  ��]�ϊ����s���������w��B
+	 *  ・ｽ・ｽ]・ｽﾏ奇ｿｽ・ｽ・ｽ・ｽs・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽw・ｽ・ｽB
 	 * @param pValue
-	 * Rot???���w�肷��
+	 * Rot???・ｽ・ｽ・ｽw・ｽ閧ｷ・ｽ・ｽ
 	 */
 	public void setRotatePriority(int pValue) {
 		rotatePriority = pValue;
 	}
 
 	/**
-	 * �������s�p�A���W�ϊ���
+	 * ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽs・ｽp・ｽA・ｽ・ｽ・ｽW・ｽﾏ奇ｿｽ・ｽ・ｽ
 	 */
 	protected void setRotation() {
-		// �ϊ����ʂ̐ݒ�
+		// ・ｽﾏ奇ｿｽ・ｽ・ｽ・ｽﾊの設抵ｿｽ
 		switch (rotatePriority) {
 		case RotXYZ:
 			if (rotateAngleZ != 0.0F) {
@@ -585,10 +585,10 @@ public class MMM_ModelRenderer {
 	}
 
 	/**
-	 * �������s�p�A�����_�����O�����B
+	 * ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽs・ｽp・ｽA・ｽ・ｽ・ｽ・ｽ・ｽ_・ｽ・ｽ・ｽ・ｽ・ｽO・ｽ・ｽ・ｽ・ｽ・ｽB
 	 */
 	protected void renderObject(float par1, boolean pRendering) {
-		// �����_�����O�A���Ǝq����
+		// ・ｽ・ｽ・ｽ・ｽ・ｽ_・ｽ・ｽ・ｽ・ｽ・ｽO・ｽA・ｽ・ｽ・ｽﾆ子・ｽ・ｽ・ｽ・ｽ
 		GL11.glGetFloat(GL11.GL_MODELVIEW_MATRIX, matrix);
 		if (pRendering && isRendering) {
 			GL11.glPushMatrix();
@@ -605,7 +605,7 @@ public class MMM_ModelRenderer {
 	}
 
 	/**
-	 * �p�[�c�`�掞�_�̃}�g���N�X��ݒ肷��B ����ȑO�ɐݒ肳�ꂽ�}�g���N�X�͔j����B
+	 * ・ｽp・ｽ[・ｽc・ｽ`・ｽ謗橸ｿｽ_・ｽﾌマ・ｽg・ｽ・ｽ・ｽN・ｽX・ｽ・ｽﾝ定す・ｽ・ｽB ・ｽ・ｽ・ｽ・ｽﾈ前・ｽﾉ設定さ・ｽ黷ｽ・ｽ}・ｽg・ｽ・ｽ・ｽN・ｽX・ｽﾍ破・ｽ・ｽ・ｽ・ｽB
 	 */
 	public MMM_ModelRenderer loadMatrix() {
 		GL11.glLoadMatrix(matrix);
@@ -616,7 +616,7 @@ public class MMM_ModelRenderer {
 	}
 
 
-	// �Q�b�^�[�A�Z�b�^�[
+	// ・ｽQ・ｽb・ｽ^・ｽ[・ｽA・ｽZ・ｽb・ｽ^・ｽ[
 
 	public boolean getMirror() {
 		return mirror;
@@ -636,7 +636,7 @@ public class MMM_ModelRenderer {
 	}
 
 
-	// Deg�t���͊p�x�w�肪�x���@
+	// Deg・ｽt・ｽ・ｽ・ｽﾍ角・ｽx・ｽw・ｽ閧ｪ・ｽx・ｽ・ｽ・ｽ@
 
 	public float getRotateAngleX() {
 		return rotateAngleX;

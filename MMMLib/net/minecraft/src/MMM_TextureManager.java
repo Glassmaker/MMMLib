@@ -36,7 +36,7 @@ import net.minecraft.util.ResourceLocation;
 public class MMM_TextureManager {
 
 	/**
-	 * �p���N���X�Œu�������邱�Ƃ��l���B
+	 * ・ｽp・ｽ・ｽ・ｽN・ｽ・ｽ・ｽX・ｽﾅ置・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ驍ｱ・ｽﾆゑｿｽ・ｽl・ｽ・ｽ・ｽB
 	 */
 	public static MMM_TextureManager instance = new MMM_TextureManager();
 	
@@ -58,7 +58,7 @@ public class MMM_TextureManager {
 	public static final int tx_armor2light	= 0x90; //144;
 	public static String[] armorFilenamePrefix;
 	/**
-	 * ���^�C�v�̃t�@�C����
+	 * ・ｽ・ｽ・ｽ^・ｽC・ｽv・ｽﾌフ・ｽ@・ｽC・ｽ・ｽ・ｽ・ｽ
 	 */
 	protected static String defNames[] = {
 		"mob_littlemaid0.png", "mob_littlemaid1.png",
@@ -74,29 +74,29 @@ public class MMM_TextureManager {
 	};
 	
 	/**
-	 * ���[�J���ŕێ����Ă��郂�f���̃��X�g
+	 * ・ｽ・ｽ・ｽ[・ｽJ・ｽ・ｽ・ｽﾅ保趣ｿｽ・ｽ・ｽ・ｽﾄゑｿｽ・ｽ驛ゑｿｽf・ｽ・ｽ・ｽﾌ・ｿｽ・ｽX・ｽg
 	 */
 	protected Map<String, MMM_ModelMultiBase[]> modelMap = new TreeMap<String, MMM_ModelMultiBase[]>();
 	/**
-	 * ���[�J���ŕێ����Ă���e�N�X�`���p�b�N
+	 * ・ｽ・ｽ・ｽ[・ｽJ・ｽ・ｽ・ｽﾅ保趣ｿｽ・ｽ・ｽ・ｽﾄゑｿｽ・ｽ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽN
 	 */
 	protected List<MMM_TextureBox> textures = new ArrayList<MMM_TextureBox>();
 	/**
-	 * �T�[�o�[���ł̊Ǘ��ԍ������ʂ���̂Ɏg���A�N���C�A���g�p�B
+	 * ・ｽT・ｽ[・ｽo・ｽ[・ｽ・ｽ・ｽﾅの管暦ｿｽ・ｽﾔ搾ｿｽ・ｽ・ｽ・ｽ・ｽ・ｽﾊゑｿｽ・ｽ・ｽﾌに使・ｽ・ｽ・ｽA・ｽN・ｽ・ｽ・ｽC・ｽA・ｽ・ｽ・ｽg・ｽp・ｽB
 	 */
 	protected Map<MMM_TextureBox, Integer> textureServerIndex = new HashMap<MMM_TextureBox, Integer>();
 	/**
-	 * �T�[�o�[�E�N���C�A���g�ԂŃe�N�X�`���p�b�N�̖��̃��X�g�̓�������̂Ɏg���A�T�[�o�[�p�B
+	 * ・ｽT・ｽ[・ｽo・ｽ[・ｽE・ｽN・ｽ・ｽ・ｽC・ｽA・ｽ・ｽ・ｽg・ｽﾔでテ・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽN・ｽﾌ厄ｿｽ・ｽﾌ・ｿｽ・ｽX・ｽg・ｽﾌ難ｿｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽﾌに使・ｽ・ｽ・ｽA・ｽT・ｽ[・ｽo・ｽ[・ｽp・ｽB
 	 */
 	protected List<MMM_TextureBoxServer> textureServer = new ArrayList<MMM_TextureBoxServer>();
 	/**
-	 * Entity���Ƀf�t�H���g�e�N�X�`�����Q�ƁB
-	 * �\�z��@��EntityList���Q�Ƃ̂��ƁB
+	 * Entity・ｽ・ｽ・ｽﾉデ・ｽt・ｽH・ｽ・ｽ・ｽg・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽ・ｽ・ｽQ・ｽﾆ。
+	 * ・ｽ\・ｽz・ｽ・ｽ@・ｽ・ｽEntityList・ｽ・ｽ・ｽQ・ｽﾆのゑｿｽ・ｽﾆ。
 	 */
 	protected Map<Class, MMM_TextureBox> defaultTextures = new HashMap<Class, MMM_TextureBox>();
 	
 	/**
-	 * �N���C�A���g���Ŏg��
+	 * ・ｽN・ｽ・ｽ・ｽC・ｽA・ｽ・ｽ・ｽg・ｽ・ｽ・ｽﾅ使・ｽ・ｽ
 	 */
 	protected String[] requestString = new String[] {
 		null, null, null, null, null, null, null, null,
@@ -122,8 +122,8 @@ public class MMM_TextureManager {
 
 
 	protected void init() {
-		// �����Ώۃt�@�C������o�^���܂��B
-		// �p�^�[����o�^���Ȃ��ꍇ�A�Ǝ����̂�MOD�t�@�C���A�e�N�X�`���f�B���N�g���A�N���X���ǂݍ��܂�܂���B
+		// ・ｽ・ｽ・ｽ・ｽ・ｽﾎ象フ・ｽ@・ｽC・ｽ・ｽ・ｽ・ｽ・ｽ・ｽo・ｽ^・ｽ・ｽ・ｽﾜゑｿｽ・ｽB
+		// ・ｽp・ｽ^・ｽ[・ｽ・ｽ・ｽ・ｽo・ｽ^・ｽ・ｽ・ｽﾈゑｿｽ・ｽ鼾・ｿｽA・ｽﾆ趣ｿｽ・ｽ・ｽ・ｽﾌゑｿｽMOD・ｽt・ｽ@・ｽC・ｽ・ｽ・ｽA・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽf・ｽB・ｽ・ｽ・ｽN・ｽg・ｽ・ｽ・ｽA・ｽN・ｽ・ｽ・ｽX・ｽ・ｽ・ｽﾇみ搾ｿｽ・ｽﾜゑｿｽﾜゑｿｽ・ｽ・ｽB
 		MMM_FileManager.getModFile("MMMLib", "MMMLib");
 		MMM_FileManager.getModFile("MMMLib", "ModelMulti");
 		addSearch("MMMLib", "/mob/ModelMulti/", "ModelMulti_");
@@ -146,14 +146,14 @@ public class MMM_TextureManager {
 	}
 
 	/**
-	 * �ǉ��ΏۂƂȂ錟���Ώۃt�@�C���Q�Ƃ��ꂼ��̌����������ݒ肷��B
+	 * ・ｽﾇ会ｿｽ・ｽﾎ象となる検・ｽ・ｽ・ｽﾎ象フ・ｽ@・ｽC・ｽ・ｽ・ｽQ・ｽﾆゑｿｽ・ｽ黷ｼ・ｽ・ｽﾌ鯉ｿｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽﾝ定す・ｽ・ｽB
 	 */
 	public void addSearch(String pName, String pTextureDir, String pClassPrefix) {
 		searchPrefix.add(new String[] {pName, pTextureDir, pClassPrefix});
 	}
 
 	/**
-	 * �e�N�X�`�����̂̈�v���镨��Ԃ��B
+	 * ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽ・ｽ・ｽﾌの茨ｿｽv・ｽ・ｽ・ｽ髟ｨ・ｽ・ｽﾔゑｿｽ・ｽB
 	 */
 	public MMM_TextureBox getTextureBox(String pName) {
 		for (MMM_TextureBox ltb : textures) {
@@ -165,7 +165,7 @@ public class MMM_TextureManager {
 	}
 
 	/**
-	 * �n���ꂽTextureBoxBase�𔻒肵��TextureBox��Ԃ��B
+	 * ・ｽn・ｽ・ｽ・ｽ黷ｽTextureBoxBase・ｽｻ定し・ｽ・ｽTextureBox・ｽ・ｽﾔゑｿｽ・ｽB
 	 * @param pBoxBase
 	 * @return
 	 */
@@ -196,7 +196,7 @@ public class MMM_TextureManager {
 	}
 
 	protected void getArmorPrefix() {
-		// �A�[�}�[�t�@�C���̃v���t�B�b�N�X���l��
+		// ・ｽA・ｽ[・ｽ}・ｽ[・ｽt・ｽ@・ｽC・ｽ・ｽ・ｽﾌプ・ｽ・ｽ・ｽt・ｽB・ｽb・ｽN・ｽX・ｽ・ｽ・ｽl・ｽ・ｽ
 		try {
 			armorFilenamePrefix = (String[])ModLoader.getPrivateValue(RenderBiped.class, null, 5);
 			return;
@@ -210,13 +210,13 @@ public class MMM_TextureManager {
 
 	public boolean loadTextures() {
 		mod_MMM_MMMLib.Debug("loadTexturePacks.");
-		// �A�[�}�[�̃t�@�C���������ʂ��邽�߂̕�������l������
+		// ・ｽA・ｽ[・ｽ}・ｽ[・ｽﾌフ・ｽ@・ｽC・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽﾊゑｿｽ・ｽ驍ｽ・ｽﾟの包ｿｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽl・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ
 		if (MMM_Helper.isClient) {
 			getArmorPrefix();
 		}
 		
-		// �t�@�C������͂��ăe�N�X�`����ǉ�
-		// jar���̃e�N�X�`����ǉ�
+		// ・ｽt・ｽ@・ｽC・ｽ・ｽ・ｽ・ｽ・ｽ・ｽﾍゑｿｽ・ｽﾄテ・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽ・ｽﾇ会ｿｽ
+		// jar・ｽ・ｽ・ｽﾌテ・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽ・ｽﾇ会ｿｽ
 		if (MMM_FileManager.minecraftJar == null) {
 			mod_MMM_MMMLib.Debug("getTexture-append-jar-file not founded.");
 		} else {
@@ -233,7 +233,7 @@ public class MMM_TextureManager {
 				for (String[] lst : searchPrefix) {
 					boolean lflag;
 					if (lf.isDirectory()) {
-						// �f�B���N�g��
+						// ・ｽf・ｽB・ｽ・ｽ・ｽN・ｽg・ｽ・ｽ
 						lflag = addTexturesDir(lf, lst);
 					} else {
 						// zip
@@ -244,10 +244,10 @@ public class MMM_TextureManager {
 			}
 		}
 		
-		// TODO:�����R�[�h
+		// TODO:・ｽ・ｽ・ｽ・ｽ・ｽR・ｽ[・ｽh
 		buildCrafterTexture();
 		
-		// �e�N�X�`���p�b�P�[�W�Ƀ��f���N���X��R�t��
+		// ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽP・ｽ[・ｽW・ｽﾉ・ｿｽ・ｽf・ｽ・ｽ・ｽN・ｽ・ｽ・ｽX・ｽ・ｽR・ｽt・ｽ・ｽ
 		MMM_ModelMultiBase[] ldm = modelMap.get(defaultModelName);
 		if (ldm == null && !modelMap.isEmpty()) {
 			ldm = (MMM_ModelMultiBase[])modelMap.values().toArray()[0];
@@ -301,7 +301,7 @@ public class MMM_TextureManager {
 	}
 
 	public void buildCrafterTexture() {
-		// TODO:�����R�[�h�W�����f���e�N�X�`���ō\�z
+		// TODO:・ｽ・ｽ・ｽ・ｽ・ｽR・ｽ[・ｽh・ｽW・ｽ・ｽ・ｽ・ｽ・ｽf・ｽ・ｽ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽﾅ構・ｽz
 		MMM_TextureBox lbox = new MMM_TextureBox("Crafter_Steve", new String[] {"", "", ""});
 		lbox.fileName = "";
 		
@@ -320,13 +320,13 @@ public class MMM_TextureManager {
 
 
 	public boolean loadTextureServer() {
-		// �T�[�o�[�p�e�N�X�`�����̂̃C���f�N�b�X���[�_�[
-		// �悸�͎莝���̃e�N�X�`���p�b�N��ǉ�����B
+		// ・ｽT・ｽ[・ｽo・ｽ[・ｽp・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽ・ｽ・ｽﾌのイ・ｽ・ｽ・ｽf・ｽN・ｽb・ｽX・ｽ・ｽ・ｽ[・ｽ_・ｽ[
+		// ・ｽ謔ｸ・ｽﾍ手持・ｽ・ｽ・ｽﾌテ・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽN・ｽ・ｽﾇ会ｿｽ・ｽ・ｽ・ｽ・ｽB
 		textureServer.clear();
 		for (MMM_TextureBox lbox : textures) {
 			textureServer.add(new MMM_TextureBoxServer(lbox));
 		}
-		// �t�@�C�����烍�[�h
+		// ・ｽt・ｽ@・ｽC・ｽ・ｽ・ｽ・ｽ・ｽ辜搾ｿｽ[・ｽh
 		File lfile = MinecraftServer.getServer().getFile(nameTextureIndex);
 		if (lfile.exists() && lfile.isFile()) {
 			try {
@@ -337,7 +337,7 @@ public class MMM_TextureManager {
 				while ((ls = br.readLine()) != null) {
 					String lt[] = ls.split(",");
 					if (lt.length >= 7) {
-						// �t�@�C���̂ق����D��
+						// ・ｽt・ｽ@・ｽC・ｽ・ｽ・ｽﾌほゑｿｽ・ｽ・ｽ・ｽD・ｽ・ｽ
 						MMM_TextureBoxServer lbox = getTextureBoxServer(lt[6]);
 						if (lbox == null) {
 							lbox = new MMM_TextureBoxServer();
@@ -373,7 +373,7 @@ public class MMM_TextureManager {
 	}
 
 	public void saveTextureServer() {
-		// �T�[�o�[�p�e�N�X�`�����̂̃C���f�N�b�X�Z�[�o�[
+		// ・ｽT・ｽ[・ｽo・ｽ[・ｽp・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽ・ｽ・ｽﾌのイ・ｽ・ｽ・ｽf・ｽN・ｽb・ｽX・ｽZ・ｽ[・ｽo・ｽ[
 		File lfile = MinecraftServer.getServer().getFile(nameTextureIndex);
 		try {
 			FileWriter fw = new FileWriter(lfile);
@@ -400,7 +400,7 @@ public class MMM_TextureManager {
 	}
 
 	/**
-	 * �e�N�X�`���C���f�b�N�X���\�z�B
+	 * ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽC・ｽ・ｽ・ｽf・ｽb・ｽN・ｽX・ｽ・ｽ・ｽ\・ｽz・ｽB
 	 */
 	protected void initTextureList(boolean pFlag) {
 		mod_MMM_MMMLib.Debug("Clear TextureBoxServer.");
@@ -418,13 +418,13 @@ public class MMM_TextureManager {
 	}
 
 	/**
-	 * �n���ꂽ���̂���͂���LMM�p�̃��f���N���X���ǂ����𔻒肷��B
-	 * �uModelLittleMaid_�v�Ƃ��������񂪊܂܂�Ă��āA
-	 * �uMMM_ModelBiped�v���p�����Ă���΃}���`���f���Ƃ��ăN���X��o�^����B
+	 * ・ｽn・ｽ・ｽ・ｽ黷ｽ・ｽ・ｽ・ｽﾌゑｿｽ・ｽ・ｽﾍゑｿｽ・ｽ・ｽLMM・ｽp・ｽﾌ・ｿｽ・ｽf・ｽ・ｽ・ｽN・ｽ・ｽ・ｽX・ｽ・ｽ・ｽﾇゑｿｽ・ｽ・ｽ・ｽｻ定す・ｽ・ｽB
+	 * ・ｽuModelLittleMaid_・ｽv・ｽﾆゑｿｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽｪ含まゑｿｽﾄゑｿｽ・ｽﾄ、
+	 * ・ｽuMMM_ModelBiped・ｽv・ｽ・ｽ・ｽp・ｽ・ｽ・ｽ・ｽ・ｽﾄゑｿｽ・ｽ・ｽﾎマ・ｽ・ｽ・ｽ`・ｽ・ｽ・ｽf・ｽ・ｽ・ｽﾆゑｿｽ・ｽﾄク・ｽ・ｽ・ｽX・ｽ・ｽo・ｽ^・ｽ・ｽ・ｽ・ｽB
 	 * @param fname
 	 */
 	protected void addModelClass(String fname, String[] pSearch) {
-		// ���f����ǉ�
+		// ・ｽ・ｽ・ｽf・ｽ・ｽ・ｽ・ｽﾇ会ｿｽ
 		int lfindprefix = fname.indexOf(pSearch[2]);
 		if (lfindprefix > -1 && fname.endsWith(".class")) {
 			String cn = fname.replace(".class", "");
@@ -466,7 +466,7 @@ public class MMM_TextureManager {
 	}
 	
 	protected void addTextureName(String fname, String[] pSearch) {
-		// �p�b�P�[�W�Ƀe�N�X�`����o�^
+		// ・ｽp・ｽb・ｽP・ｽ[・ｽW・ｽﾉテ・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽ・ｽo・ｽ^
 		if (!fname.startsWith("/")) {
 			fname = (new StringBuilder()).append("/").append(fname).toString();
 		} else {
@@ -550,7 +550,7 @@ public class MMM_TextureManager {
 			}
 		}
 		
-		// �Ӗ��Ȃ��H
+		// ・ｽﾓ厄ｿｽ・ｽﾈゑｿｽ・ｽH
 		if (file.isDirectory()) {
 			mod_MMM_MMMLib.Debug("addTextureJar-file.");
 			boolean lflag = false;
@@ -585,7 +585,7 @@ public class MMM_TextureManager {
 	}
 
 	protected boolean addTexturesDir(File file, String[] pSearch) {
-		// mods�t�H���_�ɓ˂�����ł�����̂������A�ċA�ŁB
+		// mods・ｽt・ｽH・ｽ・ｽ・ｽ_・ｽﾉ突ゑｿｽ・ｽ・ｽ・ｽ・ｽﾅゑｿｽ・ｽ・ｽ・ｽ・ｽﾌゑｿｽ・ｽ・ｽ・ｽ・ｽ・ｽA・ｽﾄ帰・ｽﾅ。
 		if (file == null) {
 			return false;
 		}
@@ -601,7 +601,7 @@ public class MMM_TextureManager {
 						String s = t.getPath().replace('\\', '/');
 						int i = s.indexOf(pSearch[1]);
 						if (i > -1) {
-							// �Ώۂ̓e�N�X�`���f�B���N�g��
+							// ・ｽﾎ象はテ・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽf・ｽB・ｽ・ｽ・ｽN・ｽg・ｽ・ｽ
 							addTextureName(s.substring(i), pSearch);
 //							addTextureName(s.substring(i).replace('\\', '/'));
 						}
@@ -616,7 +616,7 @@ public class MMM_TextureManager {
 	}
 
 	protected int getIndex(String name) {
-		// ���O����C���f�b�N�X�����o��
+		// ・ｽ・ｽ・ｽO・ｽ・ｽ・ｽ・ｽC・ｽ・ｽ・ｽf・ｽb・ｽN・ｽX・ｽ・ｽ・ｽ・ｽ・ｽo・ｽ・ｽ
 		for (int i = 0; i < defNames.length; i++) {
 			if (name.endsWith(defNames[i])) {
 				return i;
@@ -633,7 +633,7 @@ public class MMM_TextureManager {
 	}
 
 	public MMM_TextureBox getNextPackege(MMM_TextureBox pNowBox, int pColor) {
-		// ���̃e�N�X�`���p�b�P�[�W�̖��O��Ԃ�
+		// ・ｽ・ｽ・ｽﾌテ・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽP・ｽ[・ｽW・ｽﾌ厄ｿｽ・ｽO・ｽ・ｽﾔゑｿｽ
 		boolean f = false;
 		MMM_TextureBox lreturn = null;
 		for (MMM_TextureBox ltb : textures) {
@@ -653,7 +653,7 @@ public class MMM_TextureManager {
 	}
 
 	public MMM_TextureBox getPrevPackege(MMM_TextureBox pNowBox, int pColor) {
-		// �O�̃e�N�X�`���p�b�P�[�W�̖��O��Ԃ�
+		// ・ｽO・ｽﾌテ・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽP・ｽ[・ｽW・ｽﾌ厄ｿｽ・ｽO・ｽ・ｽﾔゑｿｽ
 		MMM_TextureBox lreturn = null;
 		for (MMM_TextureBox ltb : textures) {
 			if (ltb == pNowBox) {
@@ -669,14 +669,14 @@ public class MMM_TextureManager {
 	}
 
 	/**
-	 * ���[�J���œǂݍ��܂�Ă���e�N�X�`���p�b�N�̐��B
+	 * ・ｽ・ｽ・ｽ[・ｽJ・ｽ・ｽ・ｽﾅ読み搾ｿｽ・ｽﾜゑｿｽﾄゑｿｽ・ｽ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽN・ｽﾌ撰ｿｽ・ｽB
 	 */
 	public int getTextureCount() {
 		return textures.size();
 	}
 
 	public MMM_TextureBox getNextArmorPackege(MMM_TextureBox pNowBox) {
-		// ���̃e�N�X�`���p�b�P�[�W�̖��O��Ԃ�
+		// ・ｽ・ｽ・ｽﾌテ・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽP・ｽ[・ｽW・ｽﾌ厄ｿｽ・ｽO・ｽ・ｽﾔゑｿｽ
 		boolean f = false;
 		MMM_TextureBox lreturn = null;
 		for (MMM_TextureBox ltb : textures) {
@@ -696,7 +696,7 @@ public class MMM_TextureManager {
 	}
 
 	public MMM_TextureBox getPrevArmorPackege(MMM_TextureBox pNowBox) {
-		// �O�̃e�N�X�`���p�b�P�[�W�̖��O��Ԃ�
+		// ・ｽO・ｽﾌテ・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽP・ｽ[・ｽW・ｽﾌ厄ｿｽ・ｽO・ｽ・ｽﾔゑｿｽ
 		MMM_TextureBox lreturn = null;
 		for (MMM_TextureBox ltb : textures) {
 			if (ltb == pNowBox) {
@@ -719,7 +719,7 @@ public class MMM_TextureManager {
 		if (textureServer.isEmpty()) {
 			return null;
 		} else {
-			// �쐶�F��������̂����X�g�A�b�v
+			// ・ｽ・ｶ・ｽF・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽﾌゑｿｽ・ｽ・ｽ・ｽX・ｽg・ｽA・ｽb・ｽv
 			List<MMM_TextureBoxServer> llist = new ArrayList<MMM_TextureBoxServer>();
 			for (MMM_TextureBoxServer lbox : textureServer) {
 				if (lbox.getWildColorBits() > 0) {
@@ -731,8 +731,8 @@ public class MMM_TextureManager {
 	}
 
 	/**
-	 * �e�N�X�`���p�b�N���ɑΉ�����C���f�b�N�X��Ԃ��B
-	 * ��{�T�[�o�[�p�B
+	 * ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽN・ｽ・ｽ・ｽﾉ対会ｿｽ・ｽ・ｽ・ｽ・ｽC・ｽ・ｽ・ｽf・ｽb・ｽN・ｽX・ｽ・ｽﾔゑｿｽ・ｽB
+	 * ・ｽ・ｽ{・ｽT・ｽ[・ｽo・ｽ[・ｽp・ｽB
 	 * @param pEntity
 	 * @param pPackName
 	 * @return
@@ -743,7 +743,7 @@ public class MMM_TextureManager {
 				return li;
 			}
 		}
-		// ��������Ȃ������̂�Entity�ɑΉ�����f�t�H���g��Ԃ�
+		// ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽﾈゑｿｽ・ｽ・ｽ・ｽ・ｽ・ｽﾌゑｿｽEntity・ｽﾉ対会ｿｽ・ｽ・ｽ・ｽ・ｽf・ｽt・ｽH・ｽ・ｽ・ｽg・ｽ・ｽﾔゑｿｽ
 //		int li = textureServerIndex.get(getDefaultTexture(pEntity));
 		MMM_TextureBox lbox = getDefaultTexture(pEntity);
 		if (lbox != null) {
@@ -758,7 +758,7 @@ public class MMM_TextureManager {
 	}
 
 	/**
-	 * �w�肳�ꂽ�e�N�X�`���p�b�N�̃T�[�o�[���̊Ǘ��ԍ���Ԃ��B
+	 * ・ｽw・ｽ閧ｳ・ｽ黷ｽ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽN・ｽﾌサ・ｽ[・ｽo・ｽ[・ｽ・ｽ・ｽﾌ管暦ｿｽ・ｽﾔ搾ｿｽ・ｽ・ｽﾔゑｿｽ・ｽB
 	 * @param pBox
 	 * @return
 	 */
@@ -767,7 +767,7 @@ public class MMM_TextureManager {
 	}
 
 	/**
-	 * Entity�ɑΉ�����f�t�H���g�̃e�N�X�`����ݒ肷��B
+	 * Entity・ｽﾉ対会ｿｽ・ｽ・ｽ・ｽ・ｽf・ｽt・ｽH・ｽ・ｽ・ｽg・ｽﾌテ・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽ・ｽﾝ定す・ｽ・ｽB
 	 */
 	public void setDefaultTexture(MMM_ITextureEntity pEntity, MMM_TextureBox pBox) {
 		setDefaultTexture(pEntity.getClass(), pBox);
@@ -779,7 +779,7 @@ public class MMM_TextureManager {
 	}
 
 	/**
-	 * Entity�ɑΉ�����f�t�H���g���f����Ԃ��B
+	 * Entity・ｽﾉ対会ｿｽ・ｽ・ｽ・ｽ・ｽf・ｽt・ｽH・ｽ・ｽ・ｽg・ｽ・ｽ・ｽf・ｽ・ｽ・ｽ・ｽﾔゑｿｽ・ｽB
 	 */
 	public MMM_TextureBox getDefaultTexture(MMM_ITextureEntity pEntity) {
 		return getDefaultTexture(pEntity.getClass());
@@ -803,10 +803,10 @@ public class MMM_TextureManager {
 
 
 	/*
-	 * �T�[�o�[�N���C�A���g�Ԃł̃e�N�X�`���Ǘ��֐��Q
+	 * ・ｽT・ｽ[・ｽo・ｽ[・ｽN・ｽ・ｽ・ｽC・ｽA・ｽ・ｽ・ｽg・ｽﾔでのテ・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽﾇ暦ｿｽ・ｽﾖ撰ｿｽ・ｽQ
 	 */
 
-	// �l�b�g���[�N�z���Ƀe�N�X�`���C���f�N�X�𓾂�ۂɎg��
+	// ・ｽl・ｽb・ｽg・ｽ・ｽ・ｽ[・ｽN・ｽz・ｽ・ｽ・ｽﾉテ・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽC・ｽ・ｽ・ｽf・ｽN・ｽX・ｽｾゑｿｽﾛに使・ｽ・ｽ
 	protected int getRequestStringIndex(String pVal) {
 		int lblank = -1;
 		for (int li = 0; li < requestString.length; li++) {
@@ -814,7 +814,7 @@ public class MMM_TextureManager {
 				lblank = li;
 				requestStringCounter[li] = 0;
 			} else if (requestString[li].equals(pVal)) {
-				// ��ɗv����
+				// ・ｽ・ｽﾉ要・ｽ・ｽ・ｽ・ｽ
 				return -2;
 			}
 		}
@@ -839,7 +839,7 @@ public class MMM_TextureManager {
 				lblank = li;
 				requestIndexCounter[li] = 0;
 			} else if (requestIndex[li] == pTextureServerBoxIndex) {
-				// ��ɗv����
+				// ・ｽ・ｽﾉ要・ｽ・ｽ・ｽ・ｽ
 				return -2;
 			}
 		}
@@ -854,7 +854,7 @@ public class MMM_TextureManager {
 	protected boolean clearRequestIndex(int pTextureServerBoxIndex) {
 		for (int li = 0; li < requestIndex.length; li++) {
 			if (requestIndex[li] == pTextureServerBoxIndex) {
-				// �v�����������̂ŏ����B
+				// ・ｽv・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽﾌで擾ｿｽ・ｽ・ｽ・ｽB
 				requestIndex[li] = -1;
 				return true;
 			}
@@ -874,18 +874,18 @@ public class MMM_TextureManager {
 
 
 	/**
-	 * �e�N�X�`���p�b�N��ݒ肷�邽�߁A�T�[�o�[�֏��𑗂�B
+	 * ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽN・ｽ・ｽﾝ定す・ｽ驍ｽ・ｽﾟ、・ｽT・ｽ[・ｽo・ｽ[・ｽﾖ擾ｿｽ・ｽ翌・ｽB
 	 * @param pEntity
 	 * @param pBox
 	 */
 	public void postSetTexturePack(MMM_ITextureEntity pEntity, int pColor, MMM_TextureBoxBase[] pBox) {
 		// Client
 		if (!(pEntity instanceof Entity)) return;
-		// �e�N�X�`���p�b�N��ݒ肷�邽�߁A�T�[�o�[�֏��𑗂�B
+		// ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽN・ｽ・ｽﾝ定す・ｽ驍ｽ・ｽﾟ、・ｽT・ｽ[・ｽo・ｽ[・ｽﾖ擾ｿｽ・ｽ翌・ｽB
 		int lindex[] = new int[pBox.length];
 		boolean lflag = true;
 		
-		// PackeName����T�[�o�[���̃e�N�X�`���C���f�b�N�X���l������B
+		// PackeName・ｽ・ｽ・ｽ・ｽT・ｽ[・ｽo・ｽ[・ｽ・ｽ・ｽﾌテ・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽC・ｽ・ｽ・ｽf・ｽb・ｽN・ｽX・ｽ・ｽ・ｽl・ｽ・ｽ・ｽ・ｽ・ｽ・ｽB
 		for (int li = 0; li < pBox.length; li++) {
 			lindex[li] = checkTextureBoxServer((MMM_TextureBox)pBox[li]);
 			if (lindex[li] < 0) {
@@ -894,10 +894,10 @@ public class MMM_TextureManager {
 		}
 		
 		if (lflag) {
-			// ���ׂĂ̖��̂���C���f�b�N�X�����o�����ꍇ�A�T�[�o�[�փ|�X�g����B
+			// ・ｽ・ｽ・ｽﾗての厄ｿｽ・ｽﾌゑｿｽ・ｽ・ｽC・ｽ・ｽ・ｽf・ｽb・ｽN・ｽX・ｽ・ｽ・ｽ・ｽ・ｽo・ｽ・ｽ・ｽ・ｽ・ｽ鼾・ｿｽA・ｽT・ｽ[・ｽo・ｽ[・ｽﾖポ・ｽX・ｽg・ｽ・ｽ・ｽ・ｽB
 			sendToServerSetTexturePackIndex(pEntity, pColor, lindex);
 		} else {
-			// ���[�J���ɐݒ�l���Ȃ��ꍇ�A�o�b�t�@�ɃW���u���X�^�b�N���I���B
+			// ・ｽ・ｽ・ｽ[・ｽJ・ｽ・ｽ・ｽﾉ設抵ｿｽl・ｽ・ｽ・ｽﾈゑｿｽ・ｽ鼾・ｿｽA・ｽo・ｽb・ｽt・ｽ@・ｽﾉジ・ｽ・ｽ・ｽu・ｽ・ｽ・ｽX・ｽ^・ｽb・ｽN・ｽ・ｽ・ｽI・ｽ・ｽ・ｽB
 			Object lo[] = new Object[1 + pBox.length];
 			lo[0] = pColor;
 			for (int li = 0; li < pBox.length; li++) {
@@ -908,7 +908,7 @@ public class MMM_TextureManager {
 	}
 
 	/**
-	 * TextureBox�ɃT�[�o�[���ʔԍ����t�^����Ă��邩���m�F���A�Ȃ���Ζ₢���킹���s���B
+	 * TextureBox・ｽﾉサ・ｽ[・ｽo・ｽ[・ｽ・ｽ・ｽﾊ番搾ｿｽ・ｽ・ｽ・ｽt・ｽ^・ｽ・ｽ・ｽ・ｽﾄゑｿｽ・ｽ驍ｩ・ｽ・ｽ・ｽm・ｽF・ｽ・ｽ・ｽA・ｽﾈゑｿｽ・ｽ・ｽﾎ問い・ｽ・ｽ・ｽ墲ｹ・ｽ・ｽ・ｽs・ｽ・ｽ・ｽB
 	 * @param pBox
 	 * @return
 	 */
@@ -929,7 +929,7 @@ public class MMM_TextureManager {
 
 	protected void sendToServerSetTexturePackIndex(MMM_ITextureEntity pEntity, int pColor, int[] pIndex) {
 		// Client
-		// �T�[�o�[���փe�N�X�`���p�b�N�̃C���f�b�N�X���ύX���ꂽ���Ƃ�ʒm����B
+		// ・ｽT・ｽ[・ｽo・ｽ[・ｽ・ｽ・ｽﾖテ・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽN・ｽﾌイ・ｽ・ｽ・ｽf・ｽb・ｽN・ｽX・ｽ・ｽ・ｽﾏ更・ｽ・ｽ・ｽ黷ｽ・ｽ・ｽ・ｽﾆゑｿｽﾊ知・ｽ・ｽ・ｽ・ｽB
 		if (pEntity instanceof Entity) {
 			byte ldata[] = new byte[6 + pIndex.length * 2];
 			ldata[0] = MMM_Statics.Server_SetTexturePackIndex;
@@ -947,7 +947,7 @@ public class MMM_TextureManager {
 	protected void reciveFromClientSetTexturePackIndex(Entity pEntity, byte[] pData) {
 		// Server
 		if (pEntity instanceof MMM_ITextureEntity) {
-			// �N���C�A���g������e�N�X�`���p�b�N�̃C���f�b�N�X���ύX���ꂽ�ʒm���󂯎�����̂ŏ������s���B
+			// ・ｽN・ｽ・ｽ・ｽC・ｽA・ｽ・ｽ・ｽg・ｽ・ｽ・ｽ・ｽ・ｽ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽN・ｽﾌイ・ｽ・ｽ・ｽf・ｽb・ｽN・ｽX・ｽ・ｽ・ｽﾏ更・ｽ・ｽ・ｽ黷ｽ・ｽﾊ知・ｽ・ｽ・ｽｯ趣ｿｽ・ｽ・ｽ・ｽ・ｽﾌで擾ｿｽ・ｽ・ｽ・ｽ・ｽ・ｽs・ｽ・ｽ・ｽB
 			int lcount = (pData.length - 6) / 2;
 			if (lcount < 1) return;
 			int lindex[] = new int[lcount];
@@ -962,9 +962,9 @@ public class MMM_TextureManager {
 
 	protected void sendToServerGetTextureIndex(int pBufIndex, MMM_TextureBox pBox) {
 		// Client
-		// �T�[�o�[���փe�N�X�`���p�b�N�̊Ǘ��ԍ���₢���킹��B
-		// �Ăяo�����̃N���C�A���g�ւ̂ݕԂ��B
-		// �Ԃ��Ƃ���Name�͕s�v�ABufIndex�݂̂Ŏ��ʂ�����
+		// ・ｽT・ｽ[・ｽo・ｽ[・ｽ・ｽ・ｽﾖテ・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽN・ｽﾌ管暦ｿｽ・ｽﾔ搾ｿｽ・ｽ・ｽ竄｢・ｽ・ｽ・ｽ墲ｹ・ｽ・ｽB
+		// ・ｽﾄび出・ｽ・ｽ・ｽ・ｽ・ｽﾌク・ｽ・ｽ・ｽC・ｽA・ｽ・ｽ・ｽg・ｽﾖのみ返ゑｿｽ・ｽB
+		// ・ｽﾔゑｿｽ・ｽﾆゑｿｽ・ｽ・ｽName・ｽﾍ不・ｽv・ｽABufIndex・ｽﾌみで趣ｿｽ・ｽﾊゑｿｽ・ｽ・ｽ・ｽ・ｽ
 		byte ldata[] = new byte[22 + pBox.textureName.length()];
 		ldata[0] = MMM_Statics.Server_GetTextureIndex;
 		ldata[1] = (byte)pBufIndex;
@@ -981,7 +981,7 @@ public class MMM_TextureManager {
 
 	protected void reciveFromClientGetTexturePackIndex(NetServerHandler pHandler, byte[] pData) {
 		// Server
-		// �N���C�A���g���փe�N�X�`���p�b�N�̊Ǘ��ԍ���Ԃ��B
+		// ・ｽN・ｽ・ｽ・ｽC・ｽA・ｽ・ｽ・ｽg・ｽ・ｽ・ｽﾖテ・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽN・ｽﾌ管暦ｿｽ・ｽﾔ搾ｿｽ・ｽ・ｽﾔゑｿｽ・ｽB
 		String lpackname = MMM_Helper.getStr(pData, 22);
 		MMM_TextureBoxServer lboxsrv = getTextureBoxServer(lpackname);
 		int li;
@@ -1004,12 +1004,12 @@ public class MMM_TextureManager {
 
 	protected void reciveFormServerSetTexturePackIndex(byte[] pData) {
 		// Client
-		// �T�[�o�[������e�N�X�`���p�b�N�̃C���f�b�N�X���󂯎�����̂Œl��o�^����B
+		// ・ｽT・ｽ[・ｽo・ｽ[・ｽ・ｽ・ｽ・ｽ・ｽ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽN・ｽﾌイ・ｽ・ｽ・ｽf・ｽb・ｽN・ｽX・ｽ・ｽ・ｽｯ趣ｿｽ・ｽ・ｽ・ｽ・ｽﾌで値・ｽ・ｽo・ｽ^・ｽ・ｽ・ｽ・ｽB
 		MMM_TextureBox lbox = getTextureBox(getRequestString(pData[1]));
 		textureServerIndex.put(lbox, (int)MMM_Helper.getShort(pData, 2));
 		mod_MMM_MMMLib.Debug("reciveFormServerSetTexturePackIndex: %s, %04x", lbox.textureName, (int)MMM_Helper.getShort(pData, 2));
 		
-		// �X�^�b�N���ꂽ�W���u���珈���\�ȕ�������Ύ��s����B
+		// ・ｽX・ｽ^・ｽb・ｽN・ｽ・ｽ・ｽ黷ｽ・ｽW・ｽ・ｽ・ｽu・ｽ・ｽ・ｽ迴茨ｿｽ・ｽ・ｽﾂ能・ｽﾈ包ｿｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽﾎ趣ｿｽ・ｽs・ｽ・ｽ・ｽ・ｽB
 		Map<MMM_ITextureEntity, Object[]> lmap = new HashMap<MMM_ITextureEntity, Object[]>(stackSetTexturePack);
 		stackSetTexturePack.clear();
 		for (Entry<MMM_ITextureEntity, Object[]> le : lmap.entrySet()) {
@@ -1026,17 +1026,17 @@ public class MMM_TextureManager {
 
 
 	/**
-	 * �T�[�o�[����ݒ肳�ꂽ�e�N�X�`���C���f�b�N�X����e�N�X�`���p�b�N���擾����B
+	 * ・ｽT・ｽ[・ｽo・ｽ[・ｽ・ｽ・ｽ・ｽﾝ定さ・ｽ黷ｽ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽC・ｽ・ｽ・ｽf・ｽb・ｽN・ｽX・ｽ・ｽ・ｽ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽN・ｽ・ｽ・ｽ謫ｾ・ｽ・ｽ・ｽ・ｽB
 	 * @param pEntity
 	 * @param pIndex
 	 */
 	public void postGetTexturePack(MMM_ITextureEntity pEntity, int[] pIndex) {
 		// Client
-		// �N���C�A���g���Ŏw�肳�ꂽ�C���f�b�N�X�ɑ΂��ăe�N�X�`���p�b�N�̖��̂�Ԃ��ݒ肳����
+		// ・ｽN・ｽ・ｽ・ｽC・ｽA・ｽ・ｽ・ｽg・ｽ・ｽ・ｽﾅ指・ｽ閧ｳ・ｽ黷ｽ・ｽC・ｽ・ｽ・ｽf・ｽb・ｽN・ｽX・ｽﾉ対ゑｿｽ・ｽﾄテ・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽN・ｽﾌ厄ｿｽ・ｽﾌゑｿｽﾔゑｿｽ・ｽﾝ定さ・ｽ・ｽ・ｽ・ｽ
 		MMM_TextureBox lbox[] = new MMM_TextureBox[pIndex.length];
 		boolean lflag = true;
 		
-		// ���[�J���C���f�b�N�X�ɖ��̂��o�^����Ă��Ȃ���΃T�[�o�[�֖₢���킹��B
+		// ・ｽ・ｽ・ｽ[・ｽJ・ｽ・ｽ・ｽC・ｽ・ｽ・ｽf・ｽb・ｽN・ｽX・ｽﾉ厄ｿｽ・ｽﾌゑｿｽ・ｽo・ｽ^・ｽ・ｽ・ｽ・ｽﾄゑｿｽ・ｽﾈゑｿｽ・ｽ・ｽﾎサ・ｽ[・ｽo・ｽ[・ｽﾖ問い・ｽ・ｽ・ｽ墲ｹ・ｽ・ｽB
 		for (int li = 0; li < pIndex.length; li++) {
 			lbox[li] = getTextureBoxServerIndex(pIndex[li]);
 			if (lbox[li] == null) {
@@ -1048,17 +1048,17 @@ public class MMM_TextureManager {
 		}
 		
 		if (lflag) {
-			// �S�Ă̒l������ꍇ��Entity�֒l��ݒ肷��B
+			// ・ｽS・ｽﾄの値・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ鼾・ｿｽ・ｽEntity・ｽﾖ値・ｽ・ｽﾝ定す・ｽ・ｽB
 			pEntity.setTexturePackName(lbox);
 		} else {
-			// �s���l������ꍇ�͏������X�^�b�N����B
+			// ・ｽs・ｽ・ｽ・ｽl・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ鼾・ｿｽﾍ擾ｿｽ・ｽ・ｽ・ｽ・ｽ・ｽX・ｽ^・ｽb・ｽN・ｽ・ｽ・ｽ・ｽB
 			stackGetTexturePack.put(pEntity, pIndex);
 		}
 	}
 
 	protected void sendToServerGetTexturePackName(int pIndex) {
 		// Client
-		// �T�[�o�[���փe�N�X�`���p�b�N�̖��̂�₢���킹��
+		// ・ｽT・ｽ[・ｽo・ｽ[・ｽ・ｽ・ｽﾖテ・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽN・ｽﾌ厄ｿｽ・ｽﾌゑｿｽ竄｢・ｽ・ｽ・ｽ墲ｹ・ｽ・ｽ
 		if (pIndex < 0) {
 			mod_MMM_MMMLib.Debug("request range out.");
 			return;
@@ -1071,11 +1071,11 @@ public class MMM_TextureManager {
 
 	protected void reciveFromClientGetTexturePackName(NetServerHandler pHandler, byte[] pData) {
 		// Server
-		// �N���C�A���g����e�N�X�`���p�b�N�̖��̂��₢���킹��ꂽ�B
+		// ・ｽN・ｽ・ｽ・ｽC・ｽA・ｽ・ｽ・ｽg・ｽ・ｽ・ｽ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽN・ｽﾌ厄ｿｽ・ｽﾌゑｿｽ・ｽ竄｢・ｽ・ｽ・ｽ墲ｹ・ｽ・ｽ黷ｽ・ｽB
 		int lindex = MMM_Helper.getShort(pData, 1);
 		MMM_TextureBoxServer lboxserver = getTextureBoxServer(lindex);
 		
-		// Client�֊Ǘ��ԍ��ɓo�^����Ă���e�N�X�`�����̂��|�X�g����
+		// Client・ｽﾖ管暦ｿｽ・ｽﾔ搾ｿｽ・ｽﾉ登・ｽ^・ｽ・ｽ・ｽ・ｽﾄゑｿｽ・ｽ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽ・ｽ・ｽﾌゑｿｽ・ｽ|・ｽX・ｽg・ｽ・ｽ・ｽ・ｽ
 		byte ldata[] = new byte[23 + lboxserver.textureName.length()];
 		ldata[0] = MMM_Statics.Client_SetTexturePackName;
 		MMM_Helper.setShort(ldata, 1, lindex);
@@ -1092,12 +1092,12 @@ public class MMM_TextureManager {
 
 	protected void reciveFromServerSetTexturePackName(byte[] pData) {
 		// Client
-		// �T�[�o�[����C���f�b�N�X�ɑ΂��閼�̂̐ݒ肪�������B
+		// ・ｽT・ｽ[・ｽo・ｽ[・ｽ・ｽ・ｽ・ｽC・ｽ・ｽ・ｽf・ｽb・ｽN・ｽX・ｽﾉ対ゑｿｽ・ｽ髢ｼ・ｽﾌの設定が・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽB
 		String lpackname = MMM_Helper.getStr(pData, 23);
 		MMM_TextureBox lbox = getTextureBox(lpackname);
 		if (lbox == null) {
-			// ���[�J���ɂ͑��݂��Ȃ��e�N�X�`���p�b�N
-			// TODO:���̕ӗv�C��
+			// ・ｽ・ｽ・ｽ[・ｽJ・ｽ・ｽ・ｽﾉは托ｿｽ・ｽﾝゑｿｽ・ｽﾈゑｿｽ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽN
+			// TODO:・ｽ・ｽ・ｽﾌ辺要・ｽC・ｽ・ｽ
 			lbox = getTextureBox("default_Orign").duplicate();
 			lbox.textureName = lpackname;
 //			lbox = new MMM_TextureBox(lpackname, null);
@@ -1112,7 +1112,7 @@ public class MMM_TextureManager {
 		textureServerIndex.put(lbox, lindex);
 		clearRequestIndex(lindex);
 		
-		// �����\�ȕ����X�^�b�N����Ă���ꍇ�͏������s���B
+		// ・ｽ・ｽ・ｽ・ｽ・ｽﾂ能・ｽﾈ包ｿｽ・ｽ・ｽ・ｽX・ｽ^・ｽb・ｽN・ｽ・ｽ・ｽ・ｽﾄゑｿｽ・ｽ・ｽ鼾・ｿｽﾍ擾ｿｽ・ｽ・ｽ・ｽ・ｽ・ｽs・ｽ・ｽ・ｽB
 		Map<MMM_ITextureEntity, int[]> lmap = new HashMap<MMM_ITextureEntity, int[]>(stackGetTexturePack);
 		stackGetTexturePack.clear();
 		for (Entry<MMM_ITextureEntity, int[]> le : lmap.entrySet()) {
@@ -1121,11 +1121,11 @@ public class MMM_TextureManager {
 	}
 
 	/**
-	 * Request�n�̒l�����J�E���g�ŏ���
+	 * Request・ｽn・ｽﾌ値・ｽ・ｽ・ｽ・ｽ・ｽJ・ｽE・ｽ・ｽ・ｽg・ｽﾅ擾ｿｽ・ｽ・ｽ
 	 */
 	protected void onUpdate() {
 		for (int li = 0; li < requestString.length; li++) {
-			// ��30�b�ŉ��
+			// ・ｽ・ｽ30・ｽb・ｽﾅ会ｿｽ・ｽ
 			if (requestString[li] != null && requestStringCounter[li]++ > 600) {
 				requestString[li] = null;
 				requestStringCounter[li] = 0;

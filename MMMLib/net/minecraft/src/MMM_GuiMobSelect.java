@@ -40,7 +40,7 @@ public abstract class MMM_GuiMobSelect extends GuiScreen {
 
 
 	public void initEntitys(World world, boolean pForce) {
-		// �\���pEntityList�̏���
+		// ・ｽ\・ｽ・ｽ・ｽpEntityList・ｽﾌ擾ｿｽ・ｽ・ｽ
 		if (entityMapClass.isEmpty()) {
 			try {
 				Map lmap = (Map)ModLoader.getPrivateValue(EntityList.class, null, 1);
@@ -59,7 +59,7 @@ public abstract class MMM_GuiMobSelect extends GuiScreen {
 			int li = 0;
 			Entity lentity = null;
 			try {
-				// �\���p��Entity�����
+				// ・ｽ\・ｽ・ｽ・ｽp・ｽ・ｽEntity・ｽ・ｽ・ｽ・ｽ・ｽ
 				do {
 					lentity = (EntityLivingBase)le.getKey().getConstructor(World.class).newInstance(world);
 //					lentity = (EntityLivingBase)EntityList.createEntityByName(le.getValue(), world);
@@ -71,8 +71,8 @@ public abstract class MMM_GuiMobSelect extends GuiScreen {
 	}
 
 	/**
-	 * �n���ꂽEntity�̃`�F�b�N�y�щ��H�B
-	 * true��Ԃ��Ɠ����N���X�̃G���e�B�e�B���ēx�n���Ă���A���̂Ƃ�pIndex�̓J�E���g�A�b�v�����
+	 * ・ｽn・ｽ・ｽ・ｽ黷ｽEntity・ｽﾌチ・ｽF・ｽb・ｽN・ｽy・ｽﾑ会ｿｽ・ｽH・ｽB
+	 * true・ｽ・ｽﾔゑｿｽ・ｽﾆ難ｿｽ・ｽ・ｽ・ｽN・ｽ・ｽ・ｽX・ｽﾌエ・ｽ・ｽ・ｽe・ｽB・ｽe・ｽB・ｽ・ｽ・ｽﾄ度・ｽn・ｽ・ｽ・ｽﾄゑｿｽ・ｽ・ｽA・ｽ・ｽ・ｽﾌとゑｿｽpIndex・ｽﾍカ・ｽE・ｽ・ｽ・ｽg・ｽA・ｽb・ｽv・ｽ・ｽ・ｽ・ｽ・ｽ
 	 */
 	protected boolean checkEntity(String pName, Entity pEntity, int pIndex) {
 		entityMap.put(pName, pEntity);
@@ -97,7 +97,7 @@ public abstract class MMM_GuiMobSelect extends GuiScreen {
 		drawCenteredString(fontRenderer, StatCollector.translateToLocal(screenTitle), width / 2, 20, 0xffffff);
 		super.drawScreen(px, py, pf);
 		
-		// GUI�ŕ\���������̃{�X�̃X�e�[�^�X��\�����Ȃ�
+		// GUI・ｽﾅ表・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽﾌボ・ｽX・ｽﾌス・ｽe・ｽ[・ｽ^・ｽX・ｽ・ｽ\・ｽ・ｽ・ｽ・ｽ・ｽﾈゑｿｽ
 		BossStatus.healthScale = lhealthScale;
 		BossStatus.statusBarLength = lstatusBarLength;
 		BossStatus.bossName = lbossName;
@@ -105,12 +105,12 @@ public abstract class MMM_GuiMobSelect extends GuiScreen {
 	}
 
 	/**
-	 *  �X���b�g���N���b�N���ꂽ
+	 *  ・ｽX・ｽ・ｽ・ｽb・ｽg・ｽ・ｽ・ｽN・ｽ・ｽ・ｽb・ｽN・ｽ・ｽ・ｽ黷ｽ
 	 */
 	public abstract void clickSlot(int pIndex, boolean pDoubleClick, String pName, EntityLivingBase pEntity);
 
 	/**
-	 *  �X���b�g�̕`��
+	 *  ・ｽX・ｽ・ｽ・ｽb・ｽg・ｽﾌ描・ｽ・ｽ
 	 */
 	public abstract void drawSlot(int pSlotindex, int pX, int pY, int pDrawheight, Tessellator pTessellator, String pName, Entity pEntity);
 	

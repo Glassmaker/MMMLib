@@ -1,7 +1,7 @@
 package net.minecraft.src;
 
 /**
- * ModelCaps�̕⏕�֐��Q
+ * ModelCapsの補助関数群
  */
 public class MMM_ModelCapsHelper {
 

@@ -6,26 +6,26 @@ import java.util.Map.Entry;
 import org.lwjgl.opengl.GL11;
 
 /**
- * MMM‚ÌÀŒ±ƒR[ƒh‚ğŠÜ‚Ş•”•ªB
- * ModelMultiBase‚É’Ç‰Á‚·‚é‚É‘«‚è‚é‚©‚ğ‚±‚±‚ÅÀŒ±B
- * ‚±‚ÌƒNƒ‰ƒX‚É‚ ‚é‹@”\‚Í—\‚È‚­íœ‚³‚ê‚é‹°‚ê‚ª—L‚é‚½‚ß‚²—¯ˆÓ‰º‚³‚¢B
+ * MMMã®å®Ÿé¨“ã‚³ãƒ¼ãƒ‰ã‚’å«ã‚€éƒ¨åˆ†ã€‚
+ * ModelMultiBaseã«è¿½åŠ ã™ã‚‹ã«è¶³ã‚Šã‚‹ã‹ã‚’ã“ã“ã§å®Ÿé¨“ã€‚
+ * ã“ã®ã‚¯ãƒ©ã‚¹ã«ã‚ã‚‹æ©Ÿèƒ½ã¯äºˆå‘Šãªãå‰Šé™¤ã•ã‚Œã‚‹æã‚ŒãŒæœ‰ã‚‹ãŸã‚ã”ç•™æ„ä¸‹ã•ã„ã€‚
  */
 public abstract class MMM_ModelMultiMMMBase extends MMM_ModelMultiBase {
 
 	public Map<String, MMM_EquippedStabilizer> stabiliser;
 
 	/**
-	 * íœ—\’è•Ï”g‚í‚È‚¢‚Å‰º‚³‚¢B
+	 * å‰Šé™¤äºˆå®šå¤‰æ•°ä½¿ã‚ãªã„ã§ä¸‹ã•ã„ã€‚
 	 */
 	@Deprecated
 	public float onGround;
 	/**
-	 * íœ—\’è•Ï”g‚í‚È‚¢‚Å‰º‚³‚¢B
+	 * å‰Šé™¤äºˆå®šå¤‰æ•°ä½¿ã‚ãªã„ã§ä¸‹ã•ã„ã€‚
 	 */
 	@Deprecated
 	public float heldItemLeft;
 	/**
-	 * íœ—\’è•Ï”g‚í‚È‚¢‚Å‰º‚³‚¢B
+	 * å‰Šé™¤äºˆå®šå¤‰æ•°ä½¿ã‚ãªã„ã§ä¸‹ã•ã„ã€‚
 	 */
 	@Deprecated
 	public float heldItemRight;
@@ -42,7 +42,7 @@ public abstract class MMM_ModelMultiMMMBase extends MMM_ModelMultiBase {
 	}
 
 	/**
-	 * mainFrame‚É‘S‚Ä‚Ô‚ç‰º‚ª‚Á‚Ä‚¢‚é‚È‚ç‚Î•W€‚Å•`‰æ‚·‚éB
+	 * mainFrameã«å…¨ã¦ã¶ã‚‰ä¸‹ãŒã£ã¦ã„ã‚‹ãªã‚‰ã°æ¨™æº–ã§æç”»ã™ã‚‹ã€‚
 	 */
 	@Override
 	public void render(MMM_IModelCaps pEntityCaps, float par2, float par3, float ticksExisted,
@@ -53,8 +53,8 @@ public abstract class MMM_ModelMultiMMMBase extends MMM_ModelMultiBase {
 	}
 
 	/**
-	 * ’Êí‚ÌƒŒƒ“ƒ_ƒŠƒ“ƒO‘O‚ÉŒÄ‚Î‚ê‚éB
-	 * @return false‚ğ•Ô‚·‚Æ’Êí‚ÌƒŒƒ“ƒ_ƒŠƒ“ƒO‚ğƒXƒLƒbƒv‚·‚éB
+	 * é€šå¸¸ã®ãƒ¬ãƒ³ãƒ€ãƒªãƒ³ã‚°å‰ã«å‘¼ã°ã‚Œã‚‹ã€‚
+	 * @return falseã‚’è¿”ã™ã¨é€šå¸¸ã®ãƒ¬ãƒ³ãƒ€ãƒªãƒ³ã‚°ã‚’ã‚¹ã‚­ãƒƒãƒ—ã™ã‚‹ã€‚
 	 */
 	public boolean preRender(float par2, float par3,
 			float par4, float par5, float par6, float par7) {
@@ -62,18 +62,18 @@ public abstract class MMM_ModelMultiMMMBase extends MMM_ModelMultiBase {
 	}
 
 	/**
-	 * ’Êí‚ÌƒŒƒ“ƒ_ƒŠƒ“ƒOŒã‚ÉŒÄ‚ÔB Šî–{“I‚É‘•ü•i‚È‚Ç‚Ì©—¥‰^“®‚µ‚È‚¢ƒp[ƒc‚Ì•`‰æ—pB
+	 * é€šå¸¸ã®ãƒ¬ãƒ³ãƒ€ãƒªãƒ³ã‚°å¾Œã«å‘¼ã¶ã€‚ åŸºæœ¬çš„ã«è£…é£¾å“ãªã©ã®è‡ªå¾‹é‹å‹•ã—ãªã„ãƒ‘ãƒ¼ãƒ„ã®æç”»ç”¨ã€‚
 	 */
 	public void renderExtention(float par2, float par3,
 			float par4, float par5, float par6, float par7) {
 	}
 
 	/**
-	 * ƒXƒ^ƒrƒ‰ƒCƒU[‚Ì•`‰æB ©“®‚Å‚ÍŒÄ‚Î‚ê‚È‚¢‚Ì‚Årender“à‚ÅŒÄ‚Ô•K—v‚ª‚ ‚è‚Ü‚·B
+	 * ã‚¹ã‚¿ãƒ“ãƒ©ã‚¤ã‚¶ãƒ¼ã®æç”»ã€‚ è‡ªå‹•ã§ã¯å‘¼ã°ã‚Œãªã„ã®ã§renderå†…ã§å‘¼ã¶å¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚
 	 */
 	protected void renderStabilizer(MMM_IModelCaps pEntityCaps, float par2, float par3,
 			float ticksExisted, float pheadYaw, float pheadPitch, float par7) {
-		// ƒXƒ^ƒrƒ‰ƒCƒU[‚Ì•`‰æAdoRender‚Ì•û‚ª‚¢‚¢‚©H
+		// ã‚¹ã‚¿ãƒ“ãƒ©ã‚¤ã‚¶ãƒ¼ã®æç”»ã€doRenderã®æ–¹ãŒã„ã„ã‹ï¼Ÿ
 		if (stabiliser == null || stabiliser.isEmpty() || render == null)
 			return;
 
@@ -93,16 +93,16 @@ public abstract class MMM_ModelMultiMMMBase extends MMM_ModelMultiBase {
 	}
 
 	/**
-	 * ƒ‚ƒfƒ‹Ø‘Ö‚ÉÀs‚³‚ê‚éƒR[ƒh
+	 * ãƒ¢ãƒ‡ãƒ«åˆ‡æ›¿æ™‚ã«å®Ÿè¡Œã•ã‚Œã‚‹ã‚³ãƒ¼ãƒ‰
 	 * @param pEntityCaps
-	 * Entity‚Ì’l‚ğ‘€ì‚·‚é‚½‚ß‚ÌModelCapsB
+	 * Entityã®å€¤ã‚’æ“ä½œã™ã‚‹ãŸã‚ã®ModelCapsã€‚
 	 */
 	public void changeModel(MMM_IModelCaps pEntityCaps) {
-		// ƒJƒEƒ“ƒ^Œn‚Ì‰ÁZ’lAƒŠƒ~ƒbƒg’l‚Ìİ’è‚È‚Çs‚¤—\’èB
+		// ã‚«ã‚¦ãƒ³ã‚¿ç³»ã®åŠ ç®—å€¤ã€ãƒªãƒŸãƒƒãƒˆå€¤ã®è¨­å®šãªã©è¡Œã†äºˆå®šã€‚
 	}
 
 	/**
-	 * ‰Šúƒ[ƒh‚ÉÀs
+	 * åˆæœŸãƒ­ãƒ¼ãƒ‰æ™‚ã«å®Ÿè¡Œ
 	 */
 	public void buildTexture() {
 		
@@ -145,8 +145,8 @@ public abstract class MMM_ModelMultiMMMBase extends MMM_ModelMultiBase {
 		return super.getCapsValue(pIndex, pArg);
 	}
 
-	// ActorsÀŒ±‹æ‰æ
-	// ‚±‚Ì‚Ö‚ñ–¢‚¾–¢®—
+	// Actorså®Ÿé¨“åŒºç”»
+	// ã“ã®ã¸ã‚“æœªã æœªæ•´ç†
 	public void renderFace(MMM_IModelCaps pEntityCaps, float par2, float par3, float ticksExisted,
 			float pheadYaw, float pheadPitch, float par7, boolean pIsRender) {
 	}
@@ -154,7 +154,7 @@ public abstract class MMM_ModelMultiMMMBase extends MMM_ModelMultiBase {
 			float pheadYaw, float pheadPitch, float par7, boolean pIsRender) {
 	}
 	/**
-	 * •\î‚ğƒeƒNƒXƒ`ƒƒ‚ÌUVƒ}ƒbƒv‚ğ•Ï‚¦‚é‚±‚Æ‚Å•\Œ»
+	 * è¡¨æƒ…ã‚’ãƒ†ã‚¯ã‚¹ãƒãƒ£ã®UVãƒãƒƒãƒ—ã‚’å¤‰ãˆã‚‹ã“ã¨ã§è¡¨ç¾
 	 * @param pIndex
 	 */
 	public int setFaceTexture(int pIndex) {

@@ -35,7 +35,7 @@ public class mod_MMM_MMMLib extends BaseMod {
 
 
 	public static void Debug(String pText, Object... pVals) {
-		// �f�o�b�O���b�Z�[�W
+		// ・ｽf・ｽo・ｽb・ｽO・ｽ・ｽ・ｽb・ｽZ・ｽ[・ｽW
 		if (cfg_isDebugMessage) {
 			System.out.println(String.format("MMMLib-" + pText, pVals));
 		}
@@ -58,7 +58,7 @@ public class mod_MMM_MMMLib extends BaseMod {
 
 	@Override
 	public void load() {
-		// ����
+		// ・ｽ・ｽ・ｽ・ｽ
 		Debug(MMM_Helper.isClient ? "Client" : "Server");
 		Debug(MMM_Helper.isForge ? "Forge" : "Modloader");
 		MMM_FileManager.init();
@@ -74,26 +74,26 @@ public class mod_MMM_MMMLib extends BaseMod {
 			MMM_EntityDummy.isEnable = true;
 		}
 		
-		// �Ǝ��p�P�b�g�p�`�����l��
+		// ・ｽﾆ趣ｿｽ・ｽp・ｽP・ｽb・ｽg・ｽp・ｽ`・ｽ・ｽ・ｽ・ｽ・ｽl・ｽ・ｽ
 		ModLoader.registerPacketChannel(this, "MMM|Upd");
 		
-		// Forge�g�p���͖���
+		// Forge・ｽg・ｽp・ｽ・ｽ・ｽﾍ厄ｿｽ・ｽ・ｽ
 		cfg_renderHacking &= !MMM_Helper.isForge;
 	}
 
 	@Override
 	public void modsLoaded() {
-		// �o�C�I�[���ɐݒ肳�ꂽ�X�|�[������u�������B
+		// ・ｽo・ｽC・ｽI・ｽ[・ｽ・ｽ・ｽﾉ設定さ・ｽ黷ｽ・ｽX・ｽ|・ｽ[・ｽ・ｽ・ｽ・ｽ・ｽ・ｽu・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽB
 		MMM_Helper.replaceBaiomeSpawn();
 		
-		// �e�N�X�`���p�b�N�̍\�z
+		// ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽN・ｽﾌ構・ｽz
 		MMM_TextureManager.instance.loadTextures();
-		// ���[�h
+		// ・ｽ・ｽ・ｽ[・ｽh
 		if (MMM_Helper.isClient) {
-			// �e�N�X�`���p�b�N�̍\�z
+			// ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽN・ｽﾌ構・ｽz
 //			MMM_TextureManager.loadTextures();
 			MMM_StabilizerManager.loadStabilizer();
-			// �e�N�X�`���C���f�b�N�X�̍\�z
+			// ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽC・ｽ・ｽ・ｽf・ｽb・ｽN・ｽX・ｽﾌ構・ｽz
 			Debug("Localmode: InitTextureList.");
 			MMM_TextureManager.instance.initTextureList(true);
 		} else {
@@ -118,7 +118,7 @@ public class mod_MMM_MMMLib extends BaseMod {
 	@Override
 	public boolean onTickInGame(float var1, Minecraft var2) {
 		if (cfg_isDebugView && MMM_Helper.isClient) {
-			// �_�~�[�}�[�J�[�̕\���p����
+			// ・ｽ_・ｽ~・ｽ[・ｽ}・ｽ[・ｽJ・ｽ[・ｽﾌ表・ｽ・ｽ・ｽp・ｽ・ｽ・ｽ・ｽ
 			if (var2.theWorld != null && var2.thePlayer != null) {
 				try {
 					for (Iterator<MMM_EntityDummy> li = MMM_EntityDummy.appendList.iterator(); li.hasNext();) {
@@ -131,12 +131,12 @@ public class mod_MMM_MMMLib extends BaseMod {
 			}
 		}
 		
-		// �A�C�e�������_�[���I�[�o�[���C�h
+		// ・ｽA・ｽC・ｽe・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ_・ｽ[・ｽ・ｽ・ｽI・ｽ[・ｽo・ｽ[・ｽ・ｽ・ｽC・ｽh
 		if (cfg_renderHacking && MMM_Helper.isClient) {
 			MMM_Client.setItemRenderer();
 		}
 		
-		// �e�N�X�`���Ǘ��p
+		// ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽﾇ暦ｿｽ・ｽp
 		MMM_TextureManager.instance.onUpdate();
 		
 		return true;
@@ -144,7 +144,7 @@ public class mod_MMM_MMMLib extends BaseMod {
 
 	@Override
 	public void serverCustomPayload(NetServerHandler var1, Packet250CustomPayload var2) {
-		// �T�[�o���̓���
+		// ・ｽT・ｽ[・ｽo・ｽ・ｽ・ｽﾌ難ｿｽ・ｽ・ｽ
 		byte lmode = var2.data[0];
 		int leid = 0;
 		Entity lentity = null;
@@ -158,15 +158,15 @@ public class mod_MMM_MMMLib extends BaseMod {
 		
 		switch (lmode) {
 		case MMM_Statics.Server_SetTexturePackIndex:
-			// �T�[�o�[����Entity�ɑ΂��ăe�N�X�`���C���f�b�N�X��ݒ肷��
+			// ・ｽT・ｽ[・ｽo・ｽ[・ｽ・ｽ・ｽ・ｽEntity・ｽﾉ対ゑｿｽ・ｽﾄテ・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽC・ｽ・ｽ・ｽf・ｽb・ｽN・ｽX・ｽ・ｽﾝ定す・ｽ・ｽ
 			MMM_TextureManager.instance.reciveFromClientSetTexturePackIndex(lentity, var2.data);
 			break;
 		case MMM_Statics.Server_GetTextureIndex:
-			// �T�[�o�[���ł̊Ǘ��ԍ��̖₢���킹�ɑ΂��ĉ�������
+			// ・ｽT・ｽ[・ｽo・ｽ[・ｽ・ｽ・ｽﾅの管暦ｿｽ・ｽﾔ搾ｿｽ・ｽﾌ問い・ｽ・ｽ・ｽ墲ｹ・ｽﾉ対ゑｿｽ・ｽﾄ会ｿｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ
 			MMM_TextureManager.instance.reciveFromClientGetTexturePackIndex(var1, var2.data);
 			break;
 		case MMM_Statics.Server_GetTexturePackName:
-			// �Ǘ��ԍ��ɑΉ�����e�N�X�`���p�b�N����Ԃ��B
+			// ・ｽﾇ暦ｿｽ・ｽﾔ搾ｿｽ・ｽﾉ対会ｿｽ・ｽ・ｽ・ｽ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽN・ｽ・ｽ・ｽ・ｽﾔゑｿｽ・ｽB
 			MMM_TextureManager.instance.reciveFromClientGetTexturePackName(var1, var2.data);
 			break;
 		}

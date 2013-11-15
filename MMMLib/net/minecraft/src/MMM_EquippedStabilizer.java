@@ -3,7 +3,7 @@ package net.minecraft.src;
 import java.util.Map;
 
 /**
- * ‘•”õ•i—p‚ÌƒNƒ‰ƒXB
+ * è£…å‚™å“ç”¨ã®ã‚¯ãƒ©ã‚¹ã€‚
  *
  */
 public class MMM_EquippedStabilizer {
@@ -20,7 +20,7 @@ public class MMM_EquippedStabilizer {
 	}
 */	
 	public boolean updateEquippedPoint(MMM_ModelBase pmodel) {
-		// æ‚è•t‚¯ˆÊ’u‚ğƒAƒbƒvƒf[ƒg
+		// å–ã‚Šä»˜ã‘ä½ç½®ã‚’ã‚¢ãƒƒãƒ—ãƒ‡ãƒ¼ãƒˆ
 		for (int li = 0; li < pmodel.boxList.size(); li++) {
 			MMM_ModelRenderer lmr = pmodel.boxList.get(li);
 			if (lmr.boxName != null && lmr.boxName.equalsIgnoreCase(equipPointName)) {

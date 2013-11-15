@@ -3,19 +3,19 @@ package net.minecraft.src;
 public class MMM_ModelLittleMaid_Orign extends MMM_ModelLittleMaidBase {
 
 	/**
-	 * コンストラクタは全て継承させること
+	 * 繧ｳ繝ｳ繧ｹ繝医Λ繧ｯ繧ｿ縺ｯ蜈ｨ縺ｦ邯呎価縺輔○繧九％縺ｨ
 	 */
 	public MMM_ModelLittleMaid_Orign() {
 		super();
 	}
 	/**
-	 * コンストラクタは全て継承させること
+	 * 繧ｳ繝ｳ繧ｹ繝医Λ繧ｯ繧ｿ縺ｯ蜈ｨ縺ｦ邯呎価縺輔○繧九％縺ｨ
 	 */
 	public MMM_ModelLittleMaid_Orign(float psize) {
 		super(psize);
 	}
 	/**
-	 * コンストラクタは全て継承させること
+	 * 繧ｳ繝ｳ繧ｹ繝医Λ繧ｯ繧ｿ縺ｯ蜈ｨ縺ｦ邯呎価縺輔○繧九％縺ｨ
 	 */
 	public MMM_ModelLittleMaid_Orign(float psize, float pyoffset, int pTextureWidth, int pTextureHeight) {
 		super(psize, pyoffset, pTextureWidth, pTextureHeight);

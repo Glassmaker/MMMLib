@@ -6,7 +6,7 @@ import java.util.Map;
 import org.lwjgl.opengl.GL11;
 
 /**
- * LMM—p‚ÉÅ“K‰»
+ * LMMç”¨ã«æœ€é©åŒ–
  */
 public abstract class MMM_ModelLittleMaidBase extends MMM_ModelMultiMMMBase {
 
@@ -24,19 +24,19 @@ public abstract class MMM_ModelLittleMaidBase extends MMM_ModelMultiMMMBase {
 
 
 	/**
-	 * ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Í‘S‚ÄŒp³‚³‚¹‚é‚±‚Æ
+	 * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã¯å…¨ã¦ç¶™æ‰¿ã•ã›ã‚‹ã“ã¨
 	 */
 	public MMM_ModelLittleMaidBase() {
 		super();
 	}
 	/**
-	 * ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Í‘S‚ÄŒp³‚³‚¹‚é‚±‚Æ
+	 * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã¯å…¨ã¦ç¶™æ‰¿ã•ã›ã‚‹ã“ã¨
 	 */
 	public MMM_ModelLittleMaidBase(float psize) {
 		super(psize);
 	}
 	/**
-	 * ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Í‘S‚ÄŒp³‚³‚¹‚é‚±‚Æ
+	 * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã¯å…¨ã¦ç¶™æ‰¿ã•ã›ã‚‹ã“ã¨
 	 */
 	public MMM_ModelLittleMaidBase(float psize, float pyoffset, int pTextureWidth, int pTextureHeight) {
 		super(psize, pyoffset, pTextureWidth, pTextureHeight);
@@ -45,8 +45,8 @@ public abstract class MMM_ModelLittleMaidBase extends MMM_ModelMultiMMMBase {
 
 	@Override
 	public void initModel(float psize, float pyoffset) {
-		// •W€Œ^
-		// è‚¿
+		// æ¨™æº–å‹
+		// æ‰‹æŒã¡
 		Arms[0] = new MMM_ModelRenderer(this);
 		Arms[0].setRotationPoint(-1F, 5F, -1F);
 		Arms[1] = new MMM_ModelRenderer(this);
@@ -148,8 +148,8 @@ public abstract class MMM_ModelLittleMaidBase extends MMM_ModelMultiMMMBase {
 	}
 
 	/**
-	 * p¨§Œä—p
-	 * “Æ©’Ç‰Á•ª
+	 * å§¿å‹¢åˆ¶å¾¡ç”¨
+	 * ç‹¬è‡ªè¿½åŠ åˆ†
 	 */
 	@Override
 	public void setRotationAngles(float par1, float par2, float pTicksExisted,
@@ -157,7 +157,7 @@ public abstract class MMM_ModelLittleMaidBase extends MMM_ModelMultiMMMBase {
 		setDefaultPause(par1, par2, pTicksExisted, pHeadYaw, pHeadPitch, par6, pEntityCaps);
 		
 		if (isRiding) {
-			// æ‚è•¨‚Éæ‚Á‚Ä‚¢‚é
+			// ä¹—ã‚Šç‰©ã«ä¹—ã£ã¦ã„ã‚‹
 			bipedRightArm.addRotateAngleX(-0.6283185F);
 			bipedLeftArm.addRotateAngleX(-0.6283185F);
 			bipedRightLeg.setRotateAngleX(-1.256637F);
@@ -168,7 +168,7 @@ public abstract class MMM_ModelLittleMaidBase extends MMM_ModelMultiMMMBase {
 		}
 		
 		
-		// ƒAƒCƒeƒ€‚Á‚Ä‚é‚Æ‚«‚Ì˜rU‚è‚ğ—}‚¦‚é+•\¦ŠpƒIƒtƒZƒbƒg
+		// ã‚¢ã‚¤ãƒ†ãƒ æŒã£ã¦ã‚‹ã¨ãã®è…•æŒ¯ã‚Šã‚’æŠ‘ãˆã‚‹+è¡¨ç¤ºè§’ã‚ªãƒ•ã‚»ãƒƒãƒˆ
 		if (heldItem[1] != 0) {
 			bipedLeftArm.setRotateAngleX(bipedLeftArm.getRotateAngleX() * 0.5F);
 			bipedLeftArm.addRotateAngleDegX(-18F * (float)heldItem[1]);
@@ -182,7 +182,7 @@ public abstract class MMM_ModelLittleMaidBase extends MMM_ModelMultiMMMBase {
 //		bipedLeftArm.setRotateAngleY(0.0F);
 		
 		if ((onGrounds[0] > -9990F || onGrounds[1] > -9990F) && !aimedBow) {
-			// ˜rU‚è
+			// è…•æŒ¯ã‚Š
 			float f6, f7, f8;
 			f6 = mh_sin(mh_sqrt_float(onGrounds[0]) * (float)Math.PI * 2.0F);
 			f7 = mh_sin(mh_sqrt_float(onGrounds[1]) * (float)Math.PI * 2.0F);
@@ -222,7 +222,7 @@ public abstract class MMM_ModelLittleMaidBase extends MMM_ModelMultiMMMBase {
 			}
 		}
 		if(isSneak) {
-			// ‚µ‚á‚ª‚İ
+			// ã—ã‚ƒãŒã¿
 			bipedTorso.rotateAngleX += 0.5F;
 			bipedNeck.rotateAngleX -= 0.5F;
 			bipedRightArm.rotateAngleX += 0.2F;
@@ -238,17 +238,17 @@ public abstract class MMM_ModelLittleMaidBase extends MMM_ModelMultiMMMBase {
 			Skirt.addRotateAngleX(0.2F);
 			bipedTorso.rotationPointY += 1.00F;
 		} else {
-			// ’Êí—§‚¿
+			// é€šå¸¸ç«‹ã¡
 		}
 		if (isWait) {
-			//‘Ò‹@ó‘Ô‚Ì“Á•Ê•\¦
+			//å¾…æ©ŸçŠ¶æ…‹ã®ç‰¹åˆ¥è¡¨ç¤º
 			float lx = mh_sin(pTicksExisted * 0.067F) * 0.05F -0.7F;
 			bipedRightArm.setRotateAngle(lx, 0.0F, -0.4F);
 			bipedLeftArm.setRotateAngle(lx, 0.0F, 0.4F);
 		} else {
 			float la, lb, lc;
 			if (aimedBow) {
-				// ‹|\‚¦
+				// å¼“æ§‹ãˆ
 				float lonGround = onGrounds[dominantArm];
 				float f6 = mh_sin(lonGround * 3.141593F);
 				float f7 = mh_sin((1.0F - (1.0F - lonGround) * (1.0F - lonGround)) * 3.141593F);
@@ -267,7 +267,7 @@ public abstract class MMM_ModelLittleMaidBase extends MMM_ModelMultiMMMBase {
 				bipedRightArm.addRotateAngleZ(la);
 				bipedLeftArm.addRotateAngleZ(-la);
 			} else {
-				// ’Êí
+				// é€šå¸¸
 				la = mh_sin(pTicksExisted * 0.067F) * 0.05F;
 				lc = 0.5F + mh_cos(pTicksExisted * 0.09F) * 0.05F + 0.05F;
 				bipedRightArm.addRotateAngleX(la);
@@ -309,7 +309,7 @@ public abstract class MMM_ModelLittleMaidBase extends MMM_ModelMultiMMMBase {
 
 	@Override
 	public void showAllParts() {
-		// •\¦§ŒÀ‚ğ‰ğœ‚µ‚Ä‚·‚×‚Ä‚Ì•”•i‚ğ•\¦
+		// è¡¨ç¤ºåˆ¶é™ã‚’è§£é™¤ã—ã¦ã™ã¹ã¦ã®éƒ¨å“ã‚’è¡¨ç¤º
 		bipedHead.setVisible(true);
 		bipedBody.setVisible(true);
 		bipedRightArm.setVisible(true);
@@ -321,20 +321,20 @@ public abstract class MMM_ModelLittleMaidBase extends MMM_ModelMultiMMMBase {
 
 	@Override
 	public int showArmorParts(int parts, int index) {
-		// ŠZ‚Ì•\¦—p
+		// é§ã®è¡¨ç¤ºç”¨
 		boolean f;
-		// Š•
+		// å…œ
 		f = parts == 3 ? true : false;
 		bipedHead.setVisible(f);
-		// ŠZ
+		// é§
 		f = parts == 2 ? true : false;
 		bipedBody.setVisible(f);
 		bipedRightArm.setVisible(f);
 		bipedLeftArm.setVisible(f);
-		// ‹rb
+		// è„šç”²
 		f = parts == 1 ? true : false;
 		Skirt.setVisible(f);
-		// äa“–
+		// è‡‘å½“
 		f = parts == 0 ? true : false;
 		bipedRightLeg.setVisible(f);
 		bipedLeftLeg.setVisible(f);
@@ -344,7 +344,7 @@ public abstract class MMM_ModelLittleMaidBase extends MMM_ModelMultiMMMBase {
 
 	@Override
 	public void renderItems(MMM_IModelCaps pEntityCaps) {
-		// è‚¿‚Ì•\¦
+		// æ‰‹æŒã¡ã®è¡¨ç¤º
 		GL11.glPushMatrix();
 		// R
 		Arms[0].loadMatrix();
@@ -354,7 +354,7 @@ public abstract class MMM_ModelLittleMaidBase extends MMM_ModelMultiMMMBase {
 		Arms[1].loadMatrix();
 		GL11.glTranslatef(0F, 0.05F, -0.05F);
 		Arms[1].renderItems(this, pEntityCaps, false, 1);
-		// “ª•”‘•ü•i
+		// é ­éƒ¨è£…é£¾å“
 		boolean lplanter = MMM_ModelCapsHelper.getCapsValueBoolean(pEntityCaps, caps_isPlanter);
 		if (MMM_ModelCapsHelper.getCapsValueBoolean(pEntityCaps, caps_isCamouflage) || lplanter) {
 			HeadMount.loadMatrix();

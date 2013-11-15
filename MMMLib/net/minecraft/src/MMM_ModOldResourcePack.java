@@ -16,8 +16,8 @@ import net.minecraft.util.ResourceLocation;
 import com.google.gson.JsonObject;
 
 /**
- * �Â����\�[�X��ǂ݂��܂��邽�߂̃p�b�P�[�W�w��
- * �R�[�h��Modloader�̊ۃp�N��
+ * ・ｽﾃゑｿｽ・ｽ・ｽ・ｽ\・ｽ[・ｽX・ｽ・ｽﾇみゑｿｽ・ｽﾜゑｿｽ・ｽ驍ｽ・ｽﾟのパ・ｽb・ｽP・ｽ[・ｽW・ｽw・ｽ・ｽ
+ * ・ｽR・ｽ[・ｽh・ｽ・ｽModloader・ｽﾌ丸パ・ｽN・ｽ・ｽ
  */
 public class MMM_ModOldResourcePack implements ResourcePack {
 

@@ -11,7 +11,7 @@ import org.lwjgl.opengl.GL11;
 
 public class MMM_ItemRenderer extends ItemRenderer {
 
-	// �v���C�x�[�g�ϐ����g����悤��
+	// ・ｽv・ｽ・ｽ・ｽC・ｽx・ｽ[・ｽg・ｽﾏ撰ｿｽ・ｽ・ｽ・ｽg・ｽ・ｽ・ｽ・ｽ謔､・ｽ・ｽ
 	public Minecraft mc;
 	public ItemStack itemToRender;
 	public float equippedProgress;
@@ -24,7 +24,7 @@ public class MMM_ItemRenderer extends ItemRenderer {
 		
 		mc = minecraft;
 		try {
-			// ����߂��e�N�X�`���̊m��
+			// ・ｽ・ｽ・ｽ・ｽﾟゑｿｽ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽﾌ確・ｽ・ｽ
 			texGlint = (ResourceLocation)ModLoader.getPrivateValue(ItemRenderer.class, null, 0);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -51,7 +51,7 @@ public class MMM_ItemRenderer extends ItemRenderer {
 	public void renderItem(EntityLivingBase entityliving, ItemStack itemstack, int i) {
 		Item litem = itemstack.getItem();
 		if (MMM_ItemRenderManager.isEXRender(litem)) {
-			// ���ꃌ���_��
+			// ・ｽ・ｽ・ｽ黹鯉ｿｽ・ｽ・ｽ_・ｽ・ｽ
 			MMM_ItemRenderManager lii = MMM_ItemRenderManager.getEXRender(litem);
 			MMM_Client.setTexture(lii.getRenderTexture(itemstack));
 			GL11.glPushMatrix();
@@ -112,7 +112,7 @@ public class MMM_ItemRenderer extends ItemRenderer {
 		prevEquippedProgress = 0.0F;
 		
 		try {
-			// ���[�J���ϐ����m��
+			// ・ｽ・ｽ・ｽ[・ｽJ・ｽ・ｽ・ｽﾏ撰ｿｽ・ｽ・ｽ・ｽm・ｽ・ｽ
 			itemToRender = (ItemStack)ModLoader.getPrivateValue(ItemRenderer.class, this, 4);
 			equippedProgress = (Float)ModLoader.getPrivateValue(ItemRenderer.class, this, 5);
 			prevEquippedProgress = (Float)ModLoader.getPrivateValue(ItemRenderer.class, this, 6);

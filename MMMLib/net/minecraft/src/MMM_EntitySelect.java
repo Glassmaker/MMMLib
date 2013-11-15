@@ -32,11 +32,11 @@ public class MMM_EntitySelect extends EntityLiving implements MMM_IModelCaps, MM
 
 	@Override
 	protected void entityInit() {
-		// Select�p������A����ʂɂ���񂯂ǂȁB
+		// Select・ｽp・ｽ・ｽ・ｽ・ｽ・ｽ・ｽA・ｽ・ｽ・ｽ・ｽﾊにゑｿｽ・ｽ・ｽｯどな。
 		super.entityInit();
 		// color
 		dataWatcher.addObject(19, Integer.valueOf(0));
-		// 20:�I���e�N�X�`���C���f�b�N�X
+		// 20:・ｽI・ｽ・ｽ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽC・ｽ・ｽ・ｽf・ｽb・ｽN・ｽX
 		dataWatcher.addObject(20, Integer.valueOf(0));
 	}
 
@@ -80,7 +80,7 @@ public class MMM_EntitySelect extends EntityLiving implements MMM_IModelCaps, MM
 		dataWatcher.updateObject(20, (Integer.valueOf(pIndex[0]) & 0xffff) | ((Integer.valueOf(pIndex[1]) & 0xffff) << 16));
 //		textureBox[0] = MMM_TextureManager.instance.getTextureBoxServer(textureIndex[0]);
 //		textureBox[1] = MMM_TextureManager.instance.getTextureBoxServer(textureIndex[1]);
-		// �T�C�Y�̕ύX
+		// ・ｽT・ｽC・ｽY・ｽﾌ変更
 //		setSize(textureBox[0].getWidth(entityCaps), textureBox[0].getHeight(entityCaps));
 	}
 
@@ -91,15 +91,15 @@ public class MMM_EntitySelect extends EntityLiving implements MMM_IModelCaps, MM
 //		textureBox[0] = pTextureBox[0];
 //		textureBox[1] = pTextureBox[1];
 //		setTextureNames();
-//		// �g���ύX�p
+//		// ・ｽg・ｽ・ｽ・ｽﾏ更・ｽp
 //		setSize(textureBox[0].getWidth(null), textureBox[0].getHeight(null));
 //		setPosition(posX, posY, posZ);
-		// ���f���̏���
+		// ・ｽ・ｽ・ｽf・ｽ・ｽ・ｽﾌ擾ｿｽ・ｽ・ｽ
 //		((MMM_TextureBox)textureBox[0]).models[0].setCapsValue(MMM_IModelCaps.caps_changeModel, this);
 	}
 
 	/**
-	 * �e�N�X�`���̃t�@�C�������l��
+	 * ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽﾌフ・ｽ@・ｽC・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽl・ｽ・ｽ
 	 */
 	protected void setTextureNames() {
 		textureData.setTextureNames();
@@ -238,7 +238,7 @@ public class MMM_EntitySelect extends EntityLiving implements MMM_IModelCaps, MM
 
 	@Override
 	public int getBrightnessForRender(float par1) {
-		// ���̖��邳��Ԃ�
+		// ・ｽ・ｽ・ｽﾌ厄ｿｽ・ｽ驍ｳ・ｽ・ｽﾔゑｿｽ
 		return 0x00f000f0;
 	}
 

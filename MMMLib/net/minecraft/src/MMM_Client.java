@@ -27,11 +27,11 @@ public class MMM_Client {
 	public static MMM_ItemRenderer itemRenderer;
 
 	/**
-	 * �������s�R�[�h
+	 * ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽs・ｽR・ｽ[・ｽh
 	 */
 	public static void init() {
 		try {
-			// TODO: �o�[�W�����A�b�v���ɂ͊m�F���邱��
+			// TODO: ・ｽo・ｽ[・ｽW・ｽ・ｽ・ｽ・ｽ・ｽA・ｽb・ｽv・ｽ・ｽ・ｽﾉは確・ｽF・ｽ・ｽ・ｽ驍ｱ・ｽ・ｽ
 			List lresourcePacks = (List)ModLoader.getPrivateValue(Minecraft.class, Minecraft.getMinecraft(), 63);
 			lresourcePacks.add(new MMM_ModOldResourcePack(mod_MMM_MMMLib.class));
 		} catch (Exception e) {
@@ -51,11 +51,11 @@ public class MMM_Client {
 			mod_MMM_MMMLib.Debug("replace RenderManager.itemRenderer.");
 			RenderManager.instance.itemRenderer = itemRenderer;
 		}
-		// GUI�̕\����ς���ɂ͏펞�Ď����K�v�H
+		// GUI・ｽﾌ表・ｽ・ｽ・ｽ・ｽﾏゑｿｽ・ｽ・ｽﾉは常時・ｽﾄ趣ｿｽ・ｽ・ｽ・ｽK・ｽv・ｽH
 	}
 
 	public static void clientCustomPayload(NetClientHandler var1, Packet250CustomPayload var2) {
-		// �N���C�A���g���̓���p�P�b�g��M����
+		// ・ｽN・ｽ・ｽ・ｽC・ｽA・ｽ・ｽ・ｽg・ｽ・ｽ・ｽﾌ難ｿｽ・ｽ・ｽp・ｽP・ｽb・ｽg・ｽ・ｽM・ｽ・ｽ・ｽ・ｽ
 		byte lmode = var2.data[0];
 		int leid = 0;
 		Entity lentity = null;
@@ -68,11 +68,11 @@ public class MMM_Client {
 		
 		switch (lmode) {
 		case MMM_Statics.Client_SetTextureIndex:
-			// �₢���킹���e�N�X�`���p�b�N�̊Ǘ��ԍ����󂯎��
+			// ・ｽ竄｢・ｽ・ｽ・ｽ墲ｹ・ｽ・ｽ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽN・ｽﾌ管暦ｿｽ・ｽﾔ搾ｿｽ・ｽ・ｽ・ｽｯ趣ｿｽ・ｽ
 			MMM_TextureManager.instance.reciveFormServerSetTexturePackIndex(var2.data);
 			break;
 		case MMM_Statics.Client_SetTexturePackName:
-			// �Ǘ��ԍ��ɓo�^����Ă���e�N�X�`���p�b�N�̏����󂯎��
+			// ・ｽﾇ暦ｿｽ・ｽﾔ搾ｿｽ・ｽﾉ登・ｽ^・ｽ・ｽ・ｽ・ｽﾄゑｿｽ・ｽ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽN・ｽﾌ擾ｿｽ・ｽ・ｽ・ｽｯ趣ｿｽ・ｽ
 			MMM_TextureManager.instance.reciveFromServerSetTexturePackName(var2.data);
 			break;
 		}
@@ -104,7 +104,7 @@ public class MMM_Client {
 	}
 
 	/**
-	 * Duo���g�����͕K��Render���̂��̊֐���u�������邱�ƁB
+	 * Duo・ｽ・ｽ・ｽg・ｽ・ｽ・ｽ・ｽ・ｽﾍ必・ｽ・ｽRender・ｽ・ｽ・ｽﾌゑｿｽ・ｽﾌ関撰ｿｽ・ｽ・ｽu・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ驍ｱ・ｽﾆ。
 	 * @param par1EntityLiving
 	 * @param par2
 	 */

@@ -10,11 +10,11 @@ import java.util.List;
 import java.util.Properties;
 
 /**
- * ƒRƒ“ƒtƒBƒOƒtƒ@ƒCƒ‹‚Ì•Û‘¶—pB<br>
- * “n‚³‚ê‚½Class–¼Ì‚Æ“¯–¼‚ÌConfigƒtƒ@ƒCƒ‹‚ğ‘€ì‚·‚éB<br>
- * ‘ÎÛ‚Æ‚È‚éField‚ÍStatic‚ÅPrivate‚Å‚Í‚È‚¢‚±‚ÆAucfg_v‚Ån‚Ü‚é–¼Ì‚Å‚ ‚é‚±‚ÆB<br>
- * ‘ÎÛ‚Æ‚È‚éŒ^‚ÍintAfloatAdoubleAbooleanAstringB<br>
- * cfg_comment‚Í—\–ñ•Ï”String[]Œ^‚ÅƒRƒƒ“ƒg‚ğ‹Lq‚·‚éB<br>
+ * ã‚³ãƒ³ãƒ•ã‚£ã‚°ãƒ•ã‚¡ã‚¤ãƒ«ã®ä¿å­˜ç”¨ã€‚<br>
+ * æ¸¡ã•ã‚ŒãŸClassåç§°ã¨åŒåã®Configãƒ•ã‚¡ã‚¤ãƒ«ã‚’æ“ä½œã™ã‚‹ã€‚<br>
+ * å¯¾è±¡ã¨ãªã‚‹Fieldã¯Staticã§Privateã§ã¯ãªã„ã“ã¨ã€ã€Œcfg_ã€ã§å§‹ã¾ã‚‹åç§°ã§ã‚ã‚‹ã“ã¨ã€‚<br>
+ * å¯¾è±¡ã¨ãªã‚‹å‹ã¯intã€floatã€doubleã€booleanã€stringã€‚<br>
+ * cfg_commentã¯äºˆç´„å¤‰æ•°String[]å‹ã§ã‚³ãƒ¡ãƒ³ãƒˆã‚’è¨˜è¿°ã™ã‚‹ã€‚<br>
  */
 public class MMM_Config {
 
@@ -27,14 +27,14 @@ public class MMM_Config {
 
 
 	/**
-	 * ‰Šú‰»B
+	 * åˆæœŸåŒ–ã€‚
 	 */
 	public static void init() {
 		configDir = new File(MMM_FileManager.minecraftDir, "config");
 	}
 
 	/**
-	 * Configƒtƒ@ƒCƒ‹‚ğ•Ô‚·B
+	 * Configãƒ•ã‚¡ã‚¤ãƒ«ã‚’è¿”ã™ã€‚
 	 * @param pClass
 	 * @return
 	 */
@@ -60,7 +60,7 @@ public class MMM_Config {
 	}
 
 	/**
-	 * cfgƒtƒ@ƒCƒ‹‚É’l‚ğ•Û‘¶‚·‚éB
+	 * cfgãƒ•ã‚¡ã‚¤ãƒ«ã«å€¤ã‚’ä¿å­˜ã™ã‚‹ã€‚
 	 * @param pClass
 	 */
 	public static void saveConfig(Class pClass) {
@@ -140,7 +140,7 @@ public class MMM_Config {
 	}
 
 	/**
-	 * MLProp‚Ì•W€“®ì‚É‹ß‚¢“®‚«
+	 * MLPropã®æ¨™æº–å‹•ä½œã«è¿‘ã„å‹•ã
 	 * @param pClass
 	 */
 	public static void checkConfig(Class pClass) {

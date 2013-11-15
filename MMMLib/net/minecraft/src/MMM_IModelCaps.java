@@ -6,22 +6,22 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * ƒ‚ƒfƒ‹‹¤’Ê‰»—pƒCƒ“ƒ^[ƒtƒF[ƒXB
- * Œ`®w’è‚Ì’l“Ç‚İo‚µ‚ÍModelCapsHelper‚ğg‚¤‚±‚ÆB
- * TODO:Ÿƒo[ƒWƒ‡ƒ“‚ÅFXÁ‚·‚±‚ÆB
+ * ãƒ¢ãƒ‡ãƒ«å…±é€šåŒ–ç”¨ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ã€‚
+ * å½¢å¼æŒ‡å®šã®å€¤èª­ã¿å‡ºã—ã¯ModelCapsHelperã‚’ä½¿ã†ã“ã¨ã€‚
+ * TODO:æ¬¡ãƒãƒ¼ã‚¸ãƒ§ãƒ³ã§è‰²ã€…æ¶ˆã™ã“ã¨ã€‚
  */
 public interface MMM_IModelCaps {
 
 	/*
-	 * ‹@”\–¼ÌŒQAæ‚èŠ¸‚¦‚¸‘‚¢‚Ä‚ ‚é‚¯‚Ç•Ê‚É”í‚ç‚È‚¯‚ê‚Î‰½‚Å‚à—Ç‚µB
-	 * ˆê‰—\–ñ’l‚Á‚Ä‚±‚Æ‚ÅB
-	 * “Æ©’Ç‰Á‚Ìê‡‚Í0x00010000ˆÈã‚ğg‚Á‚Ä‰º‚³‚¢B
+	 * æ©Ÿèƒ½åç§°ç¾¤ã€å–ã‚Šæ•¢ãˆãšæ›¸ã„ã¦ã‚ã‚‹ã‘ã©åˆ¥ã«è¢«ã‚‰ãªã‘ã‚Œã°ä½•ã§ã‚‚è‰¯ã—ã€‚
+	 * ä¸€å¿œäºˆç´„å€¤ã£ã¦ã“ã¨ã§ã€‚
+	 * ç‹¬è‡ªè¿½åŠ ã®å ´åˆã¯0x00010000ä»¥ä¸Šã‚’ä½¿ã£ã¦ä¸‹ã•ã„ã€‚
 	 */
 	// ModelBase
 	public static final int caps_onGround			= 0x0001;
 	public static final int caps_isRiding			= 0x0002;
 	public static final int caps_isChild			= 0x0003;
-	/** ƒŠƒAƒ‹ƒ^ƒCƒ€‚ÅEntity‚ÌƒTƒCƒY‚ğXV‚·‚é **/
+	/** ãƒªã‚¢ãƒ«ã‚¿ã‚¤ãƒ ã§Entityã®ã‚µã‚¤ã‚ºã‚’æ›´æ–°ã™ã‚‹ **/
 	public static final int caps_isUpdateSize		= 0x0004;
 	// ModelBiped
 	public static final int caps_heldItemLeft		= 0x0010;
@@ -48,9 +48,9 @@ public interface MMM_IModelCaps {
 	public static final int caps_isInWater				= 0x0037;
 	public static final int caps_isInvisible			= 0x0038;
 	public static final int caps_isSprinting			= 0x0039;
-	/** “ê‚ÉŒq‚ª‚ê‚Ä‚Ü‚·; return boolean; **/
+	/** ç¸„ã«ç¹‹ãŒã‚Œã¦ã¾ã™; return boolean; **/
 	public static final int caps_isLeeding				= 0x003a;
-	/** æ‚Á‚©‚Ä‚¢‚éEntity‚Ì–¼‘O‚ğ•Ô‚·; return String; **/
+	/** ä¹—ã£ã‹ã¦ã„ã‚‹Entityã®åå‰ã‚’è¿”ã™; return String; **/
 	public static final int caps_getRidingName			= 0x003b;
 	
 	public static final int caps_posX					= 0x0060;
@@ -68,19 +68,19 @@ public interface MMM_IModelCaps {
 	public static final int caps_prevRotationPitch		= 0x006c;
 	public static final int caps_renderYawOffset		= 0x006d;
 	
-	/** Entity‚ÌˆÊ’u‚ÉƒIƒtƒZƒbƒg‚µ‚½À•W‚ÌBlock‚ğæ“¾‚·‚é [0]:offsetX, [1]:offsetY, [2]:offsetZ **/
+	/** Entityã®ä½ç½®ã«ã‚ªãƒ•ã‚»ãƒƒãƒˆã—ãŸåº§æ¨™ã®Blockã‚’å–å¾—ã™ã‚‹ [0]:offsetX, [1]:offsetY, [2]:offsetZ **/
 //	public static final int caps_PosBlock				= 0x0080;
-	/** Entity‚ÌˆÊ’u‚ÉƒIƒtƒZƒbƒg‚µ‚½À•W‚ÌBlockID‚ğæ“¾‚·‚é [0]:offsetX, [1]:offsetY, [2]:offsetZ **/
+	/** Entityã®ä½ç½®ã«ã‚ªãƒ•ã‚»ãƒƒãƒˆã—ãŸåº§æ¨™ã®BlockIDã‚’å–å¾—ã™ã‚‹ [0]:offsetX, [1]:offsetY, [2]:offsetZ **/
 	public static final int caps_PosBlockID				= 0x0081;
-	/** Entity‚ÌˆÊ’u‚ÉƒIƒtƒZƒbƒg‚µ‚½À•W‚ÌBlockMetaData‚ğæ“¾‚·‚é [0]:offsetX, [1]:offsetY, [2]:offsetZ **/
+	/** Entityã®ä½ç½®ã«ã‚ªãƒ•ã‚»ãƒƒãƒˆã—ãŸåº§æ¨™ã®BlockMetaDataã‚’å–å¾—ã™ã‚‹ [0]:offsetX, [1]:offsetY, [2]:offsetZ **/
 	public static final int caps_PosBlockMeta			= 0x0082;
-	/** Entity‚ÌˆÊ’u‚ÉƒIƒtƒZƒbƒg‚µ‚½À•W‚ÌBlock‚ª‹ó‹CƒuƒƒbƒN‚©‚ğæ“¾‚·‚é [0]:offsetX, [1]:offsetY, [2]:offsetZ **/
+	/** Entityã®ä½ç½®ã«ã‚ªãƒ•ã‚»ãƒƒãƒˆã—ãŸåº§æ¨™ã®BlockãŒç©ºæ°—ãƒ–ãƒ­ãƒƒã‚¯ã‹ã‚’å–å¾—ã™ã‚‹ [0]:offsetX, [1]:offsetY, [2]:offsetZ **/
 	public static final int caps_PosBlockAir			= 0x0083;
-	/** Entity‚ÌˆÊ’u‚ÉƒIƒtƒZƒbƒg‚µ‚½À•W‚ÌBlock‚ª‹ó‹CƒuƒƒbƒN‚©‚ğæ“¾‚·‚é [0]:offsetX, [1]:offsetY, [2]:offsetZ **/
+	/** Entityã®ä½ç½®ã«ã‚ªãƒ•ã‚»ãƒƒãƒˆã—ãŸåº§æ¨™ã®BlockãŒç©ºæ°—ãƒ–ãƒ­ãƒƒã‚¯ã‹ã‚’å–å¾—ã™ã‚‹ [0]:offsetX, [1]:offsetY, [2]:offsetZ **/
 	public static final int caps_PosBlockLight			= 0x0084;
-	/** Entity‚ÌˆÊ’u‚ÉƒIƒtƒZƒbƒg‚µ‚½À•W‚ÌBlock‚ª‹ó‹CƒuƒƒbƒN‚©‚ğæ“¾‚·‚é [0]:offsetX, [1]:offsetY, [2]:offsetZ **/
+	/** Entityã®ä½ç½®ã«ã‚ªãƒ•ã‚»ãƒƒãƒˆã—ãŸåº§æ¨™ã®BlockãŒç©ºæ°—ãƒ–ãƒ­ãƒƒã‚¯ã‹ã‚’å–å¾—ã™ã‚‹ [0]:offsetX, [1]:offsetY, [2]:offsetZ **/
 	public static final int caps_PosBlockPower			= 0x0085;
-	/** player‚Éæ‚Á‚Ä‚¢‚é‚©‚ğ”»’è**/
+	/** playerã«ä¹—ã£ã¦ã„ã‚‹ã‹ã‚’åˆ¤å®š**/
 	public static final int caps_isRidingPlayer			= 0x0086;
 
 	// WorldData
@@ -98,7 +98,7 @@ public interface MMM_IModelCaps {
 	public static final int caps_isBlocking			= 0x0106;
 	public static final int caps_isWait				= 0x0107;
 	public static final int caps_isWaitEX			= 0x0108;
-	/** ƒCƒ“ƒxƒ“ƒgƒŠ‚ğŠJ‚¢‚Ä‚¢‚é‚©‚ğ•Ô‚µ‚Ü‚·(boolean) **/
+	/** ã‚¤ãƒ³ãƒ™ãƒ³ãƒˆãƒªã‚’é–‹ã„ã¦ã„ã‚‹ã‹ã‚’è¿”ã—ã¾ã™(boolean) **/
 	public static final int caps_isOpenInv			= 0x0109;
 	public static final int caps_isWorking			= 0x010a;
 	public static final int caps_isWorkingDelay		= 0x010b;
@@ -120,17 +120,17 @@ public interface MMM_IModelCaps {
 	public static final int caps_render				= 0x0130;
 	public static final int caps_Arms				= 0x0131;
 	public static final int caps_HeadMount			= 0x0132;
-	/** ƒ‚ƒfƒ‹‚Éİ’è‚³‚ê‚Ä‚¢‚éƒn[ƒhƒ|ƒCƒ“ƒg‚ğ”z—ñ‚Å•Ô‚µ‚Ü‚· **/
+	/** ãƒ¢ãƒ‡ãƒ«ã«è¨­å®šã•ã‚Œã¦ã„ã‚‹ãƒãƒ¼ãƒ‰ãƒã‚¤ãƒ³ãƒˆã‚’é…åˆ—ã§è¿”ã—ã¾ã™ **/
 	public static final int caps_HardPoint			= 0x0133;
-	/** ‘•”õ‚µ‚Ä‚¢‚éƒXƒ^ƒrƒ‰ƒCƒU[‚ğ•Ô‚µ‚Ü‚· **/
+	/** è£…å‚™ã—ã¦ã„ã‚‹ã‚¹ã‚¿ãƒ“ãƒ©ã‚¤ã‚¶ãƒ¼ã‚’è¿”ã—ã¾ã™ **/
 	public static final int caps_stabiliser			= 0x0134;
-	/** Œ»İ•Û‚µ‚Ä‚¢‚éƒAƒCƒeƒ€‚Ì”z—ñ‚ğ•Ô‚µ‚Ü‚· **/
+	/** ç¾åœ¨ä¿æŒã—ã¦ã„ã‚‹ã‚¢ã‚¤ãƒ†ãƒ ã®é…åˆ—ã‚’è¿”ã—ã¾ã™ **/
 	public static final int caps_Items				= 0x0135;
-	/** Œ»İ•Û‚µ‚Ä‚¢‚éƒAƒCƒeƒ€‚Ì‹““®‚Ì”z—ñ‚ğ•Ô‚µ‚Ü‚· **/
+	/** ç¾åœ¨ä¿æŒã—ã¦ã„ã‚‹ã‚¢ã‚¤ãƒ†ãƒ ã®æŒ™å‹•ã®é…åˆ—ã‚’è¿”ã—ã¾ã™ **/
 	public static final int caps_Actions			= 0x0136;
-	/** Œ»İ•Û‚µ‚Ä‚¢‚éƒAƒCƒeƒ€‚ÌU‚è‰ñ‚µó‘Ô‚ğ”z—ñ‚Å•Ô‚µ‚Ü‚· **/
+	/** ç¾åœ¨ä¿æŒã—ã¦ã„ã‚‹ã‚¢ã‚¤ãƒ†ãƒ ã®æŒ¯ã‚Šå›ã—çŠ¶æ…‹ã‚’é…åˆ—ã§è¿”ã—ã¾ã™ **/
 	public static final int caps_Grounds			= 0x0137;
-	/** Inventory‚ğ•Ô‚µ‚Ü‚· **/
+	/** Inventoryã‚’è¿”ã—ã¾ã™ **/
 	public static final int caps_Inventory			= 0x0138;
 	public static final int caps_Ground				= 0x0139;
 	public static final int caps_interestedAngle	= 0x0150;
@@ -143,32 +143,32 @@ public interface MMM_IModelCaps {
 	public static final int caps_PartsStrings	= 0x0204;
 
 	// MMM_test
-	/** ƒ‚ƒfƒ‹‚ª•ÏX‚³‚ê‚½‚ÉÀs‚³‚ê‚éŠÖ”‚ÖƒŠƒ“ƒN‚µ‚Ü‚· **/
+	/** ãƒ¢ãƒ‡ãƒ«ãŒå¤‰æ›´ã•ã‚ŒãŸæ™‚ã«å®Ÿè¡Œã•ã‚Œã‚‹é–¢æ•°ã¸ãƒªãƒ³ã‚¯ã—ã¾ã™ **/
 	public static final int caps_changeModel		= 0x0300;
 	public static final int caps_renderFace			= 0x0310;
 	public static final int caps_renderBody			= 0x0311;
 	public static final int caps_setFaceTexture		= 0x0312;
-	/** MMM_TextureData‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğ•Ô‚µ‚Ü‚·B **/
+	/** MMM_TextureDataã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’è¿”ã—ã¾ã™ã€‚ **/
 	public static final int caps_textureData		= 0x0313;
-	/** ”­ŒõƒeƒNƒXƒ`ƒƒ‚ÌF•â³ */
+	/** ç™ºå…‰ãƒ†ã‚¯ã‚¹ãƒãƒ£ã®è‰²è£œæ­£ */
 	public static final int caps_textureLightColor	= 0x0314;
 
 
 	/**
-	 * ƒ‚ƒfƒ‹‚ªÀ‘•‚µ‚Ä‚¢‚é‹@”\‚ğƒŠƒXƒg‚É“ü‚ê‚Ä•Ô‚·B
+	 * ãƒ¢ãƒ‡ãƒ«ãŒå®Ÿè£…ã—ã¦ã„ã‚‹æ©Ÿèƒ½ã‚’ãƒªã‚¹ãƒˆã«å…¥ã‚Œã¦è¿”ã™ã€‚
 	 * @return
 	 */
 	public Map<String, Integer> getModelCaps();
 
 	/**
-	 * Œ»İ‚Ìİ’è’l‚ğ“Ç‚İæ‚éB
+	 * ç¾åœ¨ã®è¨­å®šå€¤ã‚’èª­ã¿å–ã‚‹ã€‚
 	 * @param pIndex
 	 * @return
 	 */
 	public Object getCapsValue(int pIndex, Object ... pArg);
 
 	/**
-	 * ‹@”\”Ô†‚É’l‚ğİ’è‚·‚éB
+	 * æ©Ÿèƒ½ç•ªå·ã«å€¤ã‚’è¨­å®šã™ã‚‹ã€‚
 	 * @param pIndex
 	 * @param pArg
 	 * @return

@@ -16,7 +16,7 @@ public abstract class MMM_ModelBase {
 
 	public Render render;
 
-	// ModelBase�Ƃ�����x�݊�
+	// ModelBase・ｽﾆゑｿｽ・ｽ・ｽ・ｽ・ｽx・ｽﾝ奇ｿｽ
 	public int textureWidth = 64;
 	public int textureHeight = 32;
 	public float onGrounds[] = new float[] {0.0F, 0.0F};
@@ -28,7 +28,7 @@ public abstract class MMM_ModelBase {
 
 
 
-	// ModelBase�݊��֐��Q
+	// ModelBase・ｽﾝ奇ｿｽ・ｽﾖ撰ｿｽ・ｽQ
 
 	public void render(MMM_IModelCaps pEntityCaps, float par2, float par3,
 			float ticksExisted, float pheadYaw, float pheadPitch, float par7, boolean pIsRender) {
@@ -42,14 +42,14 @@ public abstract class MMM_ModelBase {
 	}
 
 	public MMM_ModelRenderer getRandomModelBox(Random par1Random) {
-		// �G�ɖ���󂯂Ă��܂��ĂȁE�E�E
+		// ・ｽG・ｽﾉ厄ｿｽ・ｽ・ｽｯてゑｿｽ・ｽﾜゑｿｽ・ｽﾄな・・ｽE・ｽE
 		int li = par1Random.nextInt(this.boxList.size());
 		MMM_ModelRenderer lmr = (MMM_ModelRenderer)this.boxList.get(li);
 		for (int lj = 0; lj < boxList.size(); lj++) {
 			if (!lmr.cubeList.isEmpty()) {
 				break;
 			}
-			// �����Ȃ�
+			// ・ｽ・ｽ・ｽ・ｽ・ｽﾈゑｿｽ
 			if (++li >= boxList.size()) {
 				li = 0;
 			}
@@ -63,15 +63,15 @@ public abstract class MMM_ModelBase {
 	}
 
 	/**
-	 * ��������܂���B
+	 * ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽﾜゑｿｽ・ｽ・ｽB
 	 */
 	public TextureOffset getTextureOffset(String par1Str) {
-		// ���̂܂܂��ƈӖ��Ȃ��ȁB
+		// ・ｽ・ｽ・ｽﾌままゑｿｽ・ｽﾆ意厄ｿｽ・ｽﾈゑｿｽ・ｽﾈ。
 		return modelTextureMap.get(par1Str);
 	}
 
 
-	// MathHelper�g���l���֐��Q
+	// MathHelper・ｽg・ｽ・ｽ・ｽl・ｽ・ｽ・ｽﾖ撰ｿｽ・ｽQ
 
 	public static final float mh_sin(float f) {
 		f = f % 6.283185307179586F;

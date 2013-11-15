@@ -23,7 +23,7 @@ public class MMM_SlotArmor extends SlotArmor {
 	public boolean isItemValid(ItemStack par1ItemStack) {
 		if (par1ItemStack == null) return false;
 		Item litem = par1ItemStack.getItem();
-		// ���[
+		// ・ｽ・ｽ・ｽ[
 		if (MMM_Helper.isForge) {
 			try {
 				Item.class.getMethod("isValidArmor", ItemStack.class, int.class).invoke(litem, par1ItemStack, armorType);

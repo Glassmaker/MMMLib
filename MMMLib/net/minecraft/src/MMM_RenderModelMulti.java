@@ -30,7 +30,7 @@ public class MMM_RenderModelMulti extends RenderLiving {
 	}
 
 	protected int showArmorParts(EntityLivingBase par1EntityLiving, int par2, float par3) {
-		// �A�[�}�[�̕\���ݒ�
+		// ・ｽA・ｽ[・ｽ}・ｽ[・ｽﾌ表・ｽ・ｽ・ｽﾝ抵ｿｽ
 		modelFATT.renderParts = par2;
 		modelFATT.renderCount = 0;
 		ItemStack is = par1EntityLiving.getCurrentItemOrArmor(par2 + 1);
@@ -99,7 +99,7 @@ public class MMM_RenderModelMulti extends RenderLiving {
 	public void renderModelMulti(EntityLiving par1EntityLiving, double par2,
 			double par4, double par6, float par8, float par9, MMM_IModelCaps pEntityCaps) {
 		setModelValues(par1EntityLiving, par2, par4, par6, par8, par9, pEntityCaps);
-		// TODO:1.6.2-MCP805 �Ȃ����ςȂƂ��ɔ��Ń��[�v����
+		// TODO:1.6.2-MCP805 ・ｽﾈゑｿｽ・ｽ・ｽ・ｽﾏなとゑｿｽ・ｽﾉ費ｿｽ・ｽﾅ・ｿｽ・ｽ[・ｽv・ｽ・ｽ・ｽ・ｽ
 //		super.func_130000_a(par1EntityLiving, par2, par4, par6, par8, par9);
 		super.doRenderLiving(par1EntityLiving, par2, par4, par6, par8, par9);
 	}
@@ -114,8 +114,8 @@ public class MMM_RenderModelMulti extends RenderLiving {
 	@Override
 	protected void func_110827_b(EntityLiving par1EntityLiving, double par2,
 			double par4, double par6, float par8, float par9) {
-		// ��̈ʒu�̃I�t�Z�b�g
-		// TODO�FMCP-804�΍�
+		// ・ｽ・ｽﾌ位置・ｽﾌオ・ｽt・ｽZ・ｽb・ｽg
+		// TODO・ｽFMCP-804・ｽﾎ搾ｿｽ
 		float lf = 0F;
 		if (modelMain.model != null && fcaps != null) {
 			lf = modelMain.model.getLeashOffset(fcaps);
@@ -131,13 +131,13 @@ public class MMM_RenderModelMulti extends RenderLiving {
 		} else {
 			modelMain.setArmorRendering(false);
 		}
-		// �A�C�e���̃����_�����O�ʒu���l�����邽��render���ĂԕK�v������
+		// ・ｽA・ｽC・ｽe・ｽ・ｽ・ｽﾌ・ｿｽ・ｽ・ｽ・ｽ_・ｽ・ｽ・ｽ・ｽ・ｽO・ｽﾊ置・ｽ・ｽ・ｽl・ｽ・ｽ・ｽ・ｽ・ｽ驍ｽ・ｽ・ｽrender・ｽ・ｽ・ｽﾄぶ必・ｽv・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ
 		mainModel.render(par1EntityLiving, par2, par3, par4, par5, par6, par7);
 	}
 
 	@Override
 	protected void renderEquippedItems(EntityLivingBase par1EntityLiving, float par2) {
-		// �n�[�h�|�C���g�̕`��
+		// ・ｽn・ｽ[・ｽh・ｽ|・ｽC・ｽ・ｽ・ｽg・ｽﾌ描・ｽ・ｽ
 		modelMain.renderItems(par1EntityLiving, this);
 		renderArrowsStuckInEntity(par1EntityLiving, par2);
 	}
@@ -149,7 +149,7 @@ public class MMM_RenderModelMulti extends RenderLiving {
 
 	@Override
 	protected ResourceLocation getEntityTexture(Entity var1) {
-		// �e�N�X�`�����\�[�X��Ԃ��Ƃ��낾����ǁA��{�I�Ɏg�p���Ȃ��B
+		// ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽ・ｽ・ｽ\・ｽ[・ｽX・ｽ・ｽﾔゑｿｽ・ｽﾆゑｿｽ・ｽ・ｾ・ｽ・ｽ・ｽ・ｽﾇ、・ｽ・ｽ{・ｽI・ｽﾉ使・ｽp・ｽ・ｽ・ｽﾈゑｿｽ・ｽB
 		return null;
 	}
 
