@@ -1,20 +1,20 @@
 
-ƒNƒ‰ƒCƒAƒ“ƒg‚©‚çƒeƒNƒXƒ`ƒƒ–¼‚É‰ž‚¶‚½ƒT[ƒo[ƒCƒ“ƒfƒbƒNƒX‚ðŠl“¾‚·‚éB
+ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆã‹ã‚‰ãƒ†ã‚¯ã‚¹ãƒãƒ£åã«å¿œã˜ãŸã‚µãƒ¼ãƒãƒ¼ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’ç²å¾—ã™ã‚‹ã€‚
 getTextureIndex
 setTextureIndex
 
 
-ƒT[ƒo[‚©‚çƒNƒ‰ƒCƒAƒ“ƒg‚ÖƒeƒNƒXƒ`ƒƒ‚ðÝ’è‚·‚éB
-datawatcher“™‚ÅƒeƒNƒXƒ`ƒƒƒCƒ“ƒfƒbƒNƒX‚ðÝ’è‚·‚éB
+ã‚µãƒ¼ãƒãƒ¼ã‹ã‚‰ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆã¸ãƒ†ã‚¯ã‚¹ãƒãƒ£ã‚’è¨­å®šã™ã‚‹ã€‚
+datawatcherç­‰ã§ãƒ†ã‚¯ã‚¹ãƒãƒ£ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’è¨­å®šã™ã‚‹ã€‚
 
 textureIndex = DataWatcher->textureIndex
 
-ƒeƒNƒXƒ`ƒƒ‚Ì•ÏX‚Í‚Q‚Â‚Ìint‚Å”»’è‚·‚éB
+ãƒ†ã‚¯ã‚¹ãƒãƒ£ã®å¤‰æ›´ã¯ï¼’ã¤ã®intã§åˆ¤å®šã™ã‚‹ã€‚
 DataWatcher->textureIndex != localTextureIndex
-‚Ìê‡‚É•ÏX”»’è‚ª”­¶‚µ‘±‚¯‚éB
+ã®å ´åˆã«å¤‰æ›´åˆ¤å®šãŒç™ºç”Ÿã—ç¶šã‘ã‚‹ã€‚
 
 
-// ”»’è‚Å”Ô†“o˜^‚ª‚È‚¯‚ê‚ÎƒeƒNƒXƒ`ƒƒî•ñ‚ðŠl“¾‚µ‚És‚­
+// åˆ¤å®šã§ç•ªå·ç™»éŒ²ãŒãªã‘ã‚Œã°ãƒ†ã‚¯ã‚¹ãƒãƒ£æƒ…å ±ã‚’ç²å¾—ã—ã«è¡Œã
 ClientTextureManager>isTexture(textureIndex) {
 textureStr = ClientTextureManager->getTexture(textureIndex)
 localTextureIndex = textureIndex
@@ -27,7 +27,6 @@ ClientTextureManager->getTextureBoxFromServer(textureIndex)
 
 
 Client_setTextureStr
-
 
 
 
