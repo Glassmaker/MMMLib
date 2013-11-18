@@ -15,7 +15,7 @@ public class MMM_ModelStabilizer_WitchHat extends MMM_ModelStabilizerBase {
 
 
 	public MMM_ModelStabilizer_WitchHat() {
-		// ・ｽﾜゑｿｽ・ｽ蛯ｱ・ｽﾚゑｿｽ
+		// まじょこぼう, Witch Kobo
 		textureWidth = 64;
 		textureHeight = 32;
 		

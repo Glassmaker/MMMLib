@@ -4,6 +4,7 @@ import org.lwjgl.opengl.GL11;
 
 /**
  * サンプルとしてaddPartsを使用しています。
+ * I am using addParts as sample.
  */
 public class MMM_ModelLittleMaid_Aug extends MMM_ModelLittleMaid_SR2 {
 	
@@ -35,7 +36,7 @@ public class MMM_ModelLittleMaid_Aug extends MMM_ModelLittleMaid_SR2 {
 	public void initModel(float psize, float pyoffset) {
 		super.initModel(psize, pyoffset);
 		
-		// 再構成パーツ
+		// 再構成パーツ, Reconstruction parts
 		SideTailR = new MMM_ModelRenderer(this);
 		SideTailR.setTextureOffset(46, 20).addParts(MMM_ModelBox.class, -1.5F, -0.5F, -1.0F, 2, 10, 2, psize);
 		SideTailR.setRotationPoint(-5F, -7.8F, 1.9F);
@@ -44,7 +45,7 @@ public class MMM_ModelLittleMaid_Aug extends MMM_ModelLittleMaid_SR2 {
 		SideTailL.setRotationPoint(4F, -7.8F, 1.9F);
 		
 		
-		// 増加パーツ
+		// 増加パーツ, Increase parts
 		shaggyB = new MMM_ModelRenderer(this, 24, 0);
 		shaggyB.addParts(MMM_ModelPlate.class, -5.0F, 0.0F, 0.0F, 10, 4, 4, psize);
 		shaggyB.setRotationPoint(0.0F, -1.0F, 4.0F);
@@ -72,7 +73,7 @@ public class MMM_ModelLittleMaid_Aug extends MMM_ModelLittleMaid_SR2 {
 		sensor4.setRotationPoint(0.0F, -8.0F + pyoffset, 0.0F);
 		
 		
-		// 変更パーツ
+		// 変更パーツ, Change parts
 		bipedHead.clearCubeList();
 		bipedHead.setMirror(false);
 		bipedHead.setTextureOffset( 0,  0).addParts(MMM_ModelBox.class, -4F, -8F, -4F, 8, 8, 8, psize);		// Head

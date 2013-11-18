@@ -27,11 +27,12 @@ public class MMM_Client {
 	public static MMM_ItemRenderer itemRenderer;
 
 	/**
-	 * ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽs・ｽR・ｽ[・ｽh
+	 * 初期化時実行コード
+	 * Executable code initialization
 	 */
 	public static void init() {
 		try {
-			// TODO: ・ｽo・ｽ[・ｽW・ｽ・ｽ・ｽ・ｽ・ｽA・ｽb・ｽv・ｽ・ｽ・ｽﾉは確・ｽF・ｽ・ｽ・ｽ驍ｱ・ｽ・ｽ
+			// TODO: バージョンアップ時には確認すること, To make sure the version-up
 			List lresourcePacks = (List)ModLoader.getPrivateValue(Minecraft.class, Minecraft.getMinecraft(), 63);
 			lresourcePacks.add(new MMM_ModOldResourcePack(mod_MMM_MMMLib.class));
 		} catch (Exception e) {
@@ -51,11 +52,11 @@ public class MMM_Client {
 			mod_MMM_MMMLib.Debug("replace RenderManager.itemRenderer.");
 			RenderManager.instance.itemRenderer = itemRenderer;
 		}
-		// GUI・ｽﾌ表・ｽ・ｽ・ｽ・ｽﾏゑｿｽ・ｽ・ｽﾉは常時・ｽﾄ趣ｿｽ・ｽ・ｽ・ｽK・ｽv・ｽH
+		// GUIの表示を変えるには常時監視が必要？, The need to monitor at all times to change the display of the GUI?
 	}
 
 	public static void clientCustomPayload(NetClientHandler var1, Packet250CustomPayload var2) {
-		// ・ｽN・ｽ・ｽ・ｽC・ｽA・ｽ・ｽ・ｽg・ｽ・ｽ・ｽﾌ難ｿｽ・ｽ・ｽp・ｽP・ｽb・ｽg・ｽ・ｽM・ｽ・ｽ・ｽ・ｽ
+		// クライアント側の特殊パケット受信動作, Special packet reception behavior of the client side
 		byte lmode = var2.data[0];
 		int leid = 0;
 		Entity lentity = null;
@@ -68,11 +69,11 @@ public class MMM_Client {
 		
 		switch (lmode) {
 		case MMM_Statics.Client_SetTextureIndex:
-			// ・ｽ竄｢・ｽ・ｽ・ｽ墲ｹ・ｽ・ｽ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽN・ｽﾌ管暦ｿｽ・ｽﾔ搾ｿｽ・ｽ・ｽ・ｽｯ趣ｿｽ・ｽ
+			// 問い合わせたテクスチャパックの管理番号を受け取る, I receive a number of management texture pack Contact
 			MMM_TextureManager.instance.reciveFormServerSetTexturePackIndex(var2.data);
 			break;
 		case MMM_Statics.Client_SetTexturePackName:
-			// ・ｽﾇ暦ｿｽ・ｽﾔ搾ｿｽ・ｽﾉ登・ｽ^・ｽ・ｽ・ｽ・ｽﾄゑｿｽ・ｽ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽN・ｽﾌ擾ｿｽ・ｽ・ｽ・ｽｯ趣ｿｽ・ｽ
+			// 管理番号に登録されているテクスチャパックの情報を受け取る, I receive the information of the texture pack that is registered with the control number
 			MMM_TextureManager.instance.reciveFromServerSetTexturePackName(var2.data);
 			break;
 		}
@@ -104,7 +105,7 @@ public class MMM_Client {
 	}
 
 	/**
-	 * Duo・ｽ・ｽ・ｽg・ｽ・ｽ・ｽ・ｽ・ｽﾍ必・ｽ・ｽRender・ｽ・ｽ・ｽﾌゑｿｽ・ｽﾌ関撰ｿｽ・ｽ・ｽu・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ驍ｱ・ｽﾆ。
+	 * Duoを使う時は必ずRender側のこの関数を置き換えること。, You can replace the function of Render side whenever you use the Duo.
 	 * @param par1EntityLiving
 	 * @param par2
 	 */

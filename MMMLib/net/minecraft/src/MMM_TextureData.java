@@ -16,7 +16,8 @@ import net.minecraft.util.ResourceLocation;
 
 
 /**
- * ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽﾇ暦ｿｽ・ｽp・ｽﾌ変撰ｿｽ・ｽQ・ｽ・ｽ・ｽﾜとめゑｿｽ・ｽ・ｽ・ｽﾌ。
+ * テクスチャ管理用の変数群をまとめたもの。
+ * Summarizes the variable group of texture management.
  */
 public class MMM_TextureData  {
 //public class MMM_TextureData implements MMM_ITextureEntity {
@@ -26,15 +27,18 @@ public class MMM_TextureData  {
 	
 	protected Random rand = new Random();
 	/**
-	 * ・ｽg・ｽp・ｽ・ｽ・ｽ・ｽ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽ・ｽ・ｽ\・ｽ[・ｽX・ｽﾌコ・ｽ・ｽ・ｽe・ｽi
+	 * 使用されるテクスチャリソースのコンテナ
+	 * Container of texture resources used
 	 */
 	public ResourceLocation textures[][];
 	/**
-	 * ・ｽI・ｽ・ｽF
+	 * 選択色
+	 * Selection color
 	 */
 	public int color;
 	/**
-	 * ・ｽ_・ｽ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽ・ｽI・ｽ・ｽ・ｽ・ｽ・ｽ驍ｩ・ｽﾇゑｿｽ・ｽ・ｽ
+	 * 契約テクスチャを選択するかどうか
+	 * Whether you choose a contract texture
 	 */
 	public boolean contract;
 	
@@ -43,8 +47,10 @@ public class MMM_TextureData  {
 	public MMM_ModelMultiBase textureModel[];
 	
 	/**
-	 * ・ｽ\・ｽ・ｽ・ｽ・ｽ・ｽ・ｽﾉ使・ｽ・ｽ・ｽt・ｽ・ｽ・ｽO・ｽQ<br>
-	 * int・ｽ^32bit・ｽﾅ保托ｿｽ・ｽB
+	 * 表示制御に使うフラグ群<br>
+	 * int型32bitで保存。
+	 * Flag group that is used for display control <br>
+	 * save an int 32bit.
 	 */
 	public int selectValue;
 
@@ -59,23 +65,28 @@ public class MMM_TextureData  {
 		entityCaps = pCaps;
 		textures = new ResourceLocation[][] {
 				/**
-				 * ・ｽ・ｽ{・ｽA・ｽ・ｽ・ｽ・ｽ
+				 * 基本、発光
+				 * Basic, light-emitting
 				 */
 				{ null, null },
 				/**
-				 * ・ｽA・ｽ[・ｽ}・ｽ[・ｽ・ｽ・ｽF・ｽ・ｽ・ｽA・ｽ・ｽ・ｽA・ｽ・ｽ・ｽA・ｽ・ｽ
+				 * アーマー内：頭、胴、腰、足
+				 * Armor in: head, torso, waist, legs
 				 */
 				{ null, null, null, null },
 				/**
-				 * ・ｽA・ｽ[・ｽ}・ｽ[・ｽO・ｽF・ｽ・ｽ・ｽA・ｽ・ｽ・ｽA・ｽ・ｽ・ｽA・ｽ・ｽ
+				 * アーマー外：頭、胴、腰、足
+				 * Outside Armor: head, torso, waist, legs
 				 */
 				{ null, null, null, null },
 				/**
-				 * ・ｽA・ｽ[・ｽ}・ｽ[・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽF・ｽ・ｽ・ｽA・ｽ・ｽ・ｽA・ｽ・ｽ・ｽA・ｽ・ｽ
+				 *  アーマー内発光：頭、胴、腰、足
+				 *  Armor in emission: head, torso, waist, legs
 				 */
 				{ null, null, null, null },
 				/**
-				 * ・ｽA・ｽ[・ｽ}・ｽ[・ｽO・ｽ・ｽ・ｽ・ｽ・ｽF・ｽ・ｽ・ｽA・ｽ・ｽ・ｽA・ｽ・ｽ・ｽA・ｽ・ｽ
+				 * アーマー外発光：頭、胴、腰、足
+				 * Armor (UV) light emission: head, torso, waist, legs
 				 */
 				{ null, null, null, null }
 		};
@@ -88,7 +99,8 @@ public class MMM_TextureData  {
 	}
 
 	/**
-	 * ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽ・ｽ・ｽ\・ｽ[・ｽX・ｽ・ｽ・ｽ・ｽ・ｽﾝ値・ｽﾉ搾ｿｽ・ｽ墲ｹ・ｽﾄ設定す・ｽ・ｽB
+	 * テクスチャリソースを現在値に合わせて設定する。
+	 * Is set according to the current value of the texture resource.
 	 */
 	public boolean setTextureNames() {
 		textureModel[0] = null;
@@ -103,7 +115,8 @@ public class MMM_TextureData  {
 	}
 
 	/**
-	 * ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽ・ｽ・ｽ\・ｽ[・ｽX・ｽ・ｽ・ｽ・ｽ・ｽﾝ値・ｽﾉ搾ｿｽ・ｽ墲ｹ・ｽﾄ設定す・ｽ・ｽB
+	 * テクスチャリソースを現在値に合わせて設定する。
+	 * Is set according to the current value of the texture resource.
 	 */
 	protected boolean setTextureNamesClient() {
 		// Client
@@ -183,7 +196,7 @@ public class MMM_TextureData  {
 			int lc = getColor() + (isContract() ? 0 : MMM_TextureManager.tx_wild);
 			textureBox[0] = MMM_TextureManager.instance.getNextPackege((MMM_TextureBox)textureBox[0], lc);
 			if (textureBox[0] == null) {
-				// ・ｽw・ｽ・ｽF・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ鼾・ｿｽﾍ標・ｽ・ｽ・ｽ・ｽ・ｽf・ｽ・ｽ・ｽ・ｽ
+				// 指定色が無い場合は標準モデルに, To the standard model if there is no specified color
 				textureBox[0] = textureBox[1] = MMM_TextureManager.instance.getDefaultTexture((MMM_ITextureEntity)owner);
 				setColor(12);
 			} else {
@@ -213,21 +226,23 @@ public class MMM_TextureData  {
 	}
 
 	/**
-	 * ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ
+	 * 毎時処理
+	 * Hourly processing
 	 */
 	public void onUpdate() {
-		// ・ｽ・ｽ・ｽf・ｽ・ｽ・ｽT・ｽC・ｽY・ｽﾌ・ｿｽ・ｽA・ｽ・ｽ・ｽ^・ｽC・ｽ・ｽ・ｽﾏ更・ｽL・ｽ・ｽH
+		// モデルサイズのリアルタイム変更有り？, Yes real-time change of model size?
 		if (textureBox[0].isUpdateSize) {
 			setSize();
 		}
 	}
 
 	protected void setSize() {
-		// ・ｽT・ｽC・ｽY・ｽﾌ変更
+		// サイズの変更, Changing the size
 		//TODO: fix for forge
 		//owner.setSize(textureBox[0].getWidth(entityCaps), textureBox[0].getHeight(entityCaps));
 		if (owner instanceof EntityAgeable) {
-			// EntityAgeable・ｽﾍゑｿｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽﾈゑｿｽ・ｽﾆ大き・ｽ・ｽ・ｽﾏ更・ｽ・ｽ・ｽﾈゑｿｽ・ｽ謔､・ｽﾉなゑｿｽ・ｽﾄゑｿｽA・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽB
+			// EntityAgeableはこれをしないと大きさ変更しないようになってる、くそう。
+			// It is so as not to change the size If you do not do this, EntityAgeable phrases so.
 			((EntityAgeable)owner).setScaleForAge(owner.isChild());
 		}
 	}
@@ -307,14 +322,16 @@ public class MMM_TextureData  {
 
 
 	/**
-	 * ・ｽ・ｶ・ｽﾌ色・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ_・ｽ・ｽ・ｽﾅ獲・ｽ・ｽ・ｽ・ｽ・ｽ・ｽB
+	 * 野生の色をランダムで獲得する。
+	 * I acquired in random colors in the wild.
 	 */
 	public int getWildColor() {
 		return textureBox[0].getRandomWildColor(rand);
 	}
 
 	/**
-	 * ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽ・ｽ・ｽﾌゑｿｽ・ｽ辜会ｿｽ・ｽ・ｽ_・ｽ・ｽ・ｽﾅ設定す・ｽ・ｽB
+	 * テクスチャ名称からランダムで設定する。
+	 * I set a random name from the texture.
 	 * @param pName
 	 */
 	public void setTextureInitServer(String pName) {
@@ -360,8 +377,10 @@ public class MMM_TextureData  {
 	}
 
 	/**
-	 * ・ｽﾛ有・ｽp・ｽ・ｽ・ｽ・ｽ・ｽ[・ｽ^・ｽ[・ｽﾌ保托ｿｽ・ｽB<br>
-	 * ・ｽT・ｽ[・ｽo・ｽ[・ｽp・ｽB
+	 * 保有パラメーターの保存。<br>
+	 * サーバー用。
+	 * Save holding parameter. <br>
+	 * Server.
 	 * @param par1nbtTagCompound
 	 */
 	public void writeToNBT(NBTTagCompound par1nbtTagCompound) {
@@ -379,8 +398,10 @@ public class MMM_TextureData  {
 	}
 
 	/**
-	 * ・ｽﾛ有・ｽp・ｽ・ｽ・ｽ・ｽ・ｽ[・ｽ^・ｽ[・ｽﾌ読出・ｽB<br>
-	 * ・ｽT・ｽ[・ｽo・ｽ[・ｽp・ｽB
+	 *  保有パラメーターの読出。<br>
+	 * サーバー用。
+	 * Read holding parameter. <br>
+	 * Server.
 	 * @param par1nbtTagCompound
 	 */
 	public void readToNBT(NBTTagCompound par1nbtTagCompound) {
@@ -428,22 +449,23 @@ public class MMM_TextureData  {
 		return lf;
 	}
 
-	// ・ｽp・ｽb・ｽP・ｽ[・ｽW・ｽ・ｽ・ｽp
+	// パッケージ化用, Packaging for
 	/**
-	 * ・ｽﾄ趣ｿｽ・ｽp・ｽ・ｽdataWatcher・ｽ・ｽﾝ定す・ｽ・ｽB
+	 * 監視用のdataWatcherを設定する。
+	 * I set the dataWatcher for monitoring.
 	 * @param pDataWatcher
 	 */
 	public void entityInit(DataWatcher pDataWatcher) {
 		// Color
 		pDataWatcher.addObject(data_Color, Byte.valueOf((byte)0));
-		// ・ｽI・ｽ・ｽ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽC・ｽ・ｽ・ｽf・ｽb・ｽN・ｽX
+		// 選択テクスチャインデックス, Select texture index
 		pDataWatcher.addObject(data_Texture, Integer.valueOf(0));
-		// ・ｽ・ｽ・ｽf・ｽ・ｽ・ｽp・ｽ[・ｽc・ｽﾌ表・ｽ・ｽ・ｽt・ｽ・ｽ・ｽO
+		// モデルパーツの表示フラグ, Display flag of model parts
 		pDataWatcher.addObject(data_Value, Integer.valueOf(0));
 	}
 
 	public void onUpdateTex() {
-		// TODO:onUpdate・ｽﾆ難ｿｽ・ｽ・ｽ・ｽ・ｽ・ｽ驍ｱ・ｽ・ｽ
+		// TODO:onUpdateと統合すること, be integrated with onUpdate
 		if (owner.worldObj.isRemote) {
 			// Client
 			

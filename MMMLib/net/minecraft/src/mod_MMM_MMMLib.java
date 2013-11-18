@@ -35,7 +35,7 @@ public class mod_MMM_MMMLib extends BaseMod {
 
 
 	public static void Debug(String pText, Object... pVals) {
-		// ・ｽf・ｽo・ｽb・ｽO・ｽ・ｽ・ｽb・ｽZ・ｽ[・ｽW
+		// デバッグメッセージ, Debug messages
 		if (cfg_isDebugMessage) {
 			System.out.println(String.format("MMMLib-" + pText, pVals));
 		}
@@ -58,7 +58,7 @@ public class mod_MMM_MMMLib extends BaseMod {
 
 	@Override
 	public void load() {
-		// ・ｽ・ｽ・ｽ・ｽ
+		// 初期化, Initialization
 		Debug(MMM_Helper.isClient ? "Client" : "Server");
 		Debug(MMM_Helper.isForge ? "Forge" : "Modloader");
 		MMM_FileManager.init();
@@ -74,26 +74,27 @@ public class mod_MMM_MMMLib extends BaseMod {
 			MMM_EntityDummy.isEnable = true;
 		}
 		
-		// ・ｽﾆ趣ｿｽ・ｽp・ｽP・ｽb・ｽg・ｽp・ｽ`・ｽ・ｽ・ｽ・ｽ・ｽl・ｽ・ｽ
+		// 独自パケット用チャンネル, Own packet for channel
 		ModLoader.registerPacketChannel(this, "MMM|Upd");
 		
-		// Forge・ｽg・ｽp・ｽ・ｽ・ｽﾍ厄ｿｽ・ｽ・ｽ
+		//  Forge使用時は無効, Disabled when using Forge
 		cfg_renderHacking &= !MMM_Helper.isForge;
 	}
 
 	@Override
 	public void modsLoaded() {
-		// ・ｽo・ｽC・ｽI・ｽ[・ｽ・ｽ・ｽﾉ設定さ・ｽ黷ｽ・ｽX・ｽ|・ｽ[・ｽ・ｽ・ｽ・ｽ・ｽ・ｽu・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽB
+		// バイオームに設定されたスポーン情報を置き換え。
+		// Replace the spawn information that is set in the biome.
 		MMM_Helper.replaceBaiomeSpawn();
 		
-		// ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽN・ｽﾌ構・ｽz
+		// テクスチャパックの構築, Building a texture pack
 		MMM_TextureManager.instance.loadTextures();
-		// ・ｽ・ｽ・ｽ[・ｽh
+		// ロード, Load
 		if (MMM_Helper.isClient) {
-			// ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽN・ｽﾌ構・ｽz
+			// テクスチャパックの構築, Building a texture pack
 //			MMM_TextureManager.loadTextures();
 			MMM_StabilizerManager.loadStabilizer();
-			// ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽC・ｽ・ｽ・ｽf・ｽb・ｽN・ｽX・ｽﾌ構・ｽz
+			// テクスチャインデックスの構築, Construction of the texture index
 			Debug("Localmode: InitTextureList.");
 			MMM_TextureManager.instance.initTextureList(true);
 		} else {
@@ -118,7 +119,7 @@ public class mod_MMM_MMMLib extends BaseMod {
 	@Override
 	public boolean onTickInGame(float var1, Minecraft var2) {
 		if (cfg_isDebugView && MMM_Helper.isClient) {
-			// ・ｽ_・ｽ~・ｽ[・ｽ}・ｽ[・ｽJ・ｽ[・ｽﾌ表・ｽ・ｽ・ｽp・ｽ・ｽ・ｽ・ｽ
+			//  ダミーマーカーの表示用処理, Display processing of dummy marker
 			if (var2.theWorld != null && var2.thePlayer != null) {
 				try {
 					for (Iterator<MMM_EntityDummy> li = MMM_EntityDummy.appendList.iterator(); li.hasNext();) {
@@ -131,12 +132,12 @@ public class mod_MMM_MMMLib extends BaseMod {
 			}
 		}
 		
-		// ・ｽA・ｽC・ｽe・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ_・ｽ[・ｽ・ｽ・ｽI・ｽ[・ｽo・ｽ[・ｽ・ｽ・ｽC・ｽh
+		// アイテムレンダーをオーバーライド, Override the render items
 		if (cfg_renderHacking && MMM_Helper.isClient) {
 			MMM_Client.setItemRenderer();
 		}
 		
-		// ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽﾇ暦ｿｽ・ｽp
+		// テクスチャ管理用, Texture management
 		MMM_TextureManager.instance.onUpdate();
 		
 		return true;
@@ -144,7 +145,7 @@ public class mod_MMM_MMMLib extends BaseMod {
 
 	@Override
 	public void serverCustomPayload(NetServerHandler var1, Packet250CustomPayload var2) {
-		// ・ｽT・ｽ[・ｽo・ｽ・ｽ・ｽﾌ難ｿｽ・ｽ・ｽ
+		// サーバ側の動作, Behavior of the server side
 		byte lmode = var2.data[0];
 		int leid = 0;
 		Entity lentity = null;
@@ -158,15 +159,18 @@ public class mod_MMM_MMMLib extends BaseMod {
 		
 		switch (lmode) {
 		case MMM_Statics.Server_SetTexturePackIndex:
-			// ・ｽT・ｽ[・ｽo・ｽ[・ｽ・ｽ・ｽ・ｽEntity・ｽﾉ対ゑｿｽ・ｽﾄテ・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽC・ｽ・ｽ・ｽf・ｽb・ｽN・ｽX・ｽ・ｽﾝ定す・ｽ・ｽ
+			// サーバー側のEntityに対してテクスチャインデックスを設定する
+			// I set the texture index to a server-side Entity
 			MMM_TextureManager.instance.reciveFromClientSetTexturePackIndex(lentity, var2.data);
 			break;
 		case MMM_Statics.Server_GetTextureIndex:
-			// ・ｽT・ｽ[・ｽo・ｽ[・ｽ・ｽ・ｽﾅの管暦ｿｽ・ｽﾔ搾ｿｽ・ｽﾌ問い・ｽ・ｽ・ｽ墲ｹ・ｽﾉ対ゑｿｽ・ｽﾄ会ｿｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ
+			// サーバー側での管理番号の問い合わせに対して応答する
+			// To respond to queries control number on the server side
 			MMM_TextureManager.instance.reciveFromClientGetTexturePackIndex(var1, var2.data);
 			break;
 		case MMM_Statics.Server_GetTexturePackName:
-			// ・ｽﾇ暦ｿｽ・ｽﾔ搾ｿｽ・ｽﾉ対会ｿｽ・ｽ・ｽ・ｽ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽN・ｽ・ｽ・ｽ・ｽﾔゑｿｽ・ｽB
+			// 管理番号に対応するテクスチャパック名を返す。
+			// I return the texture pack name that corresponds to the control number.
 			MMM_TextureManager.instance.reciveFromClientGetTexturePackName(var1, var2.data);
 			break;
 		}

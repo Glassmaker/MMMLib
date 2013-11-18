@@ -4,6 +4,7 @@ import javax.print.attribute.standard.PDLOverrideSupported;
 
 /**
  * カウンタ用。
+ * Counter.
  */
 public class MMM_Counter {
 

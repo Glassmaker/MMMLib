@@ -5,7 +5,7 @@ import net.minecraft.client.model.TexturedQuad;
 
 public class MMM_ModelPlate extends MMM_ModelBoxBase {
 
-	// ・ｽﾝ奇ｿｽ・ｽp・ｽp・ｽ・ｽ・ｽ・ｽ・ｽ[・ｽ^・ｽ[
+	// 互換用パラメーター, Compatibility parameter
 	@Deprecated
 	public static final int planeXY		= 0;
 	@Deprecated
@@ -20,9 +20,13 @@ public class MMM_ModelPlate extends MMM_ModelBoxBase {
 	public static final int planeXZInv	= 6;
 
 	/*
-	 * ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽg・ｽp・ｽ・ｽ・ｽﾄ会ｿｽ・ｽ・ｽ・ｽ・ｽ・ｽB
-	 * ・ｽ{・ｽb・ｽN・ｽX・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽﾆ難ｿｽ・ｽ・ｽ・ｽ}・ｽb・ｽs・ｽ・ｽ・ｽO・ｽﾉなゑｿｽ謔､・ｽﾉ抵ｿｽ・ｽ・ｽ・ｽ・ｽ・ｽﾄまゑｿｽ・ｽB
-	 * ・ｽ}・ｽb・ｽs・ｽ・ｽ・ｽO・ｽI・ｽﾉ搾ｿｽ・ｽE・ｽﾌ面は趣ｿｽ・ｽﾍで移難ｿｽ・ｽ・ｽ・ｽﾈゑｿｽ・ｽ・ｽﾎ費ｿｽ・ｽ]・ｽ・ｽ・ｽ・ｽﾜゑｿｽ・ｽ・ｽA・ｽO・ｽ繧ｪ・ｽt・ｽﾉなゑｿｽﾜゑｿｽ・ｽB
+	 * こちらを使用して下さい。
+	 * ボックスを作った時と同じマッピングになるように調整してます。
+	 * マッピング的に左右の面は自力で移動しなければ反転されません、前後が逆になります。
+	 * Use here.
+	 * It is adjusted to be the same mapping when you made the box.
+	 * Will not be reversed if you do not move on their own, 
+	 * before and after is reversed surface of the left and right mapping basis.
 	 */
 	public static final int planeXYFront	= 0x10;
 	public static final int planeXYBack		= 0x14;
@@ -54,7 +58,7 @@ public class MMM_ModelPlate extends MMM_ModelBoxBase {
 		boolean lotherplane = (pPlane & 0x04) > 0;
 		int lPlane = pPlane & 0x03;
 		
-		// i1 ・ｽﾍ包ｿｽ・ｽﾊの撰ｿｽ・ｽ・ｽ・ｽﾊ置
+		// i1 は平面の生成位置, i1 generation position of the plane
 		switch (lPlane) {
 		case planeXY:
 			// xy
@@ -120,7 +124,7 @@ public class MMM_ModelPlate extends MMM_ModelBoxBase {
 		}
 		
 		quadList = new TexturedQuad[1];
-		// ・ｽﾊの法・ｽﾊを反転・ｽ・ｽ・ｽ・ｽ
+		// 面の法面を反転する, I invert the slope of the surface
 		if (modelrenderer.mirror) {
 			if (lPlane == 0) {
 				// xy
@@ -207,7 +211,7 @@ public class MMM_ModelPlate extends MMM_ModelBoxBase {
 			}
 		} else {
 			if (lotherplane) {
-				// ・ｽt・ｽ・ｽ・ｽ
+				// 逆周り, Reverse around
 				quadList[0] = new TexturedQuad(
 						new PositionTextureVertex[] {
 								vertexPositions[0],

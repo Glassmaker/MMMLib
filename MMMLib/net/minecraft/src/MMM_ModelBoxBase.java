@@ -18,7 +18,8 @@ public abstract class MMM_ModelBoxBase {
 
 
 	/**
-	 * ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽK・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ驍ｱ・ｽﾆ。
+	 * こちらを必ず実装すること。
+	 * Be implemented this place by all means.
 	 * @param pMRenderer
 	 * @param pArg
 	 */

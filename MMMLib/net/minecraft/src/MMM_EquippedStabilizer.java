@@ -4,7 +4,7 @@ import java.util.Map;
 
 /**
  * 装備品用のクラス。
- *
+ * Class of equipment for.
  */
 public class MMM_EquippedStabilizer {
 	
@@ -20,7 +20,7 @@ public class MMM_EquippedStabilizer {
 	}
 */	
 	public boolean updateEquippedPoint(MMM_ModelBase pmodel) {
-		// 取り付け位置をアップデート
+		// 取り付け位置をアップデート, Updating the mounting position
 		for (int li = 0; li < pmodel.boxList.size(); li++) {
 			MMM_ModelRenderer lmr = pmodel.boxList.get(li);
 			if (lmr.boxName != null && lmr.boxName.equalsIgnoreCase(equipPointName)) {

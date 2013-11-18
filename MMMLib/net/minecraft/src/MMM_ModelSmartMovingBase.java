@@ -3,6 +3,8 @@ package net.minecraft.src;
 /**
  * SmartMoving対応用モデルベース予定。
  * 未実装につき使用不可。
+ * SmartMoving support for model-based schedule.
+ * Disabled per unimplemented.
  */
 public abstract class MMM_ModelSmartMovingBase extends MMM_ModelMultiBase {
 

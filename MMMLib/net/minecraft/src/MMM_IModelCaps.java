@@ -8,7 +8,10 @@ import java.util.Map;
 /**
  * モデル共通化用インターフェース。
  * 形式指定の値読み出しはModelCapsHelperを使うこと。
+ * Model for common interface.
+ * Value read format specified that you use the ModelCapsHelper.
  * TODO:次バージョンで色々消すこと。
+ * To extinguish variety in the next version.
  */
 public interface MMM_IModelCaps {
 
@@ -16,12 +19,16 @@ public interface MMM_IModelCaps {
 	 * 機能名称群、取り敢えず書いてあるけど別に被らなければ何でも良し。
 	 * 一応予約値ってことで。
 	 * 独自追加の場合は0x00010000以上を使って下さい。
+	 * Function Name group, 
+	 * it is written for the time being but I am good at anything if you do not suffer separately.
+	 * By me once reserved value.
+	 * Use 0x00010000 or higher for their own added.
 	 */
 	// ModelBase
 	public static final int caps_onGround			= 0x0001;
 	public static final int caps_isRiding			= 0x0002;
 	public static final int caps_isChild			= 0x0003;
-	/** リアルタイムでEntityのサイズを更新する **/
+	/** リアルタイムでEntityのサイズを更新する, I will update the size of the Entity in real time **/
 	public static final int caps_isUpdateSize		= 0x0004;
 	// ModelBiped
 	public static final int caps_heldItemLeft		= 0x0010;
@@ -48,9 +55,11 @@ public interface MMM_IModelCaps {
 	public static final int caps_isInWater				= 0x0037;
 	public static final int caps_isInvisible			= 0x0038;
 	public static final int caps_isSprinting			= 0x0039;
-	/** 縄に繋がれてます; return boolean; **/
+	/** 縄に繋がれてます, I am connected to the rope;
+	 *  return boolean; **/
 	public static final int caps_isLeeding				= 0x003a;
-	/** 乗っかているEntityの名前を返す; return String; **/
+	/** 乗っかているEntityの名前を返す, I return the name of the Entity that No~tsuka;
+	 *  return String; **/
 	public static final int caps_getRidingName			= 0x003b;
 	
 	public static final int caps_posX					= 0x0060;
@@ -68,17 +77,29 @@ public interface MMM_IModelCaps {
 	public static final int caps_prevRotationPitch		= 0x006c;
 	public static final int caps_renderYawOffset		= 0x006d;
 	
-	/** Entityの位置にオフセットした座標のBlockを取得する [0]:offsetX, [1]:offsetY, [2]:offsetZ **/
+	/** Entityの位置にオフセットした座標のBlockを取得する
+	 * Retrieves the Block coordinates of the offset in the position of Entity
+	 *  [0]:offsetX, [1]:offsetY, [2]:offsetZ **/
 //	public static final int caps_PosBlock				= 0x0080;
-	/** Entityの位置にオフセットした座標のBlockIDを取得する [0]:offsetX, [1]:offsetY, [2]:offsetZ **/
+	/** Entityの位置にオフセットした座標のBlockIDを取得する
+	 * I get a BlockID coordinates of the offset in the position of Entity
+	 *  [0]:offsetX, [1]:offsetY, [2]:offsetZ **/
 	public static final int caps_PosBlockID				= 0x0081;
-	/** Entityの位置にオフセットした座標のBlockMetaDataを取得する [0]:offsetX, [1]:offsetY, [2]:offsetZ **/
+	/** Entityの位置にオフセットした座標のBlockMetaDataを取得する
+	 * I get a BlockMetaData coordinates of the offset in the position of Entity
+	 *  [0]:offsetX, [1]:offsetY, [2]:offsetZ **/
 	public static final int caps_PosBlockMeta			= 0x0082;
-	/** Entityの位置にオフセットした座標のBlockが空気ブロックかを取得する [0]:offsetX, [1]:offsetY, [2]:offsetZ **/
+	/** Entityの位置にオフセットした座標のBlockが空気ブロックかを取得する
+	 * Block of coordinates that is offset to the position of the Entity to acquire air or block
+	 *  [0]:offsetX, [1]:offsetY, [2]:offsetZ **/
 	public static final int caps_PosBlockAir			= 0x0083;
-	/** Entityの位置にオフセットした座標のBlockが空気ブロックかを取得する [0]:offsetX, [1]:offsetY, [2]:offsetZ **/
+	/** Entityの位置にオフセットした座標のBlockが空気ブロックかを取得する
+	 * Block of coordinates that is offset to the position of the Entity to acquire air or block
+	 *  [0]:offsetX, [1]:offsetY, [2]:offsetZ **/
 	public static final int caps_PosBlockLight			= 0x0084;
-	/** Entityの位置にオフセットした座標のBlockが空気ブロックかを取得する [0]:offsetX, [1]:offsetY, [2]:offsetZ **/
+	/** Entityの位置にオフセットした座標のBlockが空気ブロックかを取得する
+	 * Block of coordinates that is offset to the position of the Entity to acquire air or block
+	 *  [0]:offsetX, [1]:offsetY, [2]:offsetZ **/
 	public static final int caps_PosBlockPower			= 0x0085;
 	/** playerに乗っているかを判定**/
 	public static final int caps_isRidingPlayer			= 0x0086;
@@ -98,7 +119,9 @@ public interface MMM_IModelCaps {
 	public static final int caps_isBlocking			= 0x0106;
 	public static final int caps_isWait				= 0x0107;
 	public static final int caps_isWaitEX			= 0x0108;
-	/** インベントリを開いているかを返します(boolean) **/
+	/** インベントリを開いているかを返します
+	 * Returns whether open the inventory
+	 * (boolean) **/
 	public static final int caps_isOpenInv			= 0x0109;
 	public static final int caps_isWorking			= 0x010a;
 	public static final int caps_isWorkingDelay		= 0x010b;
@@ -120,17 +143,27 @@ public interface MMM_IModelCaps {
 	public static final int caps_render				= 0x0130;
 	public static final int caps_Arms				= 0x0131;
 	public static final int caps_HeadMount			= 0x0132;
-	/** モデルに設定されているハードポイントを配列で返します **/
+	/** モデルに設定されているハードポイントを配列で返します
+	 * I will return an array of hard points that are set to model 
+	 */
 	public static final int caps_HardPoint			= 0x0133;
-	/** 装備しているスタビライザーを返します **/
+	/** 装備しているスタビライザーを返します
+	 * Returns a stabilizer that is equipped
+	 */
 	public static final int caps_stabiliser			= 0x0134;
-	/** 現在保持しているアイテムの配列を返します **/
+	/** 現在保持しているアイテムの配列を返します
+	 * Returns an array of items that are currently held
+	 */
 	public static final int caps_Items				= 0x0135;
-	/** 現在保持しているアイテムの挙動の配列を返します **/
+	/** 現在保持しているアイテムの挙動の配列を返します
+	 * Returns an array of the behavior of the item you are currently held
+	 */
 	public static final int caps_Actions			= 0x0136;
-	/** 現在保持しているアイテムの振り回し状態を配列で返します **/
+	/** 現在保持しているアイテムの振り回し状態を配列で返します
+	 * Returns an array of swing state of the item you are currently held
+	 */
 	public static final int caps_Grounds			= 0x0137;
-	/** Inventoryを返します **/
+	/** Inventoryを返します, I will return the Inventory **/
 	public static final int caps_Inventory			= 0x0138;
 	public static final int caps_Ground				= 0x0139;
 	public static final int caps_interestedAngle	= 0x0150;
@@ -143,25 +176,33 @@ public interface MMM_IModelCaps {
 	public static final int caps_PartsStrings	= 0x0204;
 
 	// MMM_test
-	/** モデルが変更された時に実行される関数へリンクします **/
+	/** モデルが変更された時に実行される関数へリンクします
+	 * I will link to the function to be executed when the model changes
+	 */
 	public static final int caps_changeModel		= 0x0300;
 	public static final int caps_renderFace			= 0x0310;
 	public static final int caps_renderBody			= 0x0311;
 	public static final int caps_setFaceTexture		= 0x0312;
-	/** MMM_TextureDataのインスタンスを返します。 **/
+	/** MMM_TextureDataのインスタンスを返します。
+	 * I will return an instance of MMM_TextureData.
+	 */
 	public static final int caps_textureData		= 0x0313;
-	/** 発光テクスチャの色補正 */
+	/** 発光テクスチャの色補正
+	 * Color correction of emission texture
+	 */
 	public static final int caps_textureLightColor	= 0x0314;
 
 
 	/**
 	 * モデルが実装している機能をリストに入れて返す。
+	 * This function returns the list into a function of the model is implemented.
 	 * @return
 	 */
 	public Map<String, Integer> getModelCaps();
 
 	/**
 	 * 現在の設定値を読み取る。
+	 * I read the current settings.
 	 * @param pIndex
 	 * @return
 	 */
@@ -169,6 +210,7 @@ public interface MMM_IModelCaps {
 
 	/**
 	 * 機能番号に値を設定する。
+	 * I set a value to the function number.
 	 * @param pIndex
 	 * @param pArg
 	 * @return

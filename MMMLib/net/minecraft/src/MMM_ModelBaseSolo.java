@@ -45,17 +45,17 @@ public class MMM_ModelBaseSolo extends MMM_ModelBaseNihil implements MMM_IModelB
 			}
 		}
 		if (textures.length > 2 && textures[2] != null) {
-			// Actors・ｽp
+			// Actors用, Actors for 
 			model.setRotationAngles(par2, par3, par4, par5, par6, par7, entityCaps);
 			// Face
-			// TODO:・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽﾌ・ｿｽ・ｽ[・ｽh・ｽﾍなんか考・ｽ・ｽ・ｽ・ｽB
+			// TODO: テクスチャのロードはなんか考える。, I think something will load the texture.
 			MMM_Client.setTexture(textures[2]);
 			model.setCapsValue(caps_renderFace, entityCaps, par2, par3, par4, par5, par6, par7, isRendering);
 			// Body
 			MMM_Client.setTexture(textures[0]);
 			model.setCapsValue(caps_renderBody, entityCaps, par2, par3, par4, par5, par6, par7, isRendering);
 		} else {
-			// ・ｽﾊ擾ｿｽ
+			// 通常, Usually
 			if (textures.length > 0 && textures[0] != null) {
 				MMM_Client.setTexture(textures[0]);
 			}
@@ -63,7 +63,7 @@ public class MMM_ModelBaseSolo extends MMM_ModelBaseNihil implements MMM_IModelB
 		}
 		isAlphablend = false;
 		if (textures.length > 1 && textures[1] != null && renderCount == 0) {
-			// ・ｽ・ｽ・ｽ・ｽ・ｽp・ｽ[・ｽc
+			// 発光パーツ, Emission parts
 			MMM_Client.setTexture(textures[1]);
 			float var4 = 1.0F;
 			GL11.glEnable(GL11.GL_BLEND);
@@ -100,7 +100,7 @@ public class MMM_ModelBaseSolo extends MMM_ModelBaseNihil implements MMM_IModelB
 	}
 
 
-	// IModelMMM・ｽﾇ会ｿｽ・ｽ・ｽ
+	// IModelMMM追加分, IModelMMM additions
 
 	@Override
 	public void renderItems(EntityLivingBase pEntity, Render pRender) {
@@ -117,8 +117,10 @@ public class MMM_ModelBaseSolo extends MMM_ModelBaseNihil implements MMM_IModelB
 	}
 
 	/**
-	 * Renderer・ｽﾓでゑｿｽ・ｽﾌ変撰ｿｽ・ｽ・ｽﾝ定す・ｽ・ｽB
-	 * ・ｽﾝ抵ｿｽl・ｽ・ｽMMM_IModelCaps・ｽ・ｽ・ｽp・ｽ・ｽ・ｽ・ｽ・ｽ・ｽEntitiy・ｽﾆゑｿｽ・ｽ・ｽz・ｽ・ｽB
+	 * Renderer辺でこの変数を設定する。
+	 * 設定値はMMM_IModelCapsを継承したEntitiyとかを想定。
+	 * I set this variable in the Renderer side.
+	 * Settings such as assuming a Entitiy that extends MMM_IModelCaps.
 	 */
 	@Override
 	public void setEntityCaps(MMM_IModelCaps pEntityCaps) {
@@ -141,7 +143,7 @@ public class MMM_ModelBaseSolo extends MMM_ModelBaseNihil implements MMM_IModelB
 	}
 
 
-	// IModelCaps・ｽﾇ会ｿｽ・ｽ・ｽ
+	// IModelCaps追加分, IModelCaps additions
 
 	@Override
 	public Map<String, Integer> getModelCaps() {

@@ -15,8 +15,10 @@ public class MMM_ModelBaseNihil extends ModelBase {
 	protected MMM_IModelCaps entityCaps;
 	protected boolean isRendering;
 	/**
-	 * ・ｽ・ｽ・ｽ・ｽ・ｽ_・ｽ・ｽ・ｽ・ｽ・ｽO・ｽ・ｽ・ｽ・ｽ・ｽs・ｽ・ｽ・ｽ黷ｽ・ｽ煤B
-	 * ・ｽ_・ｽ・ｽ・ｽ[・ｽW・ｽ・ｽ・ｽﾈどの対搾ｿｽB
+	 * レンダリングが実行された回数。
+	 * ダメージ時などの対策。
+	 * Number of times the rendering is performed.
+	 * Measures such as damage at the time.
 	 */
 	public int renderCount;
 

@@ -16,7 +16,7 @@ public abstract class MMM_ModelBase {
 
 	public Render render;
 
-	// ModelBase・ｽﾆゑｿｽ・ｽ・ｽ・ｽ・ｽx・ｽﾝ奇ｿｽ
+	// ModelBaseとある程度互換, To some extent compatible with ModelBase
 	public int textureWidth = 64;
 	public int textureHeight = 32;
 	public float onGrounds[] = new float[] {0.0F, 0.0F};
@@ -28,7 +28,7 @@ public abstract class MMM_ModelBase {
 
 
 
-	// ModelBase・ｽﾝ奇ｿｽ・ｽﾖ撰ｿｽ・ｽQ
+	// ModelBase互換関数群, ModelBase compatible set of functions
 
 	public void render(MMM_IModelCaps pEntityCaps, float par2, float par3,
 			float ticksExisted, float pheadYaw, float pheadPitch, float par7, boolean pIsRender) {
@@ -42,14 +42,14 @@ public abstract class MMM_ModelBase {
 	}
 
 	public MMM_ModelRenderer getRandomModelBox(Random par1Random) {
-		// ・ｽG・ｽﾉ厄ｿｽ・ｽ・ｽｯてゑｿｽ・ｽﾜゑｿｽ・ｽﾄな・・ｽE・ｽE
+		// 膝に矢を受けてしまってな・・・, Do not if I received an arrow in the knee ...
 		int li = par1Random.nextInt(this.boxList.size());
 		MMM_ModelRenderer lmr = (MMM_ModelRenderer)this.boxList.get(li);
 		for (int lj = 0; lj < boxList.size(); lj++) {
 			if (!lmr.cubeList.isEmpty()) {
 				break;
 			}
-			// ・ｽ・ｽ・ｽ・ｽ・ｽﾈゑｿｽ
+			// 箱がない, There is no box
 			if (++li >= boxList.size()) {
 				li = 0;
 			}
@@ -63,15 +63,16 @@ public abstract class MMM_ModelBase {
 	}
 
 	/**
-	 * ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽﾜゑｿｽ・ｽ・ｽB
+	 * 推奨されません。
+	 * Not recommended.
 	 */
 	public TextureOffset getTextureOffset(String par1Str) {
-		// ・ｽ・ｽ・ｽﾌままゑｿｽ・ｽﾆ意厄ｿｽ・ｽﾈゑｿｽ・ｽﾈ。
+		// このままだと意味ないな。, Do not without meaning that it remains this.
 		return modelTextureMap.get(par1Str);
 	}
 
 
-	// MathHelper・ｽg・ｽ・ｽ・ｽl・ｽ・ｽ・ｽﾖ撰ｿｽ・ｽQ
+	// MathHelperトンネル関数群, MathHelper tunnel function group
 
 	public static final float mh_sin(float f) {
 		f = f % 6.283185307179586F;

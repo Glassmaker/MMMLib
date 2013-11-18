@@ -52,7 +52,7 @@ public class MMM_GuiVisibleSelect extends GuiScreen {
 	}
 
 	/**
-	 * ・ｽﾆ趣ｿｽ・ｽ{・ｽ^・ｽ・ｽ・ｽ・ｽﾇ会ｿｽ・ｽ・ｽ・ｽ・ｽB
+	 * 独自ボタンを追加する。, I want to add your own buttons.
 	 */
 	public void initAddetionalButton() {
 		buttonList.add(new MMM_GuiToggleButton(100, width - 80 * (1 + 34 / 12), (34 % 12) * 20, 80, 20, "Back"));

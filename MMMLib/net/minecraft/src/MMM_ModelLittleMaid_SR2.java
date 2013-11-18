@@ -4,6 +4,7 @@ import org.lwjgl.opengl.GL11;
 
 /**
  * 瞬き付き基本形
+ * Blink with Basic
  */
 public class MMM_ModelLittleMaid_SR2 extends MMM_ModelLittleMaidBase {
 
@@ -26,7 +27,7 @@ public class MMM_ModelLittleMaid_SR2 extends MMM_ModelLittleMaidBase {
 	public void initModel(float psize, float pyoffset) {
 		super.initModel(psize, pyoffset);
 		
-		// 追加パーツ
+		// 追加パーツ, Additional parts
 		eyeR = new MMM_ModelRenderer(this, 32, 19);
 		eyeR.addPlate(-4.0F, -5.0F, -4.001F, 4, 4, 0, psize);
 		eyeR.setRotationPoint(0.0F, 0.0F, 0.0F);
@@ -42,7 +43,7 @@ public class MMM_ModelLittleMaid_SR2 extends MMM_ModelLittleMaidBase {
 		super.setLivingAnimations(pEntityCaps, par2, par3, pRenderPartialTicks);
 		
 		float f3 = (float)entityTicksExisted + pRenderPartialTicks + entityIdFactor;
-		// 目パチ
+		// 目パチ, Eye Pati
 		if( 0 > mh_sin(f3 * 0.05F) + mh_sin(f3 * 0.13F) + mh_sin(f3 * 0.7F) + 2.55F) { 
 			eyeR.setVisible(true);
 			eyeL.setVisible(true);

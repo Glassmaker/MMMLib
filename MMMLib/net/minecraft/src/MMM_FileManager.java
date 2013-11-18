@@ -16,8 +16,10 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.server.MinecraftServer;
 
 /**
- * mods・ｽf・ｽB・ｽ・ｽ・ｽN・ｽg・ｽ・ｽ・ｽﾌ獲・ｽ・ｽ・ｽ・ｽminecraft・ｽ{・ｽﾌゑｿｽjar・ｽ・ｽ・ｽl・ｽ・ｽ・ｽ・ｽ・ｽA
- * ・ｽ・ｽ・ｽ・ｽ・ｽﾉ含まゑｿｽ・ｽw・ｽ閧ｳ・ｽ黷ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽﾜゑｿｽzip・ｽ・ｽ・ｽ・ｽ・ｽ驍ｩ・ｽﾇゑｿｽ・ｽ・ｽ・ｽｻ定す・ｽ・ｽB
+ * modsディレクトリの獲得とminecraft本体のjarを獲得し、
+ * そこに含まれる指定された文字列を含むzipがあるかどうかを判定する。
+ * won the jar of minecraft acquisition and body mods directory,
+ * I determines whether there is a zip containing the character string specified contained therein.
  *
  */
 public class MMM_FileManager {
@@ -31,15 +33,15 @@ public class MMM_FileManager {
 
 	
 	public static void init() {
-		// ・ｽ・ｽ・ｽ・ｽ
+		// 初期化, Initialization
 		if (MMM_Helper.isClient) {
 			minecraftDir = MMM_Helper.mc.mcDataDir;
 		} else {
 			minecraftDir = MinecraftServer.getServer().getFile("");
 		}
 		
-		// mincraft.jar・ｽ・ｽ・ｽ謫ｾ
-		// ・ｽJ・ｽ・ｽ・ｽ・ｽ・ｽp・ｽ・ｽJar・ｽ・ｽ・ｽﾉ含まゑｿｽﾄゑｿｽ・ｽ驍ｱ・ｽﾆの対搾ｿｽ
+		// mincraft.jar・ｽ・ｽ・ｽ謫ｾ, Get mincraft.jar
+		// 開発中用のJar内に含まれていることの対策, Measures that are included in the Jar developed for
 		try {
 			ProtectionDomain ls1 = BaseMod.class.getProtectionDomain();
 			CodeSource ls2 = ls1.getCodeSource();
@@ -96,19 +98,20 @@ public class MMM_FileManager {
 			}
 			mod_MMM_MMMLib.Debug("getAssets-Directory:%s", assetsDir.getAbsolutePath());
 		} else {
-			// ・ｽT・ｽ[・ｽo・ｽ[・ｽ・ｽ・ｽﾅは使・ｽ・ｽ・ｽﾈゑｿｽ・ｽﾍゑｿｽ・ｽB
+			// サーバー側では使われないはず。, It should not be used on the server side.
 		}
 		
 	}
 
 	/**
-	 * MOD・ｽf・ｽB・ｽ・ｽ・ｽN・ｽg・ｽ・ｽ・ｽﾉ含まゑｿｽ・ｽﾎ象フ・ｽ@・ｽC・ｽ・ｽ・ｽﾌオ・ｽu・ｽW・ｽF・ｽN・ｽg・ｽ・ｽ・ｽ謫ｾ・ｽB
-	 * @param pname ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽX・ｽg・ｽ・ｽ・ｽﾌ、getFileList()・ｽﾅ使・ｽ・ｽ・ｽB
-	 * @param pprefix ・ｽ・ｽ・ｽﾌ包ｿｽ・ｽ・ｽ・ｽ・ｽﾌ含まゑｿｽ・ｽt・ｽ@・ｽC・ｽ・ｽ・ｽ・ｽ唐・ｽ・ｽ・ｽB
-	 * @return ・ｽ唐・ｽ・ｽ黷ｽ・ｽt・ｽ@・ｽC・ｽ・ｽ・ｽﾌ・ｿｽ・ｽX・ｽg・ｽB
+	 * MODディレクトリに含まれる対象ファイルのオブジェクトを取得。
+	 * Get the object of the target file that is included in the MOD directory.
+	 * @param pname 検索リスト名称、getFileList()で使う。, I use the search list name, getFileList in ().
+	 * @param pprefix この文字列の含まれるファイルを列挙する。, I lists the file that contains the this string.
+	 * @return 列挙されたファイルのリスト。, A list of files listed.
 	 */
 	public static List<File> getModFile(String pname, String pprefix) {
-		// ・ｽ・ｽ・ｽ・ｽ・ｽﾏみゑｿｽ・ｽﾇゑｿｽ・ｽ・ｽ・ｽﾌ費ｿｽ・ｽ・ｽ
+		// 検索済みかどうかの判定, Determine whether searched
 		List<File> llist;
 		if (fileList.containsKey(pname)) {
 			llist = fileList.get(pname);
@@ -118,7 +121,7 @@ public class MMM_FileManager {
 		}
 		
 		mod_MMM_MMMLib.Debug("getModFile:[%s]:%s", pname, modDir.getAbsolutePath());
-		// ・ｽt・ｽ@・ｽC・ｽ・ｽ・ｽE・ｽf・ｽB・ｽ・ｽ・ｽN・ｽg・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ
+		// ファイル・ディレクトリを検索, Search the file directory
 		try {
 			if (modDir.isDirectory()) {
 				mod_MMM_MMMLib.Debug("getModFile-get:%d.", modDir.list().length);
@@ -135,7 +138,7 @@ public class MMM_FileManager {
 				}
 				mod_MMM_MMMLib.Debug("getModFile-files:%d", llist.size());
 			} else {
-				// ・ｽﾜゑｿｽ・ｽ・ｽ・ｽ閧ｦ・ｽﾈゑｿｽ
+				// まずありえない, It is not unlikely
 				mod_MMM_MMMLib.Debug("getModFile-fail.");
 			}
 			return llist;
@@ -147,9 +150,10 @@ public class MMM_FileManager {
 	}
 
 	/**
-	 * ・ｽ・ｽ・ｽ・ｽ・ｽﾏみの・ｿｽ・ｽX・ｽg・ｽﾉ含まゑｿｽ・ｽ塔t・ｽ@・ｽC・ｽ・ｽ・ｽ・ｽﾔゑｿｽ・ｽB
-	 * @param pname ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽX・ｽg・ｽ・ｽ・ｽB
-	 * @return ・ｽ唐・ｽ・ｽ黷ｽ・ｽt・ｽ@・ｽC・ｽ・ｽ・ｽﾌ・ｿｽ・ｽX・ｽg・ｽB
+	 * 検索済みのリストに含まれる列挙ファイルを返す。
+	 * I return the enumeration file that is included in the list of search already.
+	 * @param pname 検索リスト名。, Search list name.
+	 * @return 列挙されたファイルのリスト。, A list of files listed.
 	 */
 	public static List<File> getFileList(String pname) {
 		return fileList.get(pname);

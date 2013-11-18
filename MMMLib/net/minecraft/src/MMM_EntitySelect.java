@@ -32,11 +32,11 @@ public class MMM_EntitySelect extends EntityLiving implements MMM_IModelCaps, MM
 
 	@Override
 	protected void entityInit() {
-		// Select・ｽp・ｽ・ｽ・ｽ・ｽ・ｽ・ｽA・ｽ・ｽ・ｽ・ｽﾊにゑｿｽ・ｽ・ｽｯどな。
+		// Select用だから、これ別にいらんけどな。,Because it is for Select, do not but I do not need this separately.
 		super.entityInit();
 		// color
 		dataWatcher.addObject(19, Integer.valueOf(0));
-		// 20:・ｽI・ｽ・ｽ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽC・ｽ・ｽ・ｽf・ｽb・ｽN・ｽX
+		// 20:選択テクスチャインデックス, 20: select texture index
 		dataWatcher.addObject(20, Integer.valueOf(0));
 	}
 
@@ -80,7 +80,7 @@ public class MMM_EntitySelect extends EntityLiving implements MMM_IModelCaps, MM
 		dataWatcher.updateObject(20, (Integer.valueOf(pIndex[0]) & 0xffff) | ((Integer.valueOf(pIndex[1]) & 0xffff) << 16));
 //		textureBox[0] = MMM_TextureManager.instance.getTextureBoxServer(textureIndex[0]);
 //		textureBox[1] = MMM_TextureManager.instance.getTextureBoxServer(textureIndex[1]);
-		// ・ｽT・ｽC・ｽY・ｽﾌ変更
+		// サイズの変更, Changing the size
 //		setSize(textureBox[0].getWidth(entityCaps), textureBox[0].getHeight(entityCaps));
 	}
 
@@ -91,15 +91,15 @@ public class MMM_EntitySelect extends EntityLiving implements MMM_IModelCaps, MM
 //		textureBox[0] = pTextureBox[0];
 //		textureBox[1] = pTextureBox[1];
 //		setTextureNames();
-//		// ・ｽg・ｽ・ｽ・ｽﾏ更・ｽp
+//		// 身長変更用, Height change for
 //		setSize(textureBox[0].getWidth(null), textureBox[0].getHeight(null));
 //		setPosition(posX, posY, posZ);
-		// ・ｽ・ｽ・ｽf・ｽ・ｽ・ｽﾌ擾ｿｽ・ｽ・ｽ
+		// モデルの初期化, Model initialization
 //		((MMM_TextureBox)textureBox[0]).models[0].setCapsValue(MMM_IModelCaps.caps_changeModel, this);
 	}
 
 	/**
-	 * ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽﾌフ・ｽ@・ｽC・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽl・ｽ・ｽ
+	 * テクスチャのファイル名を獲得, I get the file name of the texture
 	 */
 	protected void setTextureNames() {
 		textureData.setTextureNames();
@@ -238,7 +238,7 @@ public class MMM_EntitySelect extends EntityLiving implements MMM_IModelCaps, MM
 
 	@Override
 	public int getBrightnessForRender(float par1) {
-		// ・ｽ・ｽ・ｽﾌ厄ｿｽ・ｽ驍ｳ・ｽ・ｽﾔゑｿｽ
+		// 一定の明るさを返す, I return the constant brightness
 		return 0x00f000f0;
 	}
 

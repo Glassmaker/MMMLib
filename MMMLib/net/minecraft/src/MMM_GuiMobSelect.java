@@ -40,7 +40,7 @@ public abstract class MMM_GuiMobSelect extends GuiScreen {
 
 
 	public void initEntitys(World world, boolean pForce) {
-		// ・ｽ\・ｽ・ｽ・ｽpEntityList・ｽﾌ擾ｿｽ・ｽ・ｽ
+		// 表示用EntityListの初期化, Initialize the display for EntityList
 		if (entityMapClass.isEmpty()) {
 			try {
 				Map lmap = (Map)ModLoader.getPrivateValue(EntityList.class, null, 1);
@@ -59,7 +59,7 @@ public abstract class MMM_GuiMobSelect extends GuiScreen {
 			int li = 0;
 			Entity lentity = null;
 			try {
-				// ・ｽ\・ｽ・ｽ・ｽp・ｽ・ｽEntity・ｽ・ｽ・ｽ・ｽ・ｽ
+				// 表示用のEntityを作る, I make the Entity for display
 				do {
 					lentity = (EntityLivingBase)le.getKey().getConstructor(World.class).newInstance(world);
 //					lentity = (EntityLivingBase)EntityList.createEntityByName(le.getValue(), world);
@@ -71,8 +71,10 @@ public abstract class MMM_GuiMobSelect extends GuiScreen {
 	}
 
 	/**
-	 * ・ｽn・ｽ・ｽ・ｽ黷ｽEntity・ｽﾌチ・ｽF・ｽb・ｽN・ｽy・ｽﾑ会ｿｽ・ｽH・ｽB
-	 * true・ｽ・ｽﾔゑｿｽ・ｽﾆ難ｿｽ・ｽ・ｽ・ｽN・ｽ・ｽ・ｽX・ｽﾌエ・ｽ・ｽ・ｽe・ｽB・ｽe・ｽB・ｽ・ｽ・ｽﾄ度・ｽn・ｽ・ｽ・ｽﾄゑｿｽ・ｽ・ｽA・ｽ・ｽ・ｽﾌとゑｿｽpIndex・ｽﾍカ・ｽE・ｽ・ｽ・ｽg・ｽA・ｽb・ｽv・ｽ・ｽ・ｽ・ｽ・ｽ
+	 * 渡されたEntityのチェック及び加工。
+	 * trueを返すと同じクラスのエンティティを再度渡してくる、そのときpIndexはカウントアップされる
+	 * Processing and check the Entity passed.
+	 * come to pass again the entity of the same class and return true, pIndex is counted up at that time.
 	 */
 	protected boolean checkEntity(String pName, Entity pEntity, int pIndex) {
 		entityMap.put(pName, pEntity);
@@ -97,7 +99,7 @@ public abstract class MMM_GuiMobSelect extends GuiScreen {
 		drawCenteredString(fontRenderer, StatCollector.translateToLocal(screenTitle), width / 2, 20, 0xffffff);
 		super.drawScreen(px, py, pf);
 		
-		// GUI・ｽﾅ表・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽﾌボ・ｽX・ｽﾌス・ｽe・ｽ[・ｽ^・ｽX・ｽ・ｽ\・ｽ・ｽ・ｽ・ｽ・ｽﾈゑｿｽ
+		// GUIで表示した分のボスのステータスを表示しない, Do not display the status of the boss of minutes viewed in the GUI
 		BossStatus.healthScale = lhealthScale;
 		BossStatus.statusBarLength = lstatusBarLength;
 		BossStatus.bossName = lbossName;
@@ -105,12 +107,12 @@ public abstract class MMM_GuiMobSelect extends GuiScreen {
 	}
 
 	/**
-	 *  ・ｽX・ｽ・ｽ・ｽb・ｽg・ｽ・ｽ・ｽN・ｽ・ｽ・ｽb・ｽN・ｽ・ｽ・ｽ黷ｽ
+	 *  スロットがクリックされた, Slot is clicked
 	 */
 	public abstract void clickSlot(int pIndex, boolean pDoubleClick, String pName, EntityLivingBase pEntity);
 
 	/**
-	 *  ・ｽX・ｽ・ｽ・ｽb・ｽg・ｽﾌ描・ｽ・ｽ
+	 *  スロットの描画, Drawing of slot
 	 */
 	public abstract void drawSlot(int pSlotindex, int pX, int pY, int pDrawheight, Tessellator pTessellator, String pName, Entity pEntity);
 	

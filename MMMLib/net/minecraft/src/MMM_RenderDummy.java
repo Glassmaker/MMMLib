@@ -71,7 +71,7 @@ public class MMM_RenderDummy extends Render {
 
 	@Override
 	protected ResourceLocation getEntityTexture(Entity var1) {
-		// TODO ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽv・ｽﾈのゑｿｽ・ｽ・ｽ・ｽ・ｽH
+		// TODO これ大丈夫なのかしら？, I wonder if this a right?
 		return null;
 	}
 

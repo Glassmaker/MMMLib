@@ -11,23 +11,28 @@ import net.minecraft.util.ResourceLocation;
 public class MMM_TextureBox extends MMM_TextureBoxBase {
 
 	/**
-	 * ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽN・ｽﾌ厄ｿｽ・ｽﾌ、・ｽ・ｽ・ｽf・ｽ・ｽ・ｽw・ｽ闔鯉ｿｽﾌ前・ｽﾜでの包ｿｽ・ｽ・ｽ・ｽ・ｽB
+	 * テクスチャパックの名称、モデル指定詞の前までの文字列。
+	 * The name of the texture pack, string before the model specifies that.
 	 */
 	public String packegeName;
 	/**
-	 * ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽt・ｽ@・ｽC・ｽ・ｽ・ｽﾌフ・ｽ@・ｽC・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽX・ｽg・ｽB
+	 * テクスチャファイルのファイル名リスト。
+	 * File name list of texture files.
 	 */
 	public Map<Integer, ResourceLocation> textures;
 	/**
-	 * ・ｽA・ｽ[・ｽ}・ｽ[・ｽt・ｽ@・ｽC・ｽ・ｽ・ｽﾌフ・ｽ@・ｽC・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽX・ｽg・ｽB
+	 * アーマーファイルのファイル名リスト。
+	 * File name list of armor file.
 	 */
 	public Map<String, Map<Integer, ResourceLocation>> armors;
 	/**
-	 * ・ｽ・ｽ・ｽf・ｽ・ｽ・ｽw・ｽ闔・
+	 * モデル指定詞
+	 * Model specifies that
 	 */
 	public String modelName;
 	/**
-	 * ・ｽ}・ｽ・ｽ・ｽ`・ｽ・ｽ・ｽf・ｽ・ｽ・ｽN・ｽ・ｽ・ｽX
+	 * マルチモデルクラス
+	 * Multi-model class
 	 */
 	public MMM_ModelMultiBase[] models;
 	/**
@@ -35,7 +40,8 @@ public class MMM_TextureBox extends MMM_TextureBoxBase {
 	 */
 	public String[] textureDir;
 	/**
-	 * ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽﾌ格・ｽ[・ｽ・ｽ・ｽ・ｽﾄゑｿｽ・ｽ・ｽp・ｽb・ｽN・ｽﾌ厄ｿｽ・ｽO・ｽi・ｽ・ｽ・ｽf・ｽ・ｽ・ｽﾉ関係・ｽﾈゑｿｽ・ｽj
+	 * テクスチャの格納されているパックの名前（モデルに関係なし）
+	 * (No relation to the model) the name of the pack that is stored in texture
 	 */
 	public String fileName;
 
@@ -72,8 +78,10 @@ public class MMM_TextureBox extends MMM_TextureBoxBase {
 	}
 
 	/**
-	 * ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽﾌフ・ｽ・ｽ・ｽp・ｽX・ｽ・ｽﾔゑｿｽ・ｽB
-	 * ・ｽo・ｽ^・ｽC・ｽ・ｽ・ｽf・ｽb・ｽN・ｽX・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ鼾・ｿｽ・ｽNULL・ｽ・ｽﾔゑｿｽ・ｽB
+	 * テクスチャのフルパスを返す。
+	 * 登録インデックスが無い場合はNULLを返す。
+	 * I return the full path to the texture.
+	 * I return NULL if there is no registration index.
 	 */
 	public ResourceLocation getTextureName(int pIndex) {
 		if (textures.containsKey(pIndex)) {
@@ -87,8 +95,8 @@ public class MMM_TextureBox extends MMM_TextureBoxBase {
 	}
 
 	public ResourceLocation getArmorTextureName(int pIndex, ItemStack itemstack) {
-		// index・ｽ・ｽ0x40,0x50・ｽﾔ托ｿｽ
-		// light・ｽ・ｽ・ｽﾇ会ｿｽ
+		// indexは0x40,0x50番台, The index 0x40, 0x50 series
+		// lightも追加, light additional
 		if (armors.isEmpty() || itemstack == null) return null;
 		if (!(itemstack.getItem() instanceof ItemArmor)) return null;
 		
@@ -99,7 +107,7 @@ public class MMM_TextureBox extends MMM_TextureBoxBase {
 		return getArmorTextureName(pIndex, MMM_TextureManager.armorFilenamePrefix[((ItemArmor)itemstack.getItem()).renderIndex], l);
 	}
 	public ResourceLocation getArmorTextureName(int pIndex, String pArmorPrefix, int pDamage) {
-		// index・ｽ・ｽ0x40,0x50・ｽﾔ托ｿｽ
+		// indexは0x40,0x50番台, The index 0x40, 0x50 series
 		if (armors.isEmpty() || pArmorPrefix == null) return null;
 		
 		Map<Integer, ResourceLocation> m = armors.get(pArmorPrefix);
@@ -120,7 +128,8 @@ public class MMM_TextureBox extends MMM_TextureBoxBase {
 	}
 
 	/**
-	 * ・ｽ_・ｽ・ｽF・ｽﾌ有・ｽ・ｽ・ｽ・ｽ・ｽr・ｽb・ｽg・ｽz・ｽ・ｽﾉゑｿｽ・ｽﾄ返ゑｿｽ
+	 * 契約色の有無をビット配列にして返す
+	 * This returns a bit array for the presence of more colors
 	 */
 	@Override
 	public int getContractColorBits() {
@@ -136,7 +145,8 @@ public class MMM_TextureBox extends MMM_TextureBoxBase {
 		return contractColor;
 	}
 	/**
-	 * ・ｽ・ｶ・ｽF・ｽﾌ有・ｽ・ｽ・ｽ・ｽ・ｽr・ｽb・ｽg・ｽz・ｽ・ｽﾉゑｿｽ・ｽﾄ返ゑｿｽ
+	 * 野生色の有無をビット配列にして返す
+	 * This returns a bit array for the presence of wild color
 	 */
 	@Override
 	public int getWildColorBits() {

@@ -11,7 +11,7 @@ import org.lwjgl.opengl.GL11;
 
 public class MMM_ItemRenderer extends ItemRenderer {
 
-	// ・ｽv・ｽ・ｽ・ｽC・ｽx・ｽ[・ｽg・ｽﾏ撰ｿｽ・ｽ・ｽ・ｽg・ｽ・ｽ・ｽ・ｽ謔､・ｽ・ｽ
+	// プライベート変数を使えるように, To be able to use the private variable
 	public Minecraft mc;
 	public ItemStack itemToRender;
 	public float equippedProgress;
@@ -24,7 +24,7 @@ public class MMM_ItemRenderer extends ItemRenderer {
 		
 		mc = minecraft;
 		try {
-			// ・ｽ・ｽ・ｽ・ｽﾟゑｿｽ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽﾌ確・ｽ・ｽ
+			// きらめきテクスチャの確保, Ensure the texture glitter
 			texGlint = (ResourceLocation)ModLoader.getPrivateValue(ItemRenderer.class, null, 0);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -51,7 +51,7 @@ public class MMM_ItemRenderer extends ItemRenderer {
 	public void renderItem(EntityLivingBase entityliving, ItemStack itemstack, int i) {
 		Item litem = itemstack.getItem();
 		if (MMM_ItemRenderManager.isEXRender(litem)) {
-			// ・ｽ・ｽ・ｽ黹鯉ｿｽ・ｽ・ｽ_・ｽ・ｽ
+			// 特殊レンダラ, Special renderer
 			MMM_ItemRenderManager lii = MMM_ItemRenderManager.getEXRender(litem);
 			MMM_Client.setTexture(lii.getRenderTexture(itemstack));
 			GL11.glPushMatrix();
@@ -112,7 +112,7 @@ public class MMM_ItemRenderer extends ItemRenderer {
 		prevEquippedProgress = 0.0F;
 		
 		try {
-			// ・ｽ・ｽ・ｽ[・ｽJ・ｽ・ｽ・ｽﾏ撰ｿｽ・ｽ・ｽ・ｽm・ｽ・ｽ
+			// ローカル変数を確保, To ensure the local variable
 			itemToRender = (ItemStack)ModLoader.getPrivateValue(ItemRenderer.class, this, 4);
 			equippedProgress = (Float)ModLoader.getPrivateValue(ItemRenderer.class, this, 5);
 			prevEquippedProgress = (Float)ModLoader.getPrivateValue(ItemRenderer.class, this, 6);

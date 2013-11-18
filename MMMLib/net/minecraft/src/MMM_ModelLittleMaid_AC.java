@@ -2,6 +2,7 @@ package net.minecraft.src;
 
 /**
  * スタビライザー搭載機
+ * Stabilizer with machine
  */
 public class MMM_ModelLittleMaid_AC extends MMM_ModelMultiMMMBase {
 
@@ -37,7 +38,7 @@ public class MMM_ModelLittleMaid_AC extends MMM_ModelMultiMMMBase {
 		// TODO Auto-generated method stub
 		/*
 		Arms = new MMM_ModelRenderer[18];
-		// バイプロダクトエフェクター
+		// バイプロダクトエフェクター, By product effector
 		Arms[2] = new MMM_ModelRenderer(this, 0, 0);
 		Arms[2].setRotationPoint(-3F, 9F, 6F);
 		Arms[2].setRotateAngleDeg(45F, 0F, 0F);
@@ -45,7 +46,7 @@ public class MMM_ModelLittleMaid_AC extends MMM_ModelMultiMMMBase {
 		Arms[3].setRotationPoint(3F, 9F, 6F);
 		Arms[3].setRotateAngleDeg(45F, 0F, 0F);
 		Arms[3].isInvertX = true;
-		// テールソード
+		// テールソード, Tail Sword
 		Arms[4] = new MMM_ModelRenderer(this, 0, 0);
 		Arms[4].setRotationPoint(-2F, 0F, 0F);
 		Arms[4].setRotateAngleDeg(180F, 0F, 0F);

@@ -16,8 +16,10 @@ import net.minecraft.util.ResourceLocation;
 import com.google.gson.JsonObject;
 
 /**
- * ・ｽﾃゑｿｽ・ｽ・ｽ・ｽ\・ｽ[・ｽX・ｽ・ｽﾇみゑｿｽ・ｽﾜゑｿｽ・ｽ驍ｽ・ｽﾟのパ・ｽb・ｽP・ｽ[・ｽW・ｽw・ｽ・ｽ
- * ・ｽR・ｽ[・ｽh・ｽ・ｽModloader・ｽﾌ丸パ・ｽN・ｽ・ｽ
+ * 古いリソースを読みこませるためのパッケージ指定
+ * コードはModloaderの丸パクリ
+ * Package specification for allowing loaded the old resource
+ * Code rip-off round of Modloader
  */
 public class MMM_ModOldResourcePack implements ResourcePack {
 

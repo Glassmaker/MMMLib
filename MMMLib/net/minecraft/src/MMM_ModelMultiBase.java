@@ -13,6 +13,9 @@ import org.lwjgl.opengl.GL11;
  * マルチモデル用の基本クラス、これを継承していればマルチモデルとして使用できる。
  * Mincraftネイティブなクラスや継承関数などを排除して、難読化対策を行う。
  * 継承クラスではなくなったため、直接的な互換性はない。
+ * Can be used as a multi-model base class of multi-models, if you have inherited this.
+ * By eliminating the inheritance and function classes and Mincraft native, to perform the obfuscation measures.
+ * Since it is no longer the inheriting class, there is no direct compatibility.
  */
 public abstract class MMM_ModelMultiBase extends MMM_ModelBase implements MMM_IModelCaps {
 
@@ -29,10 +32,10 @@ public abstract class MMM_ModelMultiBase extends MMM_ModelBase implements MMM_IM
 	
 	public float entityIdFactor;
 	public int entityTicksExisted;
-	// 変数である意味ない？
+	// 変数である意味ない？, No meaning is a variable?
 	public float scaleFactor = 0.9375F;
 	/**
-	 * モデルが持っている機能群
+	 * モデルが持っている機能群, Function group model has
 	 */
 	private final Map<String, Integer> fcapsmap = new HashMap<String, Integer>() {{
 		put("onGround",			caps_onGround);
@@ -65,7 +68,7 @@ public abstract class MMM_ModelMultiBase extends MMM_ModelBase implements MMM_IM
 		textureHeight = pTextureHeight;
 		
 		if (MMM_Helper.isClient) {
-			// ハードポイント
+			// ハードポイント, Hardpoint
 			Arms = new MMM_ModelRenderer[2];
 			HeadMount = new MMM_ModelRenderer(this, "HeadMount");
 			HeadTop = new MMM_ModelRenderer(this, "HeadTop");
@@ -74,22 +77,27 @@ public abstract class MMM_ModelMultiBase extends MMM_ModelBase implements MMM_IM
 		}
 	}
 
-	// 独自定義関数群
+	// 独自定義関数群, Own defined function group
 
 	/**
 	 * モデルの初期化コード
+	 * Initialization code of the model
 	 */
 	public abstract void initModel(float psize, float pyoffset);
 
 	/**
 	 * アーマーモデルのサイズを返す。
 	 * サイズは内側のものから。
+	 * I return the size of the armor model.
+	 * Size from the inner one.
 	 */
 	public abstract float[] getArmorModelsSize();
 
 	/**
 	 * モデル指定詞に依らずに使用するテクスチャパック名。
 	 * 一つのテクスチャに複数のモデルを割り当てる時に使う。
+	 * Texture pack name to be used regardless of the model specify that.
+	 * Used when assigning multiple models in one texture.
 	 * @return
 	 */
 	public String getUsingTexture() {
@@ -98,44 +106,52 @@ public abstract class MMM_ModelMultiBase extends MMM_ModelBase implements MMM_IM
 
 	/**
 	 *  身長
+	 *  Height
 	 */
 	@Deprecated
 	public abstract float getHeight();
 	/**
 	 *  身長
+	 *  Height
 	 */
 	public float getHeight(MMM_IModelCaps pEntityCaps) {
 		return getHeight();
 	}
 	/**
 	 * 横幅
+	 * Width
 	 */
 	@Deprecated
 	public abstract float getWidth();
 	/**
 	 * 横幅
+	 * Width
 	 */
 	public float getWidth(MMM_IModelCaps pEntityCaps) {
 		return getWidth();
 	}
 	/**
 	 * モデルのYオフセット
+	 * Y offset of the model
 	 */
 	@Deprecated
 	public abstract float getyOffset();
 	/**
 	 * モデルのYオフセット
+	 * Y offset of the model
 	 */
 	public float getyOffset(MMM_IModelCaps pEntityCaps) {
 		return getyOffset();
 	}
 	/**
 	 * 上に乗せる時のオフセット高
+	 * Offset high time to put on
 	 */
 	@Deprecated
 	public abstract float getMountedYOffset();
 	/**
 	 * 上に乗せる時のオフセット高
+	 * Offset high time to put on
 	 */
 	public float getMountedYOffset(MMM_IModelCaps pEntityCaps) {
 		return getMountedYOffset();
@@ -143,6 +159,7 @@ public abstract class MMM_ModelMultiBase extends MMM_ModelBase implements MMM_IM
 
 	/**
 	 * ロープの取り付け位置調整用
+	 * Mounting position adjustment of the rope
 	 * @return
 	 */
 	public float getLeashOffset(MMM_IModelCaps pEntityCaps) {
@@ -151,6 +168,7 @@ public abstract class MMM_ModelMultiBase extends MMM_ModelBase implements MMM_IM
 
 	/**
 	 * アイテムを持っているときに手を前に出すかどうか。
+	 * Whether out before hand when you have the item.
 	 */
 	@Deprecated
 	public boolean isItemHolder() {
@@ -158,6 +176,7 @@ public abstract class MMM_ModelMultiBase extends MMM_ModelBase implements MMM_IM
 	}
 	/**
 	 * アイテムを持っているときに手を前に出すかどうか。
+	 * Whether out before hand when you have the item.
 	 */
 	public boolean isItemHolder(MMM_IModelCaps pEntityCaps) {
 		return isItemHolder();
@@ -165,12 +184,14 @@ public abstract class MMM_ModelMultiBase extends MMM_ModelBase implements MMM_IM
 
 	/**
 	 * 表示すべきすべての部品
+	 * All the parts to be displayed
 	 */
 	@Deprecated
 	public void showAllParts() {
 	}
 	/**
 	 * 表示すべきすべての部品
+	 * All the parts to be displayed
 	 */
 	public void showAllParts(MMM_IModelCaps pEntityCaps) {
 		showAllParts();
@@ -178,16 +199,22 @@ public abstract class MMM_ModelMultiBase extends MMM_ModelBase implements MMM_IM
 
 	/**
 	 * 部位ごとの装甲表示。
+	 * Armor display of each part.
 	 * @param parts
 	 * 3:頭部。
 	 * 2:胴部。
 	 * 1:脚部
 	 * 0:足部
+	 * 3: head.
+	 * 2: the body portion.
+	 * 1: leg
+	 * 0: foot
 	 * @param index
 	 * 0:inner
 	 * 1:outer
 	 * @return
 	 * 戻り値は基本 -1
+	 * The return value is -1 basic
 	 */
 	public int showArmorParts(int parts, int index) {
 		return -1;
@@ -195,6 +222,7 @@ public abstract class MMM_ModelMultiBase extends MMM_ModelBase implements MMM_IM
 
 	/**
 	 * ハードポイントに接続されたアイテムを表示する
+	 * I want to display the items that have been connected to the hard point
 	 */
 	public abstract void renderItems(MMM_IModelCaps pEntityCaps);
 

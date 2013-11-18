@@ -152,7 +152,7 @@ public class MMM_GuiTextureSlot extends GuiSlot {
 		entity.rotationYawHead = 15F;
 		OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, 240.0F, 240.0F);
 		if (mode) {
-			// ・ｽA・ｽ[・ｽ}・ｽ[
+			// アーマー, Armour
 			ResourceLocation ltxname[];
 			GL11.glTranslatef(1F, 0, 0);
 			Map<Integer, ResourceLocation> lmap = lbox.armors.get("default");
@@ -181,7 +181,7 @@ public class MMM_GuiTextureSlot extends GuiSlot {
 				}
 			}
 		} else {
-			// ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽ\・ｽ・ｽ
+			// テクスチャ表示, Texture display
 			for (int li = 0; li < 16; li++) {
 				GL11.glTranslatef(1F, 0, 0);
 				if (lbox.hasColor(li, isContract)) {

@@ -8,7 +8,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
 /**
- * ・ｽ}・ｽ[・ｽJ・ｽ[・ｽ・ｽ\・ｽ・ｽ・ｽ・ｽ・ｽﾜゑｿｽ・ｽB
+ * マーカーを表示します。
+ * Show me the marker.
  */
 public class MMM_EntityDummy extends Entity {
 	
@@ -17,7 +18,8 @@ public class MMM_EntityDummy extends Entity {
 	private int entityColor;
 	public Entity entityOwner;
 	/**
-	 * ・ｽL・ｽ・ｽ・ｽ
+	 * 有効判定
+	 * Judge the validity
 	 */
 	public static boolean isEnable = false;
 	
@@ -74,7 +76,8 @@ public class MMM_EntityDummy extends Entity {
 	}
 
 	/**
-	 * ・ｽw・ｽ閧ｳ・ｽ黷ｽ・ｽI・ｽ[・ｽi・ｽ[・ｽﾉ対会ｿｽ・ｽ・ｽ・ｽ・ｽ}・ｽ[・ｽJ・ｽ[・ｽ・ｽ・ｽ尞懶ｿｽ・ｽ・ｽﾜゑｿｽ・ｽB
+	 * 指定されたオーナーに対応するマーカーを削除します。
+	 * I will remove the marker corresponding to the owner that you specify.
 	 */
 	public static void clearDummyEntity(Entity entity) {
 		if (!isEnable) return;
@@ -89,13 +92,14 @@ public class MMM_EntityDummy extends Entity {
 	}
 
 	/**
-	 * ・ｽ}・ｽ[・ｽJ・ｽ[・ｽ・ｽ\・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ
+	 * マーカーを表示する
+	 * I want to display the marker
 	 */
 	public static void setDummyEntity(Entity owner, int color, double posx, double posy, double posz) {
 		if (!isEnable) return;
 		if (!MMM_Helper.isClient) return;
 		
-		// ・ｽT・ｽ[・ｽo・ｽ[・ｽ・ｽ・ｽﾅゑｿｽ・ｽ・ｽ・ｽﾄばゑｿｽﾈゑｿｽ・ｽ・ｽ・ｽﾛゑｿｽ
+		// サーバー側でしか呼ばれないっぽい, -Ish not only called on the server side
 		if (owner.worldObj.isRemote) {
 			mod_MMM_MMMLib.Debug("L");
 		}

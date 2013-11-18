@@ -2,6 +2,7 @@ package net.minecraft.src;
 
 /**
  * ModelCapsの補助関数群
+ * Auxiliary function group of ModelCaps
  */
 public class MMM_ModelCapsHelper {
 

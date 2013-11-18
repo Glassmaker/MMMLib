@@ -5,8 +5,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 
 /**
- * ・ｽA・ｽC・ｽe・ｽ・ｽ・ｽp・ｽﾌ難ｿｽ・ｽ黹鯉ｿｽ・ｽ・ｽ_・ｽ[・ｽﾉ継・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽC・ｽ・ｽ・ｽ^・ｽ[・ｽt・ｽF・ｽ[・ｽX・ｽB
- * ・ｽ・ｽ・ｽ・ｽA・ｽp・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽﾄゑｿｽ・ｽﾈゑｿｽ・ｽﾄゑｿｽ・ｽ・ｽ・ｽ\・ｽb・ｽh・ｽ・ｽItem・ｽﾉ記・ｽq・ｽ・ｽ・ｽ・ｽﾄゑｿｽ・ｽ・ｽﾎ難ｿｽ・ｽ・ｷ・ｽ・ｽB
+ * アイテム用の特殊レンダーに継承させるインターフェース。
+ * 現状、継承させていなくてもメソッドがItemに記述されていれば動作する。
+ * Interface to be inherited by special render for the item.
+ * Operating method, if it is described in Item currently even if not to inherit.
  */
 public interface MMM_IItemRenderManager {
 
@@ -16,7 +18,8 @@ public interface MMM_IItemRenderManager {
 
 
 	/**
-	 * ・ｽA・ｽC・ｽe・ｽ・ｽ・ｽﾌ描・ｽ・ｽﾌみ、・ｽﾊ置・ｽ竦ｳ・ｽﾍゑｿｽ・ｽﾈゑｿｽ・ｽB
+	 * アイテムの描画のみ、位置補正はしない。
+	 * Only drawing of the item, the position correction is not.
 	 * @param pEntity
 	 * @param pItemStack
 	 * @param pIndex

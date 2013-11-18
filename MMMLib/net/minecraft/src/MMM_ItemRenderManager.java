@@ -76,7 +76,7 @@ public class MMM_ItemRenderManager {
 	}
 
 	public static boolean setEXRender(Item pItem, MMM_IItemRenderManager pEXRender) {
-		// ・ｽA・ｽC・ｽe・ｽ・ｽ・ｽﾌ難ｿｽ・ｽ・ｽ`・ｽ・ｽ@・ｽ\・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽI・ｽﾉ追会ｿｽ・ｽ・ｽ・ｽ・ｽ
+		// アイテムの特殊描画機能を強制的に追加する, I want to add to force the special drawing function of the item
 		if (pItem == null || pEXRender == null) return false;
 		
 		checkList.add(pItem);
@@ -128,7 +128,7 @@ public class MMM_ItemRenderManager {
 
 	public void renderItemLocal(EntityLivingBase entityliving, ItemStack itemstack, int i) {
 		Item litem = itemstack.getItem();
-		// ・ｽ・ｽ・ｽ黹鯉ｿｽ・ｽ・ｽ_・ｽ・ｽ
+		// 特殊レンダラ, Special renderer
 		MMM_Client.setTexture(getRenderTexture(itemstack));
 		GL11.glPushMatrix();
 		boolean lflag = renderItem(entityliving, itemstack, i);
@@ -210,9 +210,9 @@ public class MMM_ItemRenderManager {
 		MMM_ItemRenderManager lirm = MMM_ItemRenderManager.getEXRender(lis.getItem());
 		if (!lirm.isRenderItemWorld(lis)) return false;
 		
-		// ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ
+		// テクスチャ, Texture
 		MMM_Client.setTexture(lirm.getRenderTexture(lis));
-		// ・ｽ`・ｽ・ｽ
+		// 描画, Drawing
 		random.setSeed(187L);
 		GL11.glPushMatrix();
 		float f2 = MathHelper.sin(((float)entityitem.age + f1) / 10F + entityitem.hoverStart) * 0.1F + 0.1F;

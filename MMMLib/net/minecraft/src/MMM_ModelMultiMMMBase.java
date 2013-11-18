@@ -9,6 +9,9 @@ import org.lwjgl.opengl.GL11;
  * MMMの実験コードを含む部分。
  * ModelMultiBaseに追加するに足りるかをここで実験。
  * このクラスにある機能は予告なく削除される恐れが有るためご留意下さい。
+ * Part including the experimental code of MMM.
+ * The experiment here or sufficient to add to ModelMultiBase.
+ * Please note that because there is a possibility that the function in this class will be removed without notice.
  */
 public abstract class MMM_ModelMultiMMMBase extends MMM_ModelMultiBase {
 
@@ -16,16 +19,19 @@ public abstract class MMM_ModelMultiMMMBase extends MMM_ModelMultiBase {
 
 	/**
 	 * 削除予定変数使わないで下さい。
+	 * Please do not use variable deletion.
 	 */
 	@Deprecated
 	public float onGround;
 	/**
 	 * 削除予定変数使わないで下さい。
+	 * Please do not use variable deletion.
 	 */
 	@Deprecated
 	public float heldItemLeft;
 	/**
 	 * 削除予定変数使わないで下さい。
+	 * Please do not use variable deletion.
 	 */
 	@Deprecated
 	public float heldItemRight;
@@ -43,6 +49,7 @@ public abstract class MMM_ModelMultiMMMBase extends MMM_ModelMultiBase {
 
 	/**
 	 * mainFrameに全てぶら下がっているならば標準で描画する。
+	 * to be rendered in standard if you are hanging all mainFrame.
 	 */
 	@Override
 	public void render(MMM_IModelCaps pEntityCaps, float par2, float par3, float ticksExisted,
@@ -54,7 +61,9 @@ public abstract class MMM_ModelMultiMMMBase extends MMM_ModelMultiBase {
 
 	/**
 	 * 通常のレンダリング前に呼ばれる。
+	 * It is called before rendering normal.
 	 * @return falseを返すと通常のレンダリングをスキップする。
+	 * Skip the normal rendering If you return false.
 	 */
 	public boolean preRender(float par2, float par3,
 			float par4, float par5, float par6, float par7) {
@@ -63,6 +72,8 @@ public abstract class MMM_ModelMultiMMMBase extends MMM_ModelMultiBase {
 
 	/**
 	 * 通常のレンダリング後に呼ぶ。 基本的に装飾品などの自律運動しないパーツの描画用。
+	 * I call after rendering normal. 
+	 * Drawing of parts that do not autonomous movement, such as ornaments basically.
 	 */
 	public void renderExtention(float par2, float par3,
 			float par4, float par5, float par6, float par7) {
@@ -70,10 +81,11 @@ public abstract class MMM_ModelMultiMMMBase extends MMM_ModelMultiBase {
 
 	/**
 	 * スタビライザーの描画。 自動では呼ばれないのでrender内で呼ぶ必要があります。
+	 * Drawing of the stabilizer. There is a need to call in the render inside is not called automatically.
 	 */
 	protected void renderStabilizer(MMM_IModelCaps pEntityCaps, float par2, float par3,
 			float ticksExisted, float pheadYaw, float pheadPitch, float par7) {
-		// スタビライザーの描画、doRenderの方がいいか？
+		// スタビライザーの描画、doRenderの方がいいか？, Drawing of the stabilizer, who doRender or good?
 		if (stabiliser == null || stabiliser.isEmpty() || render == null)
 			return;
 
@@ -94,15 +106,19 @@ public abstract class MMM_ModelMultiMMMBase extends MMM_ModelMultiBase {
 
 	/**
 	 * モデル切替時に実行されるコード
+	 * ode to be executed when switching model
 	 * @param pEntityCaps
 	 * Entityの値を操作するためのModelCaps。
+	 * ModelCaps to manipulate the value of the Entity.
 	 */
 	public void changeModel(MMM_IModelCaps pEntityCaps) {
 		// カウンタ系の加算値、リミット値の設定など行う予定。
+		// Plans to add the value of the counter system, such as setting limits.
 	}
 
 	/**
 	 * 初期ロード時に実行
+	 * Run the initial load time
 	 */
 	public void buildTexture() {
 		
@@ -145,8 +161,8 @@ public abstract class MMM_ModelMultiMMMBase extends MMM_ModelMultiBase {
 		return super.getCapsValue(pIndex, pArg);
 	}
 
-	// Actors実験区画
-	// このへん未だ未整理
+	// Actors実験区画, Actors experiment compartment
+	// このへん未だ未整理, Unorganized still around here
 	public void renderFace(MMM_IModelCaps pEntityCaps, float par2, float par3, float ticksExisted,
 			float pheadYaw, float pheadPitch, float par7, boolean pIsRender) {
 	}
@@ -155,6 +171,7 @@ public abstract class MMM_ModelMultiMMMBase extends MMM_ModelMultiBase {
 	}
 	/**
 	 * 表情をテクスチャのUVマップを変えることで表現
+	 * Expression by changing the UV map the texture look
 	 * @param pIndex
 	 */
 	public int setFaceTexture(int pIndex) {

@@ -3,34 +3,43 @@ package net.minecraft.src;
 import net.minecraft.util.ResourceLocation;
 
 /**
- * MMM_Texture・ｽd・ｽl・ｽﾌテ・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽN・ｽﾝ抵ｿｽﾉ対会ｿｽ・ｽ・ｽ・ｽﾄゑｿｽ・ｽ・ｽEntity・ｽﾖ継・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽB
+ * MMM_Texture仕様のテクスチャパック設定に対応しているEntityへ継承させる。
+ * I to inherit to the Entity that corresponds to the texture pack set of MMM_Texture specification.
  */
 public interface MMM_ITextureEntity {
 
 	/**
-	 * Server・ｽp・ｽB
-	 * TextureManager・ｽ・ｽ・ｽT・ｽ[・ｽo・ｽ[・ｽ・ｽ・ｽ・ｽEntity・ｽﾖテ・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽﾏ更・ｽﾌ通知・ｽ・ｽ・ｽs・ｽ・ｽ・ｽB
+	 * Server用。
+	 * TextureManagerがサーバー側のEntityへテクスチャ変更の通知を行う。
+	 * Server.
+	 * TextureManager makes a notification of the texture changes to Entity on the server side.
 	 * @param pIndex
-	 * ・ｽﾝ定さ・ｽ・ｽ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽN・ｽﾌイ・ｽ・ｽ・ｽf・ｽb・ｽN・ｽX・ｽiTextureBoxServer・ｽj
+	 * 設定されるテクスチャパックのインデックス（TextureBoxServer）
+	 * The index of the texture pack that is set (TextureBoxServer)
 	 */
 	public void setTexturePackIndex(int pColor, int[] pIndex);
 
 	/**
-	 * Client・ｽp・ｽB
-	 * TextureManager・ｽ・ｽ・ｽN・ｽ・ｽ・ｽC・ｽA・ｽ・ｽ・ｽg・ｽ・ｽ・ｽ・ｽEntity・ｽﾖテ・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽﾏ更・ｽﾌ通知・ｽ・ｽ・ｽs・ｽ・ｽ・ｽB
+	 * Client用。
+	 * TextureManagerがクライアント側のEntityへテクスチャ変更の通知を行う。
+	 * Client.
+	 * TextureManager performs notification of changes to the texture Entity on the client side.
 	 * @param pPackName
-	 * ・ｽﾝ定さ・ｽ・ｽ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽN・ｽﾌ厄ｿｽ・ｽﾌ（TextureBoxClient・ｽj
+	 * 設定されるテクスチャパックの名称（TextureBoxClient）
+	 * The name of the texture pack that is set (TextureBoxClient)
 	 */
 	public void setTexturePackName(MMM_TextureBox[] pTextureBox);
 
 	/**
-	 * ・ｽ・ｽ・ｽﾝゑｿｽEntity・ｽﾉ色・ｽ・ｽﾝ定す・ｽ・ｽB
+	 * 現在のEntityに色を設定する。
+	 * I set the color to the current Entity.
 	 * @param pColor
 	 */
 	public void setColor(int pColor);
 
 	/**
-	 * ・ｽ・ｽ・ｽﾝゑｿｽEntity・ｽﾉ設定さ・ｽ・ｽﾄゑｿｽ・ｽ・ｽF・ｽ・ｽﾔゑｿｽ・ｽB
+	 * 現在のEntityに設定されている色を返す。
+	 * I returns a color that is set in the current Entity.
 	 * @return
 	 */
 	public int getColor();
@@ -48,7 +57,8 @@ public interface MMM_ITextureEntity {
 	public ResourceLocation[] getTextures(int pIndex);
 	
 	/**
-	 * ・ｽd・ｽl・ｽﾏ更・ｽﾉゑｿｽ・ｽA・ｽ・ｽ・ｽ・ｽﾈ外・ｽﾍ必・ｽv・ｽ・ｽ・ｽ・ｽ・ｽﾈゑｿｽ\・ｽ・ｽB
+	 * 仕様変更により、これ以外は必要無くなる予定。
+	 * Plans according to specifications changes, no longer need the other.
 	 * @return
 	 */
 	public MMM_TextureData getTextureData();

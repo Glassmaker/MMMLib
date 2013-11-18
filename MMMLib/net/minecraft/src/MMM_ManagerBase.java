@@ -15,14 +15,15 @@ public abstract class MMM_ManagerBase {
 	protected abstract String getPreFix();
 	/**
 	 * 追加処理の本体
+	 * Body of additional processing
 	 */
 	protected abstract boolean append(Class pclass);
 
 
 	protected void load() {
-		// ロード
+		// ロード, Load
 		
-		// 開発用
+		// 開発用, Development
 		Package lpackage = mod_MMM_MMMLib.class.getPackage();
 		String ls = "";
 		if (lpackage != null) {
@@ -31,10 +32,10 @@ public abstract class MMM_ManagerBase {
 		File lf1 = new File(MMM_FileManager.minecraftJar, ls);
 		
 		if (lf1.isDirectory()) {
-			// ディレクトリの解析
+			// ディレクトリの解析, Analysis of directory
 			decodeDirectory(lf1);
 		} else {
-			// Zipの解析
+			// Zipの解析, Analysis of Zip
 			decodeZip(lf1);
 		}
 		
@@ -43,10 +44,10 @@ public abstract class MMM_ManagerBase {
 		for (Entry<String, List<File>> le : MMM_FileManager.fileList.entrySet()) {
 			for (File lf : le.getValue()) {
 				if (lf.isDirectory()) {
-					// ディレクトリの解析
+					// ディレクトリの解析, Analysis of directory
 					decodeDirectory(lf);
 				} else {
-					// Zipの解析
+					// Zipの解析, Analysis of Zip
 					decodeZip(lf);
 				}
 			}
@@ -54,12 +55,12 @@ public abstract class MMM_ManagerBase {
 	}
 
 	private void decodeDirectory(File pfile) {
-		// ディレクトリ内のクラスを検索
+		// ディレクトリ内のクラスを検索, Search a class in the directory
 		for (File lf : pfile.listFiles()) {
 			if (lf.isFile()) {
 				String lname = lf.getName();
 				if (lname.indexOf(getPreFix()) > 0 && lname.endsWith(".class")) {
-					// 対象クラスファイルなのでロード
+					// 対象クラスファイルなのでロード, Load because the target class file
 					loadClass(lf.getName());
 				}
 			}

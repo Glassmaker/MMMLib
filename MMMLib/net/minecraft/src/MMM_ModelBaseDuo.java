@@ -12,37 +12,50 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 /**
- * ・ｽA・ｽ[・ｽ}・ｽ[・ｽﾌ難ｿｽd・ｽ`・ｽ・ｽp・ｽN・ｽ・ｽ・ｽX・ｽB
- * ・ｽK・ｽ・ｽInner・ｽ・ｽ・ｽﾉは・ｿｽ・ｽf・ｽ・ｽ・ｽ・ｽﾝ定す・ｽ驍ｱ・ｽﾆ。
- * ・ｽﾊ擾ｿｽ・ｽRenderer・ｽﾅ描・ｽ謔ｷ・ｽ驍ｽ・ｽﾟのク・ｽ・ｽ・ｽX・ｽﾈので、Render・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽﾆ記・ｽq・ｽ・ｽ・ｽ・ｽﾈらい・ｽ・ｽﾈゑｿｽ・ｽN・ｽ・ｽ・ｽX・ｽﾅゑｿｽ・ｽB
+ * アーマーの二重描画用クラス。
+ * 必ずInner側にはモデルを設定すること。
+ * 通常のRendererで描画するためのクラスなので、Renderをちゃんと記述するならいらないクラスです。
+ * Double drawing class of armor.
+ * You can set the model to Inner side always.
+ * Because it is a class for drawing in the Renderer normal, it is a class that does not need it if you write out the Render.
  */
 public class MMM_ModelBaseDuo extends MMM_ModelBaseNihil implements MMM_IModelBaseMMM {
 
 	public MMM_ModelMultiBase modelOuter;
 	public MMM_ModelMultiBase modelInner;
 	/**
-	 * ・ｽ・ｽ・ｽﾊ厄ｿｽ・ｽﾌア・ｽ[・ｽ}・ｽ[・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽﾌ指・ｽ・ｽB
-	 * ・ｽO・ｽ・ｽ・ｽB
+	 * 部位毎のアーマーテクスチャの指定。
+	 * 外側。
+	 * Specifying the armor texture of each region.
+	 * Outside.
 	 */
 	public ResourceLocation[] textureOuter;
 	/**
-	 * ・ｽ・ｽ・ｽﾊ厄ｿｽ・ｽﾌア・ｽ[・ｽ}・ｽ[・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽﾌ指・ｽ・ｽB
-	 * ・ｽ・ｽ・ｽ・ｽ・ｽB
+	 * 部位毎のアーマーテクスチャの指定。
+	 * 内側。
+	 * Specifying the armor texture of each region.
+	 * Inside.
 	 */
 	public ResourceLocation[] textureInner;
 	/**
-	 * ・ｽ・ｽ・ｽﾊ厄ｿｽ・ｽﾌア・ｽ[・ｽ}・ｽ[・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽﾌ指・ｽ・ｽB
-	 * ・ｽO・ｽ・ｽ・ｽE・ｽ・ｽ・ｽ・ｽ・ｽB
+	 * 部位毎のアーマーテクスチャの指定。
+	 * 外側・発光。
+	 * Specifying the armor texture of each region.
+	 * Outside and emission.
 	 */
 	public ResourceLocation[] textureOuterLight;
 	/**
-	 * ・ｽ・ｽ・ｽﾊ厄ｿｽ・ｽﾌア・ｽ[・ｽ}・ｽ[・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽﾌ指・ｽ・ｽB
-	 * ・ｽ・ｽ・ｽ・ｽ・ｽE・ｽ・ｽ・ｽ・ｽ・ｽB
+	 * 部位毎のアーマーテクスチャの指定。
+	 * 内側・発光。
+	 * Specifying the armor texture of each region.
+	 * Inside, the emission.
 	 */
 	public ResourceLocation[] textureInnerLight;
 	/**
-	 * ・ｽ`・ｽ謔ｳ・ｽ・ｽ・ｽA・ｽ[・ｽ}・ｽ[・ｽﾌ包ｿｽ・ｽﾊ。
-	 * shouldRenderPass・ｽﾆゑｿｽ・ｽﾅ指・ｽ閧ｷ・ｽ・ｽB
+	 * 描画されるアーマーの部位。
+	 * shouldRenderPassとかで指定する。
+	 * Site of the armor to be drawn.
+	 * I specified in such as shouldRenderPass.
 	 */
 	public int renderParts;
 
@@ -70,16 +83,16 @@ public class MMM_ModelBaseDuo extends MMM_ModelBaseNihil implements MMM_IModelBa
 		if (modelInner != null) {
 			if (textureInner != null && lri) {
 				if (textureInner[renderParts] != null) {
-					// ・ｽﾊ擾ｿｽp・ｽ[・ｽc
+					// 通常パーツ, Normal parts
 					MMM_Client.setTexture(textureInner[renderParts]);
 					modelInner.render(entityCaps, par2, par3, par4, par5, par6, par7, isRendering);
 				}
 			} else {
-				// ・ｽﾙぼエ・ｽ・ｽ・ｽ`・ｽ・ｽ・ｽ・ｽ・ｽg・ｽG・ｽt・ｽF・ｽN・ｽg・ｽp
+				// ほぼエンチャントエフェクト用, Enchantment effects for nearly
 				modelInner.render(entityCaps, par2, par3, par4, par5, par6, par7, isRendering);
 			}
 			if (textureInnerLight != null && renderCount == 0) {
-				// ・ｽ・ｽ・ｽ・ｽ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽ\・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ
+				// 発光テクスチャ表示処理, Emission texture display processing
 				if (textureInnerLight[renderParts] != null) {
 					MMM_Client.setTexture(textureInnerLight[renderParts]);
 					GL11.glEnable(GL11.GL_BLEND);
@@ -91,7 +104,7 @@ public class MMM_ModelBaseDuo extends MMM_ModelBaseNihil implements MMM_IModelBa
 					if (textureLightColor == null) {
 						GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 					} else {
-						//・ｽ・ｽ・ｽ・ｽ・ｽF・ｽｲ撰ｿｽ
+						// 発光色を調整, Adjust the emission color
 						GL11.glColor4f(
 								textureLightColor[0],
 								textureLightColor[1],
@@ -108,17 +121,17 @@ public class MMM_ModelBaseDuo extends MMM_ModelBaseNihil implements MMM_IModelBa
 		}
 		if (modelOuter != null) {
 			if (textureOuter != null && lri) {
-				// ・ｽﾊ擾ｿｽp・ｽ[・ｽc
+				// 通常パーツ, Normal parts
 				if (textureOuter[renderParts] != null) {
 					MMM_Client.setTexture(textureOuter[renderParts]);
 					modelOuter.render(entityCaps, par2, par3, par4, par5, par6, par7, isRendering);
 				}
 			} else {
-				// ・ｽﾙぼエ・ｽ・ｽ・ｽ`・ｽ・ｽ・ｽ・ｽ・ｽg・ｽG・ｽt・ｽF・ｽN・ｽg・ｽp
+				// ほぼエンチャントエフェクト用, Enchantment effects for nearly
 				modelOuter.render(entityCaps, par2, par3, par4, par5, par6, par7, isRendering);
 			}
 			if (textureOuterLight != null && renderCount == 0) {
-				// ・ｽ・ｽ・ｽ・ｽ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽ\・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ
+				// 発光テクスチャ表示処理, Emission texture display processing
 				if (textureOuterLight[renderParts] != null) {
 					MMM_Client.setTexture(textureOuterLight[renderParts]);
 					float var4 = 1.0F;
@@ -131,7 +144,7 @@ public class MMM_ModelBaseDuo extends MMM_ModelBaseNihil implements MMM_IModelBa
 					if (textureLightColor == null) {
 						GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 					} else {
-						//・ｽ・ｽ・ｽ・ｽ・ｽF・ｽｲ撰ｿｽ
+						// 発光色を調整, Adjust the emission color
 						GL11.glColor4f(
 								textureLightColor[0],
 								textureLightColor[1],
@@ -167,7 +180,7 @@ public class MMM_ModelBaseDuo extends MMM_ModelBaseNihil implements MMM_IModelBa
 	}
 
 
-	// IModelMMM・ｽﾇ会ｿｽ・ｽ・ｽ
+	// IModelMMM追加分, IModelMMM additions
 
 	@Override
 	public void renderItems(EntityLivingBase pEntity, Render pRender) {
@@ -187,8 +200,10 @@ public class MMM_ModelBaseDuo extends MMM_ModelBaseNihil implements MMM_IModelBa
 	}
 
 	/**
-	 * Renderer・ｽﾓでゑｿｽ・ｽﾌ変撰ｿｽ・ｽ・ｽﾝ定す・ｽ・ｽB
-	 * ・ｽﾝ抵ｿｽl・ｽ・ｽMMM_IModelCaps・ｽ・ｽ・ｽp・ｽ・ｽ・ｽ・ｽ・ｽ・ｽEntitiy・ｽﾆゑｿｽ・ｽ・ｽz・ｽ・ｽB
+	 * Renderer辺でこの変数を設定する。
+	 * 設定値はMMM_IModelCapsを継承したEntitiyとかを想定。
+	 * I set this variable in the Renderer side.
+	 * Settings such as assuming a Entitiy that extends MMM_IModelCaps.
 	 */
 	@Override
 	public void setEntityCaps(MMM_IModelCaps pEntityCaps) {
@@ -214,7 +229,7 @@ public class MMM_ModelBaseDuo extends MMM_ModelBaseNihil implements MMM_IModelBa
 	}
 
 
-	// IModelCaps・ｽﾇ会ｿｽ・ｽ・ｽ
+	// IModelCaps追加分, IModelCaps additions
 
 	@Override
 	public Map<String, Integer> getModelCaps() {

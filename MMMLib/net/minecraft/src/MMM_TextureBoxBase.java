@@ -41,6 +41,7 @@ public abstract class MMM_TextureBoxBase {
 
 	/**
 	 * 契約色の有無をビット配列にして返す
+	 * This returns a bit array for the presence of more colors
 	 */
 	public int getContractColorBits() {
 		return contractColor;
@@ -48,6 +49,7 @@ public abstract class MMM_TextureBoxBase {
 
 	/**
 	 * 野生色の有無をビット配列にして返す
+	 * This returns a bit array for the presence of wild color
 	 */
 	public int getWildColorBits() {
 		return wildColor;
@@ -59,6 +61,7 @@ public abstract class MMM_TextureBoxBase {
 
 	/**
 	 * 野生のメイドの色をランダムで返す
+	 * I returned in a random color maid of wild
 	 */
 	public int getRandomWildColor(Random pRand) {
 		return getRandomColor(getWildColorBits(), pRand);
@@ -66,6 +69,7 @@ public abstract class MMM_TextureBoxBase {
 
 	/**
 	 * 契約のメイドの色をランダムで返す
+	 * I returned in a random color maid of contract
 	 */
 	public int getRandomContractColor(Random pRand) {
 		return getRandomColor(getContractColorBits(), pRand);

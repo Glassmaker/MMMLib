@@ -15,6 +15,11 @@ import java.util.Properties;
  * 対象となるFieldはStaticでPrivateではないこと、「cfg_」で始まる名称であること。<br>
  * 対象となる型はint、float、double、boolean、string。<br>
  * cfg_commentは予約変数String[]型でコメントを記述する。<br>
+ * For storing configuration files.<br>
+ * I manipulate the Config file with the same name as the Class name passed.<br>
+ * It is not a Private in the Static, Field of interest that it is a name that begins with "cfg_".<br>
+ * Type of interest int, float, double, boolean, string.<br>
+ * cfg_comment to write a comment book in the variable String [] type.<br>
  */
 public class MMM_Config {
 
@@ -28,6 +33,7 @@ public class MMM_Config {
 
 	/**
 	 * 初期化。
+	 * Initialization.
 	 */
 	public static void init() {
 		configDir = new File(MMM_FileManager.minecraftDir, "config");
@@ -35,6 +41,7 @@ public class MMM_Config {
 
 	/**
 	 * Configファイルを返す。
+	 * I return the Config file.
 	 * @param pClass
 	 * @return
 	 */
@@ -61,6 +68,7 @@ public class MMM_Config {
 
 	/**
 	 * cfgファイルに値を保存する。
+	 * I want to save the value in the cfg file.
 	 * @param pClass
 	 */
 	public static void saveConfig(Class pClass) {
@@ -141,6 +149,7 @@ public class MMM_Config {
 
 	/**
 	 * MLPropの標準動作に近い動き
+	 * Movement close to the standard behavior of MLProp
 	 * @param pClass
 	 */
 	public static void checkConfig(Class pClass) {

@@ -6,6 +6,7 @@ import java.util.TreeMap;
 
 /**
  * 追加パーツたるスタビライザーを管理する
+ * I manage a barrel stabilizer added parts
  */
 public class MMM_StabilizerManager extends MMM_ManagerBase {
 
@@ -15,6 +16,7 @@ public class MMM_StabilizerManager extends MMM_ManagerBase {
 	
 	public static void init() {
 		// 特定名称をプリフィックスに持つmodファイをを獲得
+		// Earn the mod files with the prefix a specific name
 		MMM_FileManager.getModFile("Stabilizer", preFix);
 	}
 
@@ -45,6 +47,7 @@ public class MMM_StabilizerManager extends MMM_ManagerBase {
 
 	/**
 	 * 指定された名称のスタビライザーモデルを返す。
+	 * I return the stabilizer model of the specified name.
 	 */
 	public static MMM_EquippedStabilizer getStabilizer(String pname, String pequippoint) {
 		if (!stabilizerList.containsKey(pname)) {
@@ -61,6 +64,7 @@ public class MMM_StabilizerManager extends MMM_ManagerBase {
 
 	/**
 	 * 実装場所のアップデート
+	 * Update of installation location
 	 */
 	public static void updateEquippedPoint(Map<String, MMM_EquippedStabilizer> pMap, MMM_ModelBase pModel) {
 		for (Entry<String, MMM_EquippedStabilizer> le : pMap.entrySet()) {

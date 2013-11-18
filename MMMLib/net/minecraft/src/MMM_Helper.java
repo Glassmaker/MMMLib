@@ -84,21 +84,26 @@ public class MMM_Helper {
 	}
 
 	/**
-	 * ﾅ陳ｻ・ｽﾃ昶堙固ｽﾃ・ｽsﾅﾃやｹﾂｫ窶堋ｪﾆ抵ｿｽ・ｽ[ﾆ谷ﾆ停ｹ窶堋ｩ窶堙・堋､窶堋ｩ窶堙ｰ窶敖ｻ窶凖ｨ窶堋ｷ窶堙ｩ・ｽB
+	 * 現在の実行環境がローカルかどうかを判定する。
+	 * I determine execution environment whether the current local.
 	 */
 	public static boolean isLocalPlay() {
 		return isClient && mc.isIntegratedServerRunning();
 	}
 
 	/**
-	 * ﾆ筑ﾆ停ｹﾆ蛋窶佚寂ｰﾅｾ窶廃・ｽB
-	 * ItemStack窶堙会ｿｽﾃｮ窶｢ﾃｱ・ｽX・ｽV窶堙ｰ・ｽs窶堋､窶堙・ｿｽAﾆ探・ｽ[ﾆ弛・ｽ[窶伉､窶堙・堙鯉ｿｽﾂｷﾋ・吮堋ｩ窶堙ｧSlot窶堙姑但ﾆ鍛ﾆ致ﾆ断・ｽ[ﾆ暖窶堋ｪ・ｽs窶堙ｭ窶堙ｪ窶堙ｩ・ｽB
-	 * 窶堋ｻ窶堙鯉ｿｽﾃ幢ｿｽAUsingItem窶堙鯉ｿｽX・ｽV・ｽﾋ・費ｿｽ窶堋ｪ・ｽs窶堙ｭ窶堙ｪ窶堙遺堋｢窶堋ｽ窶堙淪・｡窶堋､ﾆ但ﾆ辰ﾆ弾ﾆ停ぎ窶堙嫁ｽ・ｽ窶佚問堋ｦ窶堙ｧ窶堙ｪ窶堋ｽ窶堙・敖ｻ窶凖ｨ窶堋ｳ窶堙ｪ窶堙ｩ・ｽB
-	 * 窶堋ｱ窶堋ｱ窶堙・堙坂敕､ﾅr窶廃窶堙嫁ｽg窶堙ｭ窶堙ｪ窶堙ｩﾆ湛ﾆ耽ﾆ鍛ﾆ誰ﾆ椎ﾆ湛ﾆ暖窶堙ｰ窶ｹﾂｭ・ｽﾂｧ窶廬窶堙会ｿｽ窶佛ﾂｷ窶堋ｦ窶堙ｩﾅｽ窶凪堙俄堙ｦ窶堙ｨ窶佚寂ｰﾅｾ窶堋ｵ窶堋ｽ・ｽB
+	 * マルチ対応用。
+	 * ItemStackに情報更新を行うと、サーバー側との差異からSlotのアップデートが行われる。
+	 * その際、UsingItemの更新処理が行われないため違うアイテムに持替えられたと判定される。
+	 * ここでは比較用に使われるスタックリストを強制的に書換える事により対応した。
+	 * Support for multi.
+	 * If you do update the information ItemStack, updates Slot is made from the difference between the server side.
+	 * At this time, it is determined that is gripping the item holding different for update processing UsingItem is not performed
+	 * Added support by rewriting to force the stack list to be used for comparison here.
 	 */
 	public static void updateCheckinghSlot(Entity pEntity, ItemStack pItemstack) {
 		if (pEntity instanceof EntityPlayerMP) {
-			// ﾆ探・ｽ[ﾆ弛・ｽ[窶伉､窶堙・堙娯堙晢ｿｽﾋ・費ｿｽ
+			// サーバー側でのみ処理, Processing only on the server side
 			EntityPlayerMP lep = (EntityPlayerMP)pEntity;
 			Container lctr = lep.openContainer;
 			for (int li = 0; li < lctr.inventorySlots.size(); li++) {
@@ -112,7 +117,8 @@ public class MMM_Helper {
 	}
 	
 	/**
-	 * Forge窶廃ﾆ誰ﾆ停ｰﾆ湛ﾅl窶慊ｾ・ｽB
+	 *  Forge用クラス獲得。
+	 *  Forge for class acquisition.
 	 */
 	public static Class getForgeClass(BaseMod pMod, String pName) {
 		if (isForge) {
@@ -122,7 +128,8 @@ public class MMM_Helper {
 	}
 
 	/**
-	 * 窶督ｼ窶楼窶堋ｩ窶堙ｧﾆ誰ﾆ停ｰﾆ湛窶堙ｰﾅl窶慊ｾ窶堋ｷ窶堙ｩ
+	 * 名前からクラスを獲得する
+	 * I win the class name from
 	 */
 	public static Class getNameOfClass(String pName) {
 		if (fpackage != null) {
@@ -139,7 +146,8 @@ public class MMM_Helper {
 	}
 
 	/**
-	 * 窶倪費ｿｽM窶廃ﾆ断・ｽ[ﾆ耽窶堙姑短ﾆ鍛ﾆ暖
+	 * 送信用データのセット
+	 * Set of transmission data
 	 */
 	public static void setValue(byte[] pData, int pIndex, int pVal, int pSize) {
 		for (int li = 0; li < pSize; li++) {
@@ -191,9 +199,9 @@ public class MMM_Helper {
 		}
 	}
 
-	// ・ｽﾃｳ窶ｹﾂｵ窶敖ｻ窶冉窶牌ﾅﾃ厄ｿｽ窶敘嘆
+	// 状況判断要関数群, Assessment of the situation is needed set of functions
 	protected static boolean canBlockBeSeen(Entity pEntity, int x, int y, int z, boolean toTop, boolean do1, boolean do2) {
-		// ﾆ置ﾆ抵ｿｽﾆ鍛ﾆ誰窶堙娯ｰﾃでｽ窶ｹ窶敖ｻ窶凖ｨ
+		// ブロックの可視判定, Visible decision of block
 		Vec3 vec3d = Vec3.createVectorHelper(pEntity.posX, pEntity.posY + pEntity.getEyeHeight(), pEntity.posZ);
 		Vec3 vec3d1 = Vec3.createVectorHelper((double)x + 0.5D, (double)y + (toTop ? 0.9D : 0.5D), (double)z + 0.5D);
 		
@@ -212,10 +220,10 @@ public class MMM_Helper {
 	}
 
 	public static boolean setPathToTile(EntityLiving pEntity, TileEntity pTarget, boolean flag) {
-		// Tile窶堙懌堙・堙姑恥ﾆ湛窶堙ｰ・ｽﾃｬ窶堙ｩ
+		// Tileまでのパスを作る, I make the path to the Tile
 		PathNavigate lpn = pEntity.getNavigator();
 		float lspeed = 1.0F;
-		// ﾅ津ｼ窶堋ｫ窶堙会ｿｽ窶｡窶堙ｭ窶堋ｹ窶堙・ｹ窶披板｣窶堙ｰ窶卍ｲ・ｽﾂｮ
+		// 向きに合わせて距離を調整, Adjust the distance and the orientation
 		int i = (pTarget.yCoord == MathHelper.floor_double(pEntity.posY) && flag) ? 2 : 1;
 		switch (pEntity.worldObj.getBlockMetadata(pTarget.xCoord, pTarget.yCoord, pTarget.zCoord)) {
 		case 3:
@@ -232,19 +240,21 @@ public class MMM_Helper {
 	}
 
 	/**
-	 * Modloaderﾅﾃやｹﾂｫ窶ｰﾂｺ窶堙・ｹﾃｳ窶堋｢窶堙・堋｢窶堙ｩEntityID窶堙ｰ窶｢ﾃ披堋ｷ・ｽB
-	 * 窶猫ﾅ津ｸ窶堙遺冤窶堙ｰﾅl窶慊ｾ窶堙・堋ｫ窶堙遺堋ｯ窶堙ｪ窶堙・1窶堙ｰ窶｢ﾃ披堋ｷ・ｽB
+	 * Modloader環境下で空いているEntityIDを返す。
+	 * 有効な値を獲得できなければ-1を返す。
+	 * I return the EntityID vacant Modloader environment.
+	 * -1 Is returned if it can not acquire a valid value.
 	 */
 	private static int getNextEntityID(boolean isLiving) {
 		if (isLiving) {
-			// ・ｽﾂｶ窶｢ﾂｨ窶廃
+			// 生物用, Organisms for
 			for (int li = 1; li < 256; li++) {
 				if (EntityList.getClassFromID(li) == null) {
 					return li;
 				}
 			}
 		} else {
-			// 窶｢ﾂｨ窶廃
+			// 物用, Thing for
 			for (int li = mod_MMM_MMMLib.cfg_startVehicleEntityID; li < mod_MMM_MMMLib.cfg_startVehicleEntityID + 2048; li++) {
 				if (EntityList.getClassFromID(li) == null) {
 					return li;
@@ -255,12 +265,15 @@ public class MMM_Helper {
 	}
 
 	/**
-	 * Entity窶堙ｰ窶徙ﾋ弯窶堋ｷ窶堙ｩ・ｽB
-	 * RML・ｽAForge窶板ｼ窶佚寂ｰﾅｾ・ｽB
+	 * Entityを登録する。
+	 * RML、Forge両対応。
+	 * I register the Entity.
+	 * RML, Forge both correspondence.
 	 * @param entityclass
 	 * @param entityName
 	 * @param defaultId
-	 * 0 : ﾆ棚・ｽ[ﾆ暖ﾆ但ﾆ探ﾆ辰ﾆ停・
+	 * 0 : オートアサイン
+	 * 0: Auto assign
 	 * @param mod
 	 * @param uniqueModeName
 	 * @param trackingRange
@@ -276,7 +289,7 @@ public class MMM_Helper {
 		if (isForge) {
 			try {
 				Method lmethod;
-				// EntityID窶堙固l窶慊ｾ
+				// EntityIDの獲得, Acquisition of EntityID
 				lmethod = entityRegistry.getMethod("findGlobalUniqueEntityId");
 				defaultId = (Integer)lmethod.invoke(null);
 				
@@ -289,7 +302,7 @@ public class MMM_Helper {
 							Class.class, String.class, int.class, int.class, int.class);
 					lmethod.invoke(null, entityclass, entityName, defaultId, pEggColor1, pEggColor2);
 				}
-				// EntityList窶堙問堙娯徙ﾋ弯窶堙坂廳窶懌凪堙茨ｿｽ窶敘ｽﾅ｡窶堙・堙ｦ窶堋｢・ｽB
+				// EntityListへの登録は適当な数字でよい。, Registration to EntityList may be the appropriate number.
 				registerModEntity.invoke(
 						null, entityclass, entityName, lid,
 						mod, trackingRange, updateFrequency, sendVelocityUpdate);
@@ -297,7 +310,7 @@ public class MMM_Helper {
 				e.printStackTrace();
 			}
 		} else {
-			// EntityList窶堙問堙娯徙ﾋ弯窶堙・
+			// EntityListへの登録は, Registration to the EntityList
 			if (defaultId == 0) {
 				defaultId = getNextEntityID(entityclass.isAssignableFrom(EntityLivingBase.class));
 			}
@@ -327,22 +340,26 @@ public class MMM_Helper {
 	}
 
 	/**
-	 * Entity窶堙ｰ窶｢ﾃ披堋ｷ・ｽB
+	 *  Entityを返す。, I return the Entity.
 	 */
 	public static Entity getEntity(byte[] pData, int pIndex, World pWorld) {
 		return pWorld.getEntityByID(MMM_Helper.getInt(pData, pIndex));
 	}
 
 	/**
-	 * 窶｢ﾃ擾ｿｽ窶晢ｿｽuavatar・ｽv窶堋ｩ窶堙ｧ窶冤窶堙ｰﾅｽﾃｦ窶堙ｨ・ｽo窶堋ｵ窶禿溪堙ｨ窶冤窶堙・堋ｵ窶堙・｢ﾃ披堋ｷ・ｽB
-	 * avatar窶堋ｪ窶伉ｶ・ｽﾃ昶堋ｵ窶堙遺堋｢・ｽﾃｪ・ｽ窶｡窶堙最陳ｳ窶堙娯冤窶堙ｰ窶｢ﾃ披堋ｷ・ｽB
-	 * avatar窶堙孔ntityLivingﾅ津敘ﾂｷ・ｽB
+	 * 変数「avatar」から値を取り出し戻り値として返す。
+	 * avatarが存在しない場合は元の値を返す。
+	 * avatarはEntityLiving互換。
+	 * Return as the return value retrieves the value of the variable from "avatar".
+	 * I return the original value if the avatar does not exist.
+	 * The avatar EntityLiving compatible.
 	 */
 	public static Entity getAvatarEntity(Entity pEntity){
-		// littleMaid窶廃ﾆ坦・ｽ[ﾆ檀窶堋ｱ窶堋ｱ窶堋ｩ窶堙ｧ
+		// littleMaid用コードここから, from littleMaid code here
 		if (pEntity == null) return null;
 		try {
-			// ﾅｽﾃ暁ｽﾃｨ窶堙鯉ｿｽﾃｮ窶｢ﾃｱ窶堙ｰEntityLittleMaidAvatar窶堋ｩ窶堙ｧEntityLittleMaid窶堙問冰窶堋ｫﾅﾂｷ窶堋ｦ窶堙ｩ
+			// 射手の情報をEntityLittleMaidAvatarからEntityLittleMaidへ置き換える
+			// I replace to EntityLittleMaid from EntityLittleMaidAvatar information shooter
 			Field field = pEntity.getClass().getField("avatar");
 			pEntity = (EntityLivingBase)field.get(pEntity);
 		} catch (NoSuchFieldException e) {
@@ -351,17 +368,20 @@ public class MMM_Helper {
 		} catch (Error e) {
 			e.printStackTrace();
 		}
-		// 窶堋ｱ窶堋ｱ窶堙懌堙・
+		// ここまで, So far
 		return pEntity;
 	}
 
 	/**
-	 * 窶｢ﾃ擾ｿｽ窶晢ｿｽumaidAvatar・ｽv窶堋ｩ窶堙ｧ窶冤窶堙ｰﾅｽﾃｦ窶堙ｨ・ｽo窶堋ｵ窶禿溪堙ｨ窶冤窶堙・堋ｵ窶堙・｢ﾃ披堋ｷ・ｽB
-	 * maidAvatar窶堋ｪ窶伉ｶ・ｽﾃ昶堋ｵ窶堙遺堋｢・ｽﾃｪ・ｽ窶｡窶堙最陳ｳ窶堙娯冤窶堙ｰ窶｢ﾃ披堋ｷ・ｽB
-	 * maidAvatar窶堙孔ntityPlayerﾅ津敘ﾂｷ・ｽB
+	 * 変数「maidAvatar」から値を取り出し戻り値として返す。
+	 * maidAvatarが存在しない場合は元の値を返す
+	 * maidAvatarはEntityPlayer互換。
+	 * Return as the return value retrieves the value of the variable from "maidAvatar".
+	 * Returns the original value if the maidAvatar does not exist
+	 * maidAvatar the EntityPlayer compatible.
 	 */
 	public static Entity getAvatarPlayer(Entity entity) {
-		// ﾆ抵ｿｽﾆ辰ﾆ檀窶堋ｳ窶堙ｱﾆ蛋ﾆ巽ﾆ鍛ﾆ誰
+		// メイドさんチェック, Maid Check
 		try {
 			Field field = entity.getClass().getField("maidAvatar");
 			entity = (Entity)field.get(entity);
@@ -374,7 +394,8 @@ public class MMM_Helper {
 	}
 
 	/**
-	 * ﾆ致ﾆ椎抵ｿｽ[ﾆ停樞堙姑辰ﾆ停愴遅ﾆ停愴暖ﾆ椎窶堋ｩ窶堙ｧﾆ但ﾆ辰ﾆ弾ﾆ停ぎ窶堙ｰﾅ陳ｸ窶堙ｧ窶堋ｷ
+	 * プレーヤのインベントリからアイテムを減らす
+	 * I reduce the items from the inventory of the player
 	 */
 	protected static ItemStack decPlayerInventory(EntityPlayer par1EntityPlayer, int par2Index, int par3DecCount) {
 		if (par1EntityPlayer == null) {
@@ -390,7 +411,8 @@ public class MMM_Helper {
 		}
 		
 		if (!par1EntityPlayer.capabilities.isCreativeMode) {
-			// ﾆ誰ﾆ椎ﾆ竪ﾆ辰ﾆ弾ﾆ達ﾆ置窶堋ｾ窶堙・陳ｸ窶堙ｧ窶堙遺堋｢
+			// クリエイティブだと減らない
+			// It does not decrease it's creative
 			itemstack1.stackSize -= par3DecCount;
 		}
 		
@@ -428,22 +450,29 @@ public class MMM_Helper {
 	}
 
 	/**
-	 * ﾅｽw窶凖ｨ窶堋ｳ窶堙ｪ窶堋ｽﾆ椎ﾆ池ﾆ淡ﾆ停｡ﾆ停懌堙ｦ窶堙ｨ窶堙ﾅ津・堋ｯ窶堙ｪ窶堙寂氾｡ﾅO窶堙ｰ窶愬窶堋ｰ窶堙・湛ﾆ暖ﾆ鍛ﾆ致
+	 * 指定されたリビジョンよりも古ければ例外を投げてストップ
+	 * The stop to throw an exception out of date than the revision specified
 	 */
 	public static void checkRevision(String pRev) {
 		if (convRevision() < convRevision(pRev)) {
-			// 窶廳・ｽ窶｡ﾆ弛・ｽ[ﾆ淡ﾆ停｡ﾆ停懌堙・堙坂堙遺堋｢窶堙娯堙・湛ﾆ暖ﾆ鍛ﾆ致
+			// 適合バージョンではないのでストップ
+			// The stop because it is not a compatible version
 			ModLoader.getLogger().warning("you must check MMMLib revision.");
 			throw new RuntimeException("The revision of MMMLib is old.");
 		}
 	}
 
 	/**
-	 * EntityList窶堙俄徙ﾋ弯窶堋ｳ窶堙ｪ窶堙・堋｢窶堋｢窶堙ｩEntity窶堙ｰ窶冰窶堋ｫﾅﾂｷ窶堋ｦ窶堙ｩ・ｽB
+	 * EntityListに登録されていいるEntityを置き換える。
+	 * I replace the Entity has been registered in the EntityList.
 	 */
 	public static void replaceEntityList(Class pSrcClass, Class pDestClass) {
-		// EntityList窶徙ﾋ弯・ｽﾃｮ窶｢ﾃｱ窶堙ｰ窶冰窶堋ｫﾅﾂｷ窶堋ｦ
-		// ﾅ津・堋｢Entity窶堙・堙ﾆ湛ﾆ竹・ｽ[ﾆ停懌堙・堋ｫ窶堙ｩ窶堙ｦ窶堋､窶堙架・ｪ窶｢窶昶堙娯｢ﾂｨ窶堙坂愿ｱ・ｽd窶徙ﾋ弯
+		/**
+		 * EntityList登録情報を置き換え
+		 * 古いEntityでもスポーンできるように一部の物は二重登録
+		 * To replace the EntityList registration information
+		 * Those of some double registration to be able to spawn any old Entity
+		 */
 		try {
 			// stringToClassMapping
 			Map lmap;
@@ -496,11 +525,13 @@ public class MMM_Helper {
 	}
 
 	/**
-	 * ﾆ弛ﾆ辰ﾆ棚・ｽ[ﾆ停ぎ窶堙鯉ｿｽﾃ昶凖ｨEntity窶堙ｰ窶冰窶堋ｫﾅﾂｷ窶堋ｦ窶堙ｧ窶堙ｪ窶堋ｽEntity窶堙問冰窶堋ｫﾅﾂｷ窶堋ｦ窶堙ｩ・ｽB
-	 * ﾅﾃｮ窶怒窶廬窶堙窺MMLibﾋ・闇O窶堋ｩ窶堙ｧ窶堙最津・堙寂堙ｪ窶堙遺堋｢・ｽB
+	 * バイオームの設定Entityを置き換えられたEntityへ置き換える。
+	 * 基本的にMMMLib以外からは呼ばれない。
+	 * I replace to the Entity was replaced a set of Entity biome.
+	 * It is not called from MMMLib other than basically.
 	 */
 	protected static void replaceBaiomeSpawn() {
-		// ﾆ弛ﾆ辰ﾆ棚・ｽ[ﾆ停ぎ窶堙娯敖ｭ・ｽﾂｶ・ｽﾋ・費ｿｽ窶堙ｰ窶堙娯堙≫堙・堙ｩ
+		//  バイオームの発生処理をのっとる, I take over the process of generating biome
 		// TODO: fix the commented
 		if (replaceEntitys.isEmpty()) return;
 		for (int i = 0; i < BiomeGenBase.biomeList.length; i++) {
@@ -519,15 +550,20 @@ public class MMM_Helper {
 	}
 
 	/**
-	 * ﾅｽ窶ｹ・ｽﾃｼ窶堙鯉ｿｽﾃｦ窶堙俄堋｢窶堙ｩ・ｽﾃ・ｿｽ窶ｰ窶堙窪ntity窶堙ｰ窶｢ﾃ披堋ｷ
+	 * 視線の先にいる最初のEntityを返す
+	 * I return the Entity of the first who is ahead of the line of sight
 	 * @param pEntity
-	 * ﾅｽ窶ｹ窶彑
+	 * 視点
+	 * Perspective
 	 * @param pRange
-	 * ﾅｽ窶ｹ・ｽﾃｼ窶堙娯猫ﾅ津ｸ窶ｹ窶披板｣
+	 * 視線の有効距離
+	 * Effective distance of the line of sight
 	 * @param pDelta
-	 * ﾅｽﾅｾ・ｽ・ｽ窶｢ﾃ｢・ｽﾂｳ
+	 * 時刻補正
+	 * Time correction
 	 * @param pExpand
-	 * ﾅ椎ｸ窶冦窶氾戸・ｦ窶堙固g窶佚･窶敕才・・
+	 * 検知領域の拡大範囲
+	 * Expanding the scope of the detection area
 	 * @return
 	 */
 	public static Entity getRayTraceEntity(EntityLivingBase pEntity, double pRange, float pDelta, float pExpand) {
@@ -567,10 +603,11 @@ public class MMM_Helper {
 	}
 
 
-	// Forge窶佚趣ｿｽﾃｴ
+	//  Forge対策, Forge measures
 
 	/**
-	 * Forge窶佚趣ｿｽﾃｴ窶廃窶堙姑抵ｿｽﾆ箪ﾆ鍛ﾆ檀
+	 * Forge対策用のメソッド
+	 * Method measures for the Forge
 	 */
 	public static ItemStack getSmeltingResult(ItemStack pItemstack) {
 		if (methGetSmeltingResultForge != null) {
@@ -583,13 +620,15 @@ public class MMM_Helper {
 	}
 
 	/**
-	 * ﾆ但ﾆ辰ﾆ弾ﾆ停ぎ窶堙俄凖・ｰﾃ・津ｸ窶ｰﾃ岩堋ｪ・ｽﾃ昶堙ｩ窶堋ｩ窶堙ｰ窶敖ｻ窶凖ｨ窶堋ｷ窶堙ｩ・ｽB
-	 * Forge窶佚趣ｿｽﾃｴ・ｽB
+	 * アイテムに追加効果が在るかを判定する。
+	 * Forge対策。
+	 * I want to add effect judgment is whether there the item.
+	 * Forge measures.
 	 * @param pItemStack
 	 * @return
 	 */
 	public static boolean hasEffect(ItemStack pItemStack) {
-		// ﾆ筑ﾆ淡ClientSIDE窶堙・堋ｩﾅｽﾂｫ窶堙溪堙・堙吮堋ｵ窶堋｢・ｽB
+		// マジClientSIDEとか辞めてほしい。, I want you to quit such as serious ClientSIDE.
 		if (pItemStack != null) {
 			Item litem = pItemStack.getItem();
 			if (litem instanceof ItemPotion) {
@@ -601,8 +640,10 @@ public class MMM_Helper {
 	}
 
 	/**
-	 * Block窶堙姑辰ﾆ停愴湛ﾆ耽ﾆ停愴湛窶堙ｰ窶冰窶堋ｫﾅﾂｷ窶堋ｦ窶堙ｩ・ｽB
-	 * static final窶堙娯｢ﾃ擾ｿｽ窶昶堙俄佚寂堋ｵ窶堙・ｿｽs窶堋､窶堙娯堙・orge窶堙・堙坂督ｳﾅ津ｸ・ｽB
+	 * Blockのインスタンスを置き換える。
+	 * static finalの変数に対して行うのでForgeでは無効。
+	 * I replace an instance of the Block.
+	 * valid in Forge since performed on variables of static final.
 	 * @param pOriginal
 	 * @param pReplace
 	 * @return
@@ -612,11 +653,11 @@ public class MMM_Helper {
 			return false;
 		}
 		try {
-			// Block窶堙茎tatic final窶｢ﾂｪ窶堙娯冰ﾅﾂｷ窶堋ｦ
+			// Blockのstatic final分の置換え, Replacement of static final minute of the Block
 			Field[] lfield = Block.class.getDeclaredFields();
 			for (int li = 0; li < lfield.length; li++) {
 				if (!Modifier.isStatic(lfield[li].getModifiers())) {
-					// staticﾋ・闇O窶堙坂佚趣ｿｽﾃ崘O
+					// static以外は対象外, static non-excluded
 					continue;
 				}
 				
@@ -633,8 +674,10 @@ public class MMM_Helper {
 	}
 
 	/**
-	 * 16・ｽi・ｽ窶昶堙娯｢ﾂｶﾅｽﾅ｡窶氾ｱ窶堙ｰInt窶堙問｢ﾃ焦ﾂｷ窶堋ｷ窶堙ｩ・ｽB
-	 * 0xffffffff窶佚趣ｿｽﾃｴ・ｽB
+	 * 16進数の文字列をIntへ変換する。
+	 * 0xffffffff対策。
+	 * I convert Int to a hexadecimal string.
+	 * 0xffffffff measures.
 	 * @param pValue
 	 * @return
 	 */
@@ -647,7 +690,8 @@ public class MMM_Helper {
 	}
 
 	/**
-	 *  ﾆ但ﾆ辰ﾆ弾ﾆ停ぎ窶堙会ｿｽﾃ昶凖ｨ窶堋ｳ窶堙ｪ窶堋ｽ・ｽUﾅ停壺氾坂堙ｰﾅ陳ｩ窶堙ｩ
+	 *  アイテムに設定された攻撃力を見る
+	 *  I see the attack force that is set to the item
 	 * @param pItemStack
 	 * @return
 	 */

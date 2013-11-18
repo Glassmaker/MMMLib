@@ -36,7 +36,8 @@ import net.minecraft.util.ResourceLocation;
 public class MMM_TextureManager {
 
 	/**
-	 * ・ｽp・ｽ・ｽ・ｽN・ｽ・ｽ・ｽX・ｽﾅ置・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ驍ｱ・ｽﾆゑｿｽ・ｽl・ｽ・ｽ・ｽB
+	 * 継承クラスで置き換えることを考慮。
+	 * Consider that it is replaced by the class inheritance.
 	 */
 	public static MMM_TextureManager instance = new MMM_TextureManager();
 	
@@ -58,7 +59,8 @@ public class MMM_TextureManager {
 	public static final int tx_armor2light	= 0x90; //144;
 	public static String[] armorFilenamePrefix;
 	/**
-	 * ・ｽ・ｽ・ｽ^・ｽC・ｽv・ｽﾌフ・ｽ@・ｽC・ｽ・ｽ・ｽ・ｽ
+	 * 旧タイプのファイル名
+	 * File name of the old type
 	 */
 	protected static String defNames[] = {
 		"mob_littlemaid0.png", "mob_littlemaid1.png",
@@ -74,29 +76,36 @@ public class MMM_TextureManager {
 	};
 	
 	/**
-	 * ・ｽ・ｽ・ｽ[・ｽJ・ｽ・ｽ・ｽﾅ保趣ｿｽ・ｽ・ｽ・ｽﾄゑｿｽ・ｽ驛ゑｿｽf・ｽ・ｽ・ｽﾌ・ｿｽ・ｽX・ｽg
+	 * ローカルで保持しているモデルのリスト
+	 * List of models that are held in the local
 	 */
 	protected Map<String, MMM_ModelMultiBase[]> modelMap = new TreeMap<String, MMM_ModelMultiBase[]>();
 	/**
-	 * ・ｽ・ｽ・ｽ[・ｽJ・ｽ・ｽ・ｽﾅ保趣ｿｽ・ｽ・ｽ・ｽﾄゑｿｽ・ｽ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽN
+	 * ローカルで保持しているテクスチャパック
+	 * Texture pack is held in the local
 	 */
 	protected List<MMM_TextureBox> textures = new ArrayList<MMM_TextureBox>();
 	/**
-	 * ・ｽT・ｽ[・ｽo・ｽ[・ｽ・ｽ・ｽﾅの管暦ｿｽ・ｽﾔ搾ｿｽ・ｽ・ｽ・ｽ・ｽ・ｽﾊゑｿｽ・ｽ・ｽﾌに使・ｽ・ｽ・ｽA・ｽN・ｽ・ｽ・ｽC・ｽA・ｽ・ｽ・ｽg・ｽp・ｽB
+	 * サーバー側での管理番号を識別するのに使う、クライアント用。
+	 * And used to identify the control number on the server side, client.
 	 */
 	protected Map<MMM_TextureBox, Integer> textureServerIndex = new HashMap<MMM_TextureBox, Integer>();
 	/**
-	 * ・ｽT・ｽ[・ｽo・ｽ[・ｽE・ｽN・ｽ・ｽ・ｽC・ｽA・ｽ・ｽ・ｽg・ｽﾔでテ・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽN・ｽﾌ厄ｿｽ・ｽﾌ・ｿｽ・ｽX・ｽg・ｽﾌ難ｿｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽﾌに使・ｽ・ｽ・ｽA・ｽT・ｽ[・ｽo・ｽ[・ｽp・ｽB
+	 * サーバー・クライアント間でテクスチャパックの名称リストの同期を取るのに使う、サーバー用。
+	 * It used to synchronize the name list of the texture pack in between server and client, server.
 	 */
 	protected List<MMM_TextureBoxServer> textureServer = new ArrayList<MMM_TextureBoxServer>();
 	/**
-	 * Entity・ｽ・ｽ・ｽﾉデ・ｽt・ｽH・ｽ・ｽ・ｽg・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽ・ｽ・ｽQ・ｽﾆ。
-	 * ・ｽ\・ｽz・ｽ・ｽ@・ｽ・ｽEntityList・ｽ・ｽ・ｽQ・ｽﾆのゑｿｽ・ｽﾆ。
+	 * Entity毎にデフォルトテクスチャを参照。
+	 * 構築方法はEntityListを参照のこと。
+	 * See the default texture in each Entity.
+	 * How to Build Refer to the EntityList.
 	 */
 	protected Map<Class, MMM_TextureBox> defaultTextures = new HashMap<Class, MMM_TextureBox>();
 	
 	/**
-	 * ・ｽN・ｽ・ｽ・ｽC・ｽA・ｽ・ｽ・ｽg・ｽ・ｽ・ｽﾅ使・ｽ・ｽ
+	 * クライアント側で使う
+	 * I use on the client side
 	 */
 	protected String[] requestString = new String[] {
 		null, null, null, null, null, null, null, null,
@@ -122,8 +131,10 @@ public class MMM_TextureManager {
 
 
 	protected void init() {
-		// ・ｽ・ｽ・ｽ・ｽ・ｽﾎ象フ・ｽ@・ｽC・ｽ・ｽ・ｽ・ｽ・ｽ・ｽo・ｽ^・ｽ・ｽ・ｽﾜゑｿｽ・ｽB
-		// ・ｽp・ｽ^・ｽ[・ｽ・ｽ・ｽ・ｽo・ｽ^・ｽ・ｽ・ｽﾈゑｿｽ・ｽ鼾・ｿｽA・ｽﾆ趣ｿｽ・ｽ・ｽ・ｽﾌゑｿｽMOD・ｽt・ｽ@・ｽC・ｽ・ｽ・ｽA・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽf・ｽB・ｽ・ｽ・ｽN・ｽg・ｽ・ｽ・ｽA・ｽN・ｽ・ｽ・ｽX・ｽ・ｽ・ｽﾇみ搾ｿｽ・ｽﾜゑｿｽﾜゑｿｽ・ｽ・ｽB
+		// 検索対象ファイル名を登録します。
+		// I will register the search file name.
+		// パターンを登録しない場合、独自名称のMODファイル、テクスチャディレクトリ、クラスが読み込まれません。
+		// If you do not register the pattern, MOD file its own name, texture directory, class is not loaded.
 		MMM_FileManager.getModFile("MMMLib", "MMMLib");
 		MMM_FileManager.getModFile("MMMLib", "ModelMulti");
 		addSearch("MMMLib", "/mob/ModelMulti/", "ModelMulti_");
@@ -146,14 +157,16 @@ public class MMM_TextureManager {
 	}
 
 	/**
-	 * ・ｽﾇ会ｿｽ・ｽﾎ象となる検・ｽ・ｽ・ｽﾎ象フ・ｽ@・ｽC・ｽ・ｽ・ｽQ・ｽﾆゑｿｽ・ｽ黷ｼ・ｽ・ｽﾌ鯉ｿｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽﾝ定す・ｽ・ｽB
+	 * 追加対象となる検索対象ファイル群とそれぞれの検索文字列を設定する。
+	 * Set the search string and search each file group to which you want to add.
 	 */
 	public void addSearch(String pName, String pTextureDir, String pClassPrefix) {
 		searchPrefix.add(new String[] {pName, pTextureDir, pClassPrefix});
 	}
 
 	/**
-	 * ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽ・ｽ・ｽﾌの茨ｿｽv・ｽ・ｽ・ｽ髟ｨ・ｽ・ｽﾔゑｿｽ・ｽB
+	 * テクスチャ名称の一致する物を返す。
+	 * I return for a match of the texture name.
 	 */
 	public MMM_TextureBox getTextureBox(String pName) {
 		for (MMM_TextureBox ltb : textures) {
@@ -165,7 +178,8 @@ public class MMM_TextureManager {
 	}
 
 	/**
-	 * ・ｽn・ｽ・ｽ・ｽ黷ｽTextureBoxBase・ｽｻ定し・ｽ・ｽTextureBox・ｽ・ｽﾔゑｿｽ・ｽB
+	 * 渡されたTextureBoxBaseを判定してTextureBoxを返す。
+	 * Returns the TextureBox it is determined the TextureBoxBase passed.
 	 * @param pBoxBase
 	 * @return
 	 */
@@ -196,7 +210,7 @@ public class MMM_TextureManager {
 	}
 
 	protected void getArmorPrefix() {
-		// ・ｽA・ｽ[・ｽ}・ｽ[・ｽt・ｽ@・ｽC・ｽ・ｽ・ｽﾌプ・ｽ・ｽ・ｽt・ｽB・ｽb・ｽN・ｽX・ｽ・ｽ・ｽl・ｽ・ｽ
+		// アーマーファイルのプリフィックスを獲得, Earn prefix armor file
 		try {
 			armorFilenamePrefix = (String[])ModLoader.getPrivateValue(RenderBiped.class, null, 5);
 			return;
@@ -210,13 +224,16 @@ public class MMM_TextureManager {
 
 	public boolean loadTextures() {
 		mod_MMM_MMMLib.Debug("loadTexturePacks.");
-		// ・ｽA・ｽ[・ｽ}・ｽ[・ｽﾌフ・ｽ@・ｽC・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽﾊゑｿｽ・ｽ驍ｽ・ｽﾟの包ｿｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽl・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ
+		// アーマーのファイル名を識別するための文字列を獲得する
+		// To win the character string that identifies the file name of the armor
 		if (MMM_Helper.isClient) {
 			getArmorPrefix();
 		}
 		
-		// ・ｽt・ｽ@・ｽC・ｽ・ｽ・ｽ・ｽ・ｽ・ｽﾍゑｿｽ・ｽﾄテ・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽ・ｽﾇ会ｿｽ
-		// jar・ｽ・ｽ・ｽﾌテ・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽ・ｽﾇ会ｿｽ
+		// ファイルを解析してテクスチャを追加
+		// Add texture by parsing the file
+		// jar内のテクスチャを追加
+		// Add the texture of the jar
 		if (MMM_FileManager.minecraftJar == null) {
 			mod_MMM_MMMLib.Debug("getTexture-append-jar-file not founded.");
 		} else {
@@ -233,7 +250,7 @@ public class MMM_TextureManager {
 				for (String[] lst : searchPrefix) {
 					boolean lflag;
 					if (lf.isDirectory()) {
-						// ・ｽf・ｽB・ｽ・ｽ・ｽN・ｽg・ｽ・ｽ
+						// ディレクトリ, Directory
 						lflag = addTexturesDir(lf, lst);
 					} else {
 						// zip
@@ -244,10 +261,10 @@ public class MMM_TextureManager {
 			}
 		}
 		
-		// TODO:・ｽ・ｽ・ｽ・ｽ・ｽR・ｽ[・ｽh
+		// TODO: 実験コード, Experiment code
 		buildCrafterTexture();
 		
-		// ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽP・ｽ[・ｽW・ｽﾉ・ｿｽ・ｽf・ｽ・ｽ・ｽN・ｽ・ｽ・ｽX・ｽ・ｽR・ｽt・ｽ・ｽ
+		// テクスチャパッケージにモデルクラスを紐付け, Linking the model to the texture class package
 		MMM_ModelMultiBase[] ldm = modelMap.get(defaultModelName);
 		if (ldm == null && !modelMap.isEmpty()) {
 			ldm = (MMM_ModelMultiBase[])modelMap.values().toArray()[0];
@@ -301,7 +318,7 @@ public class MMM_TextureManager {
 	}
 
 	public void buildCrafterTexture() {
-		// TODO:・ｽ・ｽ・ｽ・ｽ・ｽR・ｽ[・ｽh・ｽW・ｽ・ｽ・ｽ・ｽ・ｽf・ｽ・ｽ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽﾅ構・ｽz
+		// TODO: 実験コード標準モデルテクスチャで構築, Built with experimental code standard model texture
 		MMM_TextureBox lbox = new MMM_TextureBox("Crafter_Steve", new String[] {"", "", ""});
 		lbox.fileName = "";
 		
@@ -320,13 +337,15 @@ public class MMM_TextureManager {
 
 
 	public boolean loadTextureServer() {
-		// ・ｽT・ｽ[・ｽo・ｽ[・ｽp・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽ・ｽ・ｽﾌのイ・ｽ・ｽ・ｽf・ｽN・ｽb・ｽX・ｽ・ｽ・ｽ[・ｽ_・ｽ[
-		// ・ｽ謔ｸ・ｽﾍ手持・ｽ・ｽ・ｽﾌテ・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽN・ｽ・ｽﾇ会ｿｽ・ｽ・ｽ・ｽ・ｽB
+		// サーバー用テクスチャ名称のインデクッスローダー
+		// Independiente cookie database loader for the server texture name
+		// 先ずは手持ちのテクスチャパックを追加する。
+		// I add the texture pack on hand first.
 		textureServer.clear();
 		for (MMM_TextureBox lbox : textures) {
 			textureServer.add(new MMM_TextureBoxServer(lbox));
 		}
-		// ・ｽt・ｽ@・ｽC・ｽ・ｽ・ｽ・ｽ・ｽ辜搾ｿｽ[・ｽh
+		// ファイルからロード, Loaded from the file
 		File lfile = MinecraftServer.getServer().getFile(nameTextureIndex);
 		if (lfile.exists() && lfile.isFile()) {
 			try {
@@ -337,7 +356,7 @@ public class MMM_TextureManager {
 				while ((ls = br.readLine()) != null) {
 					String lt[] = ls.split(",");
 					if (lt.length >= 7) {
-						// ・ｽt・ｽ@・ｽC・ｽ・ｽ・ｽﾌほゑｿｽ・ｽ・ｽ・ｽD・ｽ・ｽ
+						// ファイルのほうが優先, More of the file priority
 						MMM_TextureBoxServer lbox = getTextureBoxServer(lt[6]);
 						if (lbox == null) {
 							lbox = new MMM_TextureBoxServer();
@@ -373,7 +392,7 @@ public class MMM_TextureManager {
 	}
 
 	public void saveTextureServer() {
-		// ・ｽT・ｽ[・ｽo・ｽ[・ｽp・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽ・ｽ・ｽﾌのイ・ｽ・ｽ・ｽf・ｽN・ｽb・ｽX・ｽZ・ｽ[・ｽo・ｽ[
+		// サーバー用テクスチャ名称のインデクッスセーバー, Independiente cookie database saver for servers texture name
 		File lfile = MinecraftServer.getServer().getFile(nameTextureIndex);
 		try {
 			FileWriter fw = new FileWriter(lfile);
@@ -400,7 +419,8 @@ public class MMM_TextureManager {
 	}
 
 	/**
-	 * ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽC・ｽ・ｽ・ｽf・ｽb・ｽN・ｽX・ｽ・ｽ・ｽ\・ｽz・ｽB
+	 * テクスチャインデックスを構築。
+	 * Building a texture index.
 	 */
 	protected void initTextureList(boolean pFlag) {
 		mod_MMM_MMMLib.Debug("Clear TextureBoxServer.");
@@ -418,13 +438,16 @@ public class MMM_TextureManager {
 	}
 
 	/**
-	 * ・ｽn・ｽ・ｽ・ｽ黷ｽ・ｽ・ｽ・ｽﾌゑｿｽ・ｽ・ｽﾍゑｿｽ・ｽ・ｽLMM・ｽp・ｽﾌ・ｿｽ・ｽf・ｽ・ｽ・ｽN・ｽ・ｽ・ｽX・ｽ・ｽ・ｽﾇゑｿｽ・ｽ・ｽ・ｽｻ定す・ｽ・ｽB
-	 * ・ｽuModelLittleMaid_・ｽv・ｽﾆゑｿｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽｪ含まゑｿｽﾄゑｿｽ・ｽﾄ、
-	 * ・ｽuMMM_ModelBiped・ｽv・ｽ・ｽ・ｽp・ｽ・ｽ・ｽ・ｽ・ｽﾄゑｿｽ・ｽ・ｽﾎマ・ｽ・ｽ・ｽ`・ｽ・ｽ・ｽf・ｽ・ｽ・ｽﾆゑｿｽ・ｽﾄク・ｽ・ｽ・ｽX・ｽ・ｽo・ｽ^・ｽ・ｽ・ｽ・ｽB
+	 * 渡された名称を解析してLMM用のモデルクラスかどうかを判定する。
+	 * 「ModelLittleMaid_」という文字列が含まれていて、
+	 * 「MMM_ModelBiped」を継承していればマルチモデルとしてクラスを登録する。
+	 * It is determined whether or not the model class of LMM for by analyzing the name passed.
+	 * String "ModelLittleMaid_" is included,
+	 * Register the class as a multi-model as long as they inherit the "MMM_ModelBiped".
 	 * @param fname
 	 */
 	protected void addModelClass(String fname, String[] pSearch) {
-		// ・ｽ・ｽ・ｽf・ｽ・ｽ・ｽ・ｽﾇ会ｿｽ
+		// モデルを追加, Add model
 		int lfindprefix = fname.indexOf(pSearch[2]);
 		if (lfindprefix > -1 && fname.endsWith(".class")) {
 			String cn = fname.replace(".class", "");
@@ -466,7 +489,7 @@ public class MMM_TextureManager {
 	}
 	
 	protected void addTextureName(String fname, String[] pSearch) {
-		// ・ｽp・ｽb・ｽP・ｽ[・ｽW・ｽﾉテ・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽ・ｽo・ｽ^
+		// パッケージにテクスチャを登録, To register a texture to package
 		if (!fname.startsWith("/")) {
 			fname = (new StringBuilder()).append("/").append(fname).toString();
 		} else {
@@ -550,7 +573,7 @@ public class MMM_TextureManager {
 			}
 		}
 		
-		// ・ｽﾓ厄ｿｽ・ｽﾈゑｿｽ・ｽH
+		// 意味なし？, Without meaning?
 		if (file.isDirectory()) {
 			mod_MMM_MMMLib.Debug("addTextureJar-file.");
 			boolean lflag = false;
@@ -585,7 +608,8 @@ public class MMM_TextureManager {
 	}
 
 	protected boolean addTexturesDir(File file, String[] pSearch) {
-		// mods・ｽt・ｽH・ｽ・ｽ・ｽ_・ｽﾉ突ゑｿｽ・ｽ・ｽ・ｽ・ｽﾅゑｿｽ・ｽ・ｽ・ｽ・ｽﾌゑｿｽ・ｽ・ｽ・ｽ・ｽ・ｽA・ｽﾄ帰・ｽﾅ。
+		// modsフォルダに突っ込んであるものも検索、再帰で。
+		// what Aru digs in mods folder also search, a recursive.
 		if (file == null) {
 			return false;
 		}
@@ -601,7 +625,8 @@ public class MMM_TextureManager {
 						String s = t.getPath().replace('\\', '/');
 						int i = s.indexOf(pSearch[1]);
 						if (i > -1) {
-							// ・ｽﾎ象はテ・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽf・ｽB・ｽ・ｽ・ｽN・ｽg・ｽ・ｽ
+							// 対象はテクスチャディレクトリ
+							// Target texture directory
 							addTextureName(s.substring(i), pSearch);
 //							addTextureName(s.substring(i).replace('\\', '/'));
 						}
@@ -616,7 +641,7 @@ public class MMM_TextureManager {
 	}
 
 	protected int getIndex(String name) {
-		// ・ｽ・ｽ・ｽO・ｽ・ｽ・ｽ・ｽC・ｽ・ｽ・ｽf・ｽb・ｽN・ｽX・ｽ・ｽ・ｽ・ｽ・ｽo・ｽ・ｽ
+		// 名前からインデックスを取り出す, I retrieve the index from name
 		for (int i = 0; i < defNames.length; i++) {
 			if (name.endsWith(defNames[i])) {
 				return i;
@@ -633,7 +658,8 @@ public class MMM_TextureManager {
 	}
 
 	public MMM_TextureBox getNextPackege(MMM_TextureBox pNowBox, int pColor) {
-		// ・ｽ・ｽ・ｽﾌテ・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽP・ｽ[・ｽW・ｽﾌ厄ｿｽ・ｽO・ｽ・ｽﾔゑｿｽ
+		// 次のテクスチャパッケージの名前を返す
+		// I return the name of the texture of the following packages:
 		boolean f = false;
 		MMM_TextureBox lreturn = null;
 		for (MMM_TextureBox ltb : textures) {
@@ -653,7 +679,8 @@ public class MMM_TextureManager {
 	}
 
 	public MMM_TextureBox getPrevPackege(MMM_TextureBox pNowBox, int pColor) {
-		// ・ｽO・ｽﾌテ・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽP・ｽ[・ｽW・ｽﾌ厄ｿｽ・ｽO・ｽ・ｽﾔゑｿｽ
+		// 前のテクスチャパッケージの名前を返す
+		// I return the name of the texture of the package before
 		MMM_TextureBox lreturn = null;
 		for (MMM_TextureBox ltb : textures) {
 			if (ltb == pNowBox) {
@@ -669,14 +696,16 @@ public class MMM_TextureManager {
 	}
 
 	/**
-	 * ・ｽ・ｽ・ｽ[・ｽJ・ｽ・ｽ・ｽﾅ読み搾ｿｽ・ｽﾜゑｿｽﾄゑｿｽ・ｽ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽN・ｽﾌ撰ｿｽ・ｽB
+	 * ローカルで読み込まれているテクスチャパックの数。
+	 * Number of texture pack that is loaded locally.
 	 */
 	public int getTextureCount() {
 		return textures.size();
 	}
 
 	public MMM_TextureBox getNextArmorPackege(MMM_TextureBox pNowBox) {
-		// ・ｽ・ｽ・ｽﾌテ・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽP・ｽ[・ｽW・ｽﾌ厄ｿｽ・ｽO・ｽ・ｽﾔゑｿｽ
+		// 次のテクスチャパッケージの名前を返す
+		// I return the name of the texture of the following packages:
 		boolean f = false;
 		MMM_TextureBox lreturn = null;
 		for (MMM_TextureBox ltb : textures) {
@@ -696,7 +725,8 @@ public class MMM_TextureManager {
 	}
 
 	public MMM_TextureBox getPrevArmorPackege(MMM_TextureBox pNowBox) {
-		// ・ｽO・ｽﾌテ・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽP・ｽ[・ｽW・ｽﾌ厄ｿｽ・ｽO・ｽ・ｽﾔゑｿｽ
+		// 前のテクスチャパッケージの名前を返す
+		// I return the name of the texture of the package before
 		MMM_TextureBox lreturn = null;
 		for (MMM_TextureBox ltb : textures) {
 			if (ltb == pNowBox) {
@@ -719,7 +749,7 @@ public class MMM_TextureManager {
 		if (textureServer.isEmpty()) {
 			return null;
 		} else {
-			// ・ｽ・ｶ・ｽF・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽﾌゑｿｽ・ｽ・ｽ・ｽX・ｽg・ｽA・ｽb・ｽv
+			//  野生色があるものをリストアップ, List up the thing with the wild colors
 			List<MMM_TextureBoxServer> llist = new ArrayList<MMM_TextureBoxServer>();
 			for (MMM_TextureBoxServer lbox : textureServer) {
 				if (lbox.getWildColorBits() > 0) {
@@ -731,8 +761,10 @@ public class MMM_TextureManager {
 	}
 
 	/**
-	 * ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽN・ｽ・ｽ・ｽﾉ対会ｿｽ・ｽ・ｽ・ｽ・ｽC・ｽ・ｽ・ｽf・ｽb・ｽN・ｽX・ｽ・ｽﾔゑｿｽ・ｽB
-	 * ・ｽ・ｽ{・ｽT・ｽ[・ｽo・ｽ[・ｽp・ｽB
+	 * テクスチャパック名に対応するインデックスを返す。
+	 * 基本サーバー用。
+	 * I return the index corresponding to the texture pack name.
+	 * Basic server.
 	 * @param pEntity
 	 * @param pPackName
 	 * @return
@@ -743,7 +775,8 @@ public class MMM_TextureManager {
 				return li;
 			}
 		}
-		// ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽﾈゑｿｽ・ｽ・ｽ・ｽ・ｽ・ｽﾌゑｿｽEntity・ｽﾉ対会ｿｽ・ｽ・ｽ・ｽ・ｽf・ｽt・ｽH・ｽ・ｽ・ｽg・ｽ・ｽﾔゑｿｽ
+		// 見当たらなかったのでEntityに対応するデフォルトを返す
+		// Returns the default corresponding to the Entity because could not find
 //		int li = textureServerIndex.get(getDefaultTexture(pEntity));
 		MMM_TextureBox lbox = getDefaultTexture(pEntity);
 		if (lbox != null) {
@@ -758,7 +791,8 @@ public class MMM_TextureManager {
 	}
 
 	/**
-	 * ・ｽw・ｽ閧ｳ・ｽ黷ｽ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽN・ｽﾌサ・ｽ[・ｽo・ｽ[・ｽ・ｽ・ｽﾌ管暦ｿｽ・ｽﾔ搾ｿｽ・ｽ・ｽﾔゑｿｽ・ｽB
+	 * 指定されたテクスチャパックのサーバー側の管理番号を返す。
+	 * I return the control number of the server side of the texture pack that you specify.
 	 * @param pBox
 	 * @return
 	 */
@@ -767,7 +801,8 @@ public class MMM_TextureManager {
 	}
 
 	/**
-	 * Entity・ｽﾉ対会ｿｽ・ｽ・ｽ・ｽ・ｽf・ｽt・ｽH・ｽ・ｽ・ｽg・ｽﾌテ・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽ・ｽﾝ定す・ｽ・ｽB
+	 * Entityに対応するデフォルトのテクスチャを設定する。
+	 * I set the default texture corresponding to the Entity.
 	 */
 	public void setDefaultTexture(MMM_ITextureEntity pEntity, MMM_TextureBox pBox) {
 		setDefaultTexture(pEntity.getClass(), pBox);
@@ -779,7 +814,8 @@ public class MMM_TextureManager {
 	}
 
 	/**
-	 * Entity・ｽﾉ対会ｿｽ・ｽ・ｽ・ｽ・ｽf・ｽt・ｽH・ｽ・ｽ・ｽg・ｽ・ｽ・ｽf・ｽ・ｽ・ｽ・ｽﾔゑｿｽ・ｽB
+	 * Entityに対応するデフォルトモデルを返す。
+	 * I return the default model corresponding to the Entity.
 	 */
 	public MMM_TextureBox getDefaultTexture(MMM_ITextureEntity pEntity) {
 		return getDefaultTexture(pEntity.getClass());
@@ -803,10 +839,11 @@ public class MMM_TextureManager {
 
 
 	/*
-	 * ・ｽT・ｽ[・ｽo・ｽ[・ｽN・ｽ・ｽ・ｽC・ｽA・ｽ・ｽ・ｽg・ｽﾔでのテ・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽﾇ暦ｿｽ・ｽﾖ撰ｿｽ・ｽQ
+	 * サーバークライアント間でのテクスチャ管理関数群
+	 * Texture management function group on the server between clients
 	 */
 
-	// ・ｽl・ｽb・ｽg・ｽ・ｽ・ｽ[・ｽN・ｽz・ｽ・ｽ・ｽﾉテ・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽC・ｽ・ｽ・ｽf・ｽN・ｽX・ｽｾゑｿｽﾛに使・ｽ・ｽ
+	// ネットワーク越しにテクスチャインデクスを得る際に使う, Used in obtaining the texture index over the network
 	protected int getRequestStringIndex(String pVal) {
 		int lblank = -1;
 		for (int li = 0; li < requestString.length; li++) {
@@ -839,7 +876,7 @@ public class MMM_TextureManager {
 				lblank = li;
 				requestIndexCounter[li] = 0;
 			} else if (requestIndex[li] == pTextureServerBoxIndex) {
-				// ・ｽ・ｽﾉ要・ｽ・ｽ・ｽ・ｽ
+				//  既に要求中, Request already in
 				return -2;
 			}
 		}
@@ -854,7 +891,7 @@ public class MMM_TextureManager {
 	protected boolean clearRequestIndex(int pTextureServerBoxIndex) {
 		for (int li = 0; li < requestIndex.length; li++) {
 			if (requestIndex[li] == pTextureServerBoxIndex) {
-				// ・ｽv・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽﾌで擾ｿｽ・ｽ・ｽ・ｽB
+				// 要求中だったので消す。, Turn off because it was requesting.
 				requestIndex[li] = -1;
 				return true;
 			}
@@ -874,18 +911,21 @@ public class MMM_TextureManager {
 
 
 	/**
-	 * ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽN・ｽ・ｽﾝ定す・ｽ驍ｽ・ｽﾟ、・ｽT・ｽ[・ｽo・ｽ[・ｽﾖ擾ｿｽ・ｽ翌・ｽB
+	 * テクスチャパックを設定するため、サーバーへ情報を送る。
+	 * In order to set the texture pack and send information to the server.
 	 * @param pEntity
 	 * @param pBox
 	 */
 	public void postSetTexturePack(MMM_ITextureEntity pEntity, int pColor, MMM_TextureBoxBase[] pBox) {
 		// Client
 		if (!(pEntity instanceof Entity)) return;
-		// ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽN・ｽ・ｽﾝ定す・ｽ驍ｽ・ｽﾟ、・ｽT・ｽ[・ｽo・ｽ[・ｽﾖ擾ｿｽ・ｽ翌・ｽB
+		// テクスチャパックを設定するため、サーバーへ情報を送る。
+		// In order to set the texture pack and send information to the server.
 		int lindex[] = new int[pBox.length];
 		boolean lflag = true;
 		
-		// PackeName・ｽ・ｽ・ｽ・ｽT・ｽ[・ｽo・ｽ[・ｽ・ｽ・ｽﾌテ・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽC・ｽ・ｽ・ｽf・ｽb・ｽN・ｽX・ｽ・ｽ・ｽl・ｽ・ｽ・ｽ・ｽ・ｽ・ｽB
+		// PackeNameからサーバー側のテクスチャインデックスを獲得する。
+		// I acquire the texture index of server side from PackeName.
 		for (int li = 0; li < pBox.length; li++) {
 			lindex[li] = checkTextureBoxServer((MMM_TextureBox)pBox[li]);
 			if (lindex[li] < 0) {
@@ -894,10 +934,12 @@ public class MMM_TextureManager {
 		}
 		
 		if (lflag) {
-			// ・ｽ・ｽ・ｽﾗての厄ｿｽ・ｽﾌゑｿｽ・ｽ・ｽC・ｽ・ｽ・ｽf・ｽb・ｽN・ｽX・ｽ・ｽ・ｽ・ｽ・ｽo・ｽ・ｽ・ｽ・ｽ・ｽ鼾・ｿｽA・ｽT・ｽ[・ｽo・ｽ[・ｽﾖポ・ｽX・ｽg・ｽ・ｽ・ｽ・ｽB
+			// すべての名称からインデックスを取り出せた場合、サーバーへポストする。
+			// When retrieved from the index names for all post to the server.
 			sendToServerSetTexturePackIndex(pEntity, pColor, lindex);
 		} else {
-			// ・ｽ・ｽ・ｽ[・ｽJ・ｽ・ｽ・ｽﾉ設抵ｿｽl・ｽ・ｽ・ｽﾈゑｿｽ・ｽ鼾・ｿｽA・ｽo・ｽb・ｽt・ｽ@・ｽﾉジ・ｽ・ｽ・ｽu・ｽ・ｽ・ｽX・ｽ^・ｽb・ｽN・ｽ・ｽ・ｽI・ｽ・ｽ・ｽB
+			// ローカルに設定値がない場合、バッファにジョブをスタックし終了。
+			// If you do not have a set value to local, stacked end job in the buffer.
 			Object lo[] = new Object[1 + pBox.length];
 			lo[0] = pColor;
 			for (int li = 0; li < pBox.length; li++) {
@@ -908,7 +950,8 @@ public class MMM_TextureManager {
 	}
 
 	/**
-	 * TextureBox・ｽﾉサ・ｽ[・ｽo・ｽ[・ｽ・ｽ・ｽﾊ番搾ｿｽ・ｽ・ｽ・ｽt・ｽ^・ｽ・ｽ・ｽ・ｽﾄゑｿｽ・ｽ驍ｩ・ｽ・ｽ・ｽm・ｽF・ｽ・ｽ・ｽA・ｽﾈゑｿｽ・ｽ・ｽﾎ問い・ｽ・ｽ・ｽ墲ｹ・ｽ・ｽ・ｽs・ｽ・ｽ・ｽB
+	 * TextureBoxにサーバー識別番号が付与されているかを確認し、なければ問い合わせを行う。
+	 * Check server identification number is being given to TextureBox, to perform a query otherwise.
 	 * @param pBox
 	 * @return
 	 */
@@ -929,7 +972,8 @@ public class MMM_TextureManager {
 
 	protected void sendToServerSetTexturePackIndex(MMM_ITextureEntity pEntity, int pColor, int[] pIndex) {
 		// Client
-		// ・ｽT・ｽ[・ｽo・ｽ[・ｽ・ｽ・ｽﾖテ・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽN・ｽﾌイ・ｽ・ｽ・ｽf・ｽb・ｽN・ｽX・ｽ・ｽ・ｽﾏ更・ｽ・ｽ・ｽ黷ｽ・ｽ・ｽ・ｽﾆゑｿｽﾊ知・ｽ・ｽ・ｽ・ｽB
+		// サーバー側へテクスチャパックのインデックスが変更されたことを通知する。
+		// I notice that the index of the texture pack is changed to the server side.
 		if (pEntity instanceof Entity) {
 			byte ldata[] = new byte[6 + pIndex.length * 2];
 			ldata[0] = MMM_Statics.Server_SetTexturePackIndex;
@@ -947,7 +991,9 @@ public class MMM_TextureManager {
 	protected void reciveFromClientSetTexturePackIndex(Entity pEntity, byte[] pData) {
 		// Server
 		if (pEntity instanceof MMM_ITextureEntity) {
-			// ・ｽN・ｽ・ｽ・ｽC・ｽA・ｽ・ｽ・ｽg・ｽ・ｽ・ｽ・ｽ・ｽ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽN・ｽﾌイ・ｽ・ｽ・ｽf・ｽb・ｽN・ｽX・ｽ・ｽ・ｽﾏ更・ｽ・ｽ・ｽ黷ｽ・ｽﾊ知・ｽ・ｽ・ｽｯ趣ｿｽ・ｽ・ｽ・ｽ・ｽﾌで擾ｿｽ・ｽ・ｽ・ｽ・ｽ・ｽs・ｽ・ｽ・ｽB
+			// クライアント側からテクスチャパックのインデックスが変更された通知を受け取ったので処理を行う。
+			// And performs processing 
+			// since receiving a notification index texture pack is changed from the client side.
 			int lcount = (pData.length - 6) / 2;
 			if (lcount < 1) return;
 			int lindex[] = new int[lcount];
@@ -962,9 +1008,12 @@ public class MMM_TextureManager {
 
 	protected void sendToServerGetTextureIndex(int pBufIndex, MMM_TextureBox pBox) {
 		// Client
-		// ・ｽT・ｽ[・ｽo・ｽ[・ｽ・ｽ・ｽﾖテ・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽN・ｽﾌ管暦ｿｽ・ｽﾔ搾ｿｽ・ｽ・ｽ竄｢・ｽ・ｽ・ｽ墲ｹ・ｽ・ｽB
-		// ・ｽﾄび出・ｽ・ｽ・ｽ・ｽ・ｽﾌク・ｽ・ｽ・ｽC・ｽA・ｽ・ｽ・ｽg・ｽﾖのみ返ゑｿｽ・ｽB
-		// ・ｽﾔゑｿｽ・ｽﾆゑｿｽ・ｽ・ｽName・ｽﾍ不・ｽv・ｽABufIndex・ｽﾌみで趣ｿｽ・ｽﾊゑｿｽ・ｽ・ｽ・ｽ・ｽ
+		// サーバー側へテクスチャパックの管理番号を問い合わせる。
+		// 呼び出し側のクライアントへのみ返す。
+		// 返すときはNameは不要、BufIndexのみで識別させる
+		// I query the control number of the texture pack to the server side.
+		// I only return to the calling client.
+		// Unnecessary, Name to be identified by only BufIndex when you return
 		byte ldata[] = new byte[22 + pBox.textureName.length()];
 		ldata[0] = MMM_Statics.Server_GetTextureIndex;
 		ldata[1] = (byte)pBufIndex;
@@ -981,7 +1030,8 @@ public class MMM_TextureManager {
 
 	protected void reciveFromClientGetTexturePackIndex(NetServerHandler pHandler, byte[] pData) {
 		// Server
-		// ・ｽN・ｽ・ｽ・ｽC・ｽA・ｽ・ｽ・ｽg・ｽ・ｽ・ｽﾖテ・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽN・ｽﾌ管暦ｿｽ・ｽﾔ搾ｿｽ・ｽ・ｽﾔゑｿｽ・ｽB
+		// クライアント側へテクスチャパックの管理番号を返す。
+		// I return the control number of the texture pack to the client side.
 		String lpackname = MMM_Helper.getStr(pData, 22);
 		MMM_TextureBoxServer lboxsrv = getTextureBoxServer(lpackname);
 		int li;
@@ -1004,12 +1054,14 @@ public class MMM_TextureManager {
 
 	protected void reciveFormServerSetTexturePackIndex(byte[] pData) {
 		// Client
-		// ・ｽT・ｽ[・ｽo・ｽ[・ｽ・ｽ・ｽ・ｽ・ｽ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽN・ｽﾌイ・ｽ・ｽ・ｽf・ｽb・ｽN・ｽX・ｽ・ｽ・ｽｯ趣ｿｽ・ｽ・ｽ・ｽ・ｽﾌで値・ｽ・ｽo・ｽ^・ｽ・ｽ・ｽ・ｽB
+		// サーバー側からテクスチャパックのインデックスを受け取ったので値を登録する。
+		// Register the value since receiving the index of the texture pack from the server side.
 		MMM_TextureBox lbox = getTextureBox(getRequestString(pData[1]));
 		textureServerIndex.put(lbox, (int)MMM_Helper.getShort(pData, 2));
 		mod_MMM_MMMLib.Debug("reciveFormServerSetTexturePackIndex: %s, %04x", lbox.textureName, (int)MMM_Helper.getShort(pData, 2));
 		
-		// ・ｽX・ｽ^・ｽb・ｽN・ｽ・ｽ・ｽ黷ｽ・ｽW・ｽ・ｽ・ｽu・ｽ・ｽ・ｽ迴茨ｿｽ・ｽ・ｽﾂ能・ｽﾈ包ｿｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽﾎ趣ｿｽ・ｽs・ｽ・ｽ・ｽ・ｽB
+		// スタックされたジョブから処理可能な物があれば実行する。
+		// I run if there is something that can be processed from the job that is stuck.
 		Map<MMM_ITextureEntity, Object[]> lmap = new HashMap<MMM_ITextureEntity, Object[]>(stackSetTexturePack);
 		stackSetTexturePack.clear();
 		for (Entry<MMM_ITextureEntity, Object[]> le : lmap.entrySet()) {
@@ -1026,17 +1078,20 @@ public class MMM_TextureManager {
 
 
 	/**
-	 * ・ｽT・ｽ[・ｽo・ｽ[・ｽ・ｽ・ｽ・ｽﾝ定さ・ｽ黷ｽ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽC・ｽ・ｽ・ｽf・ｽb・ｽN・ｽX・ｽ・ｽ・ｽ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽN・ｽ・ｽ・ｽ謫ｾ・ｽ・ｽ・ｽ・ｽB
+	 * サーバーから設定されたテクスチャインデックスからテクスチャパックを取得する
+	 * I get the texture pack from the texture index is set from the server
 	 * @param pEntity
 	 * @param pIndex
 	 */
 	public void postGetTexturePack(MMM_ITextureEntity pEntity, int[] pIndex) {
 		// Client
-		// ・ｽN・ｽ・ｽ・ｽC・ｽA・ｽ・ｽ・ｽg・ｽ・ｽ・ｽﾅ指・ｽ閧ｳ・ｽ黷ｽ・ｽC・ｽ・ｽ・ｽf・ｽb・ｽN・ｽX・ｽﾉ対ゑｿｽ・ｽﾄテ・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽN・ｽﾌ厄ｿｽ・ｽﾌゑｿｽﾔゑｿｽ・ｽﾝ定さ・ｽ・ｽ・ｽ・ｽ
+		// クライアント側で指定されたインデックスに対してテクスチャパックの名称を返し設定させる
+		// Thereby set returns the name of the texture pack for the index specified by the client-side
 		MMM_TextureBox lbox[] = new MMM_TextureBox[pIndex.length];
 		boolean lflag = true;
 		
-		// ・ｽ・ｽ・ｽ[・ｽJ・ｽ・ｽ・ｽC・ｽ・ｽ・ｽf・ｽb・ｽN・ｽX・ｽﾉ厄ｿｽ・ｽﾌゑｿｽ・ｽo・ｽ^・ｽ・ｽ・ｽ・ｽﾄゑｿｽ・ｽﾈゑｿｽ・ｽ・ｽﾎサ・ｽ[・ｽo・ｽ[・ｽﾖ問い・ｽ・ｽ・ｽ墲ｹ・ｽ・ｽB
+		// ローカルインデックスに名称が登録されていなければサーバーへ問い合わせる。
+		// Query to the server name is not registered on the local index.
 		for (int li = 0; li < pIndex.length; li++) {
 			lbox[li] = getTextureBoxServerIndex(pIndex[li]);
 			if (lbox[li] == null) {
@@ -1048,17 +1103,20 @@ public class MMM_TextureManager {
 		}
 		
 		if (lflag) {
-			// ・ｽS・ｽﾄの値・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ鼾・ｿｽ・ｽEntity・ｽﾖ値・ｽ・ｽﾝ定す・ｽ・ｽB
+			// 全ての値が取れる場合はEntityへ値を設定する。
+			// Set the value to Entity If you take the value of all.
 			pEntity.setTexturePackName(lbox);
 		} else {
-			// ・ｽs・ｽ・ｽ・ｽl・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ鼾・ｿｽﾍ擾ｿｽ・ｽ・ｽ・ｽ・ｽ・ｽX・ｽ^・ｽb・ｽN・ｽ・ｽ・ｽ・ｽB
+			// 不明値がある場合は処理をスタックする。
+			// I will stack the process if there is a missing value.
 			stackGetTexturePack.put(pEntity, pIndex);
 		}
 	}
 
 	protected void sendToServerGetTexturePackName(int pIndex) {
 		// Client
-		// ・ｽT・ｽ[・ｽo・ｽ[・ｽ・ｽ・ｽﾖテ・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽN・ｽﾌ厄ｿｽ・ｽﾌゑｿｽ竄｢・ｽ・ｽ・ｽ墲ｹ・ｽ・ｽ
+		// サーバー側へテクスチャパックの名称を問い合わせる
+		// I query the name of the texture pack to the server side
 		if (pIndex < 0) {
 			mod_MMM_MMMLib.Debug("request range out.");
 			return;
@@ -1071,11 +1129,13 @@ public class MMM_TextureManager {
 
 	protected void reciveFromClientGetTexturePackName(NetServerHandler pHandler, byte[] pData) {
 		// Server
-		// ・ｽN・ｽ・ｽ・ｽC・ｽA・ｽ・ｽ・ｽg・ｽ・ｽ・ｽ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽN・ｽﾌ厄ｿｽ・ｽﾌゑｿｽ・ｽ竄｢・ｽ・ｽ・ｽ墲ｹ・ｽ・ｽ黷ｽ・ｽB
+		// クライアントからテクスチャパックの名称が問い合わせられた。
+		// The name of the texture pack was asked for by the client.
 		int lindex = MMM_Helper.getShort(pData, 1);
 		MMM_TextureBoxServer lboxserver = getTextureBoxServer(lindex);
 		
-		// Client・ｽﾖ管暦ｿｽ・ｽﾔ搾ｿｽ・ｽﾉ登・ｽ^・ｽ・ｽ・ｽ・ｽﾄゑｿｽ・ｽ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽ・ｽ・ｽﾌゑｿｽ・ｽ|・ｽX・ｽg・ｽ・ｽ・ｽ・ｽ
+		// Clientへ管理番号に登録されているテクスチャ名称をポストする
+		// I will post the texture name registered in the management number to the Client
 		byte ldata[] = new byte[23 + lboxserver.textureName.length()];
 		ldata[0] = MMM_Statics.Client_SetTexturePackName;
 		MMM_Helper.setShort(ldata, 1, lindex);
@@ -1092,12 +1152,14 @@ public class MMM_TextureManager {
 
 	protected void reciveFromServerSetTexturePackName(byte[] pData) {
 		// Client
-		// ・ｽT・ｽ[・ｽo・ｽ[・ｽ・ｽ・ｽ・ｽC・ｽ・ｽ・ｽf・ｽb・ｽN・ｽX・ｽﾉ対ゑｿｽ・ｽ髢ｼ・ｽﾌの設定が・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽB
+		// サーバーからインデックスに対する名称の設定があった。
+		// There was a set of names for the index from the server.
 		String lpackname = MMM_Helper.getStr(pData, 23);
 		MMM_TextureBox lbox = getTextureBox(lpackname);
 		if (lbox == null) {
-			// ・ｽ・ｽ・ｽ[・ｽJ・ｽ・ｽ・ｽﾉは托ｿｽ・ｽﾝゑｿｽ・ｽﾈゑｿｽ・ｽe・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽp・ｽb・ｽN
-			// TODO:・ｽ・ｽ・ｽﾌ辺要・ｽC・ｽ・ｽ
+			// ローカルには存在しないテクスチャパック
+			// Texture pack does not exist in the local
+			// TODO: この辺要修正, This side FIXME
 			lbox = getTextureBox("default_Orign").duplicate();
 			lbox.textureName = lpackname;
 //			lbox = new MMM_TextureBox(lpackname, null);
@@ -1112,7 +1174,8 @@ public class MMM_TextureManager {
 		textureServerIndex.put(lbox, lindex);
 		clearRequestIndex(lindex);
 		
-		// ・ｽ・ｽ・ｽ・ｽ・ｽﾂ能・ｽﾈ包ｿｽ・ｽ・ｽ・ｽX・ｽ^・ｽb・ｽN・ｽ・ｽ・ｽ・ｽﾄゑｿｽ・ｽ・ｽ鼾・ｿｽﾍ擾ｿｽ・ｽ・ｽ・ｽ・ｽ・ｽs・ｽ・ｽ・ｽB
+		//  処理可能な物がスタックされている場合は処理を行う。
+		// I performs processing if the ones that can be processed is stacked.
 		Map<MMM_ITextureEntity, int[]> lmap = new HashMap<MMM_ITextureEntity, int[]>(stackGetTexturePack);
 		stackGetTexturePack.clear();
 		for (Entry<MMM_ITextureEntity, int[]> le : lmap.entrySet()) {
@@ -1121,11 +1184,13 @@ public class MMM_TextureManager {
 	}
 
 	/**
-	 * Request・ｽn・ｽﾌ値・ｽ・ｽ・ｽ・ｽ・ｽJ・ｽE・ｽ・ｽ・ｽg・ｽﾅ擾ｿｽ・ｽ・ｽ
+	 *  Request系の値を一定カウントで消去
+	 *  Erase at a constant count the value of the Request system
 	 */
 	protected void onUpdate() {
 		for (int li = 0; li < requestString.length; li++) {
-			// ・ｽ・ｽ30・ｽb・ｽﾅ会ｿｽ・ｽ
+			// 約30秒で解放
+			// Release in about 30 seconds
 			if (requestString[li] != null && requestStringCounter[li]++ > 600) {
 				requestString[li] = null;
 				requestStringCounter[li] = 0;

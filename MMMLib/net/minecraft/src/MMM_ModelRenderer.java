@@ -32,7 +32,7 @@ import org.lwjgl.opengl.GL11;
 
 public class MMM_ModelRenderer {
 
-	// ModelRenderer・ｽﾝ奇ｿｽ・ｽﾏ撰ｿｽ・ｽQ
+	// ModelRenderer互換変数群, ModelRenderer compatible variable group
 	public float textureWidth;
 	public float textureHeight;
 	private int textureOffsetX;
@@ -49,8 +49,10 @@ public class MMM_ModelRenderer {
 	public boolean showModel;
 	public boolean isHidden;
 	/**
-	 * ・ｽp・ｽ[・ｽc・ｽﾌ親・ｽq・ｽﾖ係・ｽﾉ搾ｿｽ・ｽE・ｽ・ｽ・ｽ黷ｸ・ｽﾉ描・ｽ謔ｷ・ｽ驍ｩ・ｽ・ｽ・ｽ・ｽ・ｽﾟゑｿｽB
-	 * ・ｽA・ｽ[・ｽ}・ｽ[・ｽﾌ表・ｽ・ｽ・ｽﾈどに使・ｽ・ｽ・ｽB
+	 * パーツの親子関係に左右されずに描画するかを決める。
+	 * アーマーの表示などに使う。
+	 * To decide whether to draw on without being influenced by the parent-child relationship of the parts.
+	 * I used to, such as display of armor.
 	 */
 	public boolean isRendering;
 	public List<MMM_ModelBoxBase> cubeList;
@@ -71,7 +73,8 @@ public class MMM_ModelRenderer {
 //	public static final float degFactor = 0.01745329251994329576923690768489F;
 	public static final float degFactor = (float)Math.PI / 180F;
 	
-	// SmartMoving・ｽﾉ搾ｿｽ・ｽ墲ｹ・ｽ驍ｽ・ｽﾟに厄ｿｽ・ｽﾌの変更・ｽ・ｽ・ｽ・ｽ・ｽ驍ｩ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽﾜゑｿｽ・ｽ・ｽB
+	// SmartMovingに合わせるために名称の変更があるかもしれません。
+	// There may be a change of name to conform to SmartMoving.
 	public int rotatePriority;
 	public static final int RotXYZ = 0;
 	public static final int RotXZY = 1;
@@ -144,7 +147,7 @@ public class MMM_ModelRenderer {
 		this.scaleZ = pScaleZ;
 	}
 
-	// ModelRenderer・ｽﾝ奇ｿｽ・ｽﾖ撰ｿｽ・ｽQ
+	// ModelRenderer互換関数群, ModelRenderer compatible set of functions
 
 	public void addChild(MMM_ModelRenderer pModelRenderer) {
 		if (childModels == null) {
@@ -185,7 +188,7 @@ public class MMM_ModelRenderer {
 		return this;
 	}
 
-	// TODO:・ｽA・ｽb・ｽv・ｽf・ｽ[・ｽg・ｽ・ｽ・ｽﾍゑｿｽ・ｽ・ｽ・ｽ・ｽ・ｽ`・ｽF・ｽb・ｽN・ｽ・ｽ・ｽ驍ｱ・ｽ・ｽ
+	// TODO:アップデート時はここをチェックすること, The thing to check here for updates when
 	public void render(float par1, boolean pIsRender) {
 		if (isHidden) return;
 		if (!showModel) return;
@@ -269,10 +272,11 @@ public class MMM_ModelRenderer {
 	}
 
 
-	// ・ｽﾆ趣ｿｽ・ｽﾇ会ｿｽ・ｽ・ｽ
+	// 独自追加分, Own additions
 
 	/**
-	 * ModelBox・ｽp・ｽ・ｽ・ｽﾌ独趣ｿｽ・ｽI・ｽu・ｽW・ｽF・ｽN・ｽg・ｽﾇ会ｿｽ・ｽp
+	 * ModelBox継承の独自オブジェクト追加用
+	 * Add your own objects for ModelBox inheritance
 	 */
 	public MMM_ModelRenderer addCubeList(MMM_ModelBoxBase pModelBoxBase) {
 		cubeList.add(pModelBoxBase);
@@ -314,8 +318,10 @@ public class MMM_ModelRenderer {
 	}
 
 	/**
-	 * ・ｽ・ｽ・ｽ・ｽ・ｽﾅテ・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽﾌ搾ｿｽ・ｽW・ｽ・ｽ・ｽw・ｽ閧ｷ・ｽ骼橸ｿｽﾉ使・ｽ・ｽ・ｽﾜゑｿｽ・ｽB
-	 * ・ｽR・ｽ・ｽ・ｽX・ｽg・ｽ・ｽ・ｽN・ｽ^・ｽﾖゑｿｽ・ｽﾌまま値・ｽ・ｽn・ｽ・ｽ・ｽﾜゑｿｽ・ｽB
+	 * 自分でテクスチャの座標を指定する時に使います。
+	 * コンストラクタへそのまま値を渡します。
+	 * Use this when you want to specify the coordinates of the texture on their own.
+	 * I pass the value directly to the constructor.
 	 */
 	public MMM_ModelRenderer addPartsTexture(Class pModelBoxBase, String pName, Object ... pArg) {
 		pName = (new StringBuilder()).append(boxName).append(".").append(pName).toString();
@@ -324,8 +330,10 @@ public class MMM_ModelRenderer {
 	}
 
 	/**
-	 * ・ｽ・ｽ・ｽ・ｽ・ｽﾅテ・ｽN・ｽX・ｽ`・ｽ・ｽ・ｽﾌ搾ｿｽ・ｽW・ｽ・ｽ・ｽw・ｽ閧ｷ・ｽ骼橸ｿｽﾉ使・ｽ・ｽ・ｽﾜゑｿｽ・ｽB
-	 * ・ｽR・ｽ・ｽ・ｽX・ｽg・ｽ・ｽ・ｽN・ｽ^・ｽﾖゑｿｽ・ｽﾌまま値・ｽ・ｽn・ｽ・ｽ・ｽﾜゑｿｽ・ｽB
+	 * 自分でテクスチャの座標を指定する時に使います。
+	 * コンストラクタへそのまま値を渡します。
+	 * Use this when you want to specify the coordinates of the texture on their own.
+	 * I pass the value directly to the constructor.
 	 */
 	public MMM_ModelRenderer addPartsTexture(Class pModelBoxBase, Object ... pArg) {
 		addCubeList(getModelBoxBase(pModelBoxBase, pArg));
@@ -352,7 +360,8 @@ public class MMM_ModelRenderer {
 	}
 
 	/**
-	 * ・ｽ`・ｽ・ｽp・ｽﾌボ・ｽb・ｽN・ｽX・ｽA・ｽq・ｽ・ｽ・ｽ・ｽ・ｽN・ｽ・ｽ・ｽA・ｽ・ｽ・ｽ・ｽ
+	 * 描画用のボックス、子供をクリアする
+	 * I clear box for drawing, the children
 	 */
 	public void clearCubeList() {
 		cubeList.clear();
@@ -362,7 +371,7 @@ public class MMM_ModelRenderer {
 		}
 	}
 
-	// TODO:・ｽ・ｽ・ｽﾌゑｿｽ・ｽ・ｽ・ｽ・ｽﾍ要・ｽC・ｽ・ｽ
+	// TODO: このあたりは要修正, The FIXME this area
 	public boolean renderItems(MMM_ModelMultiBase pModelMulti, MMM_IModelCaps pEntityCaps, boolean pRealBlock, int pIndex) {
 		ItemStack[] litemstacks = (ItemStack[])MMM_ModelCapsHelper.getCapsValue(pEntityCaps, caps_Items);
 		if (litemstacks == null) return false;
@@ -389,10 +398,10 @@ public class MMM_ModelRenderer {
 	protected void renderItems(EntityLivingBase pEntityLiving, Render pRender, boolean pRealBlock, EnumAction pAction) {
 		if (itemstack == null) return;
 		
-		// ・ｽA・ｽC・ｽe・ｽ・ｽ・ｽﾌ・ｿｽ・ｽ・ｽ・ｽ_・ｽ・ｽ・ｽ・ｽ・ｽO
+		// アイテムのレンダリング, Rendering of items
 		GL11.glPushMatrix();
 		
-		// ・ｽA・ｽC・ｽe・ｽ・ｽ・ｽﾌ趣ｿｽﾞにゑｿｽ・ｽ\・ｽ・ｽ・ｽﾊ置・ｽﾌ補正
+		// アイテムの種類による表示位置の補正, Correction of the display position according to the type of item
 		if (adjust) {
 			// GL11.glTranslatef(-0.0625F, 0.4375F, 0.0625F);
 			
@@ -483,7 +492,7 @@ public class MMM_ModelRenderer {
 			
 			GL11.glDisable(GL11.GL_CULL_FACE);
 		} else {
-			// ・ｽA・ｽC・ｽe・ｽ・ｽ・ｽﾉ色・ｽt・ｽ・ｽ
+			// アイテムに色付け, The colored items
 //			pRender.loadTexture("/gui/items.png");
 			for (int j = 0; j <= (itemstack.getItem()
 					.requiresMultipleRenderPasses() ? 1 : 0); j++) {
@@ -501,19 +510,22 @@ public class MMM_ModelRenderer {
 	}
 
 	/**
-	 *  ・ｽ・ｽ]・ｽﾏ奇ｿｽ・ｽ・ｽ・ｽs・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽw・ｽ・ｽB
+	 *  回転変換を行う順序を指定。
+	 *  Specifies the order to perform the rotation transformation.
 	 * @param pValue
-	 * Rot???・ｽ・ｽ・ｽw・ｽ閧ｷ・ｽ・ｽ
+	 * Rot???を指定する
+	 * I specify the Rot???
 	 */
 	public void setRotatePriority(int pValue) {
 		rotatePriority = pValue;
 	}
 
 	/**
-	 * ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽs・ｽp・ｽA・ｽ・ｽ・ｽW・ｽﾏ奇ｿｽ・ｽ・ｽ
+	 * 内部実行用、座標変換部
+	 * Internal execution, coordinate conversion unit
 	 */
 	protected void setRotation() {
-		// ・ｽﾏ奇ｿｽ・ｽ・ｽ・ｽﾊの設抵ｿｽ
+		// 変換順位の設定, Setting of the conversion order
 		switch (rotatePriority) {
 		case RotXYZ:
 			if (rotateAngleZ != 0.0F) {
@@ -585,10 +597,11 @@ public class MMM_ModelRenderer {
 	}
 
 	/**
-	 * ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽ・ｽs・ｽp・ｽA・ｽ・ｽ・ｽ・ｽ・ｽ_・ｽ・ｽ・ｽ・ｽ・ｽO・ｽ・ｽ・ｽ・ｽ・ｽB
+	 * 内部実行用、レンダリング部分。
+	 * Internal execution, rendering part.
 	 */
 	protected void renderObject(float par1, boolean pRendering) {
-		// ・ｽ・ｽ・ｽ・ｽ・ｽ_・ｽ・ｽ・ｽ・ｽ・ｽO・ｽA・ｽ・ｽ・ｽﾆ子・ｽ・ｽ・ｽ・ｽ
+		// レンダリング、あと子供も, Rendering, even after children
 		GL11.glGetFloat(GL11.GL_MODELVIEW_MATRIX, matrix);
 		if (pRendering && isRendering) {
 			GL11.glPushMatrix();
@@ -605,7 +618,8 @@ public class MMM_ModelRenderer {
 	}
 
 	/**
-	 * ・ｽp・ｽ[・ｽc・ｽ`・ｽ謗橸ｿｽ_・ｽﾌマ・ｽg・ｽ・ｽ・ｽN・ｽX・ｽ・ｽﾝ定す・ｽ・ｽB ・ｽ・ｽ・ｽ・ｽﾈ前・ｽﾉ設定さ・ｽ黷ｽ・ｽ}・ｽg・ｽ・ｽ・ｽN・ｽX・ｽﾍ破・ｽ・ｽ・ｽ・ｽB
+	 * パーツ描画時点のマトリクスを設定する。 これ以前に設定されたマトリクスは破棄される。
+	 * I set a matrix of parts drawing time. Matrix that is set before this is discarded.
 	 */
 	public MMM_ModelRenderer loadMatrix() {
 		GL11.glLoadMatrix(matrix);
@@ -616,7 +630,7 @@ public class MMM_ModelRenderer {
 	}
 
 
-	// ・ｽQ・ｽb・ｽ^・ｽ[・ｽA・ｽZ・ｽb・ｽ^・ｽ[
+	// ゲッター、セッター, Getter, setter
 
 	public boolean getMirror() {
 		return mirror;
@@ -636,7 +650,7 @@ public class MMM_ModelRenderer {
 	}
 
 
-	// Deg・ｽt・ｽ・ｽ・ｽﾍ角・ｽx・ｽw・ｽ閧ｪ・ｽx・ｽ・ｽ・ｽ@
+	// Deg付きは角度指定が度数法, Deg with the frequency method specified angle
 
 	public float getRotateAngleX() {
 		return rotateAngleX;

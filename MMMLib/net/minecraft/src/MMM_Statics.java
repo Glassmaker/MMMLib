@@ -4,6 +4,7 @@ public class MMM_Statics {
 
 	/**
 	 * サーバーへテクスチャインデックスを送信する。
+	 * I send the texture index to the server.
 	 * [0]		: 0x80;
 	 * [1..4]	: EntityID;
 	 * [5]		: Color(byte);
@@ -15,6 +16,7 @@ public class MMM_Statics {
 	public static final byte Server_SetTexturePackIndex = (byte)0x80;
 	/**
 	 * サーバーへテクスチャインデックスを問い合わせる。
+	 * I query the texture index to the server.
 	 * [0]		: 0x01;
 	 * [1]		: BufIndex;
 	 * [2..3]	: contColorBits
@@ -28,6 +30,7 @@ public class MMM_Statics {
 	public static final byte Server_GetTextureIndex = (byte)0x01;
 	/**
 	 * サーバーへテクスチャインデックスを問い合わせる。
+	 * I query the texture index to the server.
 	 * [0]		: 0x01;
 	 * [1]		: BufIndex;
 	 * [2..3]	: TexturePackIndex;
@@ -36,12 +39,14 @@ public class MMM_Statics {
 
 	/**
 	 * サーバーへテクスチャパックの情報を問い合わせる。
+	 * I query the information of the texture pack to the server.
 	 * [0]		: 0x02;
 	 * [1..2]	: TexturePackIndex;
 	 */
 	public static final byte Server_GetTexturePackName = (byte)0x02;
 	/**
 	 * クライアントへテクスチャパックの情報を設定する。
+	 * I set the information of the texture pack to the client.
 	 * [0]		: 0x02;
 	 * [1..2]	: TexturePackIndex;
 	 * [3..4]	: contColorBits
