@@ -1,0 +1,41 @@
+
+I win the server index in accordance with the texture name from the client.
+getTextureIndex
+setTextureIndex
+
+
+I set the texture from the server to the client.
+I set the texture index in datawatcher etc..
+
+textureIndex = DataWatcher-> textureIndex
+
+Change of texture is determined by two int.
+DataWatcher-> textureIndex! = LocalTextureIndex
+Change determination continues to occur in the case of.
+
+
+/ / To go to acquire the texture information if there is no registration number in the judgment
+ClientTextureManager> isTexture (textureIndex) {
+textureStr = ClientTextureManager-> getTexture (textureIndex)
+localTextureIndex = textureIndex
+} Else {
+ClientTextureManager-> getTextureBoxFromServer (textureIndex)
+}
+
+
+
+
+
+Client_setTextureStr
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,13 @@
+processing of the default model when the LMM is not on.
+It is well studied the request processing of the texture do not know. (-2 Is located)
+
+
+MMM like. Cheers for good work is the update.
+Because there was that this time, it became bother to extensive use of Plate to model production, we will report.
+
+• If you create the xz plane | it does not appear either for (plane == 2 plane == 6 |), vertices are placed in the same position.
+　(There is no problem even if you can not because it will be the same shape if you ask rotated 90 ° by creating a separate plane.)
+done; · mirror is conditional statement (up to 93 lines) inversion process when the true, but instead of && | Would not it be |.
+and I think whether there is a meaningful constant such as the Left Front such as the specification of · plane: done.
+
+That's it. I'd appreciate it if if you were something helps you.
